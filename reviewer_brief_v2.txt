@@ -1,0 +1,101 @@
+================================================================================
+PROVERBGAP FULL PROJECT BRIEF — MCQ + GENERATION + FILL-IN-THE-BLANK
+================================================================================
+
+EMNLP 2026 ARR DEADLINE: May 25, 2026 (~3 weeks remaining)
+RESOURCE CONSTRAINTS: API rate limits (Groq 1K/day per org), limited GPU, 
+  no budget for large human annotation studies. Team of 3-4 people.
+
+================================================================================
+1. THREE-COMPONENT BENCHMARK
+================================================================================
+
+The project proposes a unified ProverbGap benchmark with THREE evaluation 
+formats, all measuring the same "Cultural Reasoning Gap":
+
+A. MCQ (Multiple Choice) — ~32K items, 36 CSVs, COMPLETED but flawed
+B. Generation — Free-text explanations, scored with BLEU/ChrF++/BERTScore/COMET
+C. Fill-in-the-Blank (Cloze) — Meaning-level cloze, masks words in interpretation
+
+All three use the same 6 languages, same 2-task split (Literal A / Cultural B),
+same model set (LLaMA-3.1-8B, LLaMA-3.3-70B, Qwen3-235B, AfriqueLLM variants).
+
+================================================================================
+2. MCQ STATUS (COMPLETED BUT CRITICALLY FLAWED)
+================================================================================
+
+- 36 CSVs, ~32K items, 2 tasks × 3 strategies × 6 languages
+- Generation: Cerebras Qwen3-235B (ZS), Groq LLaMA 3.3-70B (CoT-EN), Groq LLaMA 3.1-8B (CoT-XL)
+- SHORTCUT AUDIT FAILURE: Blind LLaMA 3.1-8B evaluator gets 80-93% on Task B 
+  (vs 25% random). Task A also flagged at 50-64% for most languages.
+- Authors' plan: "Disclose and keep" — frame high scores as "expected memorization"
+  for high-resource languages, Yoruba's lower score as "Cultural Gap Signal"
+- Known issues: 18.4% NaN rows (Yoruba A ZS), 472 duplicate IDs (English), 
+  English Task B ZS = copy of Task A ZS, unvalidated quality metric
+
+================================================================================
+3. GENERATION STATUS (COMPLETED — HAS REAL SCORES)
+================================================================================
+
+- ACTUAL DATA EXISTS in generation/results_extracted/generation_outputs/scores/
+- Models run: llama-3.1-8b, llama-3.3-70b, llama-4-scout
+- Languages: Yoruba, English, Arabic
+- Strategies: zs, cot_en, fs, fs_cot
+- Scores: BLEU + ChrF++ on Task A and Task B
+
+SAMPLE GAP ANALYSIS (from all_scores.csv / gap_analysis):
+- llama-3.1-8b, Yoruba, zs: BLEU_A=2.99, BLEU_B=0.93, BLEU_GAP=2.06
+- llama-3.1-8b, Yoruba, zs: ChrF_A=26.3, ChrF_B=14.9, ChrF_GAP=11.4
+- llama-3.3-70b, Yoruba, cot_en: BLEU_A=8.74, BLEU_B=0.92, BLEU_GAP=7.83
+- llama-3.3-70b, Yoruba, cot_en: ChrF_A=39.4, ChrF_B=15.0, ChrF_GAP=24.3
+- llama-4-scout, Yoruba, cot_en: BLEU_A=10.38, BLEU_B=1.06, BLEU_GAP=9.32
+- llama-4-scout, Yoruba, cot_en: ChrF_A=41.8, ChrF_B=15.5, ChrF_GAP=26.3
+
+English gaps are smaller (BLEU_GAP ~0.4-5.2, ChrF_GAP ~2.1-10.8).
+Arabic gaps are mixed (some negative ChrF_GAP = model does BETTER on cultural).
+
+This component is REAL and shows a genuine Cultural Reasoning Gap for Yoruba.
+However: no BERTScore/COMET yet (needs GPU), human evaluation not done,
+French/German/Spanish not run.
+
+================================================================================
+4. FILL-IN-THE-BLANK STATUS (CODE READY, NOT FULLY EXECUTED)
+================================================================================
+
+- Notebooks and src code complete in fill_in_the_blank/
+- Scope: 2 models × 2 strategies × 2 tasks × 3 languages = ~11,200 API calls
+- Distinction from ProverbEval: ProverbEval masks words INSIDE the proverb;
+  ProverbGap masks words IN THE INTERPRETATION sentence (meaning-level cloze)
+- English Task B skipped (Translation == Cultural_Context)
+- Metrics: Exact Match, Normalized EM, ChrF++
+- Not yet fully executed — no output files visible
+
+================================================================================
+5. CRITICAL QUESTIONS FOR BRAINSTORMING
+================================================================================
+
+1. Given MCQ is fatally flawed (distractor audit 80-93%), should it be:
+   (a) Dropped entirely, (b) Demoted to supplementary, (c) Fixed with 
+   data-driven distractor swap, or (d) Kept with full disclosure?
+
+2. Generation has real scores showing genuine Yoruba gaps. Can Generation 
+   CARRY the paper if MCQ is dropped or demoted?
+
+3. Fill-in-the-Blank is not yet run. With ~3 weeks to EMNLP, is it feasible 
+   to execute 11,200 API calls, score, and analyze? Or should FiB be 
+   deferred to camera-ready / a follow-up paper?
+
+4. The "Cultural Reasoning Gap" narrative: MCQ showed NO gap for English 
+   (96 vs 96.6), but Generation shows small gaps (BLEU 1.5→1.1). 
+   Which format tells the truest story?
+
+5. Resource constraints: No budget for large human studies. What is the 
+   MINIMUM viable human validation needed for EMNLP acceptance?
+
+6. French (160), German (141), Spanish (62) are tiny. Should they be:
+   (a) Dropped, (b) Kept as "pilot/directional," or (c) Expanded?
+
+7. The paper's novelty claims: (a) two-task split, (b) automated distractors 
+   + audit, (c) first AfriqueLLM eval. If MCQ is dropped, what remains?
+
+================================================================================

@@ -1,0 +1,1401 @@
+================================================================================
+FILE: mcq_a_cot_en_yoruba.csv
+================================================================================
+
+--- Total rows and columns ---
+Rows: 2000, Columns: 22
+
+--- Column names ---
+['task', 'strategy', 'language', 'sample_id', 'source_proverb', 'proverb_en', 'correct_meaning', 'cultural_context_available', 'Choice_A', 'Choice_B', 'Choice_C', 'Choice_D', 'Answer', 'distractor_1', 'distractor_2', 'distractor_3', 'raw_response', 'parse', 'complete', 'len_r', 'distinct', 'quality']
+
+--- First 3 rows ---
+Row 0:
+  task: 'a'
+  strategy: 'cot_en'
+  language: 'Yoruba'
+  sample_id: 'YOR0001'
+  source_proverb: 'A di gàárì sílẹ́ ewúrẹ́ ńyọjú; ẹrù ìran rẹ́ ni?'
+  proverb_en: 'We prepare the saddle, and the goat presents itself; is it a burden for the lineage of goats?'
+  correct_meaning: 'We prepare the saddle, and the goat presents itself; is it a burden for the lineage of goats?'
+  cultural_context_available: np.False_
+  Choice_A: 'It describes the behavior of goats when they sense a saddle is being prepared'
+  Choice_B: 'The proverb is about the proper way to saddle a goat for riding'
+  Choice_C: 'It questions whether a genetic trait in goats makes them naturally suited or burdened by being saddled'
+  Choice_D: 'We prepare the saddle, and the goat presents itself; is it a burden for the lineage of goats?'
+  Answer: 'D'
+  distractor_1: 'The proverb is about the proper way to saddle a goat for riding'
+  distractor_2: 'It describes the behavior of goats when they sense a saddle is being prepared'
+  distractor_3: 'It questions whether a genetic trait in goats makes them naturally suited or burdened by being saddled'
+  raw_response: '<reasoning>The Yoruba proverb "A di gàárì sílẹ́ ewúrẹ́ ńyọjú; ẹrù ìran rẹ́ ni?" translates to "We prepare the saddle, and the goat presents itself; is it a burden for the lineage of goats?" A literal reading might miss the idiomatic meaning and lead to interpretations that are overly focused on the physical actions or objects described. For instance, a wrong literal interpretation could involve mi'
+  parse: np.float64(1.0)
+  complete: np.float64(1.0)
+  len_r: np.float64(0.81)
+  distinct: np.float64(0.88)
+  quality: np.float64(96.4)
+
+Row 1:
+  task: 'a'
+  strategy: 'cot_en'
+  language: 'Yoruba'
+  sample_id: 'YOR0002'
+  source_proverb: 'A fi ọ́ jọba ò ńṣàwúre; o fẹ́ẹ́ jẹ Ọlọ́run ni?'
+  proverb_en: 'You have been crowned a king, and yet you make good-luck charms; would you be crowned God?'
+  correct_meaning: 'You have been crowned a king, and yet you make good-luck charms; would you be crowned God?'
+  cultural_context_available: np.False_
+  Choice_A: 'Being crowned king automatically makes someone a god'
+  Choice_B: 'The king is not allowed to wear a crown and make lucky charms at the same time'
+  Choice_C: 'You have been crowned a king, and yet you make good-luck charms; would you be crowned God?'
+  Choice_D: 'To be crowned king, one must first make good-luck charms for God'
+  Answer: 'C'
+  distractor_1: 'The king is not allowed to wear a crown and make lucky charms at the same time'
+  distractor_2: 'To be crowned king, one must first make good-luck charms for God'
+  distractor_3: 'Being crowned king automatically makes someone a god'
+  raw_response: '<reasoning>The Yoruba proverb "A fi ọ́ jọba ò ńṣàwúre; o fẹ́ẹ́ jẹ Ọlọ́run ni?" is a figurative expression that conveys the idea that someone who has been given a position of power or authority should not engage in activities that are beneath them or that undermine their status. A literal reading of this proverb could lead to misinterpretations, such as thinking it is about the actual act of being '
+  parse: np.float64(1.0)
+  complete: np.float64(1.0)
+  len_r: np.float64(0.73)
+  distinct: np.float64(0.89)
+  quality: np.float64(96.7)
+
+Row 2:
+  task: 'a'
+  strategy: 'cot_en'
+  language: 'Yoruba'
+  sample_id: 'YOR0003'
+  source_proverb: 'A fijó gba Awà; a fìjà gba Awà; bí a ò bá jó, bí a ò bá jà, bí a bá ti gba Awà, kò tán bí?'
+  proverb_en: 'By dancing we take possession of Awà; through fighting we take possession of Awà; if we neither dance nor fight but take possession of Awà anyway, is the result not the same?'
+  correct_meaning: 'By dancing we take possession of Awà; through fighting we take possession of Awà; if we neither dance nor fight but take possession of Awà anyway, is the result not the same?'
+  cultural_context_available: np.False_
+  Choice_A: 'Dancing and fighting are required skills to physically occupy Awà'
+  Choice_B: 'By dancing we take possession of Awà; through fighting we take possession of Awà; if we neither dance nor fight but take possession of Awà anyway, is the result not the same?'
+  Choice_C: 'Awà is a territory that can be conquered through dance or combat'
+  Choice_D: 'The value of Awà is directly proportional to the method used to acquire it'
+  Answer: 'B'
+  distractor_1: 'Awà is a territory that can be conquered through dance or combat'
+  distractor_2: 'Dancing and fighting are required skills to physically occupy Awà'
+  distractor_3: 'The value of Awà is directly proportional to the method used to acquire it'
+  raw_response: '<reasoning>The proverb is discussing the concept of taking possession of Awà, which could be interpreted in various ways. A literal reading might misunderstand the metaphorical or figurative language used, leading to incorrect conclusions. For instance, one might think Awà refers to a physical location or object that can be possessed through different actions. Another misconception could be that d'
+  parse: np.float64(1.0)
+  complete: np.float64(1.0)
+  len_r: np.float64(0.38)
+  distinct: np.float64(0.92)
+  quality: np.float64(97.6)
+
+
+--- Last 3 rows ---
+Row 1997:
+  task: 'a'
+  strategy: 'cot_en'
+  language: 'Yoruba'
+  sample_id: 'YOR2101'
+  source_proverb: 'A kì í sọ pé ó di ọjọ́ tí a bá bímọ ká tó sọ ọmọ níkòó.'
+  proverb_en: 'One does not say it will not be until one has fathered a child that one raps a child on the head with one’s knuckles.'
+  correct_meaning: 'One does not say it will not be until one has fathered a child that one raps a child on the head with one’s knuckles.'
+  cultural_context_available: np.False_
+  Choice_A: 'having a child is required to understand discipline'
+  Choice_B: 'wait to have a child before disciplining them'
+  Choice_C: 'rapping children on the head is a recommended disciplinary method'
+  Choice_D: 'One does not say it will not be until one has fathered a child that one raps a child on the head with one’s knuckles.'
+  Answer: 'D'
+  distractor_1: 'wait to have a child before disciplining them'
+  distractor_2: 'having a child is required to understand discipline'
+  distractor_3: 'rapping children on the head is a recommended disciplinary method'
+  raw_response: '<reasoning>The proverb suggests that one should not make bold claims or promises until they have experienced something themselves, in this case, having a child. A literal reading might miss the idiomatic expression and the intention behind the saying. A wrong literal interpretation might be that the proverb is about the physical act of rapping a child on the head, the timing of when to have childr'
+  parse: np.float64(1.0)
+  complete: np.float64(1.0)
+  len_r: np.float64(0.35)
+  distinct: np.float64(0.86)
+  quality: np.float64(95.8)
+
+Row 1998:
+  task: 'a'
+  strategy: 'cot_en'
+  language: 'Yoruba'
+  sample_id: 'YOR2102'
+  source_proverb: 'Abánigúnwà ní ḿmọ ìjagun ẹni.'
+  proverb_en: 'It is he who shares one’s throne that knows one’s strategy in battle.'
+  correct_meaning: 'It is he who shares one’s throne that knows one’s strategy in battle.'
+  cultural_context_available: np.False_
+  Choice_A: 'It is he who shares one’s throne that knows one’s strategy in battle.'
+  Choice_B: 'A game of chess is being described where two people share a throne piece'
+  Choice_C: 'The throne is a couch that multiple people can sit on'
+  Choice_D: "Two kings are fighting in an actual battlefield and one of them knows the other's strategy"
+  Answer: 'A'
+  distractor_1: 'The throne is a couch that multiple people can sit on'
+  distractor_2: 'A game of chess is being described where two people share a throne piece'
+  distractor_3: "Two kings are fighting in an actual battlefield and one of them knows the other's strategy"
+  raw_response: '<reasoning>The Yoruba proverb "Abánigúnwà ní ḿmọ ìjagun ẹni" translates to "It is he who shares one’s throne that knows one’s strategy in battle" in English. This proverb suggests that the person who is closest to the leader, in this case, the one sharing the throne, is the one who understands the leader\'s battle plans or strategies the most. However, a literal and incorrect interpretation might l'
+  parse: np.float64(1.0)
+  complete: np.float64(1.0)
+  len_r: np.float64(1.05)
+  distinct: np.float64(0.9)
+  quality: np.float64(97.0)
+
+Row 1999:
+  task: 'a'
+  strategy: 'cot_en'
+  language: 'Yoruba'
+  sample_id: 'YOR2103'
+  source_proverb: 'Abánigbé ní ḿmọ ìṣe ẹni.'
+  proverb_en: 'Whoever one lives with knows one’s habits.'
+  correct_meaning: 'Whoever one lives with knows one’s habits.'
+  cultural_context_available: np.False_
+  Choice_A: nan
+  Choice_B: nan
+  Choice_C: nan
+  Choice_D: nan
+  Answer: nan
+  distractor_1: nan
+  distractor_2: nan
+  distractor_3: nan
+  raw_response: nan
+  parse: np.float64(0.0)
+  complete: np.float64(0.0)
+  len_r: np.float64(0.0)
+  distinct: np.float64(0.0)
+  quality: np.float64(0.0)
+
+
+--- Summary stats for parse, complete, distinct, quality, len_r ---
+
+parse:
+count    2000.000000
+mean        0.984500
+std         0.123561
+min         0.000000
+25%         1.000000
+50%         1.000000
+75%         1.000000
+max         1.000000
+
+complete:
+count    2000.000000
+mean        0.972167
+std         0.157282
+min         0.000000
+25%         1.000000
+50%         1.000000
+75%         1.000000
+max         1.000000
+
+distinct:
+count    2000.00000
+mean        0.79723
+std         0.15946
+min         0.00000
+25%         0.76000
+50%         0.83000
+75%         0.89000
+max         1.00000
+
+quality:
+count    2000.000000
+mean       92.461900
+std        12.613368
+min         0.000000
+25%        92.800000
+50%        94.900000
+75%        96.700000
+max       100.000000
+
+len_r:
+count    2000.000000
+mean        1.101815
+std         0.664057
+min         0.000000
+25%         0.767500
+50%         1.050000
+75%         1.350000
+max        18.670000
+
+--- Empty/blank counts ---
+distractor_1: 31
+distractor_2: 31
+distractor_3: 31
+Choice_A: 31
+Choice_B: 32
+Choice_C: 31
+Choice_D: 31
+
+--- Answer blank count ---
+Answer blank: 31
+
+--- Other anomalies ---
+Duplicate rows: 0
+Constant column: task = a
+Constant column: strategy = cot_en
+Constant column: language = Yoruba
+Constant column: cultural_context_available = False
+Unique Answer values: ['A', 'B', 'C', 'D']
+Completely null rows: 0
+
+================================================================================
+
+================================================================================
+FILE: mcq_a_cot_en_arabic.csv
+================================================================================
+
+--- Total rows and columns ---
+Rows: 803, Columns: 22
+
+--- Column names ---
+['task', 'strategy', 'language', 'sample_id', 'source_proverb', 'proverb_en', 'correct_meaning', 'cultural_context_available', 'Choice_A', 'Choice_B', 'Choice_C', 'Choice_D', 'Answer', 'distractor_1', 'distractor_2', 'distractor_3', 'raw_response', 'parse', 'complete', 'len_r', 'distinct', 'quality']
+
+--- First 3 rows ---
+Row 0:
+  task: 'a'
+  strategy: 'cot_en'
+  language: 'Arabic'
+  sample_id: 'MID0001'
+  source_proverb: 'آخر الحياة الموت'
+  proverb_en: ' Live life to its fullest; Tempus fugit, utere.'
+  correct_meaning: ' Live life to its fullest; Tempus fugit, utere.'
+  cultural_context_available: np.False_
+  Choice_A: nan
+  Choice_B: nan
+  Choice_C: nan
+  Choice_D: nan
+  Answer: nan
+  distractor_1: nan
+  distractor_2: nan
+  distractor_3: nan
+  raw_response: nan
+  parse: np.float64(0.0)
+  complete: np.float64(0.0)
+  len_r: np.float64(0.0)
+  distinct: np.float64(0.0)
+  quality: np.float64(0.0)
+
+Row 1:
+  task: 'a'
+  strategy: 'cot_en'
+  language: 'Arabic'
+  sample_id: 'MID0002'
+  source_proverb: 'أتبع من الظل.'
+  proverb_en: 'Sticks to them like a shadow.'
+  correct_meaning: 'Sticks to them like a shadow.'
+  cultural_context_available: np.False_
+  Choice_A: 'Sticks to them like a shadow.'
+  Choice_B: 'tracking objects by their silhouettes'
+  Choice_C: 'physically gluing oneself to darkness'
+  Choice_D: 'mimicking the movement of darkness'
+  Answer: 'A'
+  distractor_1: 'physically gluing oneself to darkness'
+  distractor_2: 'tracking objects by their silhouettes'
+  distractor_3: 'mimicking the movement of darkness'
+  raw_response: '<reasoning>The Arabic proverb "أتبع من الظل" translates to "Sticks to them like a shadow" in English. A literal reading might lead to misunderstandings, as it could be interpreted in various incorrect ways. For instance, one might think it\'s about something or someone physically sticking or adhering to shadows, or the action of following something that casts a shadow. These interpretations miss th'
+  parse: np.float64(1.0)
+  complete: np.float64(1.0)
+  len_r: np.float64(0.83)
+  distinct: np.float64(0.96)
+  quality: np.float64(98.8)
+
+Row 2:
+  task: 'a'
+  strategy: 'cot_en'
+  language: 'Arabic'
+  sample_id: 'MID0003'
+  source_proverb: 'أحْسِنْ إلى الناس تستعبد قلوبهم.'
+  proverb_en: 'Kindness begets kindness.'
+  correct_meaning: 'Kindness begets kindness.'
+  cultural_context_available: np.False_
+  Choice_A: 'Kindness begets kindness.'
+  Choice_B: 'Being kind is necessary to receive kindness'
+  Choice_C: "Kindness is a method to control people's hearts"
+  Choice_D: 'People must be kind because they are forced to'
+  Answer: 'A'
+  distractor_1: 'People must be kind because they are forced to'
+  distractor_2: "Kindness is a method to control people's hearts"
+  distractor_3: 'Being kind is necessary to receive kindness'
+  raw_response: '<reasoning>When translating the Arabic proverb "أحْسِنْ إلى الناس تستعبد قلوبهم" to English as "Kindness begets kindness," a literal reading might misinterpret the phrase. A reader might think that the proverb is suggesting a transactional relationship where one does a good deed with the expectation of receiving kindness in return, rather than understanding it as a general principle of how kindnes'
+  parse: np.float64(1.0)
+  complete: np.float64(1.0)
+  len_r: np.float64(2.67)
+  distinct: np.float64(0.85)
+  quality: np.float64(95.5)
+
+
+--- Last 3 rows ---
+Row 800:
+  task: 'a'
+  strategy: 'cot_en'
+  language: 'Arabic'
+  sample_id: 'MID0801'
+  source_proverb: 'ولد الحنش ثعبان'
+  proverb_en: 'Blood will tell.'
+  correct_meaning: 'Blood will tell.'
+  cultural_context_available: np.False_
+  Choice_A: "The snake's child is a worm"
+  Choice_B: 'Blood will tell.'
+  Choice_C: "The snake's baby is a bird"
+  Choice_D: "The snake's offspring is a lizard"
+  Answer: 'B'
+  distractor_1: "The snake's offspring is a lizard"
+  distractor_2: "The snake's child is a worm"
+  distractor_3: "The snake's baby is a bird"
+  raw_response: '["The snake\'s offspring is a lizard","The snake\'s child is a worm","The snake\'s baby is a bird"]'
+  parse: np.float64(1.0)
+  complete: np.float64(1.0)
+  len_r: np.float64(2.0)
+  distinct: np.float64(0.5)
+  quality: np.float64(85.0)
+
+Row 801:
+  task: 'a'
+  strategy: 'cot_en'
+  language: 'Arabic'
+  sample_id: 'MID0802'
+  source_proverb: 'يأكل الغلة، ويسب الملة'
+  proverb_en: 'Biting the hand that feeds you.'
+  correct_meaning: 'Biting the hand that feeds you.'
+  cultural_context_available: np.False_
+  Choice_A: 'He eats the harvest and then curses the weather.'
+  Choice_B: 'He consumes the grain and then blames the earth for his misfortune.'
+  Choice_C: 'He feeds on the crops and then insults the farmers.'
+  Choice_D: 'Biting the hand that feeds you.'
+  Answer: 'D'
+  distractor_1: 'He eats the harvest and then curses the weather.'
+  distractor_2: 'He consumes the grain and then blames the earth for his misfortune.'
+  distractor_3: 'He feeds on the crops and then insults the farmers.'
+  raw_response: '<reasoning>\nA reader unfamiliar with the idiomatic meaning might take each word at face value, imagining a scenario where someone literally eats agricultural produce and then verbally attacks something related to farming or community—such as the weather, the soil, or the farmers—without recognizing the metaphorical sense of "biting the hand that feeds you."\n</reasoning>\n["He eats the harvest and t'
+  parse: np.float64(1.0)
+  complete: np.float64(1.0)
+  len_r: np.float64(1.72)
+  distinct: np.float64(0.73)
+  quality: np.float64(91.9)
+
+Row 802:
+  task: 'a'
+  strategy: 'cot_en'
+  language: 'Arabic'
+  sample_id: 'MID0803'
+  source_proverb: 'يقتل القتيل ويمشى في جنازته'
+  proverb_en: "A wolf in sheep's clothing"
+  correct_meaning: "A wolf in sheep's clothing"
+  cultural_context_available: np.False_
+  Choice_A: 'The slayer participates in the burial rites of the person they have just killed.'
+  Choice_B: "Someone literally kills a dead person and then walks in that person's funeral procession."
+  Choice_C: "A wolf in sheep's clothing"
+  Choice_D: 'A murderer attends the funeral of the victim they killed, walking among the mourners.'
+  Answer: 'C'
+  distractor_1: "Someone literally kills a dead person and then walks in that person's funeral procession."
+  distractor_2: 'A murderer attends the funeral of the victim they killed, walking among the mourners.'
+  distractor_3: 'The slayer participates in the burial rites of the person they have just killed.'
+  raw_response: '["Someone literally kills a dead person and then walks in that person\'s funeral procession.", "A murderer attends the funeral of the victim they killed, walking among the mourners.", "The slayer participates in the burial rites of the person they have just killed."]'
+  parse: np.float64(1.0)
+  complete: np.float64(1.0)
+  len_r: np.float64(2.8)
+  distinct: np.float64(0.9)
+  quality: np.float64(97.0)
+
+
+--- Summary stats for parse, complete, distinct, quality, len_r ---
+
+parse:
+count    803.000000
+mean       0.981320
+std        0.135476
+min        0.000000
+25%        1.000000
+50%        1.000000
+75%        1.000000
+max        1.000000
+
+complete:
+count    803.000000
+mean       0.937733
+std        0.223322
+min        0.000000
+25%        1.000000
+50%        1.000000
+75%        1.000000
+max        1.000000
+
+distinct:
+count    803.000000
+mean       0.766887
+std        0.173261
+min        0.000000
+25%        0.720000
+50%        0.810000
+75%        0.880000
+max        1.000000
+
+quality:
+count    803.000000
+mean      90.391407
+std       14.288429
+min        0.000000
+25%       90.400000
+50%       94.000000
+75%       96.100000
+max      100.000000
+
+len_r:
+count    803.000000
+mean       1.948593
+std        1.134787
+min        0.000000
+25%        1.200000
+50%        1.670000
+75%        2.440000
+max        7.500000
+
+--- Empty/blank counts ---
+distractor_1: 15
+distractor_2: 15
+distractor_3: 15
+Choice_A: 15
+Choice_B: 15
+Choice_C: 15
+Choice_D: 15
+
+--- Answer blank count ---
+Answer blank: 15
+
+--- Other anomalies ---
+Duplicate rows: 0
+Constant column: task = a
+Constant column: strategy = cot_en
+Constant column: language = Arabic
+Constant column: cultural_context_available = False
+Unique Answer values: ['A', 'B', 'C', 'D']
+Completely null rows: 0
+
+================================================================================
+
+================================================================================
+FILE: mcq_a_cot_en_english.csv
+================================================================================
+
+--- Total rows and columns ---
+Rows: 1990, Columns: 22
+
+--- Column names ---
+['task', 'strategy', 'language', 'sample_id', 'source_proverb', 'proverb_en', 'correct_meaning', 'cultural_context_available', 'Choice_A', 'Choice_B', 'Choice_C', 'Choice_D', 'Answer', 'distractor_1', 'distractor_2', 'distractor_3', 'raw_response', 'parse', 'complete', 'len_r', 'distinct', 'quality']
+
+--- First 3 rows ---
+Row 0:
+  task: 'a'
+  strategy: 'cot_en'
+  language: 'English'
+  sample_id: '0'
+  source_proverb: 'A bird in the hand is worth two in the bush'
+  proverb_en: "The proverb 'A bird in the hand is worth two in the bush' means that it's better to hold onto something you have rather than take the risk of getting something better which may come to nothing."
+  correct_meaning: "The proverb 'A bird in the hand is worth two in the bush' means that it's better to hold onto something you have rather than take the risk of getting something better which may come to nothing."
+  cultural_context_available: np.False_
+  Choice_A: "The proverb 'A bird in the hand is worth two in the bush' means that it's better to hold onto something you have rather than take the risk of getting something better which may come to nothing."
+  Choice_B: 'A bird held in captivity is worth twice as much money as two birds living freely'
+  Choice_C: 'Owning a single bird is more valuable than releasing it to catch two in the wild'
+  Choice_D: 'It is easier to catch one bird you already have than to try and catch two birds hiding in a bush'
+  Answer: 'A'
+  distractor_1: 'Owning a single bird is more valuable than releasing it to catch two in the wild'
+  distractor_2: 'A bird held in captivity is worth twice as much money as two birds living freely'
+  distractor_3: 'It is easier to catch one bird you already have than to try and catch two birds hiding in a bush'
+  raw_response: "<reasoning>When interpreting the proverb 'A bird in the hand is worth two in the bush' literally, a reader might misunderstand the phrase as being about the actual value or preference of birds in different locations, rather than the metaphorical advice it provides. This could lead to incorrect conclusions such as the proverb discussing ornithology, hunting strategies, or the economic value of bird"
+  parse: np.float64(1.0)
+  complete: np.float64(1.0)
+  len_r: np.float64(0.48)
+  distinct: np.float64(0.75)
+  quality: np.float64(92.5)
+
+Row 1:
+  task: 'a'
+  strategy: 'cot_en'
+  language: 'English'
+  sample_id: '3'
+  source_proverb: 'A journey of a thousand miles begins with a single step'
+  proverb_en: "The proverb 'a journey of a thousand miles begins with a single step' puts forward the notion that, however difficult a task is, you can only complete it if you first start it."
+  correct_meaning: "The proverb 'a journey of a thousand miles begins with a single step' puts forward the notion that, however difficult a task is, you can only complete it if you first start it."
+  cultural_context_available: np.False_
+  Choice_A: "The proverb 'a journey of a thousand miles begins with a single step' puts forward the notion that, however difficult a task is, you can only complete it if you first start it."
+  Choice_B: 'The journey can only start at sunrise'
+  Choice_C: 'The first step must be taken with the left foot'
+  Choice_D: 'The first step must be exactly one meter long'
+  Answer: 'A'
+  distractor_1: 'The first step must be taken with the left foot'
+  distractor_2: 'The journey can only start at sunrise'
+  distractor_3: 'The first step must be exactly one meter long'
+  raw_response: "<reasoning>The proverb 'a journey of a thousand miles begins with a single step' is often misinterpreted in a literal sense. A reader might think it's talking about the physical act of walking, and the first step being the most crucial. They might jump to conclusions like the journey only starts when the first step is taken in a specific direction, or that the first step is what determines the suc"
+  parse: np.float64(1.0)
+  complete: np.float64(1.0)
+  len_r: np.float64(0.26)
+  distinct: np.float64(0.83)
+  quality: np.float64(94.9)
+
+Row 2:
+  task: 'a'
+  strategy: 'cot_en'
+  language: 'English'
+  sample_id: '4'
+  source_proverb: 'A leopard cannot change its spots'
+  proverb_en: "The proverbial saying 'A leopard cannot change its spots' expresses the notion that things cannot change their innate nature. It is normally used to suggest that people who have done bad things will always be bad people."
+  correct_meaning: "The proverbial saying 'A leopard cannot change its spots' expresses the notion that things cannot change their innate nature. It is normally used to suggest that people who have done bad things will always be bad people."
+  cultural_context_available: np.False_
+  Choice_A: 'A leopard cannot move its spots from one part of its body to another'
+  Choice_B: "The proverbial saying 'A leopard cannot change its spots' expresses the notion that things cannot change their innate nature. It is normally used to suggest that people who have done bad things will always be bad people."
+  Choice_C: 'A leopard is physically unable to change the color of its spots'
+  Choice_D: 'A leopard cannot remove its spots through surgery or other means'
+  Answer: 'B'
+  distractor_1: 'A leopard is physically unable to change the color of its spots'
+  distractor_2: 'A leopard cannot remove its spots through surgery or other means'
+  distractor_3: 'A leopard cannot move its spots from one part of its body to another'
+  raw_response: "<reasoning>The proverb 'A leopard cannot change its spots' is often misinterpreted in a literal sense, leading to incorrect conclusions. A reader might mistakenly think that the phrase is discussing the leopard's ability to change its appearance, such as altering the color or pattern of its spots. Another incorrect interpretation could be that the phrase is referring to a leopard's ability to remo"
+  parse: np.float64(1.0)
+  complete: np.float64(1.0)
+  len_r: np.float64(0.33)
+  distinct: np.float64(0.74)
+  quality: np.float64(92.2)
+
+
+--- Last 3 rows ---
+Row 1987:
+  task: 'a'
+  strategy: 'cot_en'
+  language: 'English'
+  sample_id: 'ENG1523'
+  source_proverb: 'A man is as old as he feels.'
+  proverb_en: 'Age is a state of mind.'
+  correct_meaning: 'Age is a state of mind.'
+  cultural_context_available: np.False_
+  Choice_A: "A man's age in years is exactly equal to the intensity of his feelings, measured on a scale."
+  Choice_B: 'If a man feels young or old, that feeling actually changes his chronological age.'
+  Choice_C: "A man's verbal statement about how he feels directly states his age in years."
+  Choice_D: 'Age is a state of mind.'
+  Answer: 'D'
+  distractor_1: "A man's age in years is exactly equal to the intensity of his feelings, measured on a scale."
+  distractor_2: 'If a man feels young or old, that feeling actually changes his chronological age.'
+  distractor_3: "A man's verbal statement about how he feels directly states his age in years."
+  raw_response: '<reasoning>Readers might interpret the proverb as a direct, mathematical equivalence between a man\'s age and his subjective feelings, ignoring its figurative meaning about mindset. They could think that feelings can be quantified and literally equal years, that feelings can alter one\'s birth year, or that stating how one feels is the same as stating one\'s age in years.</reasoning>\n["A man\'s age in'
+  parse: np.float64(1.0)
+  complete: np.float64(1.0)
+  len_r: np.float64(2.56)
+  distinct: np.float64(0.87)
+  quality: np.float64(96.1)
+
+Row 1988:
+  task: 'a'
+  strategy: 'cot_en'
+  language: 'English'
+  sample_id: 'ENG1524'
+  source_proverb: 'A miss is as good as a mile.'
+  proverb_en: 'Near failure is still failure.'
+  correct_meaning: 'Near failure is still failure.'
+  cultural_context_available: np.False_
+  Choice_A: "If you miss by a small amount, it's just as good as having gone a mile."
+  Choice_B: 'Near failure is still failure.'
+  Choice_C: 'A miss is considered as good as a mile, implying that missing something is as beneficial as traveling a mile.'
+  Choice_D: 'A miss that is as good as a mile means the miss is equivalent to traveling one mile.'
+  Answer: 'B'
+  distractor_1: 'A miss that is as good as a mile means the miss is equivalent to traveling one mile.'
+  distractor_2: "If you miss by a small amount, it's just as good as having gone a mile."
+  distractor_3: 'A miss is considered as good as a mile, implying that missing something is as beneficial as traveling a mile.'
+  raw_response: '["A miss that is as good as a mile means the miss is equivalent to traveling one mile.", "If you miss by a small amount, it\'s just as good as having gone a mile.", "A miss is considered as good as a mile, implying that missing something is as beneficial as traveling a mile."]'
+  parse: np.float64(1.0)
+  complete: np.float64(1.0)
+  len_r: np.float64(3.6)
+  distinct: np.float64(0.72)
+  quality: np.float64(91.6)
+
+Row 1989:
+  task: 'a'
+  strategy: 'cot_en'
+  language: 'English'
+  sample_id: 'ENG1525'
+  source_proverb: 'A nod is as good as a wink to a blind horse.'
+  proverb_en: 'A hint is enough for those who understand.'
+  correct_meaning: 'A hint is enough for those who understand.'
+  cultural_context_available: np.False_
+  Choice_A: 'A blind horse responds equally well to a nod and a wink when being trained.'
+  Choice_B: "A nod is just as effective as a wink at getting a blind horse's attention."
+  Choice_C: 'If you nod at a blind horse, it will wink back, showing they understand each other.'
+  Choice_D: 'A hint is enough for those who understand.'
+  Answer: 'D'
+  distractor_1: "A nod is just as effective as a wink at getting a blind horse's attention."
+  distractor_2: 'A blind horse responds equally well to a nod and a wink when being trained.'
+  distractor_3: 'If you nod at a blind horse, it will wink back, showing they understand each other.'
+  raw_response: '["A nod is just as effective as a wink at getting a blind horse\'s attention.", "A blind horse responds equally well to a nod and a wink when being trained.", "If you nod at a blind horse, it will wink back, showing they understand each other."]'
+  parse: np.float64(1.0)
+  complete: np.float64(1.0)
+  len_r: np.float64(1.92)
+  distinct: np.float64(0.81)
+  quality: np.float64(94.3)
+
+
+--- Summary stats for parse, complete, distinct, quality, len_r ---
+
+parse:
+count    1990.000000
+mean        0.995980
+std         0.063293
+min         0.000000
+25%         1.000000
+50%         1.000000
+75%         1.000000
+max         1.000000
+
+complete:
+count    1990.000000
+mean        0.975879
+std         0.133614
+min         0.000000
+25%         1.000000
+50%         1.000000
+75%         1.000000
+max         1.000000
+
+distinct:
+count    1990.000000
+mean        0.836618
+std         0.110082
+min         0.000000
+25%         0.800000
+50%         0.860000
+75%         0.900000
+max         1.000000
+
+quality:
+count    1990.000000
+mean       94.214121
+std         7.502201
+min         0.000000
+25%        93.700000
+50%        95.500000
+75%        97.000000
+max       100.000000
+
+len_r:
+count    1990.000000
+mean        1.464447
+std         1.126349
+min         0.000000
+25%         0.780000
+50%         1.170000
+75%         1.750000
+max        10.330000
+
+--- Empty/blank counts ---
+distractor_1: 8
+distractor_2: 8
+distractor_3: 8
+Choice_A: 8
+Choice_B: 8
+Choice_C: 8
+Choice_D: 8
+
+--- Answer blank count ---
+Answer blank: 8
+
+--- Other anomalies ---
+Duplicate rows: 0
+Constant column: task = a
+Constant column: strategy = cot_en
+Constant column: language = English
+Constant column: cultural_context_available = False
+Unique Answer values: ['A', 'B', 'C', 'D']
+Completely null rows: 0
+
+================================================================================
+
+================================================================================
+FILE: mcq_a_cot_en_french.csv
+================================================================================
+
+--- Total rows and columns ---
+Rows: 160, Columns: 22
+
+--- Column names ---
+['task', 'strategy', 'language', 'sample_id', 'source_proverb', 'proverb_en', 'correct_meaning', 'cultural_context_available', 'Choice_A', 'Choice_B', 'Choice_C', 'Choice_D', 'Answer', 'distractor_1', 'distractor_2', 'distractor_3', 'raw_response', 'parse', 'complete', 'len_r', 'distinct', 'quality']
+
+--- First 3 rows ---
+Row 0:
+  task: 'a'
+  strategy: 'cot_en'
+  language: 'French'
+  sample_id: 'MID0001'
+  source_proverb: 'L’habit ne fait pas le moine'
+  proverb_en: 'The vestment does not make the monk'
+  correct_meaning: 'The vestment does not make the monk'
+  cultural_context_available: np.False_
+  Choice_A: "Only certain fabrics can make a monk's vestment"
+  Choice_B: "Wearing a monk's robe is uncomfortable"
+  Choice_C: 'The vestment does not make the monk'
+  Choice_D: 'Putting on a vestment magically turns someone into a monk'
+  Answer: 'C'
+  distractor_1: "Wearing a monk's robe is uncomfortable"
+  distractor_2: "Only certain fabrics can make a monk's vestment"
+  distractor_3: 'Putting on a vestment magically turns someone into a monk'
+  raw_response: '<reasoning>The proverb "L’habit ne fait pas le moine" or "The vestment does not make the monk" suggests that it\'s not the outward appearance or the clothes someone wears that defines their character, profession, or nature, but rather their actions, beliefs, and inner qualities. A wrong literal interpretation might focus on the physical aspects or superficial characteristics, misunderstanding the d'
+  parse: np.float64(1.0)
+  complete: np.float64(1.0)
+  len_r: np.float64(1.14)
+  distinct: np.float64(0.88)
+  quality: np.float64(96.4)
+
+Row 1:
+  task: 'a'
+  strategy: 'cot_en'
+  language: 'French'
+  sample_id: 'MID0002'
+  source_proverb: 'Qui vivra verra'
+  proverb_en: 'He/she who lives, shall see.'
+  correct_meaning: 'He/she who lives, shall see.'
+  cultural_context_available: np.False_
+  Choice_A: 'Seeing is a direct result of being alive'
+  Choice_B: "The longer you live, the more you'll see"
+  Choice_C: 'Only living beings can see'
+  Choice_D: 'He/she who lives, shall see.'
+  Answer: 'D'
+  distractor_1: 'Only living beings can see'
+  distractor_2: "The longer you live, the more you'll see"
+  distractor_3: 'Seeing is a direct result of being alive'
+  raw_response: '<reasoning>The proverb "Qui vivra verra" or "He/she who lives, shall see" can be misinterpreted in various ways if taken literally. A reader might think it implies that the act of living is directly related to the act of seeing, possibly in a physical sense. Another wrong interpretation could be that it suggests only those who are alive can see, implying that seeing is an exclusive ability of the '
+  parse: np.float64(1.0)
+  complete: np.float64(1.0)
+  len_r: np.float64(1.4)
+  distinct: np.float64(0.97)
+  quality: np.float64(99.1)
+
+Row 2:
+  task: 'a'
+  strategy: 'cot_en'
+  language: 'French'
+  sample_id: 'MID0003'
+  source_proverb: 'Chacun voit midi à sa porte'
+  proverb_en: 'Each person sees noon at his/her door.'
+  correct_meaning: 'Each person sees noon at his/her door.'
+  cultural_context_available: np.False_
+  Choice_A: 'people can see the sun at its highest point from their doorstep'
+  Choice_B: 'everyone has a clock or sundial at their door to show noon'
+  Choice_C: 'Each person sees noon at his/her door.'
+  Choice_D: 'the shadow of the door falls on a specific spot at noon'
+  Answer: 'C'
+  distractor_1: 'people can see the sun at its highest point from their doorstep'
+  distractor_2: 'everyone has a clock or sundial at their door to show noon'
+  distractor_3: 'the shadow of the door falls on a specific spot at noon'
+  raw_response: '<reasoning>When interpreting the proverb "Chacun voit midi à sa porte" literally, a reader might misunderstand it as being related to the actual time of day or the physical location of noon. They might think it\'s about people seeing the noon sun at their doorstep, or that it\'s related to a specific time-keeping or astronomical phenomenon. Another wrong interpretation could be about people having a'
+  parse: np.float64(1.0)
+  complete: np.float64(1.0)
+  len_r: np.float64(1.71)
+  distinct: np.float64(0.87)
+  quality: np.float64(96.1)
+
+
+--- Last 3 rows ---
+Row 157:
+  task: 'a'
+  strategy: 'cot_en'
+  language: 'French'
+  sample_id: 'MID0158'
+  source_proverb: 'Les grands esprits se rencontrent'
+  proverb_en: 'Great minds think alike'
+  correct_meaning: 'Great minds think alike'
+  cultural_context_available: np.False_
+  Choice_A: 'Great minds physically meet each other'
+  Choice_B: 'Great minds think alike'
+  Choice_C: 'People with high intellect have similar facial features'
+  Choice_D: 'Intelligent people have identical thoughts at the same time'
+  Answer: 'B'
+  distractor_1: 'Great minds physically meet each other'
+  distractor_2: 'Intelligent people have identical thoughts at the same time'
+  distractor_3: 'People with high intellect have similar facial features'
+  raw_response: '<reasoning>When translating the French proverb "Les grands esprits se rencontrent" to English as "Great minds think alike", a literal interpretation might lead to misunderstandings. A reader might think that the phrase is suggesting great minds physically meet or gather, or that they have the same thoughts at the same time, or even that intelligent people have similar physical appearances. These i'
+  parse: np.float64(1.0)
+  complete: np.float64(1.0)
+  len_r: np.float64(1.92)
+  distinct: np.float64(0.96)
+  quality: np.float64(98.8)
+
+Row 158:
+  task: 'a'
+  strategy: 'cot_en'
+  language: 'French'
+  sample_id: 'MID0159'
+  source_proverb: 'Même les meilleures choses ont une fin'
+  proverb_en: 'Even the best things come to an end'
+  correct_meaning: 'Even the best things come to an end'
+  cultural_context_available: np.False_
+  Choice_A: 'all good things must be relocated to a final destination'
+  Choice_B: "the best things are stored in a location called 'an end'"
+  Choice_C: 'Even the best things come to an end'
+  Choice_D: 'every positive object has a physical boundary'
+  Answer: 'C'
+  distractor_1: 'all good things must be relocated to a final destination'
+  distractor_2: 'every positive object has a physical boundary'
+  distractor_3: "the best things are stored in a location called 'an end'"
+  raw_response: '<reasoning>When literally interpreting the phrase "Even the best things come to an end," a reader might mis understand it in several ways. One could think that all good things must physically move to a destination called "an end." Another wrong interpretation could be that all positive objects or experiences have a physical edge or boundary. Lastly, someone might believe the phrase is about the ph'
+  parse: np.float64(1.0)
+  complete: np.float64(1.0)
+  len_r: np.float64(1.17)
+  distinct: np.float64(0.92)
+  quality: np.float64(97.6)
+
+Row 159:
+  task: 'a'
+  strategy: 'cot_en'
+  language: 'French'
+  sample_id: 'MID0160'
+  source_proverb: 'Bon à tout, bon à rien'
+  proverb_en: 'Jack of all trades, master of none'
+  correct_meaning: 'Jack of all trades, master of none'
+  cultural_context_available: np.False_
+  Choice_A: 'an expert in every profession but fails to achieve mastery'
+  Choice_B: 'a tool useful for everything but serves no purpose'
+  Choice_C: 'a person skilled in all tasks but competent in none'
+  Choice_D: 'Jack of all trades, master of none'
+  Answer: 'D'
+  distractor_1: 'a person skilled in all tasks but competent in none'
+  distractor_2: 'a tool useful for everything but serves no purpose'
+  distractor_3: 'an expert in every profession but fails to achieve mastery'
+  raw_response: '<reasoning>The proverb "Bon à tout, bon à rien" or "Jack of all trades, master of none" is an idiom that suggests someone who is competent in many areas but not exceptional in any. A literal reading, however, might lead to misunderstandings. For instance, one might think it\'s about a person being good at everything but somehow simultaneously being good at nothing, which doesn\'t logically align wit'
+  parse: np.float64(1.0)
+  complete: np.float64(1.0)
+  len_r: np.float64(1.38)
+  distinct: np.float64(0.9)
+  quality: np.float64(97.0)
+
+
+--- Summary stats for parse, complete, distinct, quality, len_r ---
+
+parse:
+count    160.0
+mean       1.0
+std        0.0
+min        1.0
+25%        1.0
+50%        1.0
+75%        1.0
+max        1.0
+
+complete:
+count    160.000000
+mean       0.964583
+std        0.132686
+min        0.000000
+25%        1.000000
+50%        1.000000
+75%        1.000000
+max        1.000000
+
+distinct:
+count    160.000000
+mean       0.887875
+std        0.082830
+min        0.590000
+25%        0.857500
+50%        0.910000
+75%        0.940000
+max        1.000000
+
+quality:
+count    160.000000
+mean      95.573750
+std        4.115846
+min       70.000000
+25%       94.600000
+50%       97.000000
+75%       97.900000
+max      100.000000
+
+len_r:
+count    160.000000
+mean       1.446188
+std        0.625744
+min        0.460000
+25%        1.030000
+50%        1.330000
+75%        1.780000
+max        4.170000
+
+--- Empty/blank counts ---
+distractor_1: 0
+distractor_2: 0
+distractor_3: 0
+Choice_A: 0
+Choice_B: 0
+Choice_C: 0
+Choice_D: 0
+
+--- Answer blank count ---
+Answer blank: 0
+
+--- Other anomalies ---
+Duplicate rows: 0
+Constant column: task = a
+Constant column: strategy = cot_en
+Constant column: language = French
+Constant column: cultural_context_available = False
+Constant column: parse = 1.0
+Unique Answer values: ['A', 'B', 'C', 'D']
+Completely null rows: 0
+
+================================================================================
+
+================================================================================
+FILE: mcq_a_cot_en_spanish.csv
+================================================================================
+
+--- Total rows and columns ---
+Rows: 62, Columns: 22
+
+--- Column names ---
+['task', 'strategy', 'language', 'sample_id', 'source_proverb', 'proverb_en', 'correct_meaning', 'cultural_context_available', 'Choice_A', 'Choice_B', 'Choice_C', 'Choice_D', 'Answer', 'distractor_1', 'distractor_2', 'distractor_3', 'raw_response', 'parse', 'complete', 'len_r', 'distinct', 'quality']
+
+--- First 3 rows ---
+Row 0:
+  task: 'a'
+  strategy: 'cot_en'
+  language: 'Spanish'
+  sample_id: 'MID0001'
+  source_proverb: 'Al mal tiempo, buena cara'
+  proverb_en: 'To bad weather, good face'
+  correct_meaning: 'To bad weather, good face'
+  cultural_context_available: np.False_
+  Choice_A: 'Wear a happy face to scare away storms'
+  Choice_B: 'Put on sunscreen to protect your face from bad weather'
+  Choice_C: 'Always smile when it rains'
+  Choice_D: 'To bad weather, good face'
+  Answer: 'D'
+  distractor_1: 'Always smile when it rains'
+  distractor_2: 'Wear a happy face to scare away storms'
+  distractor_3: 'Put on sunscreen to protect your face from bad weather'
+  raw_response: '<reasoning>When translating the Spanish proverb "Al mal tiempo, buena cara" to English as "To bad weather, good face," a literal reading might lead to misunderstandings. A reader might think it\'s about how to react physically or visually to different types of weather, rather than understanding its idiomatic meaning, which is about staying positive or cheerful during difficult times. Thus, wrong in'
+  parse: np.float64(1.0)
+  complete: np.float64(1.0)
+  len_r: np.float64(1.53)
+  distinct: np.float64(0.96)
+  quality: np.float64(98.8)
+
+Row 1:
+  task: 'a'
+  strategy: 'cot_en'
+  language: 'Spanish'
+  sample_id: 'MID0002'
+  source_proverb: 'De tal palo, tal astilla'
+  proverb_en: 'From such a stick, such a chip'
+  correct_meaning: 'From such a stick, such a chip'
+  cultural_context_available: np.False_
+  Choice_A: 'A stick must be of a certain size to produce a chip of the same size'
+  Choice_B: 'The sharpness of the tool used to chip a stick affects the quality of the chip'
+  Choice_C: 'The type of wood a stick is made of determines the type of chip it produces'
+  Choice_D: 'From such a stick, such a chip'
+  Answer: 'D'
+  distractor_1: 'The type of wood a stick is made of determines the type of chip it produces'
+  distractor_2: 'A stick must be of a certain size to produce a chip of the same size'
+  distractor_3: 'The sharpness of the tool used to chip a stick affects the quality of the chip'
+  raw_response: '<reasoning>The Spanish proverb "De tal palo, tal astilla" translates to "From such a stick, such a chip" in English. This proverb is often used to convey that children often resemble or behave like their parents. However, a literal reading might lead one to misunderstand the intended meaning. For instance, a wrong literal interpretation could involve the physical properties of sticks and chips, or'
+  parse: np.float64(1.0)
+  complete: np.float64(1.0)
+  len_r: np.float64(2.29)
+  distinct: np.float64(0.7)
+  quality: np.float64(91.0)
+
+Row 2:
+  task: 'a'
+  strategy: 'cot_en'
+  language: 'Spanish'
+  sample_id: 'MID0003'
+  source_proverb: 'Dime con quién andas, y te diré quién eres'
+  proverb_en: 'Tell me with whom you walk, and I’ll tell you who you are'
+  correct_meaning: 'Tell me with whom you walk, and I’ll tell you who you are'
+  cultural_context_available: np.False_
+  Choice_A: 'You can identify someone by the route they take for a stroll'
+  Choice_B: 'Walking with a doctor means you are a medical professional'
+  Choice_C: 'Tell me with whom you walk, and I’ll tell you who you are'
+  Choice_D: 'The speed at which you walk with someone determines your personality'
+  Answer: 'C'
+  distractor_1: 'You can identify someone by the route they take for a stroll'
+  distractor_2: 'The speed at which you walk with someone determines your personality'
+  distractor_3: 'Walking with a doctor means you are a medical professional'
+  raw_response: '<reasoning>The proverb "Tell me with whom you walk, and I’ll tell you who you are" is often misunderstood when taken literally. A reader might think it\'s about the physical act of walking or the people one walks with, rather than the character and values of the company one keeps. This could lead to incorrect interpretations such as the proverb being about identifying someone based on their walking'
+  parse: np.float64(1.0)
+  complete: np.float64(1.0)
+  len_r: np.float64(0.85)
+  distinct: np.float64(0.88)
+  quality: np.float64(96.4)
+
+
+--- Last 3 rows ---
+Row 59:
+  task: 'a'
+  strategy: 'cot_en'
+  language: 'Spanish'
+  sample_id: 'MID0334'
+  source_proverb: 'El que da primero da dos veces'
+  proverb_en: 'He who gives first gives twice'
+  correct_meaning: 'He who gives first gives twice'
+  cultural_context_available: np.False_
+  Choice_A: 'The donor physically gives the same item twice'
+  Choice_B: 'He who gives first gives twice'
+  Choice_C: 'The first gift is automatically duplicated'
+  Choice_D: 'The recipient receives two separate gifts'
+  Answer: 'B'
+  distractor_1: 'The donor physically gives the same item twice'
+  distractor_2: 'The first gift is automatically duplicated'
+  distractor_3: 'The recipient receives two separate gifts'
+  raw_response: '<reasoning>The proverb "He who gives first gives twice" can be misinterpreted in various literal ways. A reader might think it implies a physical or quantitative action, such as giving something twice in terms of amount or frequency. Another misconception could be about the timing or sequence of giving, suggesting that the act of giving first somehow magically doubles the gift. Lastly, a literal i'
+  parse: np.float64(1.0)
+  complete: np.float64(1.0)
+  len_r: np.float64(1.11)
+  distinct: np.float64(0.91)
+  quality: np.float64(97.3)
+
+Row 60:
+  task: 'a'
+  strategy: 'cot_en'
+  language: 'Spanish'
+  sample_id: 'MID0336'
+  source_proverb: 'El que ríe último ríe mejor'
+  proverb_en: 'He who laughs last laughs best'
+  correct_meaning: 'He who laughs last laughs best'
+  cultural_context_available: np.False_
+  Choice_A: 'the last person to laugh at a joke wins'
+  Choice_B: 'the person who laughs the longest is the happiest'
+  Choice_C: 'laughing at the end of a party is more enjoyable'
+  Choice_D: 'He who laughs last laughs best'
+  Answer: 'D'
+  distractor_1: 'the last person to laugh at a joke wins'
+  distractor_2: 'laughing at the end of a party is more enjoyable'
+  distractor_3: 'the person who laughs the longest is the happiest'
+  raw_response: '<reasoning>The proverb "He who laughs last laughs best" suggests that the person who laughs last in a situation will have the most satisfying or enjoyable laugh. However, a literal interpretation might lead a reader to misunderstand the phrase. For instance, they might think it\'s about the timing or duration of laughter, or the physical act of laughing. Some wrong literal readings could be that it'
+  parse: np.float64(1.0)
+  complete: np.float64(1.0)
+  len_r: np.float64(1.56)
+  distinct: np.float64(0.85)
+  quality: np.float64(95.5)
+
+Row 61:
+  task: 'a'
+  strategy: 'cot_en'
+  language: 'Spanish'
+  sample_id: 'MID0337'
+  source_proverb: 'En tierra de ciegos el tuerto es rey'
+  proverb_en: 'In the land of the blind the one-eyed man is king'
+  correct_meaning: 'In the land of the blind the one-eyed man is king'
+  cultural_context_available: np.False_
+  Choice_A: 'Geographical areas with blind populations are ruled by individuals with partial sight'
+  Choice_B: 'Monarchs with visual impairments are more powerful in certain kingdoms'
+  Choice_C: 'A person with one eye has superior vision in areas with high blindness rates'
+  Choice_D: 'In the land of the blind the one-eyed man is king'
+  Answer: 'D'
+  distractor_1: 'A person with one eye has superior vision in areas with high blindness rates'
+  distractor_2: 'Monarchs with visual impairments are more powerful in certain kingdoms'
+  distractor_3: 'Geographical areas with blind populations are ruled by individuals with partial sight'
+  raw_response: '<reasoning>The proverb "In the land of the blind the one-eyed man is king" suggests that when everyone around is lacking in some way, someone with even a slight advantage will be superior. A literal reading might miss the metaphorical intent, leading to interpretations that are physically or medically focused rather than figuratively inclined. For instance, one might think about actual blindness a'
+  parse: np.float64(1.0)
+  complete: np.float64(1.0)
+  len_r: np.float64(1.09)
+  distinct: np.float64(0.9)
+  quality: np.float64(97.0)
+
+
+--- Summary stats for parse, complete, distinct, quality, len_r ---
+
+parse:
+count    62.0
+mean      1.0
+std       0.0
+min       1.0
+25%       1.0
+50%       1.0
+75%       1.0
+max       1.0
+
+complete:
+count    62.000000
+mean      0.983871
+std       0.072112
+min       0.666667
+25%       1.000000
+50%       1.000000
+75%       1.000000
+max       1.000000
+
+distinct:
+count    62.000000
+mean      0.867419
+std       0.080367
+min       0.590000
+25%       0.830000
+50%       0.880000
+75%       0.920000
+max       0.990000
+
+quality:
+count    62.000000
+mean     95.538710
+std       3.022937
+min      86.100000
+25%      94.675000
+50%      96.250000
+75%      97.300000
+max      99.700000
+
+len_r:
+count    62.000000
+mean      1.470323
+std       0.487109
+min       0.670000
+25%       1.110000
+50%       1.405000
+75%       1.775000
+max       2.800000
+
+--- Empty/blank counts ---
+distractor_1: 0
+distractor_2: 0
+distractor_3: 0
+Choice_A: 0
+Choice_B: 0
+Choice_C: 0
+Choice_D: 0
+
+--- Answer blank count ---
+Answer blank: 0
+
+--- Other anomalies ---
+Duplicate rows: 0
+Constant column: task = a
+Constant column: strategy = cot_en
+Constant column: language = Spanish
+Constant column: cultural_context_available = False
+Constant column: parse = 1.0
+Unique Answer values: ['A', 'B', 'C', 'D']
+Completely null rows: 0
+
+================================================================================
+
+================================================================================
+FILE: mcq_a_cot_en_german.csv
+================================================================================
+
+--- Total rows and columns ---
+Rows: 141, Columns: 22
+
+--- Column names ---
+['task', 'strategy', 'language', 'sample_id', 'source_proverb', 'proverb_en', 'correct_meaning', 'cultural_context_available', 'Choice_A', 'Choice_B', 'Choice_C', 'Choice_D', 'Answer', 'distractor_1', 'distractor_2', 'distractor_3', 'raw_response', 'parse', 'complete', 'len_r', 'distinct', 'quality']
+
+--- First 3 rows ---
+Row 0:
+  task: 'a'
+  strategy: 'cot_en'
+  language: 'German'
+  sample_id: 'MID0001'
+  source_proverb: 'Aller Anfang ist schwer'
+  proverb_en: 'All beginnings are difficult'
+  correct_meaning: 'All beginnings are difficult'
+  cultural_context_available: np.False_
+  Choice_A: 'The start of everything is always the toughest part'
+  Choice_B: 'Every first step is heavy to take'
+  Choice_C: 'All beginnings are difficult'
+  Choice_D: 'Initiating any project is impossible without great struggle'
+  Answer: 'C'
+  distractor_1: 'Every first step is heavy to take'
+  distractor_2: 'The start of everything is always the toughest part'
+  distractor_3: 'Initiating any project is impossible without great struggle'
+  raw_response: '<reasoning>The German proverb "Aller Anfang ist schwer" translates to "All beginnings are difficult" in English. A literal reading might lead a reader to misinterpret the phrase in various ways. For instance, one might think it implies that every new project or task is inherently hard to start due to some intrinsic property of beginnings themselves, rather than the challenges that come with learni'
+  parse: np.float64(1.0)
+  complete: np.float64(1.0)
+  len_r: np.float64(2.0)
+  distinct: np.float64(0.93)
+  quality: np.float64(97.9)
+
+Row 1:
+  task: 'a'
+  strategy: 'cot_en'
+  language: 'German'
+  sample_id: 'MID0002'
+  source_proverb: 'Der Apfel fällt nicht weit vom Stamm'
+  proverb_en: 'The apple does not fall far from the tree'
+  correct_meaning: 'The apple does not fall far from the tree'
+  cultural_context_available: np.False_
+  Choice_A: 'A specific variety of apple grows near its parent tree'
+  Choice_B: 'The apple does not fall far from the tree'
+  Choice_C: 'Apples have a limited falling distance due to gravity'
+  Choice_D: 'Apples always fall straight down from the branch'
+  Answer: 'B'
+  distractor_1: 'Apples have a limited falling distance due to gravity'
+  distractor_2: 'A specific variety of apple grows near its parent tree'
+  distractor_3: 'Apples always fall straight down from the branch'
+  raw_response: '<reasoning>The proverb "The apple does not fall far from the tree" has a common idiomatic meaning that refers to the similarity between parents and their children. However, if taken literally, it could lead to some incorrect interpretations. For instance, one might think about the physical distance an apple falls from its tree, the type of apples that grow on a tree, or the way apples fall. These '
+  parse: np.float64(1.0)
+  complete: np.float64(1.0)
+  len_r: np.float64(1.0)
+  distinct: np.float64(0.96)
+  quality: np.float64(98.8)
+
+Row 2:
+  task: 'a'
+  strategy: 'cot_en'
+  language: 'German'
+  sample_id: 'MID0003'
+  source_proverb: 'Besser spät als nie'
+  proverb_en: 'Better late than never'
+  correct_meaning: 'Better late than never'
+  cultural_context_available: np.False_
+  Choice_A: 'Better late than never'
+  Choice_B: "It's always okay to show up late to events as long as you show up"
+  Choice_C: 'Bills and debts do not need to be paid on time as long as they are paid'
+  Choice_D: 'Career milestones can be achieved effectively regardless of how late in life they are pursued'
+  Answer: 'A'
+  distractor_1: "It's always okay to show up late to events as long as you show up"
+  distractor_2: 'Bills and debts do not need to be paid on time as long as they are paid'
+  distractor_3: 'Career milestones can be achieved effectively regardless of how late in life they are pursued'
+  raw_response: '<reasoning>The proverb "Better late than never" can be misinterpreted in various ways if taken literally. For instance, if someone is expecting a guest, a literal reading might lead them to believe that as long as the guest shows up, no matter how late, it\'s acceptable. Another misinterpretation could be in the context of paying debts or bills, where someone might think it\'s fine to delay payments'
+  parse: np.float64(1.0)
+  complete: np.float64(1.0)
+  len_r: np.float64(3.92)
+  distinct: np.float64(0.91)
+  quality: np.float64(97.3)
+
+
+--- Last 3 rows ---
+Row 138:
+  task: 'a'
+  strategy: 'cot_en'
+  language: 'German'
+  sample_id: 'MID0764'
+  source_proverb: 'Du siehst den Wald lauter Bäumen nicht'
+  proverb_en: 'You do not see the forest for the trees'
+  correct_meaning: 'You do not see the forest for the trees'
+  cultural_context_available: np.False_
+  Choice_A: 'You do not see the forest for the trees'
+  Choice_B: 'The trees are of a type that obscures the view of the forest'
+  Choice_C: 'The forest is hidden behind a wall of trees'
+  Choice_D: 'The trees are too dense to see the forest'
+  Answer: 'A'
+  distractor_1: 'The trees are too dense to see the forest'
+  distractor_2: 'The forest is hidden behind a wall of trees'
+  distractor_3: 'The trees are of a type that obscures the view of the forest'
+  raw_response: '<reasoning>The proverb "You do not see the forest for the trees" is often misunderstood literally. A wrong literal reading might assume the phrase is discussing the visibility of the forest due to the density of the trees, rather than its figurative meaning of being overwhelmed by details. Another interpretation could be that it\'s about the quality or type of trees blocking one\'s view of the fores'
+  parse: np.float64(1.0)
+  complete: np.float64(1.0)
+  len_r: np.float64(1.15)
+  distinct: np.float64(0.71)
+  quality: np.float64(91.3)
+
+Row 139:
+  task: 'a'
+  strategy: 'cot_en'
+  language: 'German'
+  sample_id: 'MID0765'
+  source_proverb: 'Kümmere dich nicht um ungelegte Eier'
+  proverb_en: "Don't count your chickens before they hatch"
+  correct_meaning: "Don't count your chickens before they hatch"
+  cultural_context_available: np.False_
+  Choice_A: 'Ignore the potential of unhatched eggs in your possession'
+  Choice_B: 'Do not worry about eggs that have not been laid yet'
+  Choice_C: "Don't count your chickens before they hatch"
+  Choice_D: 'Neglect the care of unborn chicken embryos'
+  Answer: 'C'
+  distractor_1: 'Do not worry about eggs that have not been laid yet'
+  distractor_2: 'Neglect the care of unborn chicken embryos'
+  distractor_3: 'Ignore the potential of unhatched eggs in your possession'
+  raw_response: '<reasoning>The proverb "Kümmere dich nicht um ungelegte Eier" or "Don\'t count your chickens before they hatch" is warning against assuming something will happen or that you will receive something before it has actually happened. A literal reading might miss the idiomatic meaning and lead to misinterpretations such as not taking care of potential future problems, ignoring the need to protect unborn'
+  parse: np.float64(1.0)
+  complete: np.float64(1.0)
+  len_r: np.float64(1.29)
+  distinct: np.float64(0.93)
+  quality: np.float64(97.9)
+
+Row 140:
+  task: 'a'
+  strategy: 'cot_en'
+  language: 'German'
+  sample_id: 'MID0766'
+  source_proverb: 'Lebe wie du kannst, nicht wie du willst'
+  proverb_en: 'Live as you can, not as you want'
+  correct_meaning: 'Live as you can, not as you want'
+  cultural_context_available: np.False_
+  Choice_A: "Settle for a mediocre life because it's what you can currently achieve"
+  Choice_B: 'Never chase your dreams if they seem impossible'
+  Choice_C: 'Live as you can, not as you want'
+  Choice_D: 'Live in poverty if you cannot afford luxury'
+  Answer: 'C'
+  distractor_1: 'Live in poverty if you cannot afford luxury'
+  distractor_2: 'Never chase your dreams if they seem impossible'
+  distractor_3: "Settle for a mediocre life because it's what you can currently achieve"
+  raw_response: '<reasoning>When translating the German proverb "Lebe wie du kannst, nicht wie du willst" to English as "Live as you can, not as you want", a literal reading might misunderstand the intent behind the phrase. The phrase is advising individuals to live within their means and capabilities rather than striving for something they desire but cannot achieve. However, a wrong literal interpretation might l'
+  parse: np.float64(1.0)
+  complete: np.float64(1.0)
+  len_r: np.float64(1.17)
+  distinct: np.float64(0.96)
+  quality: np.float64(98.8)
+
+
+--- Summary stats for parse, complete, distinct, quality, len_r ---
+
+parse:
+count    141.0
+mean       1.0
+std        0.0
+min        1.0
+25%        1.0
+50%        1.0
+75%        1.0
+max        1.0
+
+complete:
+count    141.000000
+mean       0.957447
+std        0.153535
+min        0.000000
+25%        1.000000
+50%        1.000000
+75%        1.000000
+max        1.000000
+
+distinct:
+count    141.000000
+mean       0.881135
+std        0.076159
+min        0.660000
+25%        0.830000
+50%        0.890000
+75%        0.940000
+max        1.000000
+
+quality:
+count    141.000000
+mean      95.157447
+std        4.976577
+min       70.000000
+25%       94.000000
+50%       96.400000
+75%       98.200000
+max      100.000000
+
+len_r:
+count    141.000000
+mean       1.498652
+std        0.613451
+min        0.470000
+25%        1.050000
+50%        1.380000
+75%        1.830000
+max        3.920000
+
+--- Empty/blank counts ---
+distractor_1: 0
+distractor_2: 0
+distractor_3: 0
+Choice_A: 0
+Choice_B: 0
+Choice_C: 0
+Choice_D: 0
+
+--- Answer blank count ---
+Answer blank: 0
+
+--- Other anomalies ---
+Duplicate rows: 0
+Constant column: task = a
+Constant column: strategy = cot_en
+Constant column: language = German
+Constant column: cultural_context_available = False
+Constant column: parse = 1.0
+Unique Answer values: ['A', 'B', 'C', 'D']
+Completely null rows: 0
+
+================================================================================
+

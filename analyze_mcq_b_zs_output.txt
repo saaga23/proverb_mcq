@@ -1,0 +1,1614 @@
+================================================================================
+FILE: _unzipped/mcq_b_zs_yoruba.csv
+================================================================================
+Total rows: 2000
+Total columns: 22
+Column names: ['task', 'strategy', 'language', 'sample_id', 'source_proverb', 'proverb_en', 'correct_meaning', 'cultural_context_available', 'Choice_A', 'Choice_B', 'Choice_C', 'Choice_D', 'Answer', 'distractor_1', 'distractor_2', 'distractor_3', 'raw_response', 'parse', 'complete', 'len_r', 'distinct', 'quality']
+
+--- FIRST 3 ROWS ---
+Row 0:
+  task: 'b'
+  strategy: 'zs'
+  language: 'Yoruba'
+  sample_id: 'YOR0001'
+  source_proverb: 'A di gàárì sílẹ́ ewúrẹ́ ńyọjú; ẹrù ìran rẹ́ ni?'
+  proverb_en: 'We prepare the saddle, and the goat presents itself; is it a burden for the lineage of goats?'
+  correct_meaning: 'Goats that know their place do not offer their backs to be saddled.'
+  cultural_context_available: True
+  Choice_A: 'Preparation always attracts the most unlikely sacrifices.'
+  Choice_B: 'Goats that know their place do not offer their backs to be saddled.'
+  Choice_C: 'A well-prepared ceremony demands a humble volunteer.'
+  Choice_D: 'Goats are naturally jealous of other animals being honored first.'
+  Answer: 'B'
+  distractor_1: 'Goats are naturally jealous of other animals being honored first.'
+  distractor_2: 'Preparation always attracts the most unlikely sacrifices.'
+  distractor_3: 'A well-prepared ceremony demands a humble volunteer.'
+  raw_response: '{"1": ["Goats are naturally jealous of other animals being honored first.", "Preparation always attracts the most unlikely sacrifices.", "A well-prepared ceremony demands a humble volunteer."], "2": ["Even kings must rely on spiritual protection to maintain power.", "No title is too great to abandon personal superstitions.", "Divine status can be achieved through accumulated honors."], "3": ["Vict'
+  parse: 1.0
+  complete: 1.0
+  len_r: 0.62
+  distinct: 1.0
+  quality: 100.0
+
+Row 1:
+  task: 'b'
+  strategy: 'zs'
+  language: 'Yoruba'
+  sample_id: 'YOR0002'
+  source_proverb: 'A fi ọ́ jọba ò ńṣàwúre; o fẹ́ẹ́ jẹ Ọlọ́run ni?'
+  proverb_en: 'You have been crowned a king, and yet you make good-luck charms; would you be crowned God?'
+  correct_meaning: 'Being crowned a king is about the best fortune a mortal could hope for.'
+  cultural_context_available: True
+  Choice_A: 'Divine status can be achieved through accumulated honors.'
+  Choice_B: 'No title is too great to abandon personal superstitions.'
+  Choice_C: 'Even kings must rely on spiritual protection to maintain power.'
+  Choice_D: 'Being crowned a king is about the best fortune a mortal could hope for.'
+  Answer: 'D'
+  distractor_1: 'Even kings must rely on spiritual protection to maintain power.'
+  distractor_2: 'No title is too great to abandon personal superstitions.'
+  distractor_3: 'Divine status can be achieved through accumulated honors.'
+  raw_response: '{"1": ["Goats are naturally jealous of other animals being honored first.", "Preparation always attracts the most unlikely sacrifices.", "A well-prepared ceremony demands a humble volunteer."], "2": ["Even kings must rely on spiritual protection to maintain power.", "No title is too great to abandon personal superstitions.", "Divine status can be achieved through accumulated honors."], "3": ["Vict'
+  parse: 1.0
+  complete: 1.0
+  len_r: 0.64
+  distinct: 0.98
+  quality: 99.4
+
+Row 2:
+  task: 'b'
+  strategy: 'zs'
+  language: 'Yoruba'
+  sample_id: 'YOR0003'
+  source_proverb: 'A fijó gba Awà; a fìjà gba Awà; bí a ò bá jó, bí a ò bá jà, bí a bá ti gba Awà, kò tán bí?'
+  proverb_en: 'By dancing we take possession of Awà; through fighting we take possession of Awà; if we neither dance nor fight but take possession of Awà anyway, is the result not the same?'
+  correct_meaning: 'Why make a huge production of a matter that is easily taken care of?'
+  cultural_context_available: True
+  Choice_A: 'Tradition requires either dance or battle to legitimize ownership.'
+  Choice_B: 'Victory through violence is equivalent to victory through celebration.'
+  Choice_C: 'Why make a huge production of a matter that is easily taken care of?'
+  Choice_D: 'The method of claiming land matters more than the claim itself.'
+  Answer: 'C'
+  distractor_1: 'Victory through violence is equivalent to victory through celebration.'
+  distractor_2: 'The method of claiming land matters more than the claim itself.'
+  distractor_3: 'Tradition requires either dance or battle to legitimize ownership.'
+  raw_response: '{"1": ["Goats are naturally jealous of other animals being honored first.", "Preparation always attracts the most unlikely sacrifices.", "A well-prepared ceremony demands a humble volunteer."], "2": ["Even kings must rely on spiritual protection to maintain power.", "No title is too great to abandon personal superstitions.", "Divine status can be achieved through accumulated honors."], "3": ["Vict'
+  parse: 1.0
+  complete: 1.0
+  len_r: 0.69
+  distinct: 0.98
+  quality: 99.4
+
+--- LAST 3 ROWS ---
+Row 1997:
+  task: 'b'
+  strategy: 'zs'
+  language: 'Yoruba'
+  sample_id: 'YOR2101'
+  source_proverb: 'A kì í sọ pé ó di ọjọ́ tí a bá bímọ ká tó sọ ọmọ níkòó.'
+  proverb_en: 'One does not say it will not be until one has fathered a child that one raps a child on the head with one’s knuckles.'
+  correct_meaning: 'Every adult shares the responsibility for disciplining all children, not only his or her own.'
+  cultural_context_available: True
+  Choice_A: 'Physical discipline is the most effective way to teach moral lessons.'
+  Choice_B: 'Every adult shares the responsibility for disciplining all children, not only his or her own.'
+  Choice_C: 'Child-rearing customs should never be questioned by outsiders.'
+  Choice_D: 'Only biological parents have the right to correct children.'
+  Answer: 'B'
+  distractor_1: 'Only biological parents have the right to correct children.'
+  distractor_2: 'Physical discipline is the most effective way to teach moral lessons.'
+  distractor_3: 'Child-rearing customs should never be questioned by outsiders.'
+  raw_response: '{"1": ["One should always inquire about ownership before making transactions.", "It is wise to advertise valuable possessions to increase their worth.", "True wealth lies in possessing animals that others desire."], "2": ["Expressing hatred for animals shows bravery in the face of danger.", "One should curse guardian animals to demonstrate superiority over nature.", "Wishing harm on another\'s pet '
+  parse: 1.0
+  complete: 1.0
+  len_r: 0.62
+  distinct: 0.96
+  quality: 98.8
+
+Row 1998:
+  task: 'b'
+  strategy: 'zs'
+  language: 'Yoruba'
+  sample_id: 'YOR2102'
+  source_proverb: 'Abánigúnwà ní ḿmọ ìjagun ẹni.'
+  proverb_en: 'It is he who shares one’s throne that knows one’s strategy in battle.'
+  correct_meaning: 'Only soulmates know each other’s minds.'
+  cultural_context_available: True
+  Choice_A: 'Kings should never trust those who sit near their thrones.'
+  Choice_B: 'Power is best maintained by multiplying allies in warfare.'
+  Choice_C: 'Only soulmates know each other’s minds.'
+  Choice_D: 'Military tactics should be shared openly to ensure victory.'
+  Answer: 'C'
+  distractor_1: 'Military tactics should be shared openly to ensure victory.'
+  distractor_2: 'Power is best maintained by multiplying allies in warfare.'
+  distractor_3: 'Kings should never trust those who sit near their thrones.'
+  raw_response: '{"1": ["One should always inquire about ownership before making transactions.", "It is wise to advertise valuable possessions to increase their worth.", "True wealth lies in possessing animals that others desire."], "2": ["Expressing hatred for animals shows bravery in the face of danger.", "One should curse guardian animals to demonstrate superiority over nature.", "Wishing harm on another\'s pet '
+  parse: 1.0
+  complete: 1.0
+  len_r: 1.56
+  distinct: 0.98
+  quality: 99.4
+
+Row 1999:
+  task: 'b'
+  strategy: 'zs'
+  language: 'Yoruba'
+  sample_id: 'YOR2103'
+  source_proverb: 'Abánigbé ní ḿmọ ìṣe ẹni.'
+  proverb_en: 'Whoever one lives with knows one’s habits.'
+  correct_meaning: 'The public image is not reliable.'
+  cultural_context_available: True
+  Choice_A: 'The public image is not reliable.'
+  Choice_B: 'Daily routines should be hidden from neighbors to maintain dignity.'
+  Choice_C: 'Fame is achieved by carefully crafting one’s public behavior.'
+  Choice_D: 'Living alone preserves one’s reputation from outside judgment.'
+  Answer: 'A'
+  distractor_1: 'Living alone preserves one’s reputation from outside judgment.'
+  distractor_2: 'Daily routines should be hidden from neighbors to maintain dignity.'
+  distractor_3: 'Fame is achieved by carefully crafting one’s public behavior.'
+  raw_response: '{"1": ["One should always inquire about ownership before making transactions.", "It is wise to advertise valuable possessions to increase their worth.", "True wealth lies in possessing animals that others desire."], "2": ["Expressing hatred for animals shows bravery in the face of danger.", "One should curse guardian animals to demonstrate superiority over nature.", "Wishing harm on another\'s pet '
+  parse: 1.0
+  complete: 1.0
+  len_r: 1.5
+  distinct: 0.96
+  quality: 98.8
+
+--- SUMMARY STATS ---
+Column: parse
+count    2000.000000
+mean        0.982000
+std         0.132984
+min         0.000000
+25%         1.000000
+50%         1.000000
+75%         1.000000
+max         1.000000
+
+Column: complete
+count    2000.000000
+mean        0.981833
+std         0.133171
+min         0.000000
+25%         1.000000
+50%         1.000000
+75%         1.000000
+max         1.000000
+
+Column: distinct
+count    2000.000000
+mean        0.946690
+std         0.131667
+min         0.000000
+25%         0.950000
+50%         0.970000
+75%         0.980000
+max         1.000000
+
+Column: quality
+count    2000.00000
+mean       97.13570
+std        13.18656
+min         0.00000
+25%        98.50000
+50%        99.10000
+75%        99.40000
+max       100.00000
+
+Column: len_r
+count    2000.000000
+mean        1.092570
+std         0.537319
+min         0.000000
+25%         0.750000
+50%         1.000000
+75%         1.330000
+max         6.170000
+
+--- EMPTY/BLANK COUNTS ---
+distractor_1: 36
+distractor_2: 36
+distractor_3: 36
+Choice_A: 36
+Choice_B: 36
+Choice_C: 36
+Choice_D: 36
+Answer blank: 36
+
+--- ANOMALIES ---
+Duplicate rows: 0
+Dtypes:
+  task: str
+  strategy: str
+  language: str
+  sample_id: str
+  source_proverb: str
+  proverb_en: str
+  correct_meaning: str
+  cultural_context_available: bool
+  Choice_A: str
+  Choice_B: str
+  Choice_C: str
+  Choice_D: str
+  Answer: str
+  distractor_1: str
+  distractor_2: str
+  distractor_3: str
+  raw_response: str
+  parse: float64
+  complete: float64
+  len_r: float64
+  distinct: float64
+  quality: float64
+Unique sample_id: 1999
+Unique language values: <StringArray>
+['Yoruba']
+Length: 1, dtype: str
+Unique Answer values: <StringArray>
+['B', 'D', 'C', 'A', nan]
+Length: 5, dtype: str
+len_r min: 0.0, max: 6.17
+parse unique values: [np.float64(0.0), np.float64(1.0)]
+complete unique values: [np.float64(0.0), np.float64(0.6666666666666666), np.float64(1.0)]
+distinct unique values: [np.float64(0.0), np.float64(0.77), np.float64(0.8), np.float64(0.81), np.float64(0.82), np.float64(0.83), np.float64(0.84), np.float64(0.85), np.float64(0.86), np.float64(0.87), np.float64(0.88), np.float64(0.89), np.float64(0.9), np.float64(0.91), np.float64(0.92), np.float64(0.93), np.float64(0.94), np.float64(0.95), np.float64(0.96), np.float64(0.97), np.float64(0.98), np.float64(0.99), np.float64(1.0)]
+quality unique values: [np.float64(0.0), np.float64(90.0), np.float64(93.1), np.float64(94.0), np.float64(94.3), np.float64(94.6), np.float64(94.9), np.float64(95.2), np.float64(95.5), np.float64(95.8), np.float64(96.1), np.float64(96.4), np.float64(96.7), np.float64(97.0), np.float64(97.3), np.float64(97.6), np.float64(97.9), np.float64(98.2), np.float64(98.5), np.float64(98.8), np.float64(99.1), np.float64(99.4), np.float64(99.7), np.float64(100.0)]
+Row 51: distractor_1 == distractor_2 (nan)
+Row 51: distractor_1 == distractor_3 (nan)
+Row 51: distractor_2 == distractor_3 (nan)
+Row 83: distractor_1 == distractor_2 (nan)
+Row 83: distractor_1 == distractor_3 (nan)
+Row 83: distractor_2 == distractor_3 (nan)
+Row 128: distractor_1 == distractor_2 (nan)
+Row 128: distractor_1 == distractor_3 (nan)
+Row 128: distractor_2 == distractor_3 (nan)
+Row 163: distractor_1 == distractor_2 (nan)
+Row 163: distractor_1 == distractor_3 (nan)
+Row 163: distractor_2 == distractor_3 (nan)
+Row 271: distractor_1 == distractor_2 (nan)
+Row 271: distractor_1 == distractor_3 (nan)
+Row 271: distractor_2 == distractor_3 (nan)
+Row 272: distractor_1 == distractor_2 (nan)
+Row 272: distractor_1 == distractor_3 (nan)
+Row 272: distractor_2 == distractor_3 (nan)
+Row 273: distractor_1 == distractor_2 (nan)
+Row 273: distractor_1 == distractor_3 (nan)
+Row 273: distractor_2 == distractor_3 (nan)
+Row 308: distractor_1 == distractor_2 (nan)
+Row 308: distractor_1 == distractor_3 (nan)
+Row 308: distractor_2 == distractor_3 (nan)
+Row 328: distractor_1 == distractor_2 (nan)
+Row 328: distractor_1 == distractor_3 (nan)
+Row 328: distractor_2 == distractor_3 (nan)
+Row 368: distractor_1 == distractor_2 (nan)
+Row 368: distractor_1 == distractor_3 (nan)
+Row 368: distractor_2 == distractor_3 (nan)
+Row 373: distractor_1 == distractor_2 (nan)
+Row 373: distractor_1 == distractor_3 (nan)
+Row 373: distractor_2 == distractor_3 (nan)
+Row 447: distractor_1 == distractor_2 (nan)
+Row 447: distractor_1 == distractor_3 (nan)
+Row 447: distractor_2 == distractor_3 (nan)
+Row 773: distractor_1 == distractor_2 (nan)
+Row 773: distractor_1 == distractor_3 (nan)
+Row 773: distractor_2 == distractor_3 (nan)
+Row 796: distractor_1 == distractor_2 (nan)
+Row 796: distractor_1 == distractor_3 (nan)
+Row 796: distractor_2 == distractor_3 (nan)
+Row 898: distractor_1 == distractor_2 (nan)
+Row 898: distractor_1 == distractor_3 (nan)
+Row 898: distractor_2 == distractor_3 (nan)
+
+
+================================================================================
+FILE: _unzipped/mcq_b_zs_arabic.csv
+================================================================================
+Total rows: 803
+Total columns: 22
+Column names: ['task', 'strategy', 'language', 'sample_id', 'source_proverb', 'proverb_en', 'correct_meaning', 'cultural_context_available', 'Choice_A', 'Choice_B', 'Choice_C', 'Choice_D', 'Answer', 'distractor_1', 'distractor_2', 'distractor_3', 'raw_response', 'parse', 'complete', 'len_r', 'distinct', 'quality']
+
+--- FIRST 3 ROWS ---
+Row 0:
+  task: 'b'
+  strategy: 'zs'
+  language: 'Arabic'
+  sample_id: 'MID0001'
+  source_proverb: 'آخر الحياة الموت'
+  proverb_en: ' Live life to its fullest; Tempus fugit, utere.'
+  correct_meaning: 'A wisdom that has become a proverb about not caring about threats. '
+  cultural_context_available: True
+  Choice_A: 'A wisdom that has become a proverb about not caring about threats. '
+  Choice_B: 'It is commonly interpreted as a warning that life is meaningless, so one should avoid deep commitments.'
+  Choice_C: 'This proverb is traditionally quoted to console mourners at funerals in Arab cultures.'
+  Choice_D: 'The phrase is used to encourage people to prepare for death by accumulating wealth.'
+  Answer: 'A'
+  distractor_1: 'The phrase is used to encourage people to prepare for death by accumulating wealth.'
+  distractor_2: 'This proverb is traditionally quoted to console mourners at funerals in Arab cultures.'
+  distractor_3: 'It is commonly interpreted as a warning that life is meaningless, so one should avoid deep commitments.'
+  raw_response: '{"1": ["The phrase is used to encourage people to prepare for death by accumulating wealth.", "This proverb is traditionally quoted to console mourners at funerals in Arab cultures.", "It is commonly interpreted as a warning that life is meaningless, so one should avoid deep commitments."], "2": ["This saying is used to describe someone who is constantly hiding behind others out of fear.", "It ref'
+  parse: 1.0
+  complete: 1.0
+  len_r: 1.22
+  distinct: 0.95
+  quality: 98.5
+
+Row 1:
+  task: 'b'
+  strategy: 'zs'
+  language: 'Arabic'
+  sample_id: 'MID0002'
+  source_proverb: 'أتبع من الظل.'
+  proverb_en: 'Sticks to them like a shadow.'
+  correct_meaning: 'The proverb refers to someone who follows another person more than his shadow follows him.'
+  cultural_context_available: True
+  Choice_A: 'This saying is used to describe someone who is constantly hiding behind others out of fear.'
+  Choice_B: 'The proverb refers to someone who follows another person more than his shadow follows him.'
+  Choice_C: 'The proverb is used to criticize overdependence in romantic relationships, especially in marriage advice.'
+  Choice_D: "It refers to a person who always copies others' ideas and lacks originality."
+  Answer: 'B'
+  distractor_1: 'This saying is used to describe someone who is constantly hiding behind others out of fear.'
+  distractor_2: "It refers to a person who always copies others' ideas and lacks originality."
+  distractor_3: 'The proverb is used to criticize overdependence in romantic relationships, especially in marriage advice.'
+  raw_response: '{"1": ["The phrase is used to encourage people to prepare for death by accumulating wealth.", "This proverb is traditionally quoted to console mourners at funerals in Arab cultures.", "It is commonly interpreted as a warning that life is meaningless, so one should avoid deep commitments."], "2": ["This saying is used to describe someone who is constantly hiding behind others out of fear.", "It ref'
+  parse: 1.0
+  complete: 1.0
+  len_r: 0.96
+  distinct: 0.92
+  quality: 97.6
+
+Row 2:
+  task: 'b'
+  strategy: 'zs'
+  language: 'Arabic'
+  sample_id: 'MID0003'
+  source_proverb: 'أحْسِنْ إلى الناس تستعبد قلوبهم.'
+  proverb_en: 'Kindness begets kindness.'
+  correct_meaning: "It means that kindness and good treatment are the only way to gain people's love."
+  cultural_context_available: True
+  Choice_A: "It means that kindness and good treatment are the only way to gain people's love."
+  Choice_B: 'This means that kindness is a sign of weakness and makes people take advantage of you.'
+  Choice_C: 'The proverb implies that only the powerful can afford to be kind, so kindness displays status.'
+  Choice_D: 'It suggests that by being kind, you can manipulate people into serving you secretly.'
+  Answer: 'A'
+  distractor_1: 'This means that kindness is a sign of weakness and makes people take advantage of you.'
+  distractor_2: 'It suggests that by being kind, you can manipulate people into serving you secretly.'
+  distractor_3: 'The proverb implies that only the powerful can afford to be kind, so kindness displays status.'
+  raw_response: '{"1": ["The phrase is used to encourage people to prepare for death by accumulating wealth.", "This proverb is traditionally quoted to console mourners at funerals in Arab cultures.", "It is commonly interpreted as a warning that life is meaningless, so one should avoid deep commitments."], "2": ["This saying is used to describe someone who is constantly hiding behind others out of fear.", "It ref'
+  parse: 1.0
+  complete: 1.0
+  len_r: 1.02
+  distinct: 0.91
+  quality: 97.3
+
+--- LAST 3 ROWS ---
+Row 800:
+  task: 'b'
+  strategy: 'zs'
+  language: 'Arabic'
+  sample_id: 'MID0801'
+  source_proverb: 'ولد الحنش ثعبان'
+  proverb_en: 'Blood will tell.'
+  correct_meaning: 'This proverb applies to a person who resembles his father in terms of corrupt upbringing, bad behavior, and twisted character, because the snake is a reptile that requires caution.'
+  cultural_context_available: True
+  Choice_A: 'It celebrates the idea that every person has a hidden noble lineage that eventually reveals itself in times of crisis.'
+  Choice_B: 'This means that family loyalty is so strong that even if someone is betrayed, they will still defend their blood relative.'
+  Choice_C: 'This proverb applies to a person who resembles his father in terms of corrupt upbringing, bad behavior, and twisted character, because the snake is a reptile that requires caution.'
+  Choice_D: "It suggests that a person's destiny is shaped more by education than by heredity, like a snake that can be tamed."
+  Answer: 'C'
+  distractor_1: 'This means that family loyalty is so strong that even if someone is betrayed, they will still defend their blood relative.'
+  distractor_2: "It suggests that a person's destiny is shaped more by education than by heredity, like a snake that can be tamed."
+  distractor_3: 'It celebrates the idea that every person has a hidden noble lineage that eventually reveals itself in times of crisis.'
+  raw_response: '{"1": ["This means that family loyalty is so strong that even if someone is betrayed, they will still defend their blood relative.", "It suggests that a person\'s destiny is shaped more by education than by heredity, like a snake that can be tamed.", "It celebrates the idea that every person has a hidden noble lineage that eventually reveals itself in times of crisis."], "2": ["This refers to a wis'
+  parse: 1.0
+  complete: 1.0
+  len_r: 0.71
+  distinct: 0.94
+  quality: 98.2
+
+Row 801:
+  task: 'b'
+  strategy: 'zs'
+  language: 'Arabic'
+  sample_id: 'MID0802'
+  source_proverb: 'يأكل الغلة، ويسب الملة'
+  proverb_en: 'Biting the hand that feeds you.'
+  correct_meaning: 'This proverb applies to someone who denies good deeds, disavows the one who does it, insults, and curse him.'
+  cultural_context_available: True
+  Choice_A: 'This proverb applies to someone who denies good deeds, disavows the one who does it, insults, and curse him.'
+  Choice_B: 'It describes a farmer who complains about agricultural policies while profitably selling his harvest.'
+  Choice_C: 'This refers to a wise critic who calls out systemic flaws even when benefiting from the system, seen as a form of civic duty.'
+  Choice_D: 'It implies gratitude through satire—mocking the system that supports you is a traditional way to show deep appreciation in Arab oral culture.'
+  Answer: 'A'
+  distractor_1: 'This refers to a wise critic who calls out systemic flaws even when benefiting from the system, seen as a form of civic duty.'
+  distractor_2: 'It describes a farmer who complains about agricultural policies while profitably selling his harvest.'
+  distractor_3: 'It implies gratitude through satire—mocking the system that supports you is a traditional way to show deep appreciation in Arab oral culture.'
+  raw_response: '{"1": ["This means that family loyalty is so strong that even if someone is betrayed, they will still defend their blood relative.", "It suggests that a person\'s destiny is shaped more by education than by heredity, like a snake that can be tamed.", "It celebrates the idea that every person has a hidden noble lineage that eventually reveals itself in times of crisis."], "2": ["This refers to a wis'
+  parse: 1.0
+  complete: 1.0
+  len_r: 1.05
+  distinct: 0.94
+  quality: 98.2
+
+Row 802:
+  task: 'b'
+  strategy: 'zs'
+  language: 'Arabic'
+  sample_id: 'MID0803'
+  source_proverb: 'يقتل القتيل ويمشى في جنازته'
+  proverb_en: "A wolf in sheep's clothing"
+  correct_meaning: 'This proverb applies to a person who excels in cunning, the ability to trap others, and is capable of deception and trickery.'
+  cultural_context_available: True
+  Choice_A: 'It refers to a person who accidentally causes harm and sincerely mourns the loss, showing deep remorse and moral conscience.'
+  Choice_B: 'This describes a hero who overcomes personal tragedy and honors the fallen by attending their funeral with courage and dignity.'
+  Choice_C: 'This proverb applies to a person who excels in cunning, the ability to trap others, and is capable of deception and trickery.'
+  Choice_D: 'It portrays a wise leader who sacrifices an enemy for the greater good and publicly honors them to maintain social peace.'
+  Answer: 'C'
+  distractor_1: 'This describes a hero who overcomes personal tragedy and honors the fallen by attending their funeral with courage and dignity.'
+  distractor_2: 'It refers to a person who accidentally causes harm and sincerely mourns the loss, showing deep remorse and moral conscience.'
+  distractor_3: 'It portrays a wise leader who sacrifices an enemy for the greater good and publicly honors them to maintain social peace.'
+  raw_response: '{"1": ["This means that family loyalty is so strong that even if someone is betrayed, they will still defend their blood relative.", "It suggests that a person\'s destiny is shaped more by education than by heredity, like a snake that can be tamed.", "It celebrates the idea that every person has a hidden noble lineage that eventually reveals itself in times of crisis."], "2": ["This refers to a wis'
+  parse: 1.0
+  complete: 1.0
+  len_r: 0.92
+  distinct: 0.85
+  quality: 95.5
+
+--- SUMMARY STATS ---
+Column: parse
+count    803.000000
+mean       0.996264
+std        0.061046
+min        0.000000
+25%        1.000000
+50%        1.000000
+75%        1.000000
+max        1.000000
+
+Column: complete
+count    803.000000
+mean       0.996264
+std        0.061046
+min        0.000000
+25%        1.000000
+50%        1.000000
+75%        1.000000
+max        1.000000
+
+Column: distinct
+count    803.000000
+mean       0.937073
+std        0.068711
+min        0.000000
+25%        0.920000
+50%        0.940000
+75%        0.970000
+max        1.000000
+
+Column: quality
+count    803.000000
+mean      97.850685
+std        6.101795
+min        0.000000
+25%       97.600000
+50%       98.200000
+75%       99.100000
+max      100.000000
+
+Column: len_r
+count    803.000000
+mean       0.672553
+std        0.423796
+min        0.000000
+25%        0.360000
+50%        0.590000
+75%        0.885000
+max        3.390000
+
+--- EMPTY/BLANK COUNTS ---
+distractor_1: 3
+distractor_2: 3
+distractor_3: 3
+Choice_A: 3
+Choice_B: 3
+Choice_C: 3
+Choice_D: 3
+Answer blank: 3
+
+--- ANOMALIES ---
+Duplicate rows: 0
+Dtypes:
+  task: str
+  strategy: str
+  language: str
+  sample_id: str
+  source_proverb: str
+  proverb_en: str
+  correct_meaning: str
+  cultural_context_available: bool
+  Choice_A: str
+  Choice_B: str
+  Choice_C: str
+  Choice_D: str
+  Answer: str
+  distractor_1: str
+  distractor_2: str
+  distractor_3: str
+  raw_response: str
+  parse: float64
+  complete: float64
+  len_r: float64
+  distinct: float64
+  quality: float64
+Unique sample_id: 803
+Unique language values: <StringArray>
+['Arabic']
+Length: 1, dtype: str
+Unique Answer values: <StringArray>
+['A', 'B', 'D', 'C', nan]
+Length: 5, dtype: str
+len_r min: 0.0, max: 3.39
+parse unique values: [np.float64(0.0), np.float64(1.0)]
+complete unique values: [np.float64(0.0), np.float64(1.0)]
+distinct unique values: [np.float64(0.0), np.float64(0.8), np.float64(0.82), np.float64(0.83), np.float64(0.84), np.float64(0.85), np.float64(0.86), np.float64(0.87), np.float64(0.88), np.float64(0.89), np.float64(0.9), np.float64(0.91), np.float64(0.92), np.float64(0.93), np.float64(0.94), np.float64(0.95), np.float64(0.96), np.float64(0.97), np.float64(0.98), np.float64(0.99), np.float64(1.0)]
+quality unique values: [np.float64(0.0), np.float64(94.0), np.float64(94.6), np.float64(94.9), np.float64(95.2), np.float64(95.5), np.float64(95.8), np.float64(96.1), np.float64(96.4), np.float64(96.7), np.float64(97.0), np.float64(97.3), np.float64(97.6), np.float64(97.9), np.float64(98.2), np.float64(98.5), np.float64(98.8), np.float64(99.1), np.float64(99.4), np.float64(99.7), np.float64(100.0)]
+Row 136: distractor_1 == distractor_2 (nan)
+Row 136: distractor_1 == distractor_3 (nan)
+Row 136: distractor_2 == distractor_3 (nan)
+Row 138: distractor_1 == distractor_2 (nan)
+Row 138: distractor_1 == distractor_3 (nan)
+Row 138: distractor_2 == distractor_3 (nan)
+Row 619: distractor_1 == distractor_2 (nan)
+Row 619: distractor_1 == distractor_3 (nan)
+Row 619: distractor_2 == distractor_3 (nan)
+
+
+================================================================================
+FILE: _unzipped/mcq_b_zs_english.csv
+================================================================================
+Total rows: 2278
+Total columns: 22
+Column names: ['task', 'strategy', 'language', 'sample_id', 'source_proverb', 'proverb_en', 'correct_meaning', 'cultural_context_available', 'Choice_A', 'Choice_B', 'Choice_C', 'Choice_D', 'Answer', 'distractor_1', 'distractor_2', 'distractor_3', 'raw_response', 'parse', 'complete', 'len_r', 'distinct', 'quality']
+
+--- FIRST 3 ROWS ---
+Row 0:
+  task: 'b'
+  strategy: 'zs'
+  language: 'English'
+  sample_id: '0'
+  source_proverb: 'A bird in the hand is worth two in the bush'
+  proverb_en: "The proverb 'A bird in the hand is worth two in the bush' means that it's better to hold onto something you have rather than take the risk of getting something better which may come to nothing."
+  correct_meaning: "The proverb 'A bird in the hand is worth two in the bush' means that it's better to hold onto something you have rather than take the risk of getting something better which may come to nothing."
+  cultural_context_available: True
+  Choice_A: 'One bird physically in your grasp equals the worth of two birds inside a shrub'
+  Choice_B: 'A bird you are touching is heavier in weight than two birds hidden in foliage'
+  Choice_C: 'Holding a live bird is more valuable than seeing two birds far away in a bush'
+  Choice_D: "The proverb 'A bird in the hand is worth two in the bush' means that it's better to hold onto something you have rather than take the risk of getting something better which may come to nothing."
+  Answer: 'D'
+  distractor_1: 'Holding a live bird is more valuable than seeing two birds far away in a bush'
+  distractor_2: 'A bird you are touching is heavier in weight than two birds hidden in foliage'
+  distractor_3: 'One bird physically in your grasp equals the worth of two birds inside a shrub'
+  raw_response: '{"1": ["Holding a live bird is more valuable than seeing two birds far away in a bush", "A bird you are touching is heavier in weight than two birds hidden in foliage", "One bird physically in your grasp equals the worth of two birds inside a shrub"], "2": ["Every long trip must start exactly with one footstep forward", "Walking a thousand miles requires counting each individual step from the begi'
+  parse: 1.0
+  complete: 1.0
+  len_r: 0.41
+  distinct: 0.76
+  quality: 92.8
+
+Row 1:
+  task: 'b'
+  strategy: 'zs'
+  language: 'English'
+  sample_id: '3'
+  source_proverb: 'A journey of a thousand miles begins with a single step'
+  proverb_en: "The proverb 'a journey of a thousand miles begins with a single step' puts forward the notion that, however difficult a task is, you can only complete it if you first start it."
+  correct_meaning: "The proverb 'a journey of a thousand miles begins with a single step' puts forward the notion that, however difficult a task is, you can only complete it if you first start it."
+  cultural_context_available: True
+  Choice_A: 'Every long trip must start exactly with one footstep forward'
+  Choice_B: "The proverb 'a journey of a thousand miles begins with a single step' puts forward the notion that, however difficult a task is, you can only complete it if you first start it."
+  Choice_C: 'Walking a thousand miles requires counting each individual step from the beginning'
+  Choice_D: 'A journey that spans a thousand miles can only commence if the first step is exactly one foot long'
+  Answer: 'B'
+  distractor_1: 'Every long trip must start exactly with one footstep forward'
+  distractor_2: 'Walking a thousand miles requires counting each individual step from the beginning'
+  distractor_3: 'A journey that spans a thousand miles can only commence if the first step is exactly one foot long'
+  raw_response: '{"1": ["Holding a live bird is more valuable than seeing two birds far away in a bush", "A bird you are touching is heavier in weight than two birds hidden in foliage", "One bird physically in your grasp equals the worth of two birds inside a shrub"], "2": ["Every long trip must start exactly with one footstep forward", "Walking a thousand miles requires counting each individual step from the begi'
+  parse: 1.0
+  complete: 1.0
+  len_r: 0.41
+  distinct: 0.89
+  quality: 96.7
+
+Row 2:
+  task: 'b'
+  strategy: 'zs'
+  language: 'English'
+  sample_id: '4'
+  source_proverb: 'A leopard cannot change its spots'
+  proverb_en: "The proverbial saying 'A leopard cannot change its spots' expresses the notion that things cannot change their innate nature. It is normally used to suggest that people who have done bad things will always be bad people."
+  correct_meaning: "The proverbial saying 'A leopard cannot change its spots' expresses the notion that things cannot change their innate nature. It is normally used to suggest that people who have done bad things will always be bad people."
+  cultural_context_available: True
+  Choice_A: 'Leopards are born with spots and cannot grow new ones later in life'
+  Choice_B: "It is impossible to paint or change the spots on a living leopard's skin"
+  Choice_C: "The proverbial saying 'A leopard cannot change its spots' expresses the notion that things cannot change their innate nature. It is normally used to suggest that people who have done bad things will always be bad people."
+  Choice_D: "A leopard's fur pattern is permanent and cannot be altered by washing"
+  Answer: 'C'
+  distractor_1: "A leopard's fur pattern is permanent and cannot be altered by washing"
+  distractor_2: 'Leopards are born with spots and cannot grow new ones later in life'
+  distractor_3: "It is impossible to paint or change the spots on a living leopard's skin"
+  raw_response: '{"1": ["Holding a live bird is more valuable than seeing two birds far away in a bush", "A bird you are touching is heavier in weight than two birds hidden in foliage", "One bird physically in your grasp equals the worth of two birds inside a shrub"], "2": ["Every long trip must start exactly with one footstep forward", "Walking a thousand miles requires counting each individual step from the begi'
+  parse: 1.0
+  complete: 1.0
+  len_r: 0.35
+  distinct: 0.91
+  quality: 97.3
+
+--- LAST 3 ROWS ---
+Row 2275:
+  task: 'b'
+  strategy: 'zs'
+  language: 'English'
+  sample_id: 'ENG1523'
+  source_proverb: 'A man is as old as he feels.'
+  proverb_en: 'Age is a state of mind.'
+  correct_meaning: 'Age is a state of mind.'
+  cultural_context_available: True
+  Choice_A: "Physical sensations determine a person's real age."
+  Choice_B: 'If a man feels old, he is young.'
+  Choice_C: "A man's age depends on how much he feels, not on years."
+  Choice_D: 'Age is a state of mind.'
+  Answer: 'D'
+  distractor_1: "A man's age depends on how much he feels, not on years."
+  distractor_2: 'If a man feels old, he is young.'
+  distractor_3: "Physical sensations determine a person's real age."
+  raw_response: '{"1": ["A man\'s age depends on how much he feels, not on years.", "If a man feels old, he is young.", "Physical sensations determine a person\'s real age."], "2": ["Missing something is just as useful as gaining a mile.", "A miss and a mile are equally valuable.", "Failing by a little is the same as succeeding by a mile."], "3": ["Blind horses understand nods and winks equally well.", "Giving a win'
+  parse: 1.0
+  complete: 1.0
+  len_r: 1.5
+  distinct: 0.92
+  quality: 97.6
+
+Row 2276:
+  task: 'b'
+  strategy: 'zs'
+  language: 'English'
+  sample_id: 'ENG1524'
+  source_proverb: 'A miss is as good as a mile.'
+  proverb_en: 'Near failure is still failure.'
+  correct_meaning: 'Near failure is still failure.'
+  cultural_context_available: True
+  Choice_A: 'Missing something is just as useful as gaining a mile.'
+  Choice_B: 'Near failure is still failure.'
+  Choice_C: 'A miss and a mile are equally valuable.'
+  Choice_D: 'Failing by a little is the same as succeeding by a mile.'
+  Answer: 'B'
+  distractor_1: 'Missing something is just as useful as gaining a mile.'
+  distractor_2: 'A miss and a mile are equally valuable.'
+  distractor_3: 'Failing by a little is the same as succeeding by a mile.'
+  raw_response: '{"1": ["A man\'s age depends on how much he feels, not on years.", "If a man feels old, he is young.", "Physical sensations determine a person\'s real age."], "2": ["Missing something is just as useful as gaining a mile.", "A miss and a mile are equally valuable.", "Failing by a little is the same as succeeding by a mile."], "3": ["Blind horses understand nods and winks equally well.", "Giving a win'
+  parse: 1.0
+  complete: 1.0
+  len_r: 2.0
+  distinct: 0.87
+  quality: 96.1
+
+Row 2277:
+  task: 'b'
+  strategy: 'zs'
+  language: 'English'
+  sample_id: 'ENG1525'
+  source_proverb: 'A nod is as good as a wink to a blind horse.'
+  proverb_en: 'A hint is enough for those who understand.'
+  correct_meaning: 'A hint is enough for those who understand.'
+  cultural_context_available: True
+  Choice_A: 'A hint is enough for those who understand.'
+  Choice_B: 'Horses can interpret human gestures even if they are blind.'
+  Choice_C: 'Blind horses understand nods and winks equally well.'
+  Choice_D: 'Giving a wink to a blind horse is as effective as nodding.'
+  Answer: 'A'
+  distractor_1: 'Blind horses understand nods and winks equally well.'
+  distractor_2: 'Giving a wink to a blind horse is as effective as nodding.'
+  distractor_3: 'Horses can interpret human gestures even if they are blind.'
+  raw_response: '{"1": ["A man\'s age depends on how much he feels, not on years.", "If a man feels old, he is young.", "Physical sensations determine a person\'s real age."], "2": ["Missing something is just as useful as gaining a mile.", "A miss and a mile are equally valuable.", "Failing by a little is the same as succeeding by a mile."], "3": ["Blind horses understand nods and winks equally well.", "Giving a win'
+  parse: 1.0
+  complete: 1.0
+  len_r: 1.25
+  distinct: 0.96
+  quality: 98.8
+
+--- SUMMARY STATS ---
+Column: parse
+count    2278.000000
+mean        0.986392
+std         0.115884
+min         0.000000
+25%         1.000000
+50%         1.000000
+75%         1.000000
+max         1.000000
+
+Column: complete
+count    2278.000000
+mean        0.979368
+std         0.126179
+min         0.000000
+25%         1.000000
+50%         1.000000
+75%         1.000000
+max         1.000000
+
+Column: distinct
+count    2278.000000
+mean        0.906212
+std         0.120582
+min         0.000000
+25%         0.880000
+50%         0.930000
+75%         0.960000
+max         1.000000
+
+Column: quality
+count    2278.000000
+mean       96.023047
+std        11.506881
+min         0.000000
+25%        96.400000
+50%        97.900000
+75%        98.800000
+max       100.000000
+
+Column: len_r
+count    2278.000000
+mean        0.945408
+std         0.621726
+min         0.000000
+25%         0.560000
+50%         0.790000
+75%         1.100000
+max         4.780000
+
+--- EMPTY/BLANK COUNTS ---
+distractor_1: 31
+distractor_2: 31
+distractor_3: 31
+Choice_A: 31
+Choice_B: 31
+Choice_C: 31
+Choice_D: 31
+Answer blank: 31
+
+--- ANOMALIES ---
+Duplicate rows: 0
+Dtypes:
+  task: str
+  strategy: str
+  language: str
+  sample_id: str
+  source_proverb: str
+  proverb_en: str
+  correct_meaning: str
+  cultural_context_available: bool
+  Choice_A: str
+  Choice_B: str
+  Choice_C: str
+  Choice_D: str
+  Answer: str
+  distractor_1: str
+  distractor_2: str
+  distractor_3: str
+  raw_response: str
+  parse: float64
+  complete: float64
+  len_r: float64
+  distinct: float64
+  quality: float64
+Unique sample_id: 1806
+Unique language values: <StringArray>
+['English']
+Length: 1, dtype: str
+Unique Answer values: <StringArray>
+['D', 'B', 'C', 'A', nan]
+Length: 5, dtype: str
+len_r min: 0.0, max: 4.78
+parse unique values: [np.float64(0.0), np.float64(1.0)]
+complete unique values: [np.float64(0.0), np.float64(0.3333333333333333), np.float64(0.6666666666666666), np.float64(1.0)]
+distinct unique values: [np.float64(0.0), np.float64(0.61), np.float64(0.62), np.float64(0.66), np.float64(0.67), np.float64(0.68), np.float64(0.7), np.float64(0.71), np.float64(0.72), np.float64(0.73), np.float64(0.74), np.float64(0.75), np.float64(0.76), np.float64(0.77), np.float64(0.78), np.float64(0.79), np.float64(0.8), np.float64(0.81), np.float64(0.82), np.float64(0.83), np.float64(0.84), np.float64(0.85), np.float64(0.86), np.float64(0.87), np.float64(0.88), np.float64(0.89), np.float64(0.9), np.float64(0.91), np.float64(0.92), np.float64(0.93), np.float64(0.94), np.float64(0.95), np.float64(0.96), np.float64(0.97), np.float64(0.98), np.float64(0.99), np.float64(1.0)]
+quality unique values: [np.float64(0.0), np.float64(71.3), np.float64(75.2), np.float64(76.1), np.float64(80.0), np.float64(82.2), np.float64(84.6), np.float64(85.5), np.float64(86.1), np.float64(86.7), np.float64(87.3), np.float64(87.6), np.float64(87.9), np.float64(88.2), np.float64(88.3), np.float64(88.5), np.float64(88.6), np.float64(88.8), np.float64(89.1), np.float64(89.8), np.float64(90.0), np.float64(90.1), np.float64(90.4), np.float64(91.0), np.float64(91.3), np.float64(91.6), np.float64(91.9), np.float64(92.2), np.float64(92.5), np.float64(92.8), np.float64(93.1), np.float64(93.4), np.float64(93.7), np.float64(94.0), np.float64(94.3), np.float64(94.6), np.float64(94.9), np.float64(95.2), np.float64(95.5), np.float64(95.8), np.float64(96.1), np.float64(96.4), np.float64(96.7), np.float64(97.0), np.float64(97.3), np.float64(97.6), np.float64(97.9), np.float64(98.2), np.float64(98.5), np.float64(98.8), np.float64(99.1), np.float64(99.4), np.float64(99.7), np.float64(100.0)]
+Row 166: distractor_1 == distractor_2 (nan)
+Row 166: distractor_1 == distractor_3 (nan)
+Row 166: distractor_2 == distractor_3 (nan)
+Row 167: distractor_1 == distractor_2 (nan)
+Row 167: distractor_1 == distractor_3 (nan)
+Row 167: distractor_2 == distractor_3 (nan)
+Row 168: distractor_1 == distractor_2 (nan)
+Row 168: distractor_1 == distractor_3 (nan)
+Row 168: distractor_2 == distractor_3 (nan)
+Row 342: distractor_1 == distractor_2 (nan)
+Row 342: distractor_1 == distractor_3 (nan)
+Row 342: distractor_2 == distractor_3 (nan)
+Row 357: distractor_1 == distractor_2 (nan)
+Row 357: distractor_1 == distractor_3 (nan)
+Row 357: distractor_2 == distractor_3 (nan)
+Row 383: distractor_1 == distractor_2 (nan)
+Row 383: distractor_1 == distractor_3 (nan)
+Row 383: distractor_2 == distractor_3 (nan)
+Row 418: distractor_1 == distractor_2 (nan)
+Row 418: distractor_1 == distractor_3 (nan)
+Row 418: distractor_2 == distractor_3 (nan)
+Row 436: distractor_1 == distractor_2 (nan)
+Row 436: distractor_1 == distractor_3 (nan)
+Row 436: distractor_2 == distractor_3 (nan)
+Row 463: distractor_1 == distractor_2 (nan)
+Row 463: distractor_1 == distractor_3 (nan)
+Row 463: distractor_2 == distractor_3 (nan)
+Row 513: distractor_1 == distractor_2 (nan)
+Row 513: distractor_1 == distractor_3 (nan)
+Row 513: distractor_2 == distractor_3 (nan)
+Row 901: distractor_1 == distractor_2 (nan)
+Row 901: distractor_1 == distractor_3 (nan)
+Row 901: distractor_2 == distractor_3 (nan)
+Row 912: distractor_1 == distractor_2 (nan)
+Row 912: distractor_1 == distractor_3 (nan)
+Row 912: distractor_2 == distractor_3 (nan)
+Row 913: distractor_1 == distractor_2 (nan)
+Row 913: distractor_1 == distractor_3 (nan)
+Row 913: distractor_2 == distractor_3 (nan)
+
+
+================================================================================
+FILE: _unzipped/mcq_b_zs_french.csv
+================================================================================
+Total rows: 160
+Total columns: 22
+Column names: ['task', 'strategy', 'language', 'sample_id', 'source_proverb', 'proverb_en', 'correct_meaning', 'cultural_context_available', 'Choice_A', 'Choice_B', 'Choice_C', 'Choice_D', 'Answer', 'distractor_1', 'distractor_2', 'distractor_3', 'raw_response', 'parse', 'complete', 'len_r', 'distinct', 'quality']
+
+--- FIRST 3 ROWS ---
+Row 0:
+  task: 'b'
+  strategy: 'zs'
+  language: 'French'
+  sample_id: 'MID0001'
+  source_proverb: 'L’habit ne fait pas le moine'
+  proverb_en: 'The vestment does not make the monk'
+  correct_meaning: 'Just because a monk is wearing a renunciate’s robe, it doesn’t mean that the monk is sincere in his intentions. The phrase implies that appearances can sometimes mislead one’s better judgment. The English equivalent would be, “Don’t judge a book by its cover.”'
+  cultural_context_available: True
+  Choice_A: 'One should trust outward appearances as a reliable guide to character and status.'
+  Choice_B: 'Just because a monk is wearing a renunciate’s robe, it doesn’t mean that the monk is sincere in his intentions. The phrase implies that appearances can sometimes mislead one’s better judgment. The English equivalent would be, “Don’t judge a book by its cover.”'
+  Choice_C: 'Monks are always judged accurately by their clothing, which symbolizes their vows.'
+  Choice_D: 'Appearances reflect inner virtue, so proper attire signifies moral integrity.'
+  Answer: 'B'
+  distractor_1: 'Appearances reflect inner virtue, so proper attire signifies moral integrity.'
+  distractor_2: 'Monks are always judged accurately by their clothing, which symbolizes their vows.'
+  distractor_3: 'One should trust outward appearances as a reliable guide to character and status.'
+  raw_response: '{"1": ["Appearances reflect inner virtue, so proper attire signifies moral integrity.", "Monks are always judged accurately by their clothing, which symbolizes their vows.", "One should trust outward appearances as a reliable guide to character and status."], "2": ["Only the elderly have the right to give advice, as they have seen the most.", "Living longer guarantees happiness, so longevity is th'
+  parse: 1.0
+  complete: 1.0
+  len_r: 0.27
+  distinct: 0.98
+  quality: 99.4
+
+Row 1:
+  task: 'b'
+  strategy: 'zs'
+  language: 'French'
+  sample_id: 'MID0002'
+  source_proverb: 'Qui vivra verra'
+  proverb_en: 'He/she who lives, shall see.'
+  correct_meaning: 'Something is unknown now, but will become clear in the future; the only way to find out is to wait and see. Typically used when an outcome is unpredictable or uncertain, like in the English phrase, “The future will tell.”'
+  cultural_context_available: True
+  Choice_A: 'Something is unknown now, but will become clear in the future; the only way to find out is to wait and see. Typically used when an outcome is unpredictable or uncertain, like in the English phrase, “The future will tell.”'
+  Choice_B: 'Those who survive will earn rewards, implying survival justifies any action.'
+  Choice_C: 'Living longer guarantees happiness, so longevity is the ultimate goal.'
+  Choice_D: 'Only the elderly have the right to give advice, as they have seen the most.'
+  Answer: 'A'
+  distractor_1: 'Only the elderly have the right to give advice, as they have seen the most.'
+  distractor_2: 'Living longer guarantees happiness, so longevity is the ultimate goal.'
+  distractor_3: 'Those who survive will earn rewards, implying survival justifies any action.'
+  raw_response: '{"1": ["Appearances reflect inner virtue, so proper attire signifies moral integrity.", "Monks are always judged accurately by their clothing, which symbolizes their vows.", "One should trust outward appearances as a reliable guide to character and status."], "2": ["Only the elderly have the right to give advice, as they have seen the most.", "Living longer guarantees happiness, so longevity is th'
+  parse: 1.0
+  complete: 1.0
+  len_r: 0.3
+  distinct: 0.98
+  quality: 99.4
+
+Row 2:
+  task: 'b'
+  strategy: 'zs'
+  language: 'French'
+  sample_id: 'MID0003'
+  source_proverb: 'Chacun voit midi à sa porte'
+  proverb_en: 'Each person sees noon at his/her door.'
+  correct_meaning: 'Each person prioritizes their own interests, and their unique perspective on life guides how they interact with others, set goals, work and live. This saying can also refer to a person’s selfishness...'
+  cultural_context_available: True
+  Choice_A: 'Each person prioritizes their own interests, and their unique perspective on life guides how they interact with others, set goals, work and live. This saying can also refer to a person’s selfishness...'
+  Choice_B: 'Time should be set by local landmarks rather than clocks.'
+  Choice_C: 'Noon is the most important meal, so everyone should eat at midday.'
+  Choice_D: 'Each person experiences hunger at noon, proving shared human needs.'
+  Answer: 'A'
+  distractor_1: 'Noon is the most important meal, so everyone should eat at midday.'
+  distractor_2: 'Time should be set by local landmarks rather than clocks.'
+  distractor_3: 'Each person experiences hunger at noon, proving shared human needs.'
+  raw_response: '{"1": ["Appearances reflect inner virtue, so proper attire signifies moral integrity.", "Monks are always judged accurately by their clothing, which symbolizes their vows.", "One should trust outward appearances as a reliable guide to character and status."], "2": ["Only the elderly have the right to give advice, as they have seen the most.", "Living longer guarantees happiness, so longevity is th'
+  parse: 1.0
+  complete: 1.0
+  len_r: 0.33
+  distinct: 0.97
+  quality: 99.1
+
+--- LAST 3 ROWS ---
+Row 157:
+  task: 'b'
+  strategy: 'zs'
+  language: 'French'
+  sample_id: 'MID0158'
+  source_proverb: 'Les grands esprits se rencontrent'
+  proverb_en: 'Great minds think alike'
+  correct_meaning: '-'
+  cultural_context_available: True
+  Choice_A: '-'
+  Choice_B: 'The phrase celebrates conformity in French academia, where original thinking is discouraged.'
+  Choice_C: 'This is used sarcastically to mock people who copy others, implying intellectual laziness.'
+  Choice_D: 'It suggests that true genius is always isolated and that agreement among thinkers diminishes their brilliance.'
+  Answer: 'A'
+  distractor_1: 'This is used sarcastically to mock people who copy others, implying intellectual laziness.'
+  distractor_2: 'The phrase celebrates conformity in French academia, where original thinking is discouraged.'
+  distractor_3: 'It suggests that true genius is always isolated and that agreement among thinkers diminishes their brilliance.'
+  raw_response: '{"1": ["Success is guaranteed as long as one follows societal expectations and avoids personal ambition.", "This phrase is used to discourage individual initiative by implying that collective effort is overrated.", "The expression suggests that sheer determination can overcome structural inequality, which is not valued in French cultural discourse."], "2": ["The saying reflects a cultural tendency'
+  parse: 1.0
+  complete: 1.0
+  len_r: 13.67
+  distinct: 0.96
+  quality: 98.8
+
+Row 158:
+  task: 'b'
+  strategy: 'zs'
+  language: 'French'
+  sample_id: 'MID0159'
+  source_proverb: 'Même les meilleures choses ont une fin'
+  proverb_en: 'Even the best things come to an end'
+  correct_meaning: '-'
+  cultural_context_available: True
+  Choice_A: 'It reflects a pessimistic view that happiness is inherently fleeting and not worth pursuing.'
+  Choice_B: 'This saying encourages giving up on long-term relationships because longevity proves incompatibility.'
+  Choice_C: '-'
+  Choice_D: 'The proverb is used to justify hedonism, implying one should indulge because nothing lasts.'
+  Answer: 'C'
+  distractor_1: 'The proverb is used to justify hedonism, implying one should indulge because nothing lasts.'
+  distractor_2: 'It reflects a pessimistic view that happiness is inherently fleeting and not worth pursuing.'
+  distractor_3: 'This saying encourages giving up on long-term relationships because longevity proves incompatibility.'
+  raw_response: '{"1": ["Success is guaranteed as long as one follows societal expectations and avoids personal ambition.", "This phrase is used to discourage individual initiative by implying that collective effort is overrated.", "The expression suggests that sheer determination can overcome structural inequality, which is not valued in French cultural discourse."], "2": ["The saying reflects a cultural tendency'
+  parse: 1.0
+  complete: 1.0
+  len_r: 13.33
+  distinct: 0.97
+  quality: 99.1
+
+Row 159:
+  task: 'b'
+  strategy: 'zs'
+  language: 'French'
+  sample_id: 'MID0160'
+  source_proverb: 'Bon à tout, bon à rien'
+  proverb_en: 'Jack of all trades, master of none'
+  correct_meaning: '-'
+  cultural_context_available: True
+  Choice_A: 'This proverb implies that versatility is the hallmark of true expertise in French education.'
+  Choice_B: 'The expression praises generalists in French business culture, where specialization is seen as limiting.'
+  Choice_C: '-'
+  Choice_D: 'It is commonly used to insult artisans, suggesting skilled labor is inferior to broad knowledge.'
+  Answer: 'C'
+  distractor_1: 'The expression praises generalists in French business culture, where specialization is seen as limiting.'
+  distractor_2: 'It is commonly used to insult artisans, suggesting skilled labor is inferior to broad knowledge.'
+  distractor_3: 'This proverb implies that versatility is the hallmark of true expertise in French education.'
+  raw_response: '{"1": ["Success is guaranteed as long as one follows societal expectations and avoids personal ambition.", "This phrase is used to discourage individual initiative by implying that collective effort is overrated.", "The expression suggests that sheer determination can overcome structural inequality, which is not valued in French cultural discourse."], "2": ["The saying reflects a cultural tendency'
+  parse: 1.0
+  complete: 1.0
+  len_r: 14.33
+  distinct: 0.92
+  quality: 97.6
+
+--- SUMMARY STATS ---
+Column: parse
+count    160.0
+mean       1.0
+std        0.0
+min        1.0
+25%        1.0
+50%        1.0
+75%        1.0
+max        1.0
+
+Column: complete
+count    160.0
+mean       1.0
+std        0.0
+min        1.0
+25%        1.0
+50%        1.0
+75%        1.0
+max        1.0
+
+Column: distinct
+count    160.000000
+mean       0.955125
+std        0.032775
+min        0.870000
+25%        0.930000
+50%        0.960000
+75%        0.980000
+max        1.000000
+
+Column: quality
+count    160.000000
+mean      98.653750
+std        0.983249
+min       96.100000
+25%       97.900000
+50%       98.800000
+75%       99.400000
+max      100.000000
+
+Column: len_r
+count    160.000000
+mean       1.682312
+std        3.030533
+min        0.230000
+25%        0.670000
+50%        0.980000
+75%        1.385000
+max       19.330000
+
+--- EMPTY/BLANK COUNTS ---
+distractor_1: 0
+distractor_2: 0
+distractor_3: 0
+Choice_A: 0
+Choice_B: 0
+Choice_C: 0
+Choice_D: 0
+Answer blank: 0
+
+--- ANOMALIES ---
+Duplicate rows: 0
+Dtypes:
+  task: str
+  strategy: str
+  language: str
+  sample_id: str
+  source_proverb: str
+  proverb_en: str
+  correct_meaning: str
+  cultural_context_available: bool
+  Choice_A: str
+  Choice_B: str
+  Choice_C: str
+  Choice_D: str
+  Answer: str
+  distractor_1: str
+  distractor_2: str
+  distractor_3: str
+  raw_response: str
+  parse: float64
+  complete: float64
+  len_r: float64
+  distinct: float64
+  quality: float64
+Unique sample_id: 160
+Unique language values: <StringArray>
+['French']
+Length: 1, dtype: str
+Unique Answer values: <StringArray>
+['B', 'A', 'D', 'C']
+Length: 4, dtype: str
+len_r min: 0.23, max: 19.33
+parse unique values: [np.float64(1.0)]
+complete unique values: [np.float64(1.0)]
+distinct unique values: [np.float64(0.87), np.float64(0.88), np.float64(0.89), np.float64(0.9), np.float64(0.91), np.float64(0.92), np.float64(0.93), np.float64(0.94), np.float64(0.95), np.float64(0.96), np.float64(0.97), np.float64(0.98), np.float64(0.99), np.float64(1.0)]
+quality unique values: [np.float64(96.1), np.float64(96.4), np.float64(96.7), np.float64(97.0), np.float64(97.3), np.float64(97.6), np.float64(97.9), np.float64(98.2), np.float64(98.5), np.float64(98.8), np.float64(99.1), np.float64(99.4), np.float64(99.7), np.float64(100.0)]
+No duplicate distractors found in first 1000 rows
+
+
+================================================================================
+FILE: _unzipped/mcq_b_zs_spanish.csv
+================================================================================
+Total rows: 62
+Total columns: 22
+Column names: ['task', 'strategy', 'language', 'sample_id', 'source_proverb', 'proverb_en', 'correct_meaning', 'cultural_context_available', 'Choice_A', 'Choice_B', 'Choice_C', 'Choice_D', 'Answer', 'distractor_1', 'distractor_2', 'distractor_3', 'raw_response', 'parse', 'complete', 'len_r', 'distinct', 'quality']
+
+--- FIRST 3 ROWS ---
+Row 0:
+  task: 'b'
+  strategy: 'zs'
+  language: 'Spanish'
+  sample_id: 'MID0001'
+  source_proverb: 'Al mal tiempo, buena cara'
+  proverb_en: 'To bad weather, good face'
+  correct_meaning: 'Face difficulties with a positive attitude; maintain composure in tough times.'
+  cultural_context_available: True
+  Choice_A: 'One should always smile to appease angry gods during storms.'
+  Choice_B: 'Face difficulties with a positive attitude; maintain composure in tough times.'
+  Choice_C: 'Maintaining a cheerful expression brings good weather and fortune.'
+  Choice_D: 'Good manners in public ensure favorable natural conditions.'
+  Answer: 'B'
+  distractor_1: 'Maintaining a cheerful expression brings good weather and fortune.'
+  distractor_2: 'One should always smile to appease angry gods during storms.'
+  distractor_3: 'Good manners in public ensure favorable natural conditions.'
+  raw_response: '{"1": ["Maintaining a cheerful expression brings good weather and fortune.", "One should always smile to appease angry gods during storms.", "Good manners in public ensure favorable natural conditions."], "2": ["A strong foundation guarantees success in woodworking.", "Parents should physically discipline children to shape their character.", "The quality of firewood determines the warmth of the ho'
+  parse: 1.0
+  complete: 1.0
+  len_r: 0.82
+  distinct: 0.98
+  quality: 99.4
+
+Row 1:
+  task: 'b'
+  strategy: 'zs'
+  language: 'Spanish'
+  sample_id: 'MID0002'
+  source_proverb: 'De tal palo, tal astilla'
+  proverb_en: 'From such a stick, such a chip'
+  correct_meaning: 'Children often resemble their parents in character/behavior (like father, like son).'
+  cultural_context_available: True
+  Choice_A: 'A strong foundation guarantees success in woodworking.'
+  Choice_B: 'The quality of firewood determines the warmth of the home.'
+  Choice_C: 'Parents should physically discipline children to shape their character.'
+  Choice_D: 'Children often resemble their parents in character/behavior (like father, like son).'
+  Answer: 'D'
+  distractor_1: 'A strong foundation guarantees success in woodworking.'
+  distractor_2: 'Parents should physically discipline children to shape their character.'
+  distractor_3: 'The quality of firewood determines the warmth of the home.'
+  raw_response: '{"1": ["Maintaining a cheerful expression brings good weather and fortune.", "One should always smile to appease angry gods during storms.", "Good manners in public ensure favorable natural conditions."], "2": ["A strong foundation guarantees success in woodworking.", "Parents should physically discipline children to shape their character.", "The quality of firewood determines the warmth of the ho'
+  parse: 1.0
+  complete: 1.0
+  len_r: 0.79
+  distinct: 1.0
+  quality: 100.0
+
+Row 2:
+  task: 'b'
+  strategy: 'zs'
+  language: 'Spanish'
+  sample_id: 'MID0003'
+  source_proverb: 'Dime con quién andas, y te diré quién eres'
+  proverb_en: 'Tell me with whom you walk, and I’ll tell you who you are'
+  correct_meaning: 'You are judged by the company you keep.'
+  cultural_context_available: True
+  Choice_A: 'You are judged by the company you keep.'
+  Choice_B: 'Travel companions determine your location, not your moral character.'
+  Choice_C: 'Social status is earned through noble ancestors, not current friends.'
+  Choice_D: 'Marriage alliances reflect political strategy, not personal identity.'
+  Answer: 'A'
+  distractor_1: 'Travel companions determine your location, not your moral character.'
+  distractor_2: 'Social status is earned through noble ancestors, not current friends.'
+  distractor_3: 'Marriage alliances reflect political strategy, not personal identity.'
+  raw_response: '{"1": ["Maintaining a cheerful expression brings good weather and fortune.", "One should always smile to appease angry gods during storms.", "Good manners in public ensure favorable natural conditions."], "2": ["A strong foundation guarantees success in woodworking.", "Parents should physically discipline children to shape their character.", "The quality of firewood determines the warmth of the ho'
+  parse: 1.0
+  complete: 1.0
+  len_r: 1.12
+  distinct: 0.94
+  quality: 98.2
+
+--- LAST 3 ROWS ---
+Row 59:
+  task: 'b'
+  strategy: 'zs'
+  language: 'Spanish'
+  sample_id: 'MID0334'
+  source_proverb: 'El que da primero da dos veces'
+  proverb_en: 'He who gives first gives twice'
+  correct_meaning: 'Being the first to offer help or generosity creates double the benefit or goodwill.'
+  cultural_context_available: True
+  Choice_A: 'Those who give first are often forgotten, making their gift given in vain.'
+  Choice_B: 'Being the first to offer help or generosity creates double the benefit or goodwill.'
+  Choice_C: 'Generosity should always be timed after others act, to avoid being exploited.'
+  Choice_D: 'Giving first ensures you will be asked to give again, doubling the burden.'
+  Answer: 'B'
+  distractor_1: 'Giving first ensures you will be asked to give again, doubling the burden.'
+  distractor_2: 'Generosity should always be timed after others act, to avoid being exploited.'
+  distractor_3: 'Those who give first are often forgotten, making their gift given in vain.'
+  raw_response: '{"1": ["Ignoring people who speak against tradition shows wisdom and respect for elders.", "Deafness is a virtue when dealing with social change or new ideas.", "Foolish words should be met with silence as a form of polite approval."], "2": ["Every person will eventually receive a celebration, no matter their behavior.", "Good fortune comes to everyone in due time, regardless of merit.", "Patience'
+  parse: 1.0
+  complete: 1.0
+  len_r: 0.9
+  distinct: 0.94
+  quality: 98.2
+
+Row 60:
+  task: 'b'
+  strategy: 'zs'
+  language: 'Spanish'
+  sample_id: 'MID0336'
+  source_proverb: 'El que ríe último ríe mejor'
+  proverb_en: 'He who laughs last laughs best'
+  correct_meaning: "The final outcome determines true success — don't celebrate too early."
+  cultural_context_available: True
+  Choice_A: 'True joy comes only after enduring great suffering, not before.'
+  Choice_B: 'Those who avoid celebrating small victories are more likely to achieve greatness.'
+  Choice_C: "Laughter at the end of one's life erases all previous sorrows."
+  Choice_D: "The final outcome determines true success — don't celebrate too early."
+  Answer: 'D'
+  distractor_1: 'True joy comes only after enduring great suffering, not before.'
+  distractor_2: "Laughter at the end of one's life erases all previous sorrows."
+  distractor_3: 'Those who avoid celebrating small victories are more likely to achieve greatness.'
+  raw_response: '{"1": ["True joy comes only after enduring great suffering, not before.", "Laughter at the end of one\'s life erases all previous sorrows.", "Those who avoid celebrating small victories are more likely to achieve greatness."], "2": ["Leadership is naturally achieved by those born with disabilities.", "In isolated communities, physical imperfections are celebrated as divine signs.", "A person who ha'
+  parse: 1.0
+  complete: 1.0
+  len_r: 1.0
+  distinct: 1.0
+  quality: 100.0
+
+Row 61:
+  task: 'b'
+  strategy: 'zs'
+  language: 'Spanish'
+  sample_id: 'MID0337'
+  source_proverb: 'En tierra de ciegos el tuerto es rey'
+  proverb_en: 'In the land of the blind the one-eyed man is king'
+  correct_meaning: 'In a group lacking skill or knowledge, even mediocre ability stands out as exceptional.'
+  cultural_context_available: True
+  Choice_A: 'In isolated communities, physical imperfections are celebrated as divine signs.'
+  Choice_B: 'A person who has lost an eye gains wisdom and moral authority over others.'
+  Choice_C: 'Leadership is naturally achieved by those born with disabilities.'
+  Choice_D: 'In a group lacking skill or knowledge, even mediocre ability stands out as exceptional.'
+  Answer: 'D'
+  distractor_1: 'Leadership is naturally achieved by those born with disabilities.'
+  distractor_2: 'In isolated communities, physical imperfections are celebrated as divine signs.'
+  distractor_3: 'A person who has lost an eye gains wisdom and moral authority over others.'
+  raw_response: '{"1": ["True joy comes only after enduring great suffering, not before.", "Laughter at the end of one\'s life erases all previous sorrows.", "Those who avoid celebrating small victories are more likely to achieve greatness."], "2": ["Leadership is naturally achieved by those born with disabilities.", "In isolated communities, physical imperfections are celebrated as divine signs.", "A person who ha'
+  parse: 1.0
+  complete: 1.0
+  len_r: 0.79
+  distinct: 1.0
+  quality: 100.0
+
+--- SUMMARY STATS ---
+Column: parse
+count    62.0
+mean      1.0
+std       0.0
+min       1.0
+25%       1.0
+50%       1.0
+75%       1.0
+max       1.0
+
+Column: complete
+count    62.000000
+mean      0.983871
+std       0.072112
+min       0.666667
+25%       1.000000
+50%       1.000000
+75%       1.000000
+max       1.000000
+
+Column: distinct
+count    62.000000
+mean      0.971613
+std       0.025556
+min       0.910000
+25%       0.960000
+50%       0.980000
+75%       1.000000
+max       1.000000
+
+Column: quality
+count     62.000000
+mean      98.664516
+std        2.173770
+min       89.100000
+25%       98.500000
+50%       99.400000
+75%       99.625000
+max      100.000000
+
+Column: len_r
+count    62.000000
+mean      1.142097
+std       0.651483
+min       0.430000
+25%       0.792500
+50%       0.945000
+75%       1.177500
+max       3.830000
+
+--- EMPTY/BLANK COUNTS ---
+distractor_1: 0
+distractor_2: 0
+distractor_3: 0
+Choice_A: 0
+Choice_B: 0
+Choice_C: 0
+Choice_D: 0
+Answer blank: 0
+
+--- ANOMALIES ---
+Duplicate rows: 0
+Dtypes:
+  task: str
+  strategy: str
+  language: str
+  sample_id: str
+  source_proverb: str
+  proverb_en: str
+  correct_meaning: str
+  cultural_context_available: bool
+  Choice_A: str
+  Choice_B: str
+  Choice_C: str
+  Choice_D: str
+  Answer: str
+  distractor_1: str
+  distractor_2: str
+  distractor_3: str
+  raw_response: str
+  parse: float64
+  complete: float64
+  len_r: float64
+  distinct: float64
+  quality: float64
+Unique sample_id: 62
+Unique language values: <StringArray>
+['Spanish']
+Length: 1, dtype: str
+Unique Answer values: <StringArray>
+['B', 'D', 'A', 'C']
+Length: 4, dtype: str
+len_r min: 0.43, max: 3.83
+parse unique values: [np.float64(1.0)]
+complete unique values: [np.float64(0.6666666666666666), np.float64(1.0)]
+distinct unique values: [np.float64(0.91), np.float64(0.93), np.float64(0.94), np.float64(0.95), np.float64(0.96), np.float64(0.97), np.float64(0.98), np.float64(0.99), np.float64(1.0)]
+quality unique values: [np.float64(89.1), np.float64(90.0), np.float64(97.3), np.float64(97.9), np.float64(98.2), np.float64(98.5), np.float64(98.8), np.float64(99.1), np.float64(99.4), np.float64(99.7), np.float64(100.0)]
+No duplicate distractors found in first 1000 rows
+
+
+================================================================================
+FILE: _unzipped/mcq_b_zs_german.csv
+================================================================================
+Total rows: 141
+Total columns: 22
+Column names: ['task', 'strategy', 'language', 'sample_id', 'source_proverb', 'proverb_en', 'correct_meaning', 'cultural_context_available', 'Choice_A', 'Choice_B', 'Choice_C', 'Choice_D', 'Answer', 'distractor_1', 'distractor_2', 'distractor_3', 'raw_response', 'parse', 'complete', 'len_r', 'distinct', 'quality']
+
+--- FIRST 3 ROWS ---
+Row 0:
+  task: 'b'
+  strategy: 'zs'
+  language: 'German'
+  sample_id: 'MID0001'
+  source_proverb: 'Aller Anfang ist schwer'
+  proverb_en: 'All beginnings are difficult'
+  correct_meaning: 'Starting something new is always the hardest part — perseverance is key.'
+  cultural_context_available: True
+  Choice_A: "Germans believe that if the start is too hard, it's wise to wait for supernatural signs before continuing."
+  Choice_B: 'Starting something new is always the hardest part — perseverance is key.'
+  Choice_C: 'Starting quickly without preparation shows true courage and is admired in German culture.'
+  Choice_D: 'Difficulty at the beginning of a task is seen as a sign that one should choose a different path.'
+  Answer: 'B'
+  distractor_1: 'Starting quickly without preparation shows true courage and is admired in German culture.'
+  distractor_2: 'Difficulty at the beginning of a task is seen as a sign that one should choose a different path.'
+  distractor_3: "Germans believe that if the start is too hard, it's wise to wait for supernatural signs before continuing."
+  raw_response: '{"1": ["Starting quickly without preparation shows true courage and is admired in German culture.", "Difficulty at the beginning of a task is seen as a sign that one should choose a different path.", "Germans believe that if the start is too hard, it\'s wise to wait for supernatural signs before continuing."], "2": ["The apple not falling far from the tree means that siblings always compete for the'
+  parse: 1.0
+  complete: 1.0
+  len_r: 1.39
+  distinct: 0.95
+  quality: 98.5
+
+Row 1:
+  task: 'b'
+  strategy: 'zs'
+  language: 'German'
+  sample_id: 'MID0002'
+  source_proverb: 'Der Apfel fällt nicht weit vom Stamm'
+  proverb_en: 'The apple does not fall far from the tree'
+  correct_meaning: 'Children often resemble their parents in character, behavior, or talents.'
+  cultural_context_available: True
+  Choice_A: 'The apple not falling far from the tree means that siblings always compete for the same resources.'
+  Choice_B: 'It suggests that people who stay close to their hometown are morally superior to those who move away.'
+  Choice_C: 'Children often resemble their parents in character, behavior, or talents.'
+  Choice_D: 'This proverb is used to justify strict inheritance laws favoring eldest sons in German tradition.'
+  Answer: 'C'
+  distractor_1: 'The apple not falling far from the tree means that siblings always compete for the same resources.'
+  distractor_2: 'This proverb is used to justify strict inheritance laws favoring eldest sons in German tradition.'
+  distractor_3: 'It suggests that people who stay close to their hometown are morally superior to those who move away.'
+  raw_response: '{"1": ["Starting quickly without preparation shows true courage and is admired in German culture.", "Difficulty at the beginning of a task is seen as a sign that one should choose a different path.", "Germans believe that if the start is too hard, it\'s wise to wait for supernatural signs before continuing."], "2": ["The apple not falling far from the tree means that siblings always compete for the'
+  parse: 1.0
+  complete: 1.0
+  len_r: 1.67
+  distinct: 0.98
+  quality: 99.4
+
+Row 2:
+  task: 'b'
+  strategy: 'zs'
+  language: 'German'
+  sample_id: 'MID0003'
+  source_proverb: 'Besser spät als nie'
+  proverb_en: 'Better late than never'
+  correct_meaning: "It's better to do something (even delayed) than never do it at all."
+  cultural_context_available: True
+  Choice_A: 'This phrase encourages delaying actions to gather more resources and prestige.'
+  Choice_B: "It's better to do something (even delayed) than never do it at all."
+  Choice_C: 'Germans use this to justify last-minute decision-making as a form of strategic patience.'
+  Choice_D: 'Being late is actually preferred in German social settings to show independence.'
+  Answer: 'B'
+  distractor_1: 'Being late is actually preferred in German social settings to show independence.'
+  distractor_2: 'This phrase encourages delaying actions to gather more resources and prestige.'
+  distractor_3: 'Germans use this to justify last-minute decision-making as a form of strategic patience.'
+  raw_response: '{"1": ["Starting quickly without preparation shows true courage and is admired in German culture.", "Difficulty at the beginning of a task is seen as a sign that one should choose a different path.", "Germans believe that if the start is too hard, it\'s wise to wait for supernatural signs before continuing."], "2": ["The apple not falling far from the tree means that siblings always compete for the'
+  parse: 1.0
+  complete: 1.0
+  len_r: 0.92
+  distinct: 0.94
+  quality: 98.2
+
+--- LAST 3 ROWS ---
+Row 138:
+  task: 'b'
+  strategy: 'zs'
+  language: 'German'
+  sample_id: 'MID0764'
+  source_proverb: 'Du siehst den Wald lauter Bäumen nicht'
+  proverb_en: 'You do not see the forest for the trees'
+  correct_meaning: 'People must look at the bigger picture instead of focusing on just one small aspect.'
+  cultural_context_available: True
+  Choice_A: 'Woodworkers see individual trees as more valuable than entire forests.'
+  Choice_B: 'Forests are illusions created by too many trees standing together.'
+  Choice_C: 'Tree experts often miss ecological dangers facing forests.'
+  Choice_D: 'People must look at the bigger picture instead of focusing on just one small aspect.'
+  Answer: 'D'
+  distractor_1: 'Forests are illusions created by too many trees standing together.'
+  distractor_2: 'Tree experts often miss ecological dangers facing forests.'
+  distractor_3: 'Woodworkers see individual trees as more valuable than entire forests.'
+  raw_response: '{"1": ["Speaking negatively attracts evil spirits, so silence wards them off.", "Painting images of devils serves as protection if done ritually.", "Mentioning problems openly helps dissolve their power over you."], "2": ["Sausages are eternal symbols of German resilience and continuity.", "Endings are always double when food is involved, especially meats.", "Every conclusion contains two beginnin'
+  parse: 1.0
+  complete: 1.0
+  len_r: 0.62
+  distinct: 0.96
+  quality: 98.8
+
+Row 139:
+  task: 'b'
+  strategy: 'zs'
+  language: 'German'
+  sample_id: 'MID0765'
+  source_proverb: 'Kümmere dich nicht um ungelegte Eier'
+  proverb_en: "Don't count your chickens before they hatch"
+  correct_meaning: 'Remain realistic about expectations rather than hoping for something that might never come to fruition.'
+  cultural_context_available: True
+  Choice_A: "Unlaid eggs bring good luck if kept under one's pillow."
+  Choice_B: 'Remain realistic about expectations rather than hoping for something that might never come to fruition.'
+  Choice_C: 'Eggs must be named at birth to ensure they will hatch successfully.'
+  Choice_D: 'Chicken counting is only accurate after sunset, not before.'
+  Answer: 'B'
+  distractor_1: "Unlaid eggs bring good luck if kept under one's pillow."
+  distractor_2: 'Chicken counting is only accurate after sunset, not before.'
+  distractor_3: 'Eggs must be named at birth to ensure they will hatch successfully.'
+  raw_response: '{"1": ["Speaking negatively attracts evil spirits, so silence wards them off.", "Painting images of devils serves as protection if done ritually.", "Mentioning problems openly helps dissolve their power over you."], "2": ["Sausages are eternal symbols of German resilience and continuity.", "Endings are always double when food is involved, especially meats.", "Every conclusion contains two beginnin'
+  parse: 1.0
+  complete: 1.0
+  len_r: 0.69
+  distinct: 0.98
+  quality: 99.4
+
+Row 140:
+  task: 'b'
+  strategy: 'zs'
+  language: 'German'
+  sample_id: 'MID0766'
+  source_proverb: 'Lebe wie du kannst, nicht wie du willst'
+  proverb_en: 'Live as you can, not as you want'
+  correct_meaning: 'You have to live in accordance to your opportunities and abilities.'
+  cultural_context_available: True
+  Choice_A: 'Prioritize short-term pleasures over long-term stability, as personal desires are fleeting'
+  Choice_B: 'You have to live in accordance to your opportunities and abilities.'
+  Choice_C: 'Believe that true freedom comes from ignoring limitations and chasing idealistic dreams regardless of reality'
+  Choice_D: 'Reject societal norms entirely and pursue a life of unfiltered ambition and passion'
+  Answer: 'B'
+  distractor_1: 'Prioritize short-term pleasures over long-term stability, as personal desires are fleeting'
+  distractor_2: 'Reject societal norms entirely and pursue a life of unfiltered ambition and passion'
+  distractor_3: 'Believe that true freedom comes from ignoring limitations and chasing idealistic dreams regardless of reality'
+  raw_response: '{"1": ["Prioritize short-term pleasures over long-term stability, as personal desires are fleeting", "Reject societal norms entirely and pursue a life of unfiltered ambition and passion", "Believe that true freedom comes from ignoring limitations and chasing idealistic dreams regardless of reality"]}'
+  parse: 1.0
+  complete: 1.0
+  len_r: 1.18
+  distinct: 0.97
+  quality: 99.1
+
+--- SUMMARY STATS ---
+Column: parse
+count    141.0
+mean       1.0
+std        0.0
+min        1.0
+25%        1.0
+50%        1.0
+75%        1.0
+max        1.0
+
+Column: complete
+count    141.0
+mean       1.0
+std        0.0
+min        1.0
+25%        1.0
+50%        1.0
+75%        1.0
+max        1.0
+
+Column: distinct
+count    141.000000
+mean       0.960567
+std        0.036602
+min        0.730000
+25%        0.950000
+50%        0.970000
+75%        0.980000
+max        1.000000
+
+Column: quality
+count    141.000000
+mean      98.817021
+std        1.098047
+min       91.900000
+25%       98.500000
+50%       99.100000
+75%       99.400000
+max      100.000000
+
+Column: len_r
+count    141.000000
+mean       1.185887
+std        0.430777
+min        0.390000
+25%        0.890000
+50%        1.150000
+75%        1.390000
+max        2.750000
+
+--- EMPTY/BLANK COUNTS ---
+distractor_1: 0
+distractor_2: 0
+distractor_3: 0
+Choice_A: 0
+Choice_B: 0
+Choice_C: 0
+Choice_D: 0
+Answer blank: 0
+
+--- ANOMALIES ---
+Duplicate rows: 0
+Dtypes:
+  task: str
+  strategy: str
+  language: str
+  sample_id: str
+  source_proverb: str
+  proverb_en: str
+  correct_meaning: str
+  cultural_context_available: bool
+  Choice_A: str
+  Choice_B: str
+  Choice_C: str
+  Choice_D: str
+  Answer: str
+  distractor_1: str
+  distractor_2: str
+  distractor_3: str
+  raw_response: str
+  parse: float64
+  complete: float64
+  len_r: float64
+  distinct: float64
+  quality: float64
+Unique sample_id: 141
+Unique language values: <StringArray>
+['German']
+Length: 1, dtype: str
+Unique Answer values: <StringArray>
+['B', 'C', 'A', 'D']
+Length: 4, dtype: str
+len_r min: 0.39, max: 2.75
+parse unique values: [np.float64(1.0)]
+complete unique values: [np.float64(1.0)]
+distinct unique values: [np.float64(0.73), np.float64(0.84), np.float64(0.87), np.float64(0.88), np.float64(0.9), np.float64(0.91), np.float64(0.92), np.float64(0.93), np.float64(0.94), np.float64(0.95), np.float64(0.96), np.float64(0.97), np.float64(0.98), np.float64(0.99), np.float64(1.0)]
+quality unique values: [np.float64(91.9), np.float64(95.2), np.float64(96.1), np.float64(96.4), np.float64(97.0), np.float64(97.3), np.float64(97.6), np.float64(97.9), np.float64(98.2), np.float64(98.5), np.float64(98.8), np.float64(99.1), np.float64(99.4), np.float64(99.7), np.float64(100.0)]
+No duplicate distractors found in first 1000 rows
+
+
