@@ -22,7 +22,7 @@ from pathlib import Path
 # ── CLI ───────────────────────────────────────────────────────────────────────
 parser = argparse.ArgumentParser(description='ProverbGap Hardened MCQ Pipeline')
 parser.add_argument('--groq-key',  default=os.environ.get('GROQ_API_KEY',''),
-                    help='Groq API key (or set GROQ_API_KEY env var)')
+                    help='Groq API key (optional fallback)')
 parser.add_argument('--task',      default='a', choices=['a','b'],
                     help='a=literal, b=cultural (default: a)')
 parser.add_argument('--n',         default=30, type=int,
@@ -31,22 +31,55 @@ parser.add_argument('--data-dir',  default='original_data',
                     help='Folder containing the cleaned CSV files (default: original_data)')
 parser.add_argument('--out',       default='pilot_v2_results',
                     help='Output folder (default: pilot_v2_results)')
-parser.add_argument('--gen-model', default='llama-3.3-70b-versatile',
+parser.add_argument('--gen-model', default='llama-3.3-70b',
                     help='Model for distractor generation (Strategy 2)')
 args = parser.parse_args()
 
-if not args.groq_key:
-    print('ERROR: Provide --groq-key or set GROQ_API_KEY env var')
-    sys.exit(1)
-
 try:
     import pandas as pd
-    from groq import Groq
 except ImportError:
-    print('ERROR: Run: pip install groq pandas')
+    print('ERROR: Run: pip install pandas requests')
     sys.exit(1)
 
-client = Groq(api_key=args.groq_key)
+import sqlite3
+import hashlib
+import requests
+
+def _load_keys(names):
+    keys = []
+    # Try loading from kaggle_secrets
+    try:
+        from kaggle_secrets import UserSecretsClient
+        s = UserSecretsClient()
+        for name in names:
+            try:
+                k = s.get_secret(name)
+                if k and k.strip() and k.strip() not in keys:
+                    keys.append(k.strip())
+            except:
+                pass
+    except:
+        pass
+    # Try loading from environment variables
+    for name in names:
+        k = os.environ.get(name, '').strip()
+        if k and k not in keys:
+            keys.append(k)
+    return keys
+
+# Load all 28 possible keys dynamically
+CEREBRAS_KEYS = _load_keys(['CEREBRAS_API_KEY', 'CEREBRAS_API_KEY_2'])
+SAMBANOVA_KEYS = _load_keys(['SAMBANOVA_API_KEY'])
+NVIDIA_KEYS = _load_keys(['NVIDIA_API_KEY', 'NVIDIA_API_KEY_2', 'NVIDIA_API_KEY_3', 'NVIDIA_API_KEY_4'])
+LLM7_KEYS = _load_keys(['LLM7_API_KEY', 'LLM7_API_KEY_2', 'LLM7_API_KEY_3'])
+DEEPINFRA_KEYS = _load_keys(['DEEPINFRA_API_KEY'])
+DEEPSEEK_KEYS = _load_keys(['DEEPSEEK_API_KEY'])
+GROQ_KEYS = _load_keys(['GROQ_API_KEY'] + [f'GROQ_API_KEY_{i}' for i in range(2, 9)])
+if args.groq_key and args.groq_key not in GROQ_KEYS:
+    GROQ_KEYS.append(args.groq_key)
+
+print(f"Loaded key pools: Cerebras={len(CEREBRAS_KEYS)}, SambaNova={len(SAMBANOVA_KEYS)}, Nvidia={len(NVIDIA_KEYS)}, LLM7={len(LLM7_KEYS)}, DeepInfra={len(DEEPINFRA_KEYS)}, DeepSeek={len(DEEPSEEK_KEYS)}, Groq={len(GROQ_KEYS)}")
+
 OUT = Path(args.out)
 OUT.mkdir(exist_ok=True)
 DATA = Path(args.data_dir)
@@ -55,11 +88,11 @@ random.seed(42)
 LANGUAGES = ['Yoruba', 'Arabic', 'English']
 
 COMMITTEE_MODELS = [
-    'llama-3.1-8b-instant',
-    'gemma2-9b-it',
-    'mixtral-8x7b-32768',
-    'llama-3.3-70b-versatile',
-    'llama-3.1-70b-versatile'
+    'llama-3.1-8b',
+    'deepseek-r1',
+    'gemma-2-9b',
+    'mixtral-8x7b',
+    'llama-3.3-70b'
 ]
 
 print(f'\n{"="*60}')
@@ -80,6 +113,7 @@ SYS_A_STRAT2 = (
     "1. Option 1 MUST be a correct and natural paraphrase of the English translation.\n"
     "2. Options 2, 3, and 4 MUST be incorrect direct translations (introduce a subtle meaning shift: swap the subject/object, invert a condition, or change the consequence).\n"
     "3. All 4 options must sound equally natural to a native speaker. The blind evaluator should not be able to guess the correct answer based on length or phrasing style.\n"
+    "4. CRITICAL: All 4 options MUST be of extremely similar length (within 10% of each other's character count). If Option 1 is short, distractors must be short. If Option 1 is long, distractors must be long. Avoid any length signature.\n"
     "Return ONLY a valid JSON list of 4 strings where the first element is the correct paraphrase: [\"correct_paraphrase\", \"distractor_1\", \"distractor_2\", \"distractor_3\"]"
 )
 
@@ -90,6 +124,7 @@ SYS_B_STRAT2 = (
     "1. Option 1 MUST be a correct paraphrase of the cultural meaning.\n"
     "2. Options 2, 3, and 4 MUST be incorrect cultural interpretations (convey a completely different life lesson, social rule, or value, but sound equally plausible as ancient wisdom).\n"
     "3. All 4 options must be written in the same register. The blind evaluator should not be able to guess the correct answer based on length, tone, or style.\n"
+    "4. CRITICAL: All 4 options MUST be of extremely similar length (within 10% of each other's character count). If Option 1 is short, distractors must be short. If Option 1 is long, distractors must be long. Avoid any length signature.\n"
     "Return ONLY a valid JSON list of 4 strings where the first element is the correct paraphrase: [\"correct_paraphrase\", \"distractor_1\", \"distractor_2\", \"distractor_3\"]"
 )
 
@@ -108,29 +143,187 @@ def make_prompt_b(proverb, translation, cultural_meaning, lang):
         'Generate 4 options in a valid JSON list of strings (Option 1 correct paraphrase, Options 2-4 wrong interpretations).'
     )
 
-# ── API Caller with Backoff ───────────────────────────────────────────────────
+class APICache:
+    def __init__(self, db_path='.api_cache.sqlite'):
+        self.db_path = db_path
+        self.conn = sqlite3.connect(self.db_path, check_same_thread=False)
+        self.create_table()
 
-def call_groq(sys_prompt, user_prompt, model, temperature=0.7, max_tokens=600):
-    """Call Groq API with robust retry and error handling."""
-    for attempt in range(6):
-        try:
-            resp = client.chat.completions.create(
-                model=model,
-                messages=[
-                    {'role': 'system', 'content': sys_prompt},
-                    {'role': 'user',   'content': user_prompt},
-                ],
-                temperature=temperature,
-                max_tokens=max_tokens,
-            )
-            return resp.choices[0].message.content
-        except Exception as e:
-            err = str(e)
-            print(f'  [API Attempt {attempt+1} Failed on {model}]: {err[:100]}')
-            if 'rate_limit' in err.lower() or '429' in err:
-                time.sleep(15 * (attempt + 1))
-            else:
-                time.sleep(3)
+    def create_table(self):
+        with self.conn:
+            self.conn.execute('''
+                CREATE TABLE IF NOT EXISTS cache (
+                    key TEXT PRIMARY KEY,
+                    response TEXT
+                )
+            ''')
+
+    def _make_key(self, sys_p, user_p, model):
+        hash_input = f"{sys_p}|||{user_p}|||{model}".encode('utf-8')
+        return hashlib.md5(hash_input).hexdigest()
+
+    def get(self, sys_p, user_p, model):
+        key = self._make_key(sys_p, user_p, model)
+        cursor = self.conn.cursor()
+        cursor.execute("SELECT response FROM cache WHERE key = ?", (key,))
+        row = cursor.fetchone()
+        return row[0] if row else None
+
+    def set(self, sys_p, user_p, model, response):
+        key = self._make_key(sys_p, user_p, model)
+        with self.conn:
+            self.conn.execute("INSERT OR REPLACE INTO cache (key, response) VALUES (?, ?)", (key, response))
+
+cache = APICache()
+
+# Rotator indices
+_key_indices = {
+    'cerebras': 0,
+    'sambanova': 0,
+    'nvidia': 0,
+    'llm7': 0,
+    'deepinfra': 0,
+    'groq': 0,
+    'deepseek': 0
+}
+
+# Individual Provider Callers
+def call_cerebras(key, model_id, sys_p, user_p, max_tok, temp):
+    resp = requests.post("https://api.cerebras.ai/v1/chat/completions",
+        headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"},
+        json={"model": model_id, "messages": [{"role": "system", "content": sys_p}, {"role": "user", "content": user_p}],
+              "temperature": temp, "max_tokens": max_tok}, timeout=30)
+    resp.raise_for_status()
+    return resp.json()['choices'][0]['message']['content']
+
+def call_sambanova(key, model_id, sys_p, user_p, max_tok, temp):
+    resp = requests.post("https://api.sambanova.ai/v1/chat/completions",
+        headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"},
+        json={"model": model_id, "messages": [{"role": "system", "content": sys_p}, {"role": "user", "content": user_p}],
+              "temperature": temp, "max_tokens": max_tok}, timeout=30)
+    resp.raise_for_status()
+    return resp.json()['choices'][0]['message']['content']
+
+def call_nvidia(key, model_id, sys_p, user_p, max_tok, temp):
+    resp = requests.post("https://integrate.api.nvidia.com/v1/chat/completions",
+        headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"},
+        json={"model": model_id, "messages": [{"role": "system", "content": sys_p}, {"role": "user", "content": user_p}],
+              "temperature": temp, "max_tokens": max_tok}, timeout=30)
+    resp.raise_for_status()
+    return resp.json()['choices'][0]['message']['content']
+
+def call_llm7(key, model_id, sys_p, user_p, max_tok, temp):
+    resp = requests.post("https://api.llm7.io/v1/chat/completions",
+        headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"},
+        json={"model": model_id, "messages": [{"role": "system", "content": sys_p}, {"role": "user", "content": user_p}],
+              "temperature": temp, "max_tokens": max_tok}, timeout=30)
+    resp.raise_for_status()
+    return resp.json()['choices'][0]['message']['content']
+
+def call_deepinfra(key, model_id, sys_p, user_p, max_tok, temp):
+    resp = requests.post("https://api.deepinfra.com/v1/openai/chat/completions",
+        headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"},
+        json={"model": model_id, "messages": [{"role": "system", "content": sys_p}, {"role": "user", "content": user_p}],
+              "temperature": temp, "max_tokens": max_tok}, timeout=30)
+    resp.raise_for_status()
+    return resp.json()['choices'][0]['message']['content']
+
+def call_groq_api(key, model_id, sys_p, user_p, max_tok, temp):
+    resp = requests.post("https://api.groq.com/openai/v1/chat/completions",
+        headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"},
+        json={"model": model_id, "messages": [{"role": "system", "content": sys_p}, {"role": "user", "content": user_p}],
+              "temperature": temp, "max_tokens": max_tok}, timeout=30)
+    resp.raise_for_status()
+    return resp.json()['choices'][0]['message']['content']
+
+def call_deepseek(key, model_id, sys_p, user_p, max_tok, temp):
+    resp = requests.post("https://api.deepseek.com/chat/completions",
+        headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"},
+        json={"model": model_id, "messages": [{"role": "system", "content": sys_p}, {"role": "user", "content": user_p}],
+              "temperature": temp, "max_tokens": max_tok}, timeout=30)
+    resp.raise_for_status()
+    return resp.json()['choices'][0]['message']['content']
+
+# Unified Routing Map
+PROVIDER_ROUTING = {
+    'llama-3.1-8b': [
+        ('groq',       'llama-3.1-8b-instant',             GROQ_KEYS),
+        ('cerebras',  'llama3.1-8b',                      CEREBRAS_KEYS),
+        ('sambanova',  'Meta-Llama-3.1-8B-Instruct',       SAMBANOVA_KEYS),
+        ('nvidia',     'meta/llama-3.1-8b-instruct',       NVIDIA_KEYS),
+    ],
+    'deepseek-r1': [
+        ('groq',       'deepseek-r1-distill-llama-70b',    GROQ_KEYS),
+        ('llm7',       'deepseek-r1-0528',                LLM7_KEYS),
+        ('deepseek',   'deepseek-reasoner',                DEEPSEEK_KEYS),
+    ],
+    'gemma-2-9b': [
+        ('sambanova',  'gemma-3-12b-it',                   SAMBANOVA_KEYS),
+        ('nvidia',     'google/gemma-3-27b-it',            NVIDIA_KEYS),
+    ],
+    'mixtral-8x7b': [
+        ('groq',       'mixtral-8x7b-32768',                   GROQ_KEYS),
+        ('nvidia',     'mistralai/mixtral-8x7b-instruct-v0.1',  NVIDIA_KEYS),
+    ],
+    'llama-3.3-70b': [
+        ('groq',       'llama-3.3-70b-versatile',          GROQ_KEYS),
+        ('cerebras',  'llama-3.3-70b',                     CEREBRAS_KEYS),
+        ('sambanova',  'Meta-Llama-3.3-70B-Instruct',      SAMBANOVA_KEYS),
+        ('nvidia',     'meta/llama-3.3-70b-instruct',      NVIDIA_KEYS),
+    ]
+}
+
+def call_api(sys_p, user_p, model_name, temp=0.7, max_tok=600):
+    # Check cache first
+    cached_val = cache.get(sys_p, user_p, model_name)
+    if cached_val is not None:
+        return cached_val
+
+    routes = PROVIDER_ROUTING.get(model_name, [])
+    if not routes:
+        routes = [('groq', model_name, GROQ_KEYS)]
+
+    for prov, model_id, keys in routes:
+        if not keys:
+            continue
+        
+        num_keys = len(keys)
+        start_idx = _key_indices[prov]
+        
+        for k_attempt in range(num_keys):
+            idx = (start_idx + k_attempt) % num_keys
+            key = keys[idx]
+            
+            try:
+                if prov == 'cerebras':
+                    res = call_cerebras(key, model_id, sys_p, user_p, max_tok, temp)
+                elif prov == 'sambanova':
+                    res = call_sambanova(key, model_id, sys_p, user_p, max_tok, temp)
+                elif prov == 'nvidia':
+                    res = call_nvidia(key, model_id, sys_p, user_p, max_tok, temp)
+                elif prov == 'llm7':
+                    res = call_llm7(key, model_id, sys_p, user_p, max_tok, temp)
+                elif prov == 'deepinfra':
+                    res = call_deepinfra(key, model_id, sys_p, user_p, max_tok, temp)
+                elif prov == 'deepseek':
+                    res = call_deepseek(key, model_id, sys_p, user_p, max_tok, temp)
+                elif prov == 'groq':
+                    res = call_groq_api(key, model_id, sys_p, user_p, max_tok, temp)
+                else:
+                    continue
+                
+                _key_indices[prov] = (idx + 1) % num_keys
+                
+                if res and res.strip():
+                    cache.set(sys_p, user_p, model_name, res)
+                    return res
+            except Exception as e:
+                err_str = str(e).lower()
+                print(f"  [API Error] Provider: {prov}, Model: {model_id}, Key index: {idx}: {err_str[:120]}")
+                _key_indices[prov] = (idx + 1) % num_keys
+                if '429' in err_str or 'rate' in err_str:
+                    time.sleep(2.0)
+
     return None
 
 def parse_response_strat2(raw):
@@ -158,6 +351,18 @@ def parse_response_strat2(raw):
         except json.JSONDecodeError:
             pass
     return None
+
+def validate_options_length(options, threshold=0.15):
+    """Ensure all distractors are within threshold of correct option length."""
+    if not options or len(options) < 4:
+        return False
+    len0 = len(options[0])
+    if len0 == 0:
+        return False
+    for opt in options[1:4]:
+        if abs(len(opt) - len0) / len0 > threshold:
+            return False
+    return True
 
 def assemble_mcq(correct, distractors, seed):
     """Shuffle options deterministically."""
@@ -251,11 +456,20 @@ for strategy in ['Strategy_1', 'Strategy_2']:
                 sys_p = SYS_B_STRAT2 if args.task == 'b' else SYS_A_STRAT2
                 user_p = make_prompt_b(proverb, translation, correct_meaning, lang) if args.task == 'b' else make_prompt_a(proverb, translation, lang)
                 
-                raw = call_groq(sys_p, user_p, model=args.gen_model)
-                options = parse_response_strat2(raw)
+                options = None
+                for attempt in range(3):
+                    raw = call_api(sys_p, user_p, model_name=args.gen_model)
+                    options = parse_response_strat2(raw)
+                    if options and len(options) >= 4:
+                        if validate_options_length(options, threshold=0.15):
+                            break
+                        else:
+                            print(f'  [LENGTH VALIDATION FAILED] Attempt {attempt+1}: Option lengths: {[len(x) for x in options]}')
+                            user_p += f"\nRETRY WARNING: The previous options failed character-length validation. Option lengths were: {[len(x) for x in options]}. Ensure Options 2, 3, and 4 are of EXACTLY the same length as Option 1."
+                    time.sleep(1.0)
                 
                 if not options or len(options) < 4:
-                    print(f'  [PARSE FAIL] fallback to negative sampling for {row.get("sample_id","?")}')
+                    print(f'  [PARSE/GEN FAIL] fallback to negative sampling for {row.get("sample_id","?")}')
                     # Fallback to negative sampling so we don't crash
                     candidates = df[df['sample_id'] != row['sample_id']]
                     sampled_rows = candidates.sample(3, random_state=42 + idx)
@@ -299,7 +513,7 @@ for strategy in ['Strategy_1', 'Strategy_2']:
         user_aud = f"Which is correct?\\nA. {row['Choice_A']}\\nB. {row['Choice_B']}\\nC. {row['Choice_C']}\\nD. {row['Choice_D']}"
         
         for model in COMMITTEE_MODELS:
-            pred_raw = call_groq(audit_sys, user_aud, model=model, temperature=0.0, max_tokens=5)
+            pred_raw = call_api(audit_sys, user_aud, model_name=model, temp=0.0, max_tok=5)
             pred = (pred_raw or '').strip().upper()[:1]
             if pred not in ['A', 'B', 'C', 'D']:
                 pred = None

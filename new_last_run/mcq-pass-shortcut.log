@@ -1,0 +1,45 @@
+8.3s 1 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+8.3s 2 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+8.3s 3 0.00s - to python to disable frozen modules.
+8.3s 4 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+9.1s 5 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+9.1s 6 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+9.1s 7 0.00s - to python to disable frozen modules.
+9.1s 8 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+17.0s 9 Setup complete. Loaded 8 Groq keys and 2 Cerebras keys.
+17.1s 10 Loaded English: 30 samples from English_cleaned.csv
+17.1s 11 Loaded Yoruba: 30 samples from Yoruba_cleaned.csv
+17.1s 12 Loaded Arabic: 30 samples from Arabic_cleaned.csv
+17.2s 13 
+17.2s 14 >>> A-STRATEGY_1
+17.2s 15 [English] Generating... 0... 5... 10... 15... 20... 25... Done
+17.3s 16 [Yoruba] Generating... 0... 5... 10... 15... 20... 25... Done
+17.3s 17 [Arabic] Generating... 0... 5... 10... 15... 20... 25... Done
+17.4s 18 --- AUDITING A-STRATEGY_1 via 5-Model Committee ---
+7371.5s 19 English    Committee Consensus SRS: 33.3%
+7371.5s 20 Yoruba     Committee Consensus SRS: 33.3%
+7371.5s 21 Arabic     Committee Consensus SRS: 26.7%
+7371.5s 22 
+7371.5s 23 >>> A-STRATEGY_2
+9510.8s 24 [English] Generating... 0... 5... 10... 15... 20... 25... Done
+12329.2s 25 [Yoruba] Generating... 0... 5... 10... 15... 20... 25... Done
+14574.9s 26 [Arabic] Generating... 0... 5... 10... 15... 20... 25... Done
+14574.9s 27 --- AUDITING A-STRATEGY_2 via 5-Model Committee ---
+23285.0s 28 English    Committee Consensus SRS: 50.0%
+23285.0s 29 Yoruba     Committee Consensus SRS: 33.3%
+23285.0s 30 Arabic     Committee Consensus SRS: 66.7%
+23285.0s 31 
+23285.0s 32 >>> B-STRATEGY_1
+23285.1s 33 [English] Generating... 0... 5... 10... 15... 20... 25... Done
+23285.1s 34 [Yoruba] Generating... 0... 5... 10... 15... 20... 25... Done
+23285.2s 35 [Arabic] Generating... 0... 5... 10... 15... 20... 25... Done
+23285.2s 36 --- AUDITING B-STRATEGY_1 via 5-Model Committee ---
+31771.4s 37 English    Committee Consensus SRS: 30.0%
+31771.4s 38 Yoruba     Committee Consensus SRS: 26.7%
+31771.4s 39 Arabic     Committee Consensus SRS: 26.7%
+31771.4s 40 
+31771.4s 41 >>> B-STRATEGY_2
+33742.6s 42 [English] Generating... 0... 5... 10... 15... 20... 25... Done
+36360.3s 43 [Yoruba] Generating... 0... 5... 10... 15... 20... 25... Done
+38690.7s 44 [Arabic] Generating... 0... 5... 10... 15... 20... 25... Done
+38690.7s 45 --- AUDITING B-STRATEGY_2 via 5-Model Committee ---
