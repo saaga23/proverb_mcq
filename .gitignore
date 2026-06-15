@@ -1,0 +1,69 @@
+# Secrets and API keys
+*.env
+.env.*
+keys_local.py
+api_keys.txt
+API_keys_test/
+
+# Notebooks and scripts containing hardcoded API keys
+kaggle_full_pipeline_notebook.ipynb
+kaggle_full_pipeline_notebook.py
+kaggle_full_pipeline_v2.py
+kaggle_full_pipeline.ipynb
+kaggle_full_pipeline.py
+kaggle_eval_n50.ipynb
+kaggle_eval_n50_v2.py
+kaggle_eval_n50.py
+kaggle_upload_package/kaggle_eval_n50.ipynb
+
+# Older pipeline scripts with keys
+proverbgap_kaggle_final.py
+proverbgap_kaggle_final.ipynb
+proverbgap_unified.py
+proverbgap_minimal_local.py
+proverbgap_minimal_local_backup.py
+proverbgap_local_debug.py
+proverbgap_local_test.py
+pilot_v2.py
+proverbgap-pilot-v2.ipynb
+evaluate_n50_local.py
+generate_s2_n50.py
+local_test_v1.py
+local_test_v2.py
+local_test_v4.py
+nvidia_rigor_test.py
+deep_model_rigor_test.py
+validate_msp_knn_run2.py
+validate_msp_knn_run3.py
+validate_msp_knn_run4.py
+
+# Source-code package copies with keys
+Busayou_Package/05_Source_Code/
+tomorrow_resume/kaggle_full_pipeline_notebook.ipynb
+tomorrow_resume/kaggle_full_pipeline_notebook.py
+tomorrow_resume/FINAL_KAGGLE_NOTEBOOK_v3.ipynb
+
+# Cache and temporary files
+__pycache__/
+*.pyc
+*.pyo
+.api_cache.sqlite
+*.log
+.agent_temp/
+.playwright-mcp/
+model_cache/
+tomorrow_resume/__pycache__/
+
+# Large output archives
+*.zip
+proverbgap_dataset_v436.zip
+proverbgap_n50_kaggle_package.zip
+mentor_package.zip
+Busayou_Package.zip
+
+# HTML exports of notebooks
+proverbgap_kaggle_final.html
+
+# OS files
+.DS_Store
+Thumbs.db

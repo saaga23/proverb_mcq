@@ -1,0 +1,108 @@
+================================================================================
+NEURIPS REVIEWER #2 — DATA QUALITY & PROVENANCE
+================================================================================
+
+Reviewer Profile: NeurIPS D&B track reviewer, focus on dataset ethics,
+licensing, and documentation. Published data papers at NeurIPS, ACL,
+and FAccT. Strong stance on data provenance.
+
+---
+
+CRITICAL CONCERN #1: YORUBA DATA FROM A BOOK
+----------------------------------------------
+
+The Yoruba proverbs come from "a book" (user statement). This raises
+immediate questions:
+
+- Which book? Title, author, publisher, year?
+- Was permission obtained from the author/publisher?
+- Is the book in the public domain or under copyright?
+- If under copyright, does fair use apply to extracting proverbs for a
+  benchmark? (Proverbs are traditional knowledge, but a curated collection
+  may have copyright in the selection and arrangement.)
+- Are the translations and cultural contexts ALSO from the book, or were
+  they added by the authors?
+
+NeurIPS requires datasets to have clear licenses. "From a book" is not
+a license. Without explicit permission or public-domain status, this is
+a RED FLAG for any venue, especially NeurIPS which has tightened data
+ethics requirements.
+
+RECOMMENDATION: Obtain explicit written permission from the book's
+publisher, OR verify the book is public domain, OR replace with
+openly licensed Yoruba proverb collections.
+
+---
+
+CRITICAL CONCERN #2: ENGLISH DATA FROM WEB SCRAPING
+----------------------------------------------------
+
+Web scraping for dataset construction is increasingly scrutinized:
+
+- Which websites were scraped?
+- What was the scraping protocol (rate, headers, robots.txt compliance)?
+- Was there deduplication against known LLM training data?
+- Are the scraped sources themselves original or also aggregated?
+- What is the license of the scraped content?
+
+The paper mentions a "contamination filter" but does not describe the
+scraping methodology. NeurIPS reviewers will ask for a DATASET CARD
+with full provenance documentation.
+
+The risk: If the English proverbs were scraped from sites like
+Wiktionary, QuoteGarden, or similar, those sites may have terms of
+service that prohibit bulk extraction. This is a legal and ethical risk.
+
+RECOMMENDATION: Document the full scraping protocol. If sources have
+restrictive ToS, obtain permission or replace with openly licensed data.
+
+---
+
+CRITICAL CONCERN #3: ARABIC DATA FROM HUGGINGFACE
+--------------------------------------------------
+
+The Arabic data was "from HuggingFace." This is better than scraping
+BUT:
+
+- Which HuggingFace dataset? (There are multiple Arabic proverb datasets.)
+- What is the license of the original dataset?
+- Was the dataset modified? If so, under what terms?
+- Does the original dataset have a paper or documentation?
+- Was Cultural_Context added by the authors or present in the original?
+
+Using HuggingFace data without proper attribution is a citation ethics
+violation. NeurIPS reviewers check for this.
+
+RECOMMENDATION: Cite the exact HuggingFace dataset, its license, and
+document all modifications made.
+
+---
+
+CRITICAL CONCERN #4: NO HUMAN VALIDATION
+-----------------------------------------
+
+A benchmark without human validation is not credible. For N=750 per
+language, at minimum:
+- 50 items (7%) should be validated by native speakers for each language
+- Validation should check: unambiguity, answerability, option uniqueness,
+  cultural accuracy
+
+The paper currently has ZERO human validation. This is unacceptable for
+NeurIPS D&B track.
+
+---
+
+OVERALL DATA VERDICT
+---------------------
+
+The data provenance is INSUFFICIENT for NeurIPS. Three of three data
+sources have unresolved legal/ethical questions. The lack of human
+validation compounds the problem.
+
+This is a MAJOR REVISION issue, not a minor fix. Before any submission:
+1. Resolve all licensing questions
+2. Add human validation
+3. Publish a comprehensive dataset card
+
+Without these, acceptance probability is near zero regardless of
+track or methodological quality.

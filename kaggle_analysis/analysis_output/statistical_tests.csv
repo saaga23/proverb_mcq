@@ -1,0 +1,3 @@
+Test,Statistic,p_value,Significant (α=0.05),N_pairs,Table
+"McNemar (S1 vs S2, all)",196.005,0.0,YES,1350,"a=0,b=198,c=0,d=1152"
+"McNemar (S1 vs S2, strict)",152.006,0.0,YES,846,"a=0,b=154,c=0,d=692"

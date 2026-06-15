@@ -1,0 +1,129 @@
+================================================================================
+EACL 2027 REVIEWER #1 — MULTILINGUAL & LOW-RESOURCE NLP
+================================================================================
+
+Reviewer Profile: EACL senior AC, specialization in African NLP,
+Arabic NLP, and cross-lingual evaluation. Published at EACL, ACL,
+NAACL, and LREC. Native Arabic speaker, speaks Yoruba.
+
+---
+
+STRENGTHS
+----------
+
+1. **Yoruba coverage is genuinely novel.** EACL audiences care deeply about
+   low-resource African languages. There are very few benchmarks for Yoruba,
+   and even fewer for figurative language. This fills a real gap.
+
+2. **Arabic with Cultural_Context is richer than typical translation tasks.**
+   Most Arabic benchmarks test MSA or dialectal classification. A proverb
+   meaning comprehension task with cultural explanations is novel and
+   culturally situated.
+
+3. **The meaning-comprehension reframe is methodologically sound.**
+   The reviewer read the v4.3.4→v4.3.6 evolution. Moving from translation
+   matching to meaning comprehension corrected a fundamental design flaw.
+   The 36%→0% Yoruba fallback improvement is strong evidence the reframe
+   worked.
+
+4. **The two-strategy design (baseline + adversarial) follows best practice.**
+   S1 establishes a floor, S2 tests adversarial robustness. The 24pp gap
+   (86.8%→62.5%) is a meaningful difficulty gradient.
+
+5. **Position bias mitigation is correctly implemented.**
+   Seeded shuffling per model is the right approach.
+
+6. **API infrastructure hardening is a genuine contribution.**
+   The v4.3.3 collapse narrative (769/790 API failures, single-model
+   degenerate unanimity) and the defensive mitigations (health checks,
+   retries, dynamic workers) are instructive for the community.
+
+---
+
+WEAKNESSES
+-----------
+
+1. **NO HUMAN VALIDATION.** This is the single biggest weakness. For a
+   benchmark claiming to test "cultural meaning comprehension," there is
+   zero evidence that native speakers of Arabic or Yoruba find the items
+   valid. A single misaligned item undermines the entire benchmark.
+
+   EACL reviewers are particularly sensitive to this because:
+   - We have seen too many "African language" papers written by authors
+     with no connection to the language community
+   - Cultural accuracy cannot be verified by non-native speakers
+   - The QA_Flag system (FIX/DROP/PERFECT) suggests the Yoruba data was
+     curated by someone, but we don't know who or by what criteria
+
+2. **Data provenance is unresolved.**
+   - Yoruba: "from a book" — which book? Copyright status?
+   - English: "web scraping" — which sites? Compliance with robots.txt?
+   - Arabic: "from HuggingFace" — which dataset? License?
+
+   EACL has adopted the ACL data provenance policy. Papers without clear
+   licensing documentation are increasingly desk-rejected.
+
+3. **Only 1 task (MCQ).**
+   EACL audiences are familiar with ProverbEval (NAACL 2025), which has
+   MCQ + FiB + Generation. A single-task benchmark feels thin by
+   comparison. The generation task is especially important for proverb
+   understanding — MCQ only tests discrimination, not production.
+
+4. **Committee is effectively 1 model.**
+   The paper reports a 2-model committee (llama-4-maverick + allam-2-7b)
+   but notes llama-4 was dropped due to API failures. The actual
+   evaluation uses only allam-2-7b. A single-model evaluation is not a
+   committee — it's a single point of failure.
+
+5. **N=750 per language is sufficient but not impressive.**
+   For EACL's Resources & Evaluation track, 2,250 total items is
+   respectable but not extraordinary. Jawaher has 10,037 Arabic proverbs.
+   ProverbEval has ~2,500 items across 5 languages with 3 tasks each.
+
+---
+
+EACL-SPECIFIC CONCERNS
+-----------------------
+
+1. **The "European" angle is weak.** EACL is the European chapter, but
+   the paper has no European language (French/German/Spanish are mentioned
+   as future work). Why is this at EACL and not ACL or NAACL?
+
+   Suggested fix: Add French/German/Spanish to the pilot. The actual_data
+   already has these files. Even N=100 per language would strengthen the
+   European connection.
+
+2. **No connection to African NLP community.**
+   The Yoruba data is valuable, but the paper has no African co-authors,
+   no acknowledgement of Yoruba cultural consultants, and no citation of
+   African NLP work (e.g., Masakhane, Lacuna Fund). EACL reviewers will
+   notice this.
+
+---
+
+ACCEPTANCE PROBABILITY FOR EACL 2027
+-------------------------------------
+
+Current state (N=750, no human validation, 1 task, 1 model, unresolved
+provenance):
+
+**Acceptance probability: ~20-25%**
+
+With improvements (human validation, FiB task, 4-model committee,
+resolved provenance, European languages added):
+
+**Acceptance probability: ~35-40%**
+
+EACL is slightly less competitive than ACL (~21% vs ~25%), and the
+multilingual/low-resource angle is genuinely valued. But the current
+gaps are significant.
+
+---
+
+BOTTOM LINE
+------------
+
+This is a **BORDERLINE PAPER** for EACL 2027. The data and methodology
+are competent, but the lack of human validation and unresolved data
+provenance are serious weaknesses. With 10 weeks until the August 3
+deadline, these issues are fixable. But they MUST be fixed.

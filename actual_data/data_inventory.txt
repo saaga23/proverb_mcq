@@ -1,0 +1,37 @@
+======================================================================
+ACTUAL_DATA INVENTORY — CATASTROPHIC DATA MISMATCH DISCOVERY
+======================================================================
+
+--- ENGLISH ---
+Shape: (2278, 3)
+Columns: ['Sample_ID', 'Proverb', 'Correct_Meaning']
+Missing: {'Sample_ID': 0, 'Proverb': 0, 'Correct_Meaning': 0}
+Sample row 0:
+  Sample_ID: 0
+  Proverb: A bird in the hand is worth two in the bush
+  Correct_Meaning: The proverb 'A bird in the hand is worth two in the bush' means that it's better to hold onto something you have rather than take the risk of getting something better which may come to nothing.
+
+--- ARABIC ---
+Shape: (913, 4)
+Columns: ['Sample_ID', 'source_text', 'english_translation', 'Cultural_Context']
+Missing: {'Sample_ID': 0, 'source_text': 0, 'english_translation': 0, 'Cultural_Context': 0}
+Sample row 0:
+  Sample_ID: MID0001
+  source_text: آخر الحياة الموت
+  english_translation:  Live life to its fullest; Tempus fugit, utere.
+  Cultural_Context: A wisdom that has become a proverb about not caring about threats. 
+
+--- YORUBA ---
+Shape: (3974, 7)
+Columns: ['Sample_ID', 'Source_Text_Yo', 'Target_Text_En', 'Cultural_Context', 'Provenance', 'QA_Flag', 'Comments']
+Missing: {'Sample_ID': 0, 'Source_Text_Yo': 0, 'Target_Text_En': 1, 'Cultural_Context': 2, 'Provenance': 0, 'QA_Flag': 3834, 'Comments': 3748}
+Sample row 0:
+  Sample_ID: YOR0001
+  Source_Text_Yo: A di gàárì sílẹ́ ewúrẹ́ ńyọjú; ẹrù ìran rẹ́ ni?
+  Target_Text_En: We prepare the saddle, and the goat presents itself; is it a burden for the lineage of goats?
+  Cultural_Context: Goats that know their place do not offer their backs to be saddled.
+  Provenance: part1.docx
+  QA_Flag: PERFECT
+  Comments: NULL
+
+--- COMPARISON TO original_data (WRONG DATA WE USED) ---

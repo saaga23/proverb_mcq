@@ -1,0 +1,133 @@
+================================================================================
+EACL 2027 REVIEWER #2 — RESOURCES & EVALUATION TRACK
+================================================================================
+
+Reviewer Profile: EACL R&E track AC, focus on dataset documentation,
+reproducibility, and benchmark validity. Published dataset papers at
+EACL, LREC, and COLING. Co-authored dataset cards for Masader,
+Arabic NLP benchmark suite.
+
+---
+
+TRACK FIT: STRONG
+------------------
+
+ProverbGap fits the EACL Resources & Evaluation track well:
+- Cross-lingual resource (EN/AR/YO)
+- Evaluation benchmark with quantitative metrics
+- Low-resource language focus (Yoruba)
+- Reproducible pipeline with code and data release
+
+However, the R&E track has standards. Let me assess against them.
+
+---
+
+CRITERION 1: DATASET CARD (FAILING)
+------------------------------------
+
+The ACL 2024 Data Provenance Policy requires:
+- Source identification (where did the data come from?)
+- License documentation (what can others do with it?)
+- Modification log (what was changed from the original?)
+- Intended use (what is the benchmark FOR?)
+
+Current state:
+- No dataset card for actual_data
+- No license specified for any language
+- No documentation of modifications
+- No intended use statement
+
+The existing DATASET_CARD.md describes original_data (the wrong data).
+This needs to be completely rewritten.
+
+**Fix:** Write a proper dataset card following the ACL Data Provenance
+Initiative template. Include:
+- Source URLs / book citations for all three languages
+- License for each source (or "permission obtained from publisher")
+- Modification log (cleaning steps, column additions, QA_Flag application)
+- Known limitations (English meanings may contain proverb text, Arabic
+  Cultural_Context may not cover all dialects)
+
+---
+
+CRITERION 2: REPRODUCIBILITY (PARTIAL)
+---------------------------------------
+
+Strengths:
+- Code is self-contained and well-structured
+- API caching prevents accidental re-billing
+- Checkpointing allows resume from crashes
+- Random seeds are fixed (SEED=42)
+
+Weaknesses:
+- Hardcoded API keys in source code
+- No requirements.txt version pinning
+- No Docker/containerization for exact environment reproduction
+- No exact API cost reporting ("~$50 budget" is not a reproducible metric)
+
+**Fix:**
+- Move keys to environment variables
+- Pin all package versions
+- Report exact API costs per model
+- Provide a Dockerfile or conda environment file
+
+---
+
+CRITERION 3: HUMAN VALIDATION (MISSING)
+----------------------------------------
+
+The R&E track REQUIRES human validation for benchmarks. Minimum:
+- 30-50 items per language validated by native speakers
+- Inter-annotator agreement reported
+- Validation criteria documented
+
+Current state: ZERO.
+
+**Fix:**
+- Hire 2 native speakers per language on Prolific ($5-10/hr)
+- Validation task: "Is the correct answer unambiguous? Are distractors
+  plausible but wrong? Is the cultural meaning accurate?"
+- Report Cohen's kappa between annotators
+- Exclude or revise items where annotators disagree
+
+---
+
+CRITERION 4: BASELINE COMPARISON (ADEQUATE)
+--------------------------------------------
+
+The paper compares Strategy 1 vs Strategy 2, which is correct.
+But it lacks:
+- Human baseline (what would a native speaker score?)
+- Random baseline (25% — reported, but trivial)
+- Comparison to existing proverb benchmarks (ProverbEval, Jawaher)
+
+**Fix:**
+- Add human baseline: 10 native speakers × 10 items per language
+- Compare accuracy gaps to ProverbEval's reported numbers
+- Cite and discuss related benchmarks
+
+---
+
+R&E TRACK ACCEPTANCE PROBABILITY
+----------------------------------
+
+Current state: **~20%**
+
+With dataset card + human validation + reproducibility fixes: **~35%**
+
+The R&E track is the RIGHT track for this paper, but the bar is high.
+Dataset papers without proper documentation and validation are
+increasingly rejected.
+
+---
+
+RECOMMENDATION FOR AUTHORS
+---------------------------
+
+1. Write the dataset card FIRST. It will reveal gaps you didn't know you had.
+2. Human validation is non-negotiable. Budget $300-500 for Prolific.
+3. Pin your environment. Reviewers will try to run your code.
+4. Report exact costs. "~$50" sounds unprofessional.
+
+With these fixes, this is a competitive R&E paper. Without them, it's
+a borderline reject.

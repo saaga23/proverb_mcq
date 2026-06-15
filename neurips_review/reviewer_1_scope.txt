@@ -1,0 +1,79 @@
+================================================================================
+NEURIPS REVIEWER #1 — TRACK FIT & SCOPE
+================================================================================
+
+Reviewer Profile: NeurIPS senior AC, 10+ years, has reviewed for main track
+and Datasets & Benchmarks track. Published at NeurIPS, ICML, ICLR.
+
+---
+
+OVERALL ASSESSMENT: MARGINAL FIT FOR NEURIPS
+----------------------------------------------
+
+This is a cross-lingual NLP benchmark for proverb understanding. The core
+contribution is:
+1. A dataset of ~2,250 MCQs (750 per language: English, Arabic, Yoruba)
+2. A two-strategy distractor generation pipeline
+3. Committee evaluation with API models
+
+NEURIPS MAIN TRACK: POOR FIT
+------------------------------
+
+NeurIPS main track favors:
+- Novel algorithms or theoretical advances
+- Strong empirical methodology with new techniques
+- Broad impact across ML subfields
+
+This paper is a BENCHMARK paper, not an algorithm paper. It does not propose
+new learning methods, architectures, or theoretical frameworks. The two-strategy
+distractor generation is an engineering pipeline, not a methodological advance.
+
+Verdict for main track: DESK REJECT or borderline reject. Reviewers will ask
+"Why is this at NeurIPS and not ACL/EMNLP?"
+
+NEURIPS DATASETS & BENCHMARKS TRACK: MODERATE FIT
+---------------------------------------------------
+
+The D&B track accepts:
+- New datasets that enable novel research directions
+- Benchmarks that reveal important model limitations
+- Rigorous evaluation protocols
+
+This work partially fits:
++ Cross-lingual coverage (English/Arabic/Yoruba) is beyond typical English-only
+  benchmarks
++ Low-resource language focus (Yoruba) addresses a genuine gap
++ The 36%→0% fallback improvement shows iterative refinement
++ Two-strategy design (baseline + adversarial) is methodologically sound
+
+- BUT: The dataset size (2,250 items) is modest for D&B standards
+- BUT: The task (multiple-choice proverb understanding) is narrow
+- BUT: No human baseline or extensive human validation reported
+- BUT: The benchmark tests only one capability (discrimination), not generation
+
+Verdict for D&B track: BORDERLINE. Would need stronger novelty and scale.
+
+---
+
+ACCEPTANCE PROBABILITY ESTIMATE
+--------------------------------
+
+Main track:        5-10%  (near-certain reject)
+D&B track:         20-25% (possible but competitive)
+
+NeurIPS D&B 2024 had ~1,200 submissions, ~250 accepted (~21%). This paper
+would be mid-tier in that pool — not a clear accept, not a clear reject.
+
+---
+
+RECOMMENDATION
+---------------
+
+Do NOT submit to NeurIPS main track. Consider D&B track only if:
+1. N increases to at least 1,000 per language (3,000 total)
+2. Add human baseline (30+ items per language)
+3. Add a generation task beyond MCQ
+4. Document data provenance rigorously (copyright, licensing, scraping ethics)
+5. Demonstrate that the benchmark reveals genuinely new model failures
+
+Better venues: ACL, EMNLP, NAACL, or LREC (resource paper).
