@@ -33,8 +33,8 @@ A Next.js annotation interface for evaluating proverb understanding across Arabi
 
 ### 1. Prerequisites
 
-- Node.js 20+
-- Supabase project (already configured at `bzqpzhkhnytrinzyqraz.supabase.co`)
+- Node.js 22.x (matches Next.js 16 engine requirement)
+- Supabase project
 
 ### 2. Install dependencies
 
@@ -44,7 +44,7 @@ npm install
 
 ### 3. Set up Supabase database
 
-Run the SQL in `supabase/schema.sql` in your Supabase SQL Editor.
+Create a Supabase project, then run the SQL in `supabase/schema.sql` in the Supabase SQL Editor.
 
 Then run the SQL in `supabase/rpc.sql` to create the stored procedures.
 
