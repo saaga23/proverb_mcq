@@ -6,7 +6,29 @@
 [![Tests](https://img.shields.io/badge/tests-pytest-green)](https://docs.pytest.org/)
 [![License](https://img.shields.io/badge/license-MIT-lightgrey)](#license)
 
-## Welcome to ProverbGap
+## Current Status
+
+**v68 production dataset is complete.** We have 180 MCQs ($0.85 generation cost, N=5 per language) validated on Kaggle. Human validation is the next milestone.
+
+| Milestone | Status |
+|-----------|--------|
+| v68 dataset generation (180 MCQs) | ? Complete |
+| Kaggle N=5 validation run | ? Complete |
+| Blind audit pipeline | ? Complete |
+| Annotation app deployed | ? Live at `https://annotationapp.vercel.app` |
+| Supabase DB provisioned (62 items) | ? Live |
+| E2E tests (Playwright) | ? Passing |
+| Shortcut-audit UI removed | ? Complete |
+| Secret rotation / cleanup | ? Complete |
+| Docs + community files | ? Complete |
+| 60-item human validation | ?? Ready to launch |
+| Branch protection on `main` | ? Manual step required |
+
+**Where we stopped:** The annotation app is production-ready and deployed. We removed the shortcut-audit UI from the annotator interface to reduce burden; those fields remain in the database for future research. The next step is recruiting 9 native-speaker annotators (3 per language × 20 items each) to achieve Fleiss' Kappa ? 0.6.
+
+---
+
+## What is ProverbGap?
 
 ProverbGap is a research project that builds **hard multiple-choice questions (MCQs)** to test whether AI models truly understand proverbs—or if they're just cheating by spotting surface-level patterns. We generate questions in **English, Arabic, and Yoruba**, run them through a rigorous audit pipeline, and then have native speakers validate the hardest items.
 
@@ -26,8 +48,8 @@ The annotation app lets you review MCQs in a browser. No code experience needed.
 
 ```bash
 # 1. Clone the repo
-git clone https://github.com/<org>/ProverbGap-MCQ.git
-cd ProverbGap-MCQ
+git clone https://github.com/saaga23/proverb_mcq.git
+cd proverb_mcq
 
 # 2. Set up the annotation app
 cd annotation_app
@@ -40,14 +62,16 @@ npm run dev
 
 Open `http://localhost:3000` and start annotating.
 
+See [annotation_app/ANNOTATOR_ONBOARDING.md](annotation_app/ANNOTATOR_ONBOARDING.md) for the annotator guide.
+
 ### I want to contribute code
 
 You'll need Python, Node.js, and a Supabase account.
 
 ```bash
 # 1. Clone and enter
-git clone https://github.com/<org>/ProverbGap-MCQ.git
-cd ProverbGap-MCQ
+git clone https://github.com/saaga23/proverb_mcq.git
+cd proverb_mcq
 
 # 2. Set up Python environment
 python -m venv .venv
@@ -70,12 +94,13 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for code style, commit conventions, and t
 
 ### I want to understand the research
 
-Start with these files:
+Start with these files in order:
 
 1. **[GETTING_STARTED.md](GETTING_STARTED.md)** — Plain-English explanation of proverbs, distractors, and the full pipeline.
 2. **[DATASET_CARD.md](DATASET_CARD.md)** — What's in the data, how it was collected, and known limitations.
 3. **[annotation/protocol.md](annotation/protocol.md)** — The human-validation protocol, rubric, and quality controls.
 4. **[docs/Elite_Research_Execution_Plan.md](docs/Elite_Research_Execution_Plan.md)** — Research methodology and rigor standards.
+5. **[annotation_app/README.md](annotation_app/README.md)** — Annotation app architecture and deployment.
 
 ---
 
@@ -97,21 +122,21 @@ Start with these files:
 ## How the Project Works
 
 ```
-?????????????     ?????????????     ?????????????     ?????????????????     ?????????????
-?   Data    ???????Generation ???????   Audit   ???????  Annotation   ??????? Analysis  ?
-? (Proverbs)?     ? (Distract)?     ? (Blind)   ?     ?  (Humans)     ?     ? (Stats)   ?
-?????????????     ?????????????     ?????????????     ?????????????????     ?????????????
-      ?                 ?                  ?                   ?                    ?
-      ?                 ?                  ?                   ?                    ?
- raw corpora    LLM generates 4    4 LLMs vote on     Native speakers      Tables,
+????????????????    ????????????????    ????????????????    ??????????????????    ????????????????
+?    Data      ?????? Generation   ??????    Audit     ??????  Annotation    ??????   Analysis   ?
+?  (Proverbs)  ?    ? (Distractors)?    ?  (Blind)     ?    ?   (Humans)     ?    ?   (Stats)    ?
+????????????????    ????????????????    ????????????????    ??????????????????    ????????????????
+       ?                   ?                  ?                   ?                    ?
+       ?                   ?                  ?                   ?                    ?
+ raw corpora    LLM generates 4    4 LLMs vote on    Native speakers      Tables,
  (3 languages)  options each      correct answer     rate plausibility     figures,
-                (A-D)             blind (no proverb)  & flag shortcuts      LaTeX
+                 (A-D)             blind (no proverb)  & flag shortcuts      LaTeX
 ```
 
 1. **Data** — Proverbs from English, Arabic, and Yoruba corpora.
 2. **Generation** — LLMs produce 4 multiple-choice options (1 correct meaning + 3 distractors).
 3. **Audit** — A separate committee of LLMs votes on the correct answer *without seeing the proverb*.
-4. **Annotation** — Native speakers review the hardest items, rate plausibility, and flag obvious AI shortcuts.
+4. **Annotation** — Native speakers review the hardest items, select correct answers, and provide confidence ratings.
 5. **Analysis** — We measure inter-annotator agreement, shortcut resistance, and cross-lingual performance.
 
 ---
@@ -136,6 +161,7 @@ The current production dataset is generated by the **frozen v67 configuration**,
 **Primary data files:**
 
 - `data/production/paper_first_outputs_2026-06-22_10-42-02/` — v68 paper-first outputs, tables, figures, and 60-item human-validation sample
+- `kaggle/run_logs/v68/` — Full v68 run logs, analysis scripts, and reproducibility artifacts
 
 ### Known Limitations
 
@@ -146,29 +172,111 @@ The current production dataset is generated by the **frozen v67 configuration**,
 
 ---
 
-## Annotation App
+## Deep Dive: Reading Paths
 
-The human-validation annotation frontend is built with **Next.js 16** and **Supabase**. It supports an **anonymous annotator workflow** (no login required) with **batch-based annotation** delivering **10 items per batch**, embedded **attention checks**, and an **admin dashboard** for CSV export.
+### For Researchers
+1. [GETTING_STARTED.md](GETTING_STARTED.md) — Understand the basics
+2. [DATASET_CARD.md](DATASET_CARD.md) — Data provenance and limitations
+3. [annotation/protocol.md](annotation/protocol.md) — Human-validation protocol
+4. `paper/proverbgap_eacl2027.md` — Full paper draft
+5. `kaggle/run_logs/v68/v68_detailed_analysis_report.md` — Latest analysis
+6. `docs/Elite_Research_Execution_Plan.md` — Methodology rigor
 
-### Features
+### For Developers
+1. [GETTING_STARTED.md](GETTING_STARTED.md) — Project overview
+2. [annotation_app/README.md](annotation_app/README.md) — App architecture
+3. `annotation_app/supabase/schema.sql` — Database schema and RPCs
+4. `annotation_app/src/components/AnnotationUI.tsx` — Main annotator interface
+5. `annotation_app/e2e/annotation.spec.ts` — E2E tests
+6. [CONTRIBUTING.md](CONTRIBUTING.md) — Code style and PR process
 
-- Anonymous annotator identity via `localStorage`
-- Batch-based annotation (10 items per batch)
-- Two-part judgment: correctness + confidence
-- Attention checks embedded in batches
-- **Minimum time guard (10 seconds)** to prevent rushing
-- Atomic fetch-and-lock via Supabase RPC (`FOR UPDATE SKIP LOCKED`)
-- Hidden gold answers (never exposed to browser)
-- Time tracking per item
-- Optional annotator notes
-- Progress tracking
-- Admin dashboard for annotation export
+### For Annotators
+1. [annotation_app/ANNOTATOR_ONBOARDING.md](annotation_app/ANNOTATOR_ONBOARDING.md) — Step-by-step guide
+2. `annotation/protocol.md` — Full protocol and rubric
+3. [annotation_app/README.md](annotation_app/README.md) — How to access the app
 
-See [annotation_app/README.md](annotation_app/README.md) for full setup and deployment instructions.
+### For Reviewers
+1. `submission_package_2026-08-02/` — Complete submission package
+2. `paper/proverbgap_eacl2027.md` — Paper draft
+3. `paper/tables/` — All LaTeX table sources
+4. `paper/figures/` — Publication-ready figures
+5. `kaggle/run_logs/v68/` — Reproducibility artifacts
 
 ---
 
-## Human Validation
+## Project Structure
+
+```
+proverb_mcq/
+??? actual_data/                 # Cleaned proverb corpora (3 languages)
+?   ??? Arabic_cleaned.csv
+?   ??? English_cleaned.csv
+?   ??? Yoruba_cleaned.csv
+??? annotation/                  # Human-validation tooling
+?   ??? protocol.md              # Validation protocol, rubric, IRB
+?   ??? blinded_export.py        # Blinding utility for export
+?   ??? compute_iaa.py           # Inter-annotator agreement
+?   ??? outputs/                 # Annotation outputs and IAA reports
+?   ??? tests/                   # Annotation-specific tests
+??? annotation_app/              # Next.js + Supabase annotation frontend
+?   ??? src/
+?   ?   ??? app/
+?   ?   ?   ??? page.tsx         # Landing + consent
+?   ?   ?   ??? annotate/page.tsx # Annotation interface
+?   ?   ?   ??? admin/page.tsx   # Admin dashboard
+?   ?   ??? components/
+?   ?   ?   ??? AnnotationUI.tsx # Main annotator component
+?   ?   ??? lib/
+?   ?       ??? supabase.ts      # Typed Supabase client
+?   ??? supabase/
+?   ?   ??? schema.sql           # Full DB schema + RPCs
+?   ?   ??? rpc.sql              # Deprecated (use schema.sql)
+?   ?   ??? run_in_dashboard.sql # Manual dashboard SQL
+?   ??? scripts/
+?   ?   ??? setup_database.ts    # DB setup helper
+?   ?   ??? upload_items.ts      # CSV uploader
+?   ?   ??? export_annotations.ts # CSV exporter
+?   ??? e2e/
+?   ?   ??? annotation.spec.ts   # Playwright E2E tests
+?   ??? ANNOTATOR_ONBOARDING.md  # Annotator guide
+??? data/
+?   ??? production/
+?       ??? paper_first_outputs_2026-06-22_10-42-02/
+?           ??? human_validation_sample_60.csv
+?           ??? table*.csv       # Paper tables
+??? docs/                        # Methodology and planning docs
+??? kaggle/                      # Kaggle automation and run logs
+?   ??? run_logs/
+?   ?   ??? v68/                 # v68 production run
+?   ?   ??? v69/                 # v69 comparison run
+?   ??? kaggle_analysis/         # Analysis scripts and reports
+??? paper/                       # Paper artifacts
+?   ??? proverbgap_eacl2027.md   # Main paper draft
+?   ??? sections/                # Individual sections
+?   ??? tables/                  # LaTeX table sources
+?   ??? figures/                 # Publication-ready figures
+??? scripts/                     # Utility scripts
+??? src/                         # Python source
+?   ??? generation/              # Distractor generation pipeline
+?   ??? evaluation/              # S1/S2 evaluator
+??? tests/                       # Local pytest suites
+??? submission_package_2026-08-02/ # Final submission package
+??? .archive/                    # Archived legacy code and outputs
+??? CONTRIBUTING.md              # Contributor guide
+??? DATASET_CARD.md              # Dataset metadata
+??? GETTING_STARTED.md           # Plain-English project intro
+??? SECURITY.md                  # Security policy and incident history
+??? CHANGELOG.md                 # Version history
+??? CODE_OF_CONDUCT.md           # Community standards
+??? DATA_PROVENANCE_TEMPLATE.md  # Data provenance tracking
+??? PUBLICATION_READINESS_REPORT.md # Publication checklist
+??? requirements.txt             # Python dependencies
+??? README.md                    # This file
+```
+
+---
+
+## Human Validation Protocol
 
 Human validation is conducted on a **60-item stratified sample** drawn from the v68 production dataset. The sample is split **20 items per language** (English, Arabic, Yoruba) and stratified by generation status and consensus correctness to ensure balanced coverage of easy, ambiguous, and failure-mode items.
 
@@ -177,7 +285,6 @@ Human validation is conducted on a **60-item stratified sample** drawn from the 
 - **3 native-speaker annotators per item** (9 total annotators across 3 languages; minimum 2 required for IAA computation).
 - **Blind options-only protocol:** Annotators see only the proverb text and four options (A–D). Correct answer, LLM consensus labels, and vote columns are hidden.
 - **Two-part judgment:** Correct answer selection plus a 5-point distractor plausibility rating per option.
-- **Shortcut flags:** Annotators flag obvious heuristics (`same_structure`, `length_outlier`, `semantic_echo`, `generic_idiom`, `cultural_mismatch`).
 - **Attention checks:** Embedded trap items with obvious correct answers; minimum 80% accuracy required.
 - **Timing guards:** Minimum 10 seconds and maximum 120 seconds per item.
 
@@ -191,6 +298,80 @@ See [annotation/protocol.md](annotation/protocol.md) for the full protocol, rubr
 
 ---
 
+## Annotation App
+
+The human-validation annotation frontend is built with **Next.js 16** and **Supabase**. It supports an **anonymous annotator workflow** (no login required) with **batch-based annotation** delivering **10 items per batch**, embedded **attention checks**, and an **admin dashboard** for CSV export.
+
+### Features
+
+- Anonymous annotator identity via `localStorage`
+- Batch-based annotation (10 items per batch)
+- Correctness + confidence judgment
+- Attention checks embedded in batches
+- **Minimum time guard (10 seconds)** to prevent rushing
+- Atomic fetch-and-lock via Supabase RPC (`FOR UPDATE SKIP LOCKED`)
+- Hidden gold answers (never exposed to browser)
+- Time tracking per item
+- Optional annotator notes
+- Progress tracking
+- Admin dashboard for annotation export
+
+See [annotation_app/README.md](annotation_app/README.md) for full setup and deployment instructions.
+
+---
+
+## Pipeline Architecture
+
+### Generation
+
+A **generator** LLM (e.g., `google/gemini-2.5-flash`) is asked to produce 3 distractors given a proverb and its curated gold meaning. The prompt enforces:
+- Complete sentences
+- Rough length parity with the gold meaning
+- No generic idioms or proverb echoes
+
+### Sanitizer Stack
+
+Raw distractors pass through sequential filters:
+
+| Filter | What it checks | Action on failure |
+|--------|---------------|-------------------|
+| **Length parity** | All options roughly same length | Replace via fallback sampler |
+| **Blocklist** | Rejects generic idioms | Replace |
+| **Leak guard** | Rejects distractors echoing correct meaning | Replace |
+| **Semantic distance** | Rejects distractors too similar to correct answer | Replace |
+| **NLI filter** | Rejects paraphrases entailed by correct meaning | Replace |
+
+Failed distractors are replaced by a **fallback sampler** — a curated pool of pre-written distractors from other proverbs.
+
+### Blind Audit
+
+A separate **audit committee** of 4 LLMs votes on the correct answer *without seeing the proverb*. This prevents them from using the proverb text as a shortcut.
+
+If 3 or more auditors agree on a **wrong** answer, that's called a **HCW (High-Consensus-Wrong)** item — a red flag that distractors are tempting but misleading.
+
+---
+
+## Key Findings (v68 N=5)
+
+- **NLI and leak filters dominate rewriter behavior.** Mean 0.36 NLI replacements and 0.35 leak replacements per MCQ; length is only 0.15.
+- **`adversarial-hard-negative` is the most damaged variant.** Only 26.7% fully generated, 42.2% length-fallback, 40% HCW.
+- **Generator performance varies by model family.** `google/gemma-4-31b-it` was the strongest generator (65% accuracy, 35% HCW, 66.7% fully generated).
+- **Roster stability confirmed.** 0 benched generators, 0 missing auditor votes across 180 MCQs.
+
+---
+
+## Security & Privacy
+
+- `.env` and `.env.local` are gitignored. Never commit secrets.
+- We previously had an exposed OpenRouter API key in tracked history; it has been deleted and the file purged from git. The key itself should be rotated on the OpenRouter dashboard.
+- Supabase `service_role` key is never exposed to the browser; only the `anon` key is public.
+- Admin dashboard is client-side password-gated; for production use, add proper authentication.
+- Annotator data is anonymous (no PII collected beyond optional demographics).
+
+See [SECURITY.md](SECURITY.md) for the full security policy and incident history.
+
+---
+
 ## Troubleshooting
 
 ### Python / Pipeline
@@ -200,7 +381,6 @@ See [annotation/protocol.md](annotation/protocol.md) for the full protocol, rubr
 | `ModuleNotFoundError` after `pip install` | Make sure your virtual environment is activated: `.venv\Scripts\activate` on Windows, `source .venv/bin/activate` on Mac/Linux |
 | `OPENROUTER_API_KEY` not found | Copy `.env.example` to `.env` and add your key. Never commit `.env` to git. |
 | Tests fail with connection errors | Some tests mock API calls. Ensure you're running `pytest tests/` from the repo root, not from inside a subdirectory. |
-| Kaggle notebook fails to upload | Make sure the `.ipynb` file is in the repo root and under 1GB. Check that `OPENROUTER_API_KEY` is set as a Kaggle Secret. |
 
 ### Annotation App
 
@@ -234,13 +414,6 @@ EACL 2027 ARR (ACL Rolling Review).
 3. **Reproducible failure taxonomy:** Partial+fallback, high-consensus-wrong, length/leak/NLI replacements, corpus fallback limitations.
 4. **Human validation:** 60-item subset (20 per language) with 2–3 native-speaker annotators; IAA reported.
 
-### Key Findings (v68 N=5)
-
-- **NLI and leak filters dominate rewriter behavior.** Mean 0.36 NLI replacements and 0.35 leak replacements per MCQ; length is only 0.15.
-- **`adversarial-hard-negative` is the most damaged variant.** Only 26.7% fully generated, 42.2% length-fallback, 40% HCW.
-- **Generator performance varies by model family.** `google/gemma-4-31b-it` was the strongest generator (65% accuracy, 35% HCW, 66.7% fully generated).
-- **Roster stability confirmed.** 0 benched generators, 0 missing auditor votes across 180 MCQs.
-
 ---
 
 ## Citation
@@ -267,34 +440,6 @@ This project is released under the [MIT License](LICENSE). See `LICENSE` for det
 ## Contributing
 
 We welcome contributions from researchers, developers, and native speakers. Please read [CONTRIBUTING.md](CONTRIBUTING.md) for setup instructions, code style guidelines, commit conventions, and our PR checklist.
-
-## Project Structure
-
-```
-src/                    # Python source code
-  generation/           # Pilot 1 distractor-generation pipeline
-    pilot1_generator.py
-    prompt_variants.py
-    ...
-  evaluation/           # Pilot 2 S1/S2 evaluator
-    pilot2_evaluator.py
-    ...
-data/                   # Datasets and outputs
-  production/           # v68 production dataset and paper-first outputs
-    v68/
-    v69/
-  cleaned/              # Preprocessed proverb corpora
-paper/                  # Paper drafts, tables, figures, LaTeX sources
-annotation/             # Human-validation protocol, rubric, blinding, IAA
-annotation_app/         # Next.js + Supabase annotator frontend
-tests/                  # Local pytest suites
-scripts/                # Utility scripts
-kaggle/                 # Notebook push/run automation + run logs
-docs/                   # Methodology docs, elite research plan, submission packages
-AGENTS.md               # Agent handover and configuration
-requirements.txt        # Python dependencies
-README.md               # This file
-```
 
 ---
 
