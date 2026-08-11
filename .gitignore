@@ -5,6 +5,7 @@
 .env.*
 .env.local
 .env.*.local
+.env.local.token
 keys_local.py
 api_keys*.txt
 API_keys_test/
