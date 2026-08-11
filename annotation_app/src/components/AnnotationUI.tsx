@@ -1,8 +1,8 @@
 'use client'
 
-import { useState, useEffect, useCallback, useRef } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { supabase } from '@/lib/supabase'
-import { CheckCircle, Loader2, AlertCircle, RotateCcw, Target, Gauge, Eye, EyeOff } from 'lucide-react'
+import { CheckCircle, Loader2, AlertCircle, RotateCcw, Target, Gauge, Eye } from 'lucide-react'
 
 type Item = {
   id: string
@@ -13,8 +13,10 @@ type Item = {
   option_b: string
   option_c: string
   option_d: string
+  correct_label: string
+  gold_meaning: string
   is_attention_check: boolean
-  item_metadata: Record<string, any>
+  item_metadata: Record<string, unknown>
 }
 
 type AnnotationResult = {
@@ -47,45 +49,41 @@ function seededShuffle<T>(arr: T[], seed: string): T[] {
 }
 
 export function AnnotationUI() {
-  const [annotatorId, setAnnotatorId] = useState<string | null>(null)
-  const [items, setItems] = useState<Item[]>([])
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null)
-  const [confidence, setConfidence] = useState<string | null>(null)
-  const [notes, setNotes] = useState('')
-  const [plausibilityRatings, setPlausibilityRatings] = useState<Record<string, number>>({A:0,B:0,C:0,D:0})
-  const [shortcutFlags, setShortcutFlags] = useState<string[]>([])
-  const [trainingComplete, setTrainingComplete] = useState(false)
-  const [loading, setLoading] = useState(true)
-  const [submitting, setSubmitting] = useState(false)
-  const [error, setError] = useState<string | null>(null)
-  const [result, setResult] = useState<AnnotationResult | null>(null)
-  const [startTime, setStartTime] = useState<number>(Date.now())
-  const [showAttentionBanner, setShowAttentionBanner] = useState(false)
-  const [attentionWarning, setAttentionWarning] = useState(false)
-
-  const currentItem = items[currentIndex]
-  const isLastItem = currentIndex === items.length - 1
-  const timeTaken = Date.now() - startTime
-  const isRTL = currentItem?.language === 'Arabic'
-  const [showTrainingFeedback, setShowTrainingFeedback] = useState(false)
-  const [trainingCorrect, setTrainingCorrect] = useState(false)
-
-  // Initialize annotator ID
-  useEffect(() => {
+  const [annotatorId] = useState<string | null>(() => {
+    if (typeof window === 'undefined') return null
     let id = localStorage.getItem('pg_annotator_id')
     if (!id) {
       id = 'rater_' + Math.random().toString(36).substring(2, 15) + '_' + Date.now().toString(36)
       localStorage.setItem('pg_annotator_id', id)
     }
-    setAnnotatorId(id)
-  }, [])
+    return id
+  })
+  const [items, setItems] = useState<Item[]>([])
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null)
+  const [confidence, setConfidence] = useState<string | null>(null)
+  const [notes, setNotes] = useState('')
+  const [trainingComplete, setTrainingComplete] = useState(false)
+  const [loading, setLoading] = useState(true)
+  const [submitting, setSubmitting] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+  const [result, setResult] = useState<AnnotationResult | null>(null)
+  const [startTime, setStartTime] = useState<number>(() => Date.now())
+  const [elapsedMs, setElapsedMs] = useState(0)
+  const [showAttentionBanner, setShowAttentionBanner] = useState(false)
+  const [attentionWarning, setAttentionWarning] = useState(false)
 
-  // Load first batch
+  const currentItem = items[currentIndex]
+  const isLastItem = currentIndex === items.length - 1
+  const timeTaken = elapsedMs
+  const isRTL = currentItem?.language === 'Arabic'
+  const [showTrainingFeedback, setShowTrainingFeedback] = useState(false)
+  const [trainingCorrect, setTrainingCorrect] = useState(false)
+
   useEffect(() => {
-    if (!annotatorId) return
-    loadBatch(annotatorId)
-  }, [annotatorId])
+    const id = setInterval(() => setElapsedMs(Date.now() - startTime), 1000)
+    return () => clearInterval(id)
+  }, [startTime])
 
   const loadBatch = useCallback(async (id: string) => {
     setLoading(true)
@@ -116,9 +114,8 @@ export function AnnotationUI() {
       setSelectedAnswer(null)
       setConfidence(null)
       setNotes('')
-      setPlausibilityRatings({A:0,B:0,C:0,D:0})
-      setShortcutFlags([])
       setStartTime(Date.now())
+      setElapsedMs(0)
       setShowAttentionBanner(data[0]?.is_attention_check || false)
       setShowTrainingFeedback(false)
     } catch (err) {
@@ -128,12 +125,20 @@ export function AnnotationUI() {
     }
   }, [])
 
+  useEffect(() => {
+    if (!annotatorId) return
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    loadBatch(annotatorId)
+  }, [annotatorId, loadBatch])
+
   const handleSubmit = async () => {
     if (!annotatorId || !currentItem || !selectedAnswer || !confidence) return
     if (submitting) return
 
+    const actualTimeTaken = Date.now() - startTime
+
     // Minimum time guard
-    if (timeTaken < MIN_TIME_MS) {
+    if (actualTimeTaken < MIN_TIME_MS) {
       setAttentionWarning(true)
       return
     }
@@ -164,14 +169,10 @@ export function AnnotationUI() {
         annotator_id: annotatorId,
         selected_answer: selectedAnswer,
         confidence,
-        time_taken_ms: timeTaken,
+        time_taken_ms: actualTimeTaken,
         is_attention_check: isAttention,
         attention_passed: attentionPassed,
         annotator_notes: notes.trim() || null,
-        plausibility_ratings: Object.fromEntries(
-          Object.entries(plausibilityRatings).filter(([,v]) => v > 0)
-        ),
-        shortcut_flags: shortcutFlags.length > 0 ? shortcutFlags : null,
       })
 
       if (insertError) throw insertError
@@ -200,6 +201,7 @@ export function AnnotationUI() {
         setConfidence(null)
         setNotes('')
         setStartTime(Date.now())
+        setElapsedMs(0)
         setShowAttentionBanner(items[nextIndex]?.is_attention_check || false)
         setAttentionWarning(false)
       }
@@ -356,8 +358,6 @@ export function AnnotationUI() {
                   setSelectedAnswer(null)
                   setConfidence(null)
                   setNotes('')
-                  setPlausibilityRatings({A:0,B:0,C:0,D:0})
-                  setShortcutFlags([])
                   setStartTime(Date.now())
                   setShowAttentionBanner(items[nextIndex]?.is_attention_check || false)
                 }
@@ -445,71 +445,10 @@ export function AnnotationUI() {
                   <div className="text-xs text-slate-500">{option.desc}</div>
                 </button>
               ))}
-            </div>
-          </div>
-
-        {/* Plausibility ratings */}
-        <div className="mb-8">
-          <h2 className="text-lg font-semibold text-slate-700 mb-3">Rate how plausible each option is as the correct meaning (1 = not plausible, 5 = very plausible):</h2>
-          <div className="space-y-3">
-            {options.map((option) => (
-              <div key={option.key} className="flex items-center gap-4">
-                <span className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold bg-slate-100 text-slate-600">
-                  {option.displayKey}
-                </span>
-                <p className="text-slate-800 leading-relaxed pt-1 flex-1">{option.text}</p>
-                <div className="flex gap-1">
-                  {[1,2,3,4,5].map((rating) => (
-                    <button
-                      key={rating}
-                      onClick={() => setPlausibilityRatings(prev => ({...prev, [option.key]: rating}))}
-                      className={`w-8 h-8 rounded-full text-sm font-medium transition-all ${
-                        plausibilityRatings[option.key] === rating
-                          ? 'bg-indigo-600 text-white'
-                          : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
-                      }`}
-                    >
-                      {rating}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            ))}
           </div>
         </div>
 
-        {/* Shortcut flags */}
-        <div className="mb-8">
-          <h2 className="text-lg font-semibold text-slate-700 mb-3">Does any option show a shortcut artifact? (check all that apply)</h2>
-          <div className="flex flex-wrap gap-3">
-            {[
-              { value: 'same_structure', label: 'Same structure as correct answer' },
-              { value: 'length_outlier', label: 'Length outlier' },
-              { value: 'semantic_echo', label: 'Semantic echo' },
-              { value: 'generic_idiom', label: 'Generic idiom' },
-              { value: 'cultural_mismatch', label: 'Cultural mismatch' },
-              { value: 'none', label: 'None of the above' },
-            ].map((flag) => (
-              <label key={flag.value} className="flex items-center gap-2 cursor-pointer">
-                <input
-                  type="checkbox"
-                  checked={shortcutFlags.includes(flag.value)}
-                  onChange={(e) => {
-                    if (e.target.checked) {
-                      setShortcutFlags(prev => [...prev, flag.value])
-                    } else {
-                      setShortcutFlags(prev => prev.filter(f => f !== flag.value))
-                    }
-                  }}
-                  className="w-4 h-4 text-indigo-600 rounded border-slate-300"
-                />
-                <span className="text-sm text-slate-700">{flag.label}</span>
-              </label>
-            ))}
-          </div>
-        </div>
-
-        {/* Notes */}
+      {/* Notes */}
         <div className="mb-8">
           <h2 className="text-lg font-semibold text-slate-700 mb-3">Notes (optional)</h2>
           <textarea

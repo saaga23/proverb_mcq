@@ -2,15 +2,39 @@
 
 import { useState, useEffect } from 'react'
 import { supabase } from '@/lib/supabase'
-import { Download, Loader2, CheckCircle, XCircle, Lock } from 'lucide-react'
+import { Download, Loader2, Lock } from 'lucide-react'
+
+interface AdminAnnotation {
+  id: string
+  item_id: string
+  selected_answer: string
+  correctness: string
+  confidence: string
+  time_taken_ms: number
+  is_attention_check: boolean
+  attention_passed: boolean
+  annotator_notes: string
+  annotator_id: string
+  created_at: string
+  item?: {
+    validation_id: string
+    language: string
+    proverb: string
+    option_a: string
+    option_b: string
+    option_c: string
+    option_d: string
+    correct_label: string
+  }
+}
 
 // NOTE: This client-side password gate is for prototype use only.
 // Production deployments must replace this with real authenticated access (e.g., Supabase Auth, OAuth, or SSO).
 const ADMIN_PASSWORD = process.env.NEXT_PUBLIC_ADMIN_PASSWORD
 
 export default function AdminPage() {
-  const [annotations, setAnnotations] = useState<any[]>([])
-  const [loading, setLoading] = useState(true)
+  const [annotations, setAnnotations] = useState<AdminAnnotation[]>([])
+  const [loading, _setLoading] = useState(true)
   const [exporting, setExporting] = useState(false)
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [password, setPassword] = useState('')
@@ -23,6 +47,108 @@ export default function AdminPage() {
       setAuthError(false)
     } else {
       setAuthError(true)
+    }
+  }
+
+  const fetchAnnotations = async () => {
+    const { data, error } = await supabase
+      .from('pg_annotations')
+      .select(`
+        *,
+        item:pg_annotation_items (
+          validation_id, language, proverb, option_a, option_b, option_c, option_d, correct_label
+        )
+      `)
+      .order('created_at', { ascending: false })
+      .limit(100)
+
+    if (error) {
+      console.error('Error:', error)
+    } else {
+      setAnnotations(data || [])
+    }
+    _setLoading(false)
+  }
+
+  useEffect(() => {
+    if (!isAuthenticated) return
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    fetchAnnotations()
+  }, [isAuthenticated])
+
+  const exportCsv = async () => {
+    setExporting(true)
+    try {
+      const { data, error } = await supabase
+        .from('pg_annotations')
+        .select(`
+          *,
+          item:pg_annotation_items (
+            validation_id, language, proverb, option_a, option_b, option_c, option_d, correct_label
+          )
+        `)
+        .order('created_at', { ascending: true })
+
+      if (error || !data) {
+        console.error('Export error:', error)
+        return
+      }
+
+      const headers = [
+        'annotation_id', 'item_id', 'validation_id', 'language', 'proverb',
+        'option_a', 'option_b', 'option_c', 'option_d', 'correct_label',
+        'selected_answer', 'correctness', 'confidence', 'time_taken_ms',
+        'is_attention_check', 'attention_passed', 'annotator_notes',
+        'annotator_id', 'created_at'
+      ]
+
+      const rows = data.map((a) => [
+        a.id,
+        a.item_id,
+        a.item?.validation_id || '',
+        a.item?.language || '',
+        `"${(a.item?.proverb || '').replace(/"/g, '""')}"`,
+        `"${(a.item?.option_a || '').replace(/"/g, '""')}"`,
+        `"${(a.item?.option_b || '').replace(/"/g, '""')}"`,
+        `"${(a.item?.option_c || '').replace(/"/g, '""')}"`,
+        `"${(a.item?.option_d || '').replace(/"/g, '""')}"`,
+        a.item?.correct_label || '',
+        a.selected_answer,
+        a.correctness,
+        a.confidence,
+        a.time_taken_ms,
+        a.is_attention_check,
+        a.attention_passed,
+        `"${(a.annotator_notes || '').replace(/"/g, '""')}"`,
+        a.annotator_id,
+        a.created_at,
+      ])
+
+      const csv = [headers.join(','), ...rows.map((r) => r.join(','))].join('\n')
+      const blob = new Blob([csv], { type: 'text/csv' })
+      const url = URL.createObjectURL(blob)
+      const link = document.createElement('a')
+      link.href = url
+      link.download = `annotations_export_${new Date().toISOString().slice(0, 10)}.csv`
+      link.click()
+      URL.revokeObjectURL(url)
+    } catch (err) {
+      console.error('Export error:', err)
+    } finally {
+      setExporting(false)
+    }
+  }
+
+  const getCorrectnessColor = (correctness: string) => {
+    switch (correctness) {
+      case 'correct':
+        return 'text-green-600 bg-green-50'
+      case 'incorrect':
+        return 'text-red-600 bg-red-50'
+      case 'unsure':
+        return 'text-yellow-600 bg-yellow-50'
+      default:
+        return 'text-gray-600 bg-gray-50'
     }
   }
 
@@ -59,104 +185,6 @@ export default function AdminPage() {
         </div>
       </div>
     )
-  }
-
-  const fetchAnnotations = async () => {
-    const { data, error } = await supabase
-      .from('pg_annotations')
-      .select(`
-        *,
-        item:pg_annotation_items (
-          validation_id, language, proverb, option_a, option_b, option_c, option_d, correct_label
-        )
-      `)
-      .order('created_at', { ascending: false })
-      .limit(100)
-
-    if (error) {
-      console.error('Error:', error)
-    } else {
-      setAnnotations(data || [])
-    }
-    setLoading(false)
-  }
-
-  useEffect(() => {
-    if (isAuthenticated) {
-      fetchAnnotations()
-    }
-  }, [isAuthenticated])
-
-  const exportCsv = async () => {
-    setExporting(true)
-    try {
-      const { data, error } = await supabase
-        .from('pg_annotations')
-        .select(`
-          *,
-          item:pg_annotation_items (
-            validation_id, language, proverb, option_a, option_b, option_c, option_d, correct_label
-          )
-        `)
-        .order('created_at', { ascending: true })
-
-      if (error || !data) {
-        console.error('Export error:', error)
-        return
-      }
-
-      const headers = [
-        'annotation_id', 'item_id', 'validation_id', 'language', 'proverb',
-        'option_a', 'option_b', 'option_c', 'option_d', 'correct_label',
-        'selected_answer', 'correctness', 'confidence', 'time_taken_ms',
-        'is_attention_check', 'attention_passed', 'annotator_notes',
-        'annotator_id', 'created_at'
-      ]
-
-      const rows = data.map(a => [
-        a.id,
-        a.item_id,
-        a.item?.validation_id || '',
-        a.item?.language || '',
-        `"${(a.item?.proverb || '').replace(/"/g, '""')}"`,
-        `"${(a.item?.option_a || '').replace(/"/g, '""')}"`,
-        `"${(a.item?.option_b || '').replace(/"/g, '""')}"`,
-        `"${(a.item?.option_c || '').replace(/"/g, '""')}"`,
-        `"${(a.item?.option_d || '').replace(/"/g, '""')}"`,
-        a.item?.correct_label || '',
-        a.selected_answer,
-        a.correctness,
-        a.confidence,
-        a.time_taken_ms,
-        a.is_attention_check,
-        a.attention_passed,
-        `"${(a.annotator_notes || '').replace(/"/g, '""')}"`,
-        a.annotator_id,
-        a.created_at,
-      ])
-
-      const csv = [headers.join(','), ...rows.map(r => r.join(','))].join('\n')
-      const blob = new Blob([csv], { type: 'text/csv' })
-      const url = URL.createObjectURL(blob)
-      const link = document.createElement('a')
-      link.href = url
-      link.download = `annotations_export_${new Date().toISOString().slice(0, 10)}.csv`
-      link.click()
-      URL.revokeObjectURL(url)
-    } catch (err) {
-      console.error('Export error:', err)
-    } finally {
-      setExporting(false)
-    }
-  }
-
-  const getCorrectnessColor = (correctness: string) => {
-    switch (correctness) {
-      case 'correct': return 'text-green-600 bg-green-50'
-      case 'incorrect': return 'text-red-600 bg-red-50'
-      case 'unsure': return 'text-yellow-600 bg-yellow-50'
-      default: return 'text-gray-600 bg-gray-50'
-    }
   }
 
   return (

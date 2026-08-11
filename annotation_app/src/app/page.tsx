@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { supabase } from '@/lib/supabase'
 import { CheckCircle, Loader2, AlertCircle } from 'lucide-react'
 
@@ -14,7 +14,15 @@ type FormData = {
 }
 
 export default function Home() {
-  const [annotatorId, setAnnotatorId] = useState<string | null>(null)
+  const [annotatorId] = useState<string | null>(() => {
+    if (typeof window === 'undefined') return null
+    let id = localStorage.getItem('pg_annotator_id')
+    if (!id) {
+      id = 'rater_' + Math.random().toString(36).substring(2, 15) + '_' + Date.now().toString(36)
+      localStorage.setItem('pg_annotator_id', id)
+    }
+    return id
+  })
   const [form, setForm] = useState<FormData>({
     nickname: '',
     language_expertise: '',
@@ -27,15 +35,6 @@ export default function Home() {
   const [error, setError] = useState<string | null>(null)
   const [success, setSuccess] = useState(false)
   const [consentGiven, setConsentGiven] = useState(false)
-
-  useEffect(() => {
-    let id = localStorage.getItem('pg_annotator_id')
-    if (!id) {
-      id = 'rater_' + Math.random().toString(36).substring(2, 15) + '_' + Date.now().toString(36)
-      localStorage.setItem('pg_annotator_id', id)
-    }
-    setAnnotatorId(id)
-  }, [])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -194,8 +193,8 @@ export default function Home() {
               >
                 <option value="">Select education level...</option>
                 <option value="high_school">High School</option>
-                <option value="bachelors">Bachelor's Degree</option>
-                <option value="masters">Master's Degree</option>
+                <option value="bachelors">Bachelor&apos;s Degree</option>
+                <option value="masters">Master&apos;s Degree</option>
                 <option value="phd">PhD</option>
                 <option value="other">Other</option>
                 <option value="prefer_not_to_say">Prefer not to say</option>

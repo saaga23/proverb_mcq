@@ -28,7 +28,7 @@ interface AnnotationRow {
   selected_answer: string
   correctness: string
   confidence: string
-  time_taken_ms: string
+  time_taken_ms: number
   is_attention_check: boolean
   attention_passed: boolean
   annotator_notes: string
@@ -42,7 +42,7 @@ interface AnnotationRow {
   created_at: string
 }
 
-function request(path: string, method = 'GET', body: any = null): Promise<any> {
+function request(path: string, method = 'GET', body: unknown = null): Promise<unknown> {
   return new Promise((resolve, reject) => {
     const options = {
       hostname: new URL(SUPABASE_URL).hostname,
@@ -71,47 +71,78 @@ function request(path: string, method = 'GET', body: any = null): Promise<any> {
   })
 }
 
+interface RestResponse {
+  id: string
+  item_id: string
+  selected_answer: string
+  correctness: string
+  confidence: string
+  time_taken_ms: number
+  is_attention_check: boolean
+  attention_passed: boolean
+  annotator_notes: string
+  annotator_id: string
+  created_at: string
+  item?: {
+    validation_id: string
+    language: string
+    proverb: string
+    option_a: string
+    option_b: string
+    option_c: string
+    option_d: string
+    correct_label: string
+  }
+}
+
 async function exportAnnotations() {
   console.log('Fetching annotations...')
 
   // Query annotations directly via REST
-  const annotationsData = await request('/rest/v1/pg_annotations?select=*&order=created_at.asc', 'GET')
+  const annotationsData = await request('/rest/v1/pg_annotations?select=*&order=created_at.asc', 'GET') as RestResponse[]
   
   if (!annotationsData || annotationsData.length === 0) {
     console.log('No annotations found')
     return
   }
 
-  const annotations: any[] = annotationsData
-
   // Get all unique item_ids
-  const itemIds = [...new Set(annotations.map(a => a.item_id))]
+  const itemIds = [...new Set(annotationsData.map(a => a.item_id))]
   
   // Fetch items in batches
-  const itemsMap = new Map()
+  const itemsMap = new Map<string, { validation_id: string; language: string; proverb: string; option_a: string; option_b: string; option_c: string; option_d: string; correct_label: string; gold_meaning?: string }>()
   for (const itemId of itemIds) {
-    const item = await request(`/rest/v1/pg_annotation_items?id=eq.${encodeURIComponent(itemId)}&select=*`, 'GET')
+    const item = await request(`/rest/v1/pg_annotation_items?id=eq.${encodeURIComponent(itemId)}&select=*`, 'GET') as Array<{ validation_id: string; language: string; proverb: string; option_a: string; option_b: string; option_c: string; option_d: string; correct_label: string; gold_meaning?: string }>
     if (item && item.length > 0) {
       itemsMap.set(itemId, item[0])
     }
   }
 
   // Get all unique annotator_ids
-  const annotatorIds = [...new Set(annotations.map(a => a.annotator_id))]
+  const annotatorIds = [...new Set(annotationsData.map(a => a.annotator_id))]
   
   // Fetch profiles
-  const profilesMap = new Map()
+  interface ProfileRow {
+    annotator_id: string
+    nickname: string
+    language_expertise: string
+    is_native_speaker: string
+    age_group: string
+    education_level: string
+    country: string
+  }
+  const profilesMap = new Map<string, ProfileRow>()
   for (const annotatorId of annotatorIds) {
-    const profile = await request(`/rest/v1/pg_annotator_profiles?annotator_id=eq.${encodeURIComponent(annotatorId)}&select=*`, 'GET')
+    const profile = await request(`/rest/v1/pg_annotator_profiles?annotator_id=eq.${encodeURIComponent(annotatorId)}&select=*`, 'GET') as ProfileRow[]
     if (profile && profile.length > 0) {
       profilesMap.set(annotatorId, profile[0])
     }
   }
 
   // Flatten the data
-  const rows: AnnotationRow[] = annotations.map(a => {
-    const item = itemsMap.get(a.item_id) || {}
-    const profile = profilesMap.get(a.annotator_id) || {}
+  const rows: AnnotationRow[] = annotationsData.map(a => {
+    const item = itemsMap.get(a.item_id) || { validation_id: '', language: '', proverb: '', option_a: '', option_b: '', option_c: '', option_d: '', correct_label: '', gold_meaning: '' }
+    const profile = profilesMap.get(a.annotator_id) || { annotator_id: '', nickname: '', language_expertise: '', is_native_speaker: '', age_group: '', education_level: '', country: '' }
     return {
       annotation_id: a.id,
       item_id: a.item_id,

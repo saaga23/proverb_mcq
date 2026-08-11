@@ -50,7 +50,7 @@ function parseCsv(content: string): CsvRow[] {
   return records as CsvRow[]
 }
 
-function request(path: string, method = 'GET', body: any = null) {
+function request(path: string, method = 'GET', body: unknown = null) {
   return new Promise((resolve, reject) => {
     const options = {
       hostname: new URL(SUPABASE_URL).hostname,
@@ -81,7 +81,7 @@ function request(path: string, method = 'GET', body: any = null) {
 }
 
 async function uploadItems() {
-  const csvPath = path.join(__dirname, '..', '..', 'paper_first_outputs_2026-06-22_10-42-02', 'human_validation_sample_60.csv')
+  const csvPath = path.join(__dirname, '..', '..', 'data', 'production', 'paper_first_outputs_2026-06-22_10-42-02', 'human_validation_sample_60.csv')
   if (!fs.existsSync(csvPath)) {
     console.error(`CSV not found: ${csvPath}`)
     process.exit(1)
@@ -154,11 +154,12 @@ async function uploadItems() {
   for (let i = 0; i < allItems.length; i += batchSize) {
     const batch = allItems.slice(i, i + batchSize)
     try {
-      const result = await request('/rest/v1/pg_annotation_items?on_conflict=id', 'POST', batch)
+      await request('/rest/v1/pg_annotation_items?on_conflict=id', 'POST', batch)
       uploaded += batch.length
       console.log(`Uploaded batch ${Math.floor(i / batchSize) + 1}: ${uploaded}/${allItems.length}`)
-    } catch (error: any) {
-      console.error(`Batch ${Math.floor(i / batchSize) + 1} failed:`, error.message)
+    } catch (error) {
+      const message = error instanceof Error ? error.message : 'Unknown error'
+      console.error(`Batch ${Math.floor(i / batchSize) + 1} failed:`, message)
       failed += batch.length
     }
   }

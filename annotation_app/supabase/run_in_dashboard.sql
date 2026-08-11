@@ -123,38 +123,41 @@ RETURNS TABLE (
   is_attention_check BOOLEAN,
   item_metadata JSONB
 )
-LANGUAGE sql
+LANGUAGE plpgsql
 SECURITY DEFINER
 SET search_path = public
 AS $$
-  UPDATE public.pg_annotation_items AS items
-  SET lock_expires_at = now() + interval '30 minutes'
-  FROM (
-    SELECT id
-    FROM public.pg_annotation_items
-    WHERE (lock_expires_at IS NULL OR lock_expires_at < now())
+BEGIN
+  RETURN QUERY
+  WITH selected AS (
+    SELECT i.id
+    FROM public.pg_annotation_items i
+    WHERE (i.lock_expires_at IS NULL OR i.lock_expires_at < now())
       AND NOT EXISTS (
-        SELECT 1 FROM public.pg_annotations
-        WHERE item_id = public.pg_annotation_items.id AND annotator_id = p_annotator_id
+        SELECT 1 FROM public.pg_annotations a
+        WHERE a.item_id = i.id AND a.annotator_id = p_annotator_id
       )
     ORDER BY random()
     LIMIT p_limit
     FOR UPDATE SKIP LOCKED
-  ) AS selected
-  WHERE items.id = selected.id
+  )
+  UPDATE public.pg_annotation_items i
+  SET lock_expires_at = now() + interval '30 minutes'
+  WHERE i.id IN (SELECT id FROM selected)
   RETURNING
-    items.id,
-    items.validation_id,
-    items.language,
-    items.proverb,
-    items.option_a,
-    items.option_b,
-    items.option_c,
-    items.option_d,
-    items.correct_label,
-    items.gold_meaning,
-    items.is_attention_check,
-    items.item_metadata;
+    i.id,
+    i.validation_id,
+    i.language,
+    i.proverb,
+    i.option_a,
+    i.option_b,
+    i.option_c,
+    i.option_d,
+    i.correct_label,
+    i.gold_meaning,
+    i.is_attention_check,
+    i.item_metadata;
+END;
 $$;
 
 -- RPC: Mark items as complete

@@ -25,7 +25,7 @@ export type Database = {
           correct_label: string
           gold_meaning: string
           is_attention_check: boolean
-          item_metadata: Record<string, any>
+          item_metadata: Record<string, unknown>
           created_at: string
         }
         Insert: {
@@ -40,7 +40,7 @@ export type Database = {
           correct_label: string
           gold_meaning?: string
           is_attention_check?: boolean
-          item_metadata?: Record<string, any>
+          item_metadata?: Record<string, unknown>
           created_at?: string
         }
         Update: {
@@ -55,7 +55,7 @@ export type Database = {
           correct_label?: string
           gold_meaning?: string
           is_attention_check?: boolean
-          item_metadata?: Record<string, any>
+          item_metadata?: Record<string, unknown>
           created_at?: string
         }
       }

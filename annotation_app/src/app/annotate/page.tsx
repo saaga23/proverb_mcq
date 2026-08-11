@@ -1,4 +1,3 @@
-import { supabase } from '@/lib/supabase'
 import { AnnotationUI } from '@/components/AnnotationUI'
 
 export default function AnnotatePage() {
