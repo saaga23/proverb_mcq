@@ -1,0 +1,76 @@
+{
+  "snapshot_date": "2026-06-22",
+  "source": "OpenRouter /models endpoint at runtime",
+  "note": "Model IDs and pricing documented from v68 run. Reproduce with these exact IDs.",
+  "generator_pool": {
+    "active": [
+      {
+        "id": "qwen/qwen3.7-max",
+        "family": "Qwen",
+        "provider": "Alibaba Cloud",
+        "role": "primary_generator"
+      },
+      {
+        "id": "google/gemma-4-31b-it",
+        "family": "Google",
+        "provider": "Google",
+        "role": "primary_generator"
+      },
+      {
+        "id": "google/gemini-2.5-flash",
+        "family": "Google",
+        "provider": "Google",
+        "role": "primary_generator"
+      }
+    ],
+    "benched": [],
+    "substitutes_available": [
+      "google/gemini-2.5-pro",
+      "openai/gpt-4.1-mini",
+      "openai/gpt-4.1-nano",
+      "anthropic/claude-sonnet-4",
+      "qwen/qwen3.5-397b-a17b",
+      "meta-llama/llama-4-maverick",
+      "deepseek/deepseek-v4-pro"
+    ]
+  },
+  "committee_pool": {
+    "active": [
+      {
+        "id": "meta-llama/llama-3.3-70b-instruct",
+        "family": "Meta",
+        "provider": "Meta",
+        "role": "auditor"
+      },
+      {
+        "id": "mistralai/mistral-small-3.2-24b-instruct",
+        "family": "Mistral",
+        "provider": "Mistral AI",
+        "role": "auditor"
+      },
+      {
+        "id": "google/gemma-3-27b-it",
+        "family": "Google",
+        "provider": "Google",
+        "role": "auditor"
+      },
+      {
+        "id": "deepseek/deepseek-v3.2",
+        "family": "DeepSeek",
+        "provider": "DeepSeek",
+        "role": "auditor"
+      }
+    ],
+    "benched": [],
+    "substitutes_available": [
+      "amazon/nova-lite-v1"
+    ]
+  },
+  "fallback_generator": {
+    "id": "openai/gpt-4.1-nano",
+    "family": "OpenAI",
+    "provider": "OpenAI",
+    "used_in_v69_ablation": true,
+    "used_in_v68": false
+  }
+}

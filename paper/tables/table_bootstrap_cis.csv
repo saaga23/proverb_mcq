@@ -1,0 +1,14 @@
+metric,point_estimate,ci_lower_95,ci_upper_95,n
+consensus_accuracy,0.5667,0.4944,0.6389,180
+perfect_consensus_rate,0.4167,0.3444,0.4889,180
+hcw_rate,0.4333,0.3611,0.5056,180
+partial_or_fallback_rate,0.4389,0.3667,0.5111,180
+hard_fallback_rate,0.0,0.0,0.0,180
+duplicate_rate,0.0,0.0,0.0,180
+consensus_accuracy_English,0.65,0.5333,0.7667,60
+consensus_accuracy_Arabic,0.5333,0.4,0.65,60
+consensus_accuracy_Yoruba,0.5167,0.3833,0.65,60
+consensus_accuracy_adversarial-hard-negative,0.6,0.4667,0.7333,45
+consensus_accuracy_adversarial-length-locked,0.5556,0.4,0.6889,45
+consensus_accuracy_overgenerate-select,0.5333,0.3778,0.6889,45
+consensus_accuracy_taxonomy-guided,0.5778,0.4222,0.7111,45

@@ -1,0 +1,11 @@
+position,correct,total,accuracy
+A,33,45,0.7333
+B,26,45,0.5778
+C,22,45,0.4889
+D,21,45,0.4667
+ALL,102,180,0.5667
+CORRECTED,,,0.5667
+
+chi2_statistic,3.4902,p_value,0.322036,df,3
+
+position_corrected_consensus,0.5667,raw_consensus,0.5667,delta,0.0

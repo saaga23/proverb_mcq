@@ -1,0 +1,2644 @@
+{
+  "run_timestamp": "2026-06-15T17:27:15.611843+00:00",
+  "seed": 20260615,
+  "n_per_language": 5,
+  "generator_model": "openai/gpt-5",
+  "audit_committee": [
+    "anthropic/claude-opus-4.8",
+    "openai/gpt-5",
+    "google/gemini-2.5-pro",
+    "nvidia/nemotron-3-ultra-550b-a55b:free"
+  ],
+  "prompt_variants": [
+    {
+      "name": "baseline",
+      "rationale": "Tightened control condition mirroring the existing S2 pipeline but with stricter surface and semantic constraints."
+    },
+    {
+      "name": "misconception-based",
+      "rationale": "Zengaffinen et al. 2026: solve-first + modeling student errors; revealing the correct answer anchors generation."
+    },
+    {
+      "name": "taxonomy-guided",
+      "rationale": "Haladyna / VERGE taxonomy provides principled, structurally diverse error categories; rewritten to avoid label echo."
+    },
+    {
+      "name": "few-shot-predictive",
+      "rationale": "Bitew et al. 2023: few-shot predictive prompting shapes the output distribution; revised to remove placeholder strings, add explicit constraints, and include a non-English example."
+    },
+    {
+      "name": "overgenerate-select",
+      "rationale": "AlgGeoTest: overgenerate-then-select reduces answer-set bias; NoisyBench: iterative filtering for quality; clarified to avoid near-correct selections."
+    }
+  ],
+  "cost_cap_usd": 5.0,
+  "estimated_cost_usd": 0.531491,
+  "per_variant_comparison": [
+    {
+      "variant": "baseline",
+      "language": "English",
+      "n": 5,
+      "consensus_accuracy": 0.4,
+      "mean_consensus_frac": 1.0,
+      "flag": "REVIEW"
+    },
+    {
+      "variant": "baseline",
+      "language": "Arabic",
+      "n": 5,
+      "consensus_accuracy": 0.2,
+      "mean_consensus_frac": 0.8,
+      "flag": "PASS"
+    },
+    {
+      "variant": "baseline",
+      "language": "Yoruba",
+      "n": 5,
+      "consensus_accuracy": 0.0,
+      "mean_consensus_frac": 1.0,
+      "flag": "PASS"
+    },
+    {
+      "variant": "baseline",
+      "language": "ALL",
+      "n": 15,
+      "consensus_accuracy": 0.2,
+      "mean_consensus_frac": 0.9333333333333333,
+      "flag": "PASS"
+    },
+    {
+      "variant": "misconception-based",
+      "language": "English",
+      "n": 5,
+      "consensus_accuracy": 0.2,
+      "mean_consensus_frac": 0.8,
+      "flag": "PASS"
+    },
+    {
+      "variant": "misconception-based",
+      "language": "Arabic",
+      "n": 5,
+      "consensus_accuracy": 0.2,
+      "mean_consensus_frac": 1.0,
+      "flag": "PASS"
+    },
+    {
+      "variant": "misconception-based",
+      "language": "Yoruba",
+      "n": 5,
+      "consensus_accuracy": 0.0,
+      "mean_consensus_frac": 0.9,
+      "flag": "PASS"
+    },
+    {
+      "variant": "misconception-based",
+      "language": "ALL",
+      "n": 15,
+      "consensus_accuracy": 0.13333333333333333,
+      "mean_consensus_frac": 0.9,
+      "flag": "PASS"
+    },
+    {
+      "variant": "taxonomy-guided",
+      "language": "English",
+      "n": 5,
+      "consensus_accuracy": 0.6,
+      "mean_consensus_frac": 1.0,
+      "flag": "FAIL"
+    },
+    {
+      "variant": "taxonomy-guided",
+      "language": "Arabic",
+      "n": 5,
+      "consensus_accuracy": 0.0,
+      "mean_consensus_frac": 1.0,
+      "flag": "PASS"
+    },
+    {
+      "variant": "taxonomy-guided",
+      "language": "Yoruba",
+      "n": 5,
+      "consensus_accuracy": 0.2,
+      "mean_consensus_frac": 1.0,
+      "flag": "PASS"
+    },
+    {
+      "variant": "taxonomy-guided",
+      "language": "ALL",
+      "n": 15,
+      "consensus_accuracy": 0.26666666666666666,
+      "mean_consensus_frac": 1.0,
+      "flag": "PASS"
+    },
+    {
+      "variant": "few-shot-predictive",
+      "language": "English",
+      "n": 5,
+      "consensus_accuracy": 0.6,
+      "mean_consensus_frac": 1.0,
+      "flag": "FAIL"
+    },
+    {
+      "variant": "few-shot-predictive",
+      "language": "Arabic",
+      "n": 5,
+      "consensus_accuracy": 0.2,
+      "mean_consensus_frac": 1.0,
+      "flag": "PASS"
+    },
+    {
+      "variant": "few-shot-predictive",
+      "language": "Yoruba",
+      "n": 5,
+      "consensus_accuracy": 0.2,
+      "mean_consensus_frac": 1.0,
+      "flag": "PASS"
+    },
+    {
+      "variant": "few-shot-predictive",
+      "language": "ALL",
+      "n": 15,
+      "consensus_accuracy": 0.3333333333333333,
+      "mean_consensus_frac": 1.0,
+      "flag": "REVIEW"
+    },
+    {
+      "variant": "overgenerate-select",
+      "language": "English",
+      "n": 5,
+      "consensus_accuracy": 0.6,
+      "mean_consensus_frac": 1.0,
+      "flag": "FAIL"
+    },
+    {
+      "variant": "overgenerate-select",
+      "language": "Arabic",
+      "n": 5,
+      "consensus_accuracy": 0.6,
+      "mean_consensus_frac": 1.0,
+      "flag": "FAIL"
+    },
+    {
+      "variant": "overgenerate-select",
+      "language": "Yoruba",
+      "n": 5,
+      "consensus_accuracy": 0.2,
+      "mean_consensus_frac": 0.8,
+      "flag": "PASS"
+    },
+    {
+      "variant": "overgenerate-select",
+      "language": "ALL",
+      "n": 15,
+      "consensus_accuracy": 0.4666666666666667,
+      "mean_consensus_frac": 0.9333333333333333,
+      "flag": "FAIL"
+    }
+  ],
+  "per_model_accuracy": [
+    {
+      "variant": "baseline",
+      "model": "anthropic/claude-opus-4.8",
+      "accuracy": 0.21428571428571427,
+      "n": 14
+    },
+    {
+      "variant": "misconception-based",
+      "model": "anthropic/claude-opus-4.8",
+      "accuracy": 0.14285714285714285,
+      "n": 14
+    },
+    {
+      "variant": "misconception-based",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "accuracy": 0.0,
+      "n": 1
+    },
+    {
+      "variant": "taxonomy-guided",
+      "model": "anthropic/claude-opus-4.8",
+      "accuracy": 0.26666666666666666,
+      "n": 15
+    },
+    {
+      "variant": "few-shot-predictive",
+      "model": "anthropic/claude-opus-4.8",
+      "accuracy": 0.3333333333333333,
+      "n": 15
+    },
+    {
+      "variant": "overgenerate-select",
+      "model": "anthropic/claude-opus-4.8",
+      "accuracy": 0.4666666666666667,
+      "n": 15
+    },
+    {
+      "variant": "overgenerate-select",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "accuracy": 0.5,
+      "n": 2
+    }
+  ],
+  "cost_history": [
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-baseline",
+      "input_tokens": 292,
+      "output_tokens": 576,
+      "cost_usd": 0.006125,
+      "cumulative_usd": 0.006125
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-baseline",
+      "input_tokens": 290,
+      "output_tokens": 576,
+      "cost_usd": 0.0061225,
+      "cumulative_usd": 0.012247500000000001
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-baseline",
+      "input_tokens": 287,
+      "output_tokens": 576,
+      "cost_usd": 0.00611875,
+      "cumulative_usd": 0.01836625
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-baseline",
+      "input_tokens": 296,
+      "output_tokens": 576,
+      "cost_usd": 0.00613,
+      "cumulative_usd": 0.02449625
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-baseline",
+      "input_tokens": 294,
+      "output_tokens": 576,
+      "cost_usd": 0.0061275,
+      "cumulative_usd": 0.03062375
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-baseline",
+      "input_tokens": 292,
+      "output_tokens": 576,
+      "cost_usd": 0.006125,
+      "cumulative_usd": 0.036748750000000004
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-baseline",
+      "input_tokens": 305,
+      "output_tokens": 576,
+      "cost_usd": 0.00614125,
+      "cumulative_usd": 0.042890000000000005
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-baseline",
+      "input_tokens": 295,
+      "output_tokens": 576,
+      "cost_usd": 0.00612875,
+      "cumulative_usd": 0.04901875000000001
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-baseline",
+      "input_tokens": 300,
+      "output_tokens": 576,
+      "cost_usd": 0.006135,
+      "cumulative_usd": 0.05515375000000001
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-baseline",
+      "input_tokens": 295,
+      "output_tokens": 576,
+      "cost_usd": 0.00612875,
+      "cumulative_usd": 0.06128250000000001
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-baseline",
+      "input_tokens": 305,
+      "output_tokens": 576,
+      "cost_usd": 0.00614125,
+      "cumulative_usd": 0.06742375
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-baseline",
+      "input_tokens": 306,
+      "output_tokens": 576,
+      "cost_usd": 0.0061425,
+      "cumulative_usd": 0.07356625
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-baseline",
+      "input_tokens": 299,
+      "output_tokens": 576,
+      "cost_usd": 0.00613375,
+      "cumulative_usd": 0.0797
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-baseline",
+      "input_tokens": 304,
+      "output_tokens": 576,
+      "cost_usd": 0.00614,
+      "cumulative_usd": 0.08584
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-baseline",
+      "input_tokens": 317,
+      "output_tokens": 576,
+      "cost_usd": 0.00615625,
+      "cumulative_usd": 0.09199625
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-misconception-based",
+      "input_tokens": 278,
+      "output_tokens": 576,
+      "cost_usd": 0.0061075,
+      "cumulative_usd": 0.09810375
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-misconception-based",
+      "input_tokens": 276,
+      "output_tokens": 576,
+      "cost_usd": 0.006105,
+      "cumulative_usd": 0.10420875
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-misconception-based",
+      "input_tokens": 273,
+      "output_tokens": 576,
+      "cost_usd": 0.00610125,
+      "cumulative_usd": 0.11031
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-misconception-based",
+      "input_tokens": 282,
+      "output_tokens": 576,
+      "cost_usd": 0.0061125,
+      "cumulative_usd": 0.11642250000000001
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-misconception-based",
+      "input_tokens": 280,
+      "output_tokens": 576,
+      "cost_usd": 0.00611,
+      "cumulative_usd": 0.12253250000000002
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-misconception-based",
+      "input_tokens": 278,
+      "output_tokens": 576,
+      "cost_usd": 0.0061075,
+      "cumulative_usd": 0.12864
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-misconception-based",
+      "input_tokens": 291,
+      "output_tokens": 576,
+      "cost_usd": 0.00612375,
+      "cumulative_usd": 0.13476375000000002
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-misconception-based",
+      "input_tokens": 281,
+      "output_tokens": 576,
+      "cost_usd": 0.00611125,
+      "cumulative_usd": 0.14087500000000003
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-misconception-based",
+      "input_tokens": 286,
+      "output_tokens": 576,
+      "cost_usd": 0.0061175,
+      "cumulative_usd": 0.14699250000000003
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-misconception-based",
+      "input_tokens": 281,
+      "output_tokens": 576,
+      "cost_usd": 0.00611125,
+      "cumulative_usd": 0.15310375000000004
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-misconception-based",
+      "input_tokens": 291,
+      "output_tokens": 576,
+      "cost_usd": 0.00612375,
+      "cumulative_usd": 0.15922750000000005
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-misconception-based",
+      "input_tokens": 292,
+      "output_tokens": 576,
+      "cost_usd": 0.006125,
+      "cumulative_usd": 0.16535250000000004
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-misconception-based",
+      "input_tokens": 285,
+      "output_tokens": 576,
+      "cost_usd": 0.00611625,
+      "cumulative_usd": 0.17146875000000003
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-misconception-based",
+      "input_tokens": 290,
+      "output_tokens": 576,
+      "cost_usd": 0.0061225,
+      "cumulative_usd": 0.17759125000000003
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-misconception-based",
+      "input_tokens": 303,
+      "output_tokens": 576,
+      "cost_usd": 0.00613875,
+      "cumulative_usd": 0.18373000000000003
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-taxonomy-guided",
+      "input_tokens": 256,
+      "output_tokens": 576,
+      "cost_usd": 0.00608,
+      "cumulative_usd": 0.18981000000000003
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-taxonomy-guided",
+      "input_tokens": 254,
+      "output_tokens": 576,
+      "cost_usd": 0.0060775,
+      "cumulative_usd": 0.19588750000000005
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-taxonomy-guided",
+      "input_tokens": 251,
+      "output_tokens": 576,
+      "cost_usd": 0.00607375,
+      "cumulative_usd": 0.20196125000000004
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-taxonomy-guided",
+      "input_tokens": 260,
+      "output_tokens": 576,
+      "cost_usd": 0.006085,
+      "cumulative_usd": 0.20804625000000004
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-taxonomy-guided",
+      "input_tokens": 258,
+      "output_tokens": 576,
+      "cost_usd": 0.0060825,
+      "cumulative_usd": 0.21412875000000003
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-taxonomy-guided",
+      "input_tokens": 256,
+      "output_tokens": 576,
+      "cost_usd": 0.00608,
+      "cumulative_usd": 0.22020875000000004
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-taxonomy-guided",
+      "input_tokens": 269,
+      "output_tokens": 576,
+      "cost_usd": 0.00609625,
+      "cumulative_usd": 0.22630500000000003
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-taxonomy-guided",
+      "input_tokens": 259,
+      "output_tokens": 576,
+      "cost_usd": 0.00608375,
+      "cumulative_usd": 0.23238875000000003
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-taxonomy-guided",
+      "input_tokens": 264,
+      "output_tokens": 576,
+      "cost_usd": 0.00609,
+      "cumulative_usd": 0.23847875000000004
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-taxonomy-guided",
+      "input_tokens": 259,
+      "output_tokens": 576,
+      "cost_usd": 0.00608375,
+      "cumulative_usd": 0.24456250000000004
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-taxonomy-guided",
+      "input_tokens": 269,
+      "output_tokens": 576,
+      "cost_usd": 0.00609625,
+      "cumulative_usd": 0.25065875000000004
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-taxonomy-guided",
+      "input_tokens": 270,
+      "output_tokens": 576,
+      "cost_usd": 0.0060975,
+      "cumulative_usd": 0.25675625
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-taxonomy-guided",
+      "input_tokens": 263,
+      "output_tokens": 576,
+      "cost_usd": 0.00608875,
+      "cumulative_usd": 0.262845
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-taxonomy-guided",
+      "input_tokens": 268,
+      "output_tokens": 576,
+      "cost_usd": 0.006095,
+      "cumulative_usd": 0.26894
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-taxonomy-guided",
+      "input_tokens": 281,
+      "output_tokens": 576,
+      "cost_usd": 0.00611125,
+      "cumulative_usd": 0.27505125
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-few-shot-predictive",
+      "input_tokens": 448,
+      "output_tokens": 576,
+      "cost_usd": 0.00632,
+      "cumulative_usd": 0.28137125
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-few-shot-predictive",
+      "input_tokens": 446,
+      "output_tokens": 576,
+      "cost_usd": 0.0063175,
+      "cumulative_usd": 0.28768875
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-few-shot-predictive",
+      "input_tokens": 443,
+      "output_tokens": 576,
+      "cost_usd": 0.00631375,
+      "cumulative_usd": 0.2940025
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-few-shot-predictive",
+      "input_tokens": 452,
+      "output_tokens": 576,
+      "cost_usd": 0.006325,
+      "cumulative_usd": 0.3003275
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-few-shot-predictive",
+      "input_tokens": 450,
+      "output_tokens": 576,
+      "cost_usd": 0.0063225,
+      "cumulative_usd": 0.30665000000000003
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-few-shot-predictive",
+      "input_tokens": 448,
+      "output_tokens": 576,
+      "cost_usd": 0.00632,
+      "cumulative_usd": 0.31297
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-few-shot-predictive",
+      "input_tokens": 461,
+      "output_tokens": 576,
+      "cost_usd": 0.00633625,
+      "cumulative_usd": 0.31930625
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-few-shot-predictive",
+      "input_tokens": 451,
+      "output_tokens": 576,
+      "cost_usd": 0.00632375,
+      "cumulative_usd": 0.32563000000000003
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-few-shot-predictive",
+      "input_tokens": 456,
+      "output_tokens": 576,
+      "cost_usd": 0.00633,
+      "cumulative_usd": 0.33196000000000003
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-few-shot-predictive",
+      "input_tokens": 451,
+      "output_tokens": 576,
+      "cost_usd": 0.00632375,
+      "cumulative_usd": 0.33828375000000005
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-few-shot-predictive",
+      "input_tokens": 461,
+      "output_tokens": 576,
+      "cost_usd": 0.00633625,
+      "cumulative_usd": 0.34462000000000004
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-few-shot-predictive",
+      "input_tokens": 462,
+      "output_tokens": 576,
+      "cost_usd": 0.0063375,
+      "cumulative_usd": 0.35095750000000003
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-few-shot-predictive",
+      "input_tokens": 455,
+      "output_tokens": 576,
+      "cost_usd": 0.00632875,
+      "cumulative_usd": 0.35728625
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-few-shot-predictive",
+      "input_tokens": 460,
+      "output_tokens": 576,
+      "cost_usd": 0.006335,
+      "cumulative_usd": 0.36362125
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-few-shot-predictive",
+      "input_tokens": 473,
+      "output_tokens": 576,
+      "cost_usd": 0.00635125,
+      "cumulative_usd": 0.3699725
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-overgenerate-select",
+      "input_tokens": 325,
+      "output_tokens": 576,
+      "cost_usd": 0.00616625,
+      "cumulative_usd": 0.37613874999999997
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-overgenerate-select",
+      "input_tokens": 323,
+      "output_tokens": 576,
+      "cost_usd": 0.00616375,
+      "cumulative_usd": 0.3823025
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-overgenerate-select",
+      "input_tokens": 320,
+      "output_tokens": 576,
+      "cost_usd": 0.00616,
+      "cumulative_usd": 0.3884625
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-overgenerate-select",
+      "input_tokens": 329,
+      "output_tokens": 576,
+      "cost_usd": 0.00617125,
+      "cumulative_usd": 0.39463375
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-overgenerate-select",
+      "input_tokens": 327,
+      "output_tokens": 576,
+      "cost_usd": 0.00616875,
+      "cumulative_usd": 0.4008025
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-overgenerate-select",
+      "input_tokens": 325,
+      "output_tokens": 576,
+      "cost_usd": 0.00616625,
+      "cumulative_usd": 0.40696875
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-overgenerate-select",
+      "input_tokens": 338,
+      "output_tokens": 576,
+      "cost_usd": 0.0061825,
+      "cumulative_usd": 0.41315124999999997
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-overgenerate-select",
+      "input_tokens": 328,
+      "output_tokens": 576,
+      "cost_usd": 0.00617,
+      "cumulative_usd": 0.41932125
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-overgenerate-select",
+      "input_tokens": 333,
+      "output_tokens": 576,
+      "cost_usd": 0.00617625,
+      "cumulative_usd": 0.4254975
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-overgenerate-select",
+      "input_tokens": 328,
+      "output_tokens": 576,
+      "cost_usd": 0.00617,
+      "cumulative_usd": 0.4316675
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-overgenerate-select",
+      "input_tokens": 338,
+      "output_tokens": 576,
+      "cost_usd": 0.0061825,
+      "cumulative_usd": 0.43784999999999996
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-overgenerate-select",
+      "input_tokens": 339,
+      "output_tokens": 576,
+      "cost_usd": 0.00618375,
+      "cumulative_usd": 0.44403374999999995
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-overgenerate-select",
+      "input_tokens": 332,
+      "output_tokens": 576,
+      "cost_usd": 0.006175,
+      "cumulative_usd": 0.45020874999999994
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-overgenerate-select",
+      "input_tokens": 337,
+      "output_tokens": 576,
+      "cost_usd": 0.00618125,
+      "cumulative_usd": 0.45638999999999996
+    },
+    {
+      "model": "openai/gpt-5",
+      "purpose": "generation-overgenerate-select",
+      "input_tokens": 350,
+      "output_tokens": 576,
+      "cost_usd": 0.0061975,
+      "cumulative_usd": 0.4625875
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 124,
+      "output_tokens": 3,
+      "cost_usd": 0.000695,
+      "cumulative_usd": 0.4632825
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 86,
+      "output_tokens": 4,
+      "cost_usd": 0.0001475,
+      "cumulative_usd": 0.46343
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 99,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.46343
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 173,
+      "output_tokens": 3,
+      "cost_usd": 0.00094,
+      "cumulative_usd": 0.46437
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 123,
+      "output_tokens": 4,
+      "cost_usd": 0.00019375,
+      "cumulative_usd": 0.46456375
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 136,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.46456375
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 110,
+      "output_tokens": 8,
+      "cost_usd": 0.00075,
+      "cumulative_usd": 0.46531374999999997
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 72,
+      "output_tokens": 4,
+      "cost_usd": 0.00013,
+      "cumulative_usd": 0.46544375
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 86,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.46544375
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 122,
+      "output_tokens": 3,
+      "cost_usd": 0.000685,
+      "cumulative_usd": 0.46612875
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 82,
+      "output_tokens": 4,
+      "cost_usd": 0.0001425,
+      "cumulative_usd": 0.46627124999999997
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 94,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.46627124999999997
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 114,
+      "output_tokens": 3,
+      "cost_usd": 0.000645,
+      "cumulative_usd": 0.46691625
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 78,
+      "output_tokens": 4,
+      "cost_usd": 0.0001375,
+      "cumulative_usd": 0.46705375
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 91,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.46705375
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 123,
+      "output_tokens": 3,
+      "cost_usd": 0.00069,
+      "cumulative_usd": 0.46774375
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 78,
+      "output_tokens": 4,
+      "cost_usd": 0.0001375,
+      "cumulative_usd": 0.46788125
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 91,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.46788125
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 148,
+      "output_tokens": 3,
+      "cost_usd": 0.000815,
+      "cumulative_usd": 0.46869625000000004
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 97,
+      "output_tokens": 4,
+      "cost_usd": 0.00016125,
+      "cumulative_usd": 0.46885750000000004
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 113,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.46885750000000004
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 168,
+      "output_tokens": 3,
+      "cost_usd": 0.000915,
+      "cumulative_usd": 0.46977250000000004
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 109,
+      "output_tokens": 4,
+      "cost_usd": 0.00017625,
+      "cumulative_usd": 0.46994875
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 124,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.46994875
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 136,
+      "output_tokens": 3,
+      "cost_usd": 0.000755,
+      "cumulative_usd": 0.47070375000000003
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 91,
+      "output_tokens": 4,
+      "cost_usd": 0.00015375,
+      "cumulative_usd": 0.47085750000000004
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 103,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.47085750000000004
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 104,
+      "output_tokens": 3,
+      "cost_usd": 0.000595,
+      "cumulative_usd": 0.47145250000000005
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 73,
+      "output_tokens": 4,
+      "cost_usd": 0.00013125,
+      "cumulative_usd": 0.4715837500000001
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 84,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.4715837500000001
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 143,
+      "output_tokens": 3,
+      "cost_usd": 0.00079,
+      "cumulative_usd": 0.4723737500000001
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 95,
+      "output_tokens": 4,
+      "cost_usd": 0.00015875,
+      "cumulative_usd": 0.4725325000000001
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 109,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.4725325000000001
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 127,
+      "output_tokens": 3,
+      "cost_usd": 0.00071,
+      "cumulative_usd": 0.47324250000000007
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 86,
+      "output_tokens": 4,
+      "cost_usd": 0.0001475,
+      "cumulative_usd": 0.4733900000000001
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 100,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.4733900000000001
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 132,
+      "output_tokens": 3,
+      "cost_usd": 0.000735,
+      "cumulative_usd": 0.4741250000000001
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 91,
+      "output_tokens": 4,
+      "cost_usd": 0.00015375,
+      "cumulative_usd": 0.4742787500000001
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 105,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.4742787500000001
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 165,
+      "output_tokens": 3,
+      "cost_usd": 0.0009,
+      "cumulative_usd": 0.4751787500000001
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 116,
+      "output_tokens": 4,
+      "cost_usd": 0.000185,
+      "cumulative_usd": 0.4753637500000001
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 130,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.4753637500000001
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 147,
+      "output_tokens": 3,
+      "cost_usd": 0.00081,
+      "cumulative_usd": 0.47617375000000006
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 92,
+      "output_tokens": 4,
+      "cost_usd": 0.000155,
+      "cumulative_usd": 0.4763287500000001
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 111,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.4763287500000001
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 134,
+      "output_tokens": 3,
+      "cost_usd": 0.000745,
+      "cumulative_usd": 0.4770737500000001
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 88,
+      "output_tokens": 4,
+      "cost_usd": 0.00015,
+      "cumulative_usd": 0.47722375000000006
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 103,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.47722375000000006
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 102,
+      "output_tokens": 3,
+      "cost_usd": 0.000585,
+      "cumulative_usd": 0.47780875000000006
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 67,
+      "output_tokens": 4,
+      "cost_usd": 0.00012375,
+      "cumulative_usd": 0.47793250000000004
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 82,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.47793250000000004
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 156,
+      "output_tokens": 3,
+      "cost_usd": 0.000855,
+      "cumulative_usd": 0.47878750000000003
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 105,
+      "output_tokens": 4,
+      "cost_usd": 0.00017125,
+      "cumulative_usd": 0.47895875000000004
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 116,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.47895875000000004
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 106,
+      "output_tokens": 3,
+      "cost_usd": 0.000605,
+      "cumulative_usd": 0.47956375000000007
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 70,
+      "output_tokens": 4,
+      "cost_usd": 0.0001275,
+      "cumulative_usd": 0.47969125000000007
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 84,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.47969125000000007
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 110,
+      "output_tokens": 3,
+      "cost_usd": 0.000625,
+      "cumulative_usd": 0.48031625000000006
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 71,
+      "output_tokens": 4,
+      "cost_usd": 0.00012875,
+      "cumulative_usd": 0.48044500000000007
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 86,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.48044500000000007
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 121,
+      "output_tokens": 3,
+      "cost_usd": 0.00068,
+      "cumulative_usd": 0.4811250000000001
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 83,
+      "output_tokens": 4,
+      "cost_usd": 0.00014375,
+      "cumulative_usd": 0.4812687500000001
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 98,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.4812687500000001
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 211,
+      "output_tokens": 3,
+      "cost_usd": 0.00113,
+      "cumulative_usd": 0.4823987500000001
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 142,
+      "output_tokens": 4,
+      "cost_usd": 0.0002175,
+      "cumulative_usd": 0.4826162500000001
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 157,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.4826162500000001
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 145,
+      "output_tokens": 3,
+      "cost_usd": 0.0008,
+      "cumulative_usd": 0.4834162500000001
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 93,
+      "output_tokens": 4,
+      "cost_usd": 0.00015625,
+      "cumulative_usd": 0.4835725000000001
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 109,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.4835725000000001
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 138,
+      "output_tokens": 3,
+      "cost_usd": 0.000765,
+      "cumulative_usd": 0.48433750000000014
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 94,
+      "output_tokens": 4,
+      "cost_usd": 0.0001575,
+      "cumulative_usd": 0.4844950000000001
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 103,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.4844950000000001
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 117,
+      "output_tokens": 8,
+      "cost_usd": 0.000785,
+      "cumulative_usd": 0.4852800000000001
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 79,
+      "output_tokens": 4,
+      "cost_usd": 0.00013875,
+      "cumulative_usd": 0.4854187500000001
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 91,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.4854187500000001
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 137,
+      "output_tokens": 3,
+      "cost_usd": 0.00076,
+      "cumulative_usd": 0.4861787500000001
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 88,
+      "output_tokens": 4,
+      "cost_usd": 0.00015,
+      "cumulative_usd": 0.4863287500000001
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 105,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.4863287500000001
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 196,
+      "output_tokens": 3,
+      "cost_usd": 0.001055,
+      "cumulative_usd": 0.48738375000000006
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 134,
+      "output_tokens": 4,
+      "cost_usd": 0.0002075,
+      "cumulative_usd": 0.4875912500000001
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 147,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.4875912500000001
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 188,
+      "output_tokens": 3,
+      "cost_usd": 0.001015,
+      "cumulative_usd": 0.4886062500000001
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 128,
+      "output_tokens": 4,
+      "cost_usd": 0.0002,
+      "cumulative_usd": 0.48880625000000005
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 137,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.48880625000000005
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 153,
+      "output_tokens": 3,
+      "cost_usd": 0.00084,
+      "cumulative_usd": 0.48964625000000006
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 102,
+      "output_tokens": 4,
+      "cost_usd": 0.0001675,
+      "cumulative_usd": 0.48981375000000005
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 115,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.48981375000000005
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 127,
+      "output_tokens": 3,
+      "cost_usd": 0.00071,
+      "cumulative_usd": 0.49052375000000004
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 86,
+      "output_tokens": 4,
+      "cost_usd": 0.0001475,
+      "cumulative_usd": 0.49067125000000006
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 101,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.49067125000000006
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 110,
+      "output_tokens": 3,
+      "cost_usd": 0.000625,
+      "cumulative_usd": 0.49129625000000005
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 80,
+      "output_tokens": 4,
+      "cost_usd": 0.00014,
+      "cumulative_usd": 0.49143625
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 89,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.49143625
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 110,
+      "output_tokens": 3,
+      "cost_usd": 0.000625,
+      "cumulative_usd": 0.49206125
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 76,
+      "output_tokens": 4,
+      "cost_usd": 0.000135,
+      "cumulative_usd": 0.49219625
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 87,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.49219625
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 108,
+      "output_tokens": 3,
+      "cost_usd": 0.000615,
+      "cumulative_usd": 0.49281125
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 69,
+      "output_tokens": 4,
+      "cost_usd": 0.00012625,
+      "cumulative_usd": 0.4929375
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 84,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.4929375
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 126,
+      "output_tokens": 3,
+      "cost_usd": 0.000705,
+      "cumulative_usd": 0.4936425
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 87,
+      "output_tokens": 4,
+      "cost_usd": 0.00014875,
+      "cumulative_usd": 0.49379124999999996
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 85,
+      "output_tokens": 0,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.49379124999999996
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 164,
+      "output_tokens": 3,
+      "cost_usd": 0.000895,
+      "cumulative_usd": 0.49468624999999994
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 122,
+      "output_tokens": 4,
+      "cost_usd": 0.0001925,
+      "cumulative_usd": 0.4948787499999999
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 141,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.4948787499999999
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 128,
+      "output_tokens": 3,
+      "cost_usd": 0.000715,
+      "cumulative_usd": 0.49559374999999994
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 80,
+      "output_tokens": 4,
+      "cost_usd": 0.00014,
+      "cumulative_usd": 0.4957337499999999
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 96,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.4957337499999999
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 161,
+      "output_tokens": 3,
+      "cost_usd": 0.00088,
+      "cumulative_usd": 0.4966137499999999
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 106,
+      "output_tokens": 4,
+      "cost_usd": 0.0001725,
+      "cumulative_usd": 0.49678624999999993
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 125,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.49678624999999993
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 135,
+      "output_tokens": 3,
+      "cost_usd": 0.00075,
+      "cumulative_usd": 0.4975362499999999
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 86,
+      "output_tokens": 4,
+      "cost_usd": 0.0001475,
+      "cumulative_usd": 0.4976837499999999
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 100,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.4976837499999999
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 131,
+      "output_tokens": 3,
+      "cost_usd": 0.00073,
+      "cumulative_usd": 0.49841374999999993
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 91,
+      "output_tokens": 4,
+      "cost_usd": 0.00015375,
+      "cumulative_usd": 0.49856749999999994
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 101,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.49856749999999994
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 116,
+      "output_tokens": 3,
+      "cost_usd": 0.000655,
+      "cumulative_usd": 0.49922249999999996
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 84,
+      "output_tokens": 4,
+      "cost_usd": 0.000145,
+      "cumulative_usd": 0.49936749999999996
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 96,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.49936749999999996
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 109,
+      "output_tokens": 3,
+      "cost_usd": 0.00062,
+      "cumulative_usd": 0.4999875
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 72,
+      "output_tokens": 4,
+      "cost_usd": 0.00013,
+      "cumulative_usd": 0.5001175
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 85,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.5001175
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 103,
+      "output_tokens": 3,
+      "cost_usd": 0.00059,
+      "cumulative_usd": 0.5007075
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 75,
+      "output_tokens": 4,
+      "cost_usd": 0.00013375,
+      "cumulative_usd": 0.50084125
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 87,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.50084125
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 114,
+      "output_tokens": 3,
+      "cost_usd": 0.000645,
+      "cumulative_usd": 0.50148625
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 79,
+      "output_tokens": 4,
+      "cost_usd": 0.00013875,
+      "cumulative_usd": 0.501625
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 93,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.501625
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 127,
+      "output_tokens": 3,
+      "cost_usd": 0.00071,
+      "cumulative_usd": 0.502335
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 84,
+      "output_tokens": 4,
+      "cost_usd": 0.000145,
+      "cumulative_usd": 0.5024799999999999
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 96,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.5024799999999999
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 164,
+      "output_tokens": 3,
+      "cost_usd": 0.000895,
+      "cumulative_usd": 0.5033749999999999
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 105,
+      "output_tokens": 4,
+      "cost_usd": 0.00017125,
+      "cumulative_usd": 0.5035462499999999
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 123,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.5035462499999999
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 130,
+      "output_tokens": 3,
+      "cost_usd": 0.000725,
+      "cumulative_usd": 0.5042712499999998
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 84,
+      "output_tokens": 4,
+      "cost_usd": 0.000145,
+      "cumulative_usd": 0.5044162499999998
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 96,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.5044162499999998
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 106,
+      "output_tokens": 3,
+      "cost_usd": 0.000605,
+      "cumulative_usd": 0.5050212499999998
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 67,
+      "output_tokens": 4,
+      "cost_usd": 0.00012375,
+      "cumulative_usd": 0.5051449999999997
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 78,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.5051449999999997
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 136,
+      "output_tokens": 3,
+      "cost_usd": 0.000755,
+      "cumulative_usd": 0.5058999999999997
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 96,
+      "output_tokens": 4,
+      "cost_usd": 0.00016,
+      "cumulative_usd": 0.5060599999999997
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 110,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.5060599999999997
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 163,
+      "output_tokens": 3,
+      "cost_usd": 0.00089,
+      "cumulative_usd": 0.5069499999999997
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 112,
+      "output_tokens": 4,
+      "cost_usd": 0.00018,
+      "cumulative_usd": 0.5071299999999996
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 127,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.5071299999999996
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 135,
+      "output_tokens": 3,
+      "cost_usd": 0.00075,
+      "cumulative_usd": 0.5078799999999997
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 99,
+      "output_tokens": 4,
+      "cost_usd": 0.00016375,
+      "cumulative_usd": 0.5080437499999997
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 114,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.5080437499999997
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 113,
+      "output_tokens": 3,
+      "cost_usd": 0.00064,
+      "cumulative_usd": 0.5086837499999997
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 82,
+      "output_tokens": 4,
+      "cost_usd": 0.0001425,
+      "cumulative_usd": 0.5088262499999997
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 96,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.5088262499999997
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 159,
+      "output_tokens": 3,
+      "cost_usd": 0.00087,
+      "cumulative_usd": 0.5096962499999997
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 105,
+      "output_tokens": 4,
+      "cost_usd": 0.00017125,
+      "cumulative_usd": 0.5098674999999997
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 124,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.5098674999999997
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 159,
+      "output_tokens": 3,
+      "cost_usd": 0.00087,
+      "cumulative_usd": 0.5107374999999997
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 103,
+      "output_tokens": 4,
+      "cost_usd": 0.00016875,
+      "cumulative_usd": 0.5109062499999998
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 122,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.5109062499999998
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 149,
+      "output_tokens": 3,
+      "cost_usd": 0.00082,
+      "cumulative_usd": 0.5117262499999998
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 98,
+      "output_tokens": 4,
+      "cost_usd": 0.0001625,
+      "cumulative_usd": 0.5118887499999998
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 109,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.5118887499999998
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 138,
+      "output_tokens": 3,
+      "cost_usd": 0.000765,
+      "cumulative_usd": 0.5126537499999998
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 94,
+      "output_tokens": 4,
+      "cost_usd": 0.0001575,
+      "cumulative_usd": 0.5128112499999998
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 105,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.5128112499999998
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 126,
+      "output_tokens": 3,
+      "cost_usd": 0.000705,
+      "cumulative_usd": 0.5135162499999998
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 81,
+      "output_tokens": 4,
+      "cost_usd": 0.00014125,
+      "cumulative_usd": 0.5136574999999998
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 95,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.5136574999999998
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 135,
+      "output_tokens": 3,
+      "cost_usd": 0.00075,
+      "cumulative_usd": 0.5144074999999998
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 103,
+      "output_tokens": 4,
+      "cost_usd": 0.00016875,
+      "cumulative_usd": 0.5145762499999998
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 109,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.5145762499999998
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 139,
+      "output_tokens": 3,
+      "cost_usd": 0.00077,
+      "cumulative_usd": 0.5153462499999999
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 93,
+      "output_tokens": 4,
+      "cost_usd": 0.00015625,
+      "cumulative_usd": 0.5155024999999999
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 109,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.5155024999999999
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 144,
+      "output_tokens": 3,
+      "cost_usd": 0.000795,
+      "cumulative_usd": 0.5162974999999999
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 98,
+      "output_tokens": 4,
+      "cost_usd": 0.0001625,
+      "cumulative_usd": 0.5164599999999998
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 113,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.5164599999999998
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 155,
+      "output_tokens": 3,
+      "cost_usd": 0.00085,
+      "cumulative_usd": 0.5173099999999998
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 105,
+      "output_tokens": 4,
+      "cost_usd": 0.00017125,
+      "cumulative_usd": 0.5174812499999998
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 120,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.5174812499999998
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 183,
+      "output_tokens": 3,
+      "cost_usd": 0.00099,
+      "cumulative_usd": 0.5184712499999998
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 123,
+      "output_tokens": 4,
+      "cost_usd": 0.00019375,
+      "cumulative_usd": 0.5186649999999998
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 137,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.5186649999999998
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 115,
+      "output_tokens": 3,
+      "cost_usd": 0.00065,
+      "cumulative_usd": 0.5193149999999999
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 83,
+      "output_tokens": 4,
+      "cost_usd": 0.00014375,
+      "cumulative_usd": 0.5194587499999999
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 95,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.5194587499999999
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 126,
+      "output_tokens": 3,
+      "cost_usd": 0.000705,
+      "cumulative_usd": 0.5201637499999998
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 83,
+      "output_tokens": 4,
+      "cost_usd": 0.00014375,
+      "cumulative_usd": 0.5203074999999998
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 80,
+      "output_tokens": 0,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.5203074999999998
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 142,
+      "output_tokens": 3,
+      "cost_usd": 0.000785,
+      "cumulative_usd": 0.5210924999999998
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 91,
+      "output_tokens": 4,
+      "cost_usd": 0.00015375,
+      "cumulative_usd": 0.5212462499999998
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 108,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.5212462499999998
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 144,
+      "output_tokens": 3,
+      "cost_usd": 0.000795,
+      "cumulative_usd": 0.5220412499999998
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 97,
+      "output_tokens": 4,
+      "cost_usd": 0.00016125,
+      "cumulative_usd": 0.5222024999999998
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 111,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.5222024999999998
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 146,
+      "output_tokens": 3,
+      "cost_usd": 0.000805,
+      "cumulative_usd": 0.5230074999999997
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 94,
+      "output_tokens": 4,
+      "cost_usd": 0.0001575,
+      "cumulative_usd": 0.5231649999999998
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 109,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.5231649999999998
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 140,
+      "output_tokens": 3,
+      "cost_usd": 0.000775,
+      "cumulative_usd": 0.5239399999999997
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 95,
+      "output_tokens": 4,
+      "cost_usd": 0.00015875,
+      "cumulative_usd": 0.5240987499999997
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 109,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.5240987499999997
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 148,
+      "output_tokens": 3,
+      "cost_usd": 0.000815,
+      "cumulative_usd": 0.5249137499999997
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 97,
+      "output_tokens": 4,
+      "cost_usd": 0.00016125,
+      "cumulative_usd": 0.5250749999999997
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 116,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.5250749999999997
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 170,
+      "output_tokens": 3,
+      "cost_usd": 0.000925,
+      "cumulative_usd": 0.5259999999999997
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 112,
+      "output_tokens": 4,
+      "cost_usd": 0.00018,
+      "cumulative_usd": 0.5261799999999996
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 127,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.5261799999999996
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 138,
+      "output_tokens": 3,
+      "cost_usd": 0.000765,
+      "cumulative_usd": 0.5269449999999997
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 98,
+      "output_tokens": 4,
+      "cost_usd": 0.0001625,
+      "cumulative_usd": 0.5271074999999996
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 107,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.5271074999999996
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 118,
+      "output_tokens": 3,
+      "cost_usd": 0.000665,
+      "cumulative_usd": 0.5277724999999996
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 79,
+      "output_tokens": 4,
+      "cost_usd": 0.00013875,
+      "cumulative_usd": 0.5279112499999996
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 93,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.5279112499999996
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 135,
+      "output_tokens": 3,
+      "cost_usd": 0.00075,
+      "cumulative_usd": 0.5286612499999996
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 94,
+      "output_tokens": 4,
+      "cost_usd": 0.0001575,
+      "cumulative_usd": 0.5288187499999997
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 105,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.5288187499999997
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 118,
+      "output_tokens": 3,
+      "cost_usd": 0.000665,
+      "cumulative_usd": 0.5294837499999997
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 82,
+      "output_tokens": 4,
+      "cost_usd": 0.0001425,
+      "cumulative_usd": 0.5296262499999997
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 93,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.5296262499999997
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 128,
+      "output_tokens": 3,
+      "cost_usd": 0.000715,
+      "cumulative_usd": 0.5303412499999998
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 92,
+      "output_tokens": 4,
+      "cost_usd": 0.000155,
+      "cumulative_usd": 0.5304962499999998
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 105,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.5304962499999998
+    },
+    {
+      "model": "anthropic/claude-opus-4.8",
+      "purpose": "audit",
+      "input_tokens": 152,
+      "output_tokens": 3,
+      "cost_usd": 0.000835,
+      "cumulative_usd": 0.5313312499999998
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "audit",
+      "input_tokens": 96,
+      "output_tokens": 4,
+      "cost_usd": 0.00016,
+      "cumulative_usd": 0.5314912499999999
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "purpose": "audit",
+      "input_tokens": 115,
+      "output_tokens": 8,
+      "cost_usd": 0.0,
+      "cumulative_usd": 0.5314912499999999
+    }
+  ]
+}

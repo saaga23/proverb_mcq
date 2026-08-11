@@ -1,0 +1,53 @@
+{
+  "description": "OpenRouter Pilot 1 prompt variants for generating adversarial, shortcut-resistant distractors for ProverbGap Strategy-2 MCQs.",
+  "input_schema": {
+    "proverb": "source-language proverb text",
+    "language": "English | Arabic | Yoruba",
+    "correct_meaning": "English paraphrase of the proverb's meaning"
+  },
+  "output_schema": "JSON list of exactly 4 strings",
+  "shared_constraints": [
+    "Output MUST be a valid JSON array of exactly 4 strings and nothing else.",
+    "Index 0 must be a correct paraphrase; indices 1-3 must be incorrect but plausible.",
+    "All 4 options must be similar in length (within roughly +/-35% character count of the correct option).",
+    "All 4 options must share the same register, style, and grammatical form.",
+    "Do NOT use meta-words such as 'incorrect', 'wrong', 'not', 'opposite', 'false', 'untrue', 'invalid', 'distractor', or 'option'.",
+    "Do NOT make the correct answer longer, more detailed, more qualified, or differently structured than the distractors.",
+    "Do NOT include any obvious lexical or syntactic pattern that distinguishes the correct answer.",
+    "Do NOT leak source-language words into any option.",
+    "Each distractor must be wrong in a semantically different way; avoid duplicates or near-paraphrases of the correct meaning.",
+    "Distractors should be tempting to a fluent speaker who has not heard the specific proverb but could not be guessed from the wording alone."
+  ],
+  "prompt_variants": [
+    {
+      "name": "baseline",
+      "system_prompt": "You are a JSON API for proverb multiple-choice distractor generation. You MUST respond with ONLY a valid JSON array of exactly 4 strings. No markdown, no explanations, no code fences, no thinking tags, no extra text.",
+      "user_prompt_template": "Proverb ({language}): {proverb}\nCorrect meaning: {correct_meaning}\n\nGenerate 4 answer options as a JSON array of strings:\n- Index 0: a correct paraphrase of the meaning above\n- Index 1: an incorrect but plausible distractor that misreads the literal wording\n- Index 2: an incorrect but plausible distractor that reverses or contradicts the moral lesson\n- Index 3: an incorrect but plausible distractor that applies the proverb to a wrong context\n\nEach distractor must be wrong in a DIFFERENT way, but do NOT use a fixed structural template across items (vary sentence frames, avoid systematic antonym/negation patterns, and do not make the correct answer consistently longer or more qualified). All four options must be roughly the same length, use the same register, contain no meta-words ('incorrect', 'wrong', 'not', 'opposite'), and reveal no source-language words. Distractors must express propositions that are clearly false for this proverb, not near-paraphrases of the correct meaning. Return ONLY: [\"...\", \"...\", \"...\", \"...\"]",
+      "rationale": "Tightened control condition mirroring the existing S2 pipeline but with stricter surface and semantic constraints."
+    },
+    {
+      "name": "misconception-based",
+      "system_prompt": "You are a JSON API for proverb multiple-choice distractor generation. First, reason silently about the proverb and its correct meaning. Then generate distractors that capture common misconceptions a fluent reader or listener might hold. You MUST respond with ONLY a valid JSON array of exactly 4 strings. No markdown, no explanations, no code fences, no thinking tags, no extra text.",
+      "user_prompt_template": "Proverb ({language}): {proverb}\nCorrect meaning: {correct_meaning}\n\nInstructions:\n1. Confirm the correct meaning to yourself.\n2. Generate 4 options as a JSON array of strings:\n   - Index 0: a natural paraphrase of the correct meaning\n   - Index 1-3: plausible wrong meanings that model common misconceptions or student errors about this proverb\n\nA strong distractor is one that a knowledgeable but hasty person, a non-native speaker, or someone unfamiliar with this specific proverb might select.\n\nAll four options must be similar in length, same register, and free of meta-words ('incorrect', 'wrong', 'not', 'opposite', 'false'). Do not leak source-language words. Each distractor must be demonstrably false for this proverb; do not produce near-paraphrases of the correct meaning. Return ONLY: [\"...\", \"...\", \"...\", \"...\"]",
+      "rationale": "Zengaffinen et al. 2026: solve-first + modeling student errors; revealing the correct answer anchors generation."
+    },
+    {
+      "name": "taxonomy-guided",
+      "system_prompt": "You are a JSON API for proverb multiple-choice distractor generation. You MUST respond with ONLY a valid JSON array of exactly 4 strings. No markdown, no explanations, no code fences, no thinking tags, no extra text.",
+      "user_prompt_template": "Proverb ({language}): {proverb}\nCorrect meaning: {correct_meaning}\n\nGenerate 4 answer options as a JSON array of strings:\n- Index 0: a correct paraphrase of the meaning\n- Index 1: a distractor that captures only part of the meaning and misses the whole point\n- Index 2: a distractor that gives a sensible interpretation but for a different situation than the proverb actually addresses\n- Index 3: a distractor that ignores a key condition, causal link, or cultural nuance in the proverb\n\nEach option should read like a genuine interpretation. Keep lengths and register uniform. Do not use the words 'partial', 'misalignment', 'dependency', 'overlooked', 'incorrect', 'wrong', 'not', 'opposite', 'false', or any category labels in the output strings. Do not include source-language words. Return ONLY: [\"...\", \"...\", \"...\", \"...\"]",
+      "rationale": "Haladyna / VERGE taxonomy provides principled, structurally diverse error categories; rewritten to avoid label echo."
+    },
+    {
+      "name": "few-shot-predictive",
+      "system_prompt": "You are a JSON API for proverb multiple-choice distractor generation. You MUST respond with ONLY a valid JSON array of exactly 4 strings. No markdown, no explanations, no code fences, no thinking tags, no extra text.",
+      "user_prompt_template": "Below are examples of high-quality proverb MCQ options. Each example shows a proverb, its correct meaning, and four plausible options. The distractors are wrong in different ways but look equally natural; they are not literal, not reversals of the moral, and not all from the same error type.\n\nExample 1:\nProverb (English): A friend in need is a friend indeed.\nCorrect meaning: True loyalty is proven during hardship.\nOptions: [\"True loyalty is proven during hardship.\", \"People who need help call themselves friends.\", \"Avoid people who are going through difficult times.\", \"Financially poor people make more friends.\"]\n\nExample 2:\nProverb (English): Don't count your chickens before they hatch.\nCorrect meaning: Do not assume success before it actually happens.\nOptions: [\"Do not assume success before it actually happens.\", \"Hatching eggs requires careful counting.\", \"Always plan for maximum success in advance.\", \"Farmers should avoid keeping too many chickens.\"]\n\nExample 3:\nProverb (Arabic): من شب على شيء شاب عليه\nCorrect meaning: Habits formed in youth persist into old age.\nOptions: [\"Habits formed in youth persist into old age.\", \"Young people should respect their elders.\", \"Childhood experiences are quickly forgotten.\", \"People never change their basic personality.\"]\n\nNow generate options for the following proverb.\n\nProverb ({language}): {proverb}\nCorrect meaning: {correct_meaning}\n\nConstraints: all four options must be similar in length and register; must not use meta-words such as 'incorrect', 'wrong', 'not', 'opposite', 'false'; must not include source-language words; and must not follow the exact same error pattern as the examples. Return ONLY a JSON array: [\"natural paraphrase of the meaning\", \"distractor 1\", \"distractor 2\", \"distractor 3\"]",
+      "rationale": "Bitew et al. 2023: few-shot predictive prompting shapes the output distribution; revised to remove placeholder strings, add explicit constraints, and include a non-English example."
+    },
+    {
+      "name": "overgenerate-select",
+      "system_prompt": "You are a JSON API for proverb multiple-choice distractor generation. First generate a larger pool of candidate options, then internally select the final 4 that are hardest to distinguish in a blind audit. You MUST respond with ONLY a valid JSON array of exactly 4 strings. No markdown, no explanations, no code fences, no thinking tags, no extra text.",
+      "user_prompt_template": "Proverb ({language}): {proverb}\nCorrect meaning: {correct_meaning}\n\nStep 1 - Overgenerate: produce at least 2 correct paraphrases and at least 6 incorrect but plausible distractors for the proverb above.\nStep 2 - Select: choose exactly 4 strings to return:\n- Index 0: the best single correct paraphrase\n- Indices 1-3: the 3 distractors that would be hardest for a fluent reader to rule out without seeing the proverb, BUT are still demonstrably wrong for this proverb (do not select ambiguous or near-correct alternatives).\n\nSelection criteria:\n- All four must be similar in length and register.\n- No option may contain meta-words ('incorrect', 'wrong', 'not', 'opposite', 'false', 'distractor') or source-language words.\n- Distractors must not share a common surface cue (e.g., all starting with the same word or all using the same syntactic frame).\n- Each distractor should represent a different way the meaning could be misunderstood.\n\nReturn ONLY the final selected 4 as JSON: [\"...\", \"...\", \"...\", \"...\"]",
+      "rationale": "AlgGeoTest: overgenerate-then-select reduces answer-set bias; NoisyBench: iterative filtering for quality; clarified to avoid near-correct selections."
+    }
+  ]
+}

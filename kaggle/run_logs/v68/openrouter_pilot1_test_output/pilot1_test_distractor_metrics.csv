@@ -1,0 +1,2 @@
+﻿n_mcqs,avg_distractor_key_similarity,std_distractor_key_similarity,avg_pairwise_option_similarity,std_pairwise_option_similarity,option_length_mean,option_length_cv,nli_replaced_total,duplicate_options_count
+180,0.2468,0.1547,0.3302,0.18,80.0,0.3011,65,0

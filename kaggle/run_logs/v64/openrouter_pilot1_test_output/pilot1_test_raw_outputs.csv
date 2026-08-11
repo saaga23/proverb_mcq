@@ -1,0 +1,968 @@
+﻿stage,generator_model,variant,language,proverb,correct_meaning,original_meaning,curated_meaning,raw_model_output,finish_reason,status,fallback_count,length_replaced,error,mcq_id,model,prompt,extracted_vote
+generation,qwen/qwen3.7-max,adversarial-length-locked,Arabic,اللي يعوزه البيت يحرم على الجامع,A person should take care of their own family before offering help to others.,Charity begins at home.,A person should take care of their own family before offering help to others.,"[""A person must prioritize providing for their own household before donating resources to the community."", ""A person must prioritize acquiring wealth for their own household before seeking guidance from the community."", ""A person must prioritize borrowing money from the local community before spending savings on their own household."", ""A person must prioritize building a sturdy house before contributing construction materials to the local mosque.""]",stop,length_fallback,5.0,1.0,,,,,
+generation,google/gemma-4-31b-it,adversarial-length-locked,Arabic,اللي يعوزه البيت يحرم على الجامع,A person should take care of their own family before offering help to others.,Charity begins at home.,A person should take care of their own family before offering help to others.,"[""Prioritize your own family's needs before helping others."", ""Give your best donations to the local community center."", ""Build a strong home before seeking spiritual guidance."", ""Share your wealth equally between kin and strangers.""]",stop,generated,0.0,0.0,,,,,
+generation,google/gemini-2.5-flash,adversarial-length-locked,Arabic,اللي يعوزه البيت يحرم على الجامع,A person should take care of their own family before offering help to others.,,,"[""One should prioritize their immediate family's needs before assisting those outside their household."", ""It is important to contribute to community projects before focusing on personal matters."", ""Charity begins at home, but extends equally to all members of society."", ""Family obligations should always take precedence over religious duties.""]",stop,parse_fallback,,,"Options contain a generic English idiom/proverb that is not tied to this specific meaning. opts=[""One should prioritize their immediate family's needs before assisting those outside their household."", 'It is important to contribute to community projects before focusing on personal matters.', 'Charity begins at home, but extends equally to all members of society.', 'Family obligations should always take precedence over religious duties.']",,,,
+generation,qwen/qwen3.7-max,adversarial-length-locked,Arabic,اللي يعوزه البيت يحرم على الجامع,A person should take care of their own family before offering help to others.,Charity begins at home.,A person should take care of their own family before offering help to others.,"[
+  ""A person must prioritize providing for their own household before donating to the community."",
+  ""A person must prioritize praying at the local mosque before working for their own family."",
+  ""A person must prioritize lending to their close neighbors before saving for their own children."",
+  ""A person must prioritize saving for their personal future before spending on their own relatives.""
+]",stop,length_fallback,6.0,1.0,,,,,
+generation,google/gemma-4-31b-it,adversarial-length-locked,Arabic,اللي يعوزه البيت يحرم على الجامع,A person should take care of their own family before offering help to others.,Charity begins at home.,A person should take care of their own family before offering help to others.,"[""Prioritize your own family's needs before helping others."", ""Give your largest donations to the local community."", ""Ensure your home is clean before visiting a temple."", ""Share all your wealth equally with your neighbors.""]",stop,generated,0.0,0.0,,,,,
+generation,google/gemini-2.5-flash,adversarial-length-locked,Arabic,اللي يعوزه البيت يحرم على الجامع,A person should take care of their own family before offering help to others.,,,"[""One should prioritize their immediate family's needs before assisting those outside their household."", ""It is important to contribute to community projects before focusing on personal matters."", ""Charity begins at home, but extends equally to all members of society."", ""Family obligations should always take precedence over religious duties.""]",stop,parse_fallback,,,"Options contain a generic English idiom/proverb that is not tied to this specific meaning. opts=[""One should prioritize their immediate family's needs before assisting those outside their household."", 'It is important to contribute to community projects before focusing on personal matters.', 'Charity begins at home, but extends equally to all members of society.', 'Family obligations should always take precedence over religious duties.']",,,,
+generation,qwen/qwen3.7-max,adversarial-length-locked,English,That which does not kill us makes us stronger,Facing hardships helps us become more resilient and capable.,Adversity builds resilience.,Facing hardships helps us become more resilient and capable.,"[
+  ""Enduring severe hardships allows people to develop greater emotional resilience and practical skills."",
+  ""Observing severe hardships allows people to develop greater emotional resilience and practical skills."",
+  ""Enduring severe hardships allows people to accumulate greater financial prosperity and material assets."",
+  ""Enduring severe hardships allows challenges to develop greater emotional resilience and practical skills.""
+]",stop,length_fallback,5.0,1.0,,,,,
+generation,google/gemma-4-31b-it,adversarial-length-locked,English,That which does not kill us makes us stronger,Facing hardships helps us become more resilient and capable.,Adversity builds resilience.,Facing hardships helps us become more resilient and capable.,"[""Facing hardships helps us become more resilient and capable."", ""Enduring pain allows us to ignore future physical injuries."", ""Surviving danger ensures that we avoid similar accidents."", ""Overcoming stress proves that we are naturally superior.""]",stop,partial,1.0,0.0,,,,,
+generation,google/gemini-2.5-flash,adversarial-length-locked,English,That which does not kill us makes us stronger,Facing hardships helps us become more resilient and capable.,Adversity builds resilience.,Facing hardships helps us become more resilient and capable.,"[""Adversity builds character and increases our ability to cope with future challenges."", ""Avoiding difficult situations ensures a peaceful and untroubled existence."", ""Overcoming minor obstacles leads to a sense of temporary accomplishment."", ""Life's struggles are best ignored to maintain a positive outlook.""]",stop,generated,0.0,0.0,,,,,
+generation,qwen/qwen3.7-max,adversarial-length-locked,Yoruba,Kèrègbè tí kò lọ́rùn ni yóò júwe bí àgbẹ̀ ó ti so òun kọ́.,A gourd without a neck will show the farmer how to secure it properly.,The neckless gourd will itself indicate to the farmer how to tie it up.,A gourd without a neck will show the farmer how to secure it properly.,"[
+  ""A person born lacking standard advantages must invent unique strategies to secure their future."",
+  ""A wise elder guiding a stubborn youth must enforce strict rules to maintain the social order."",
+  ""A family hiding a shameful defect must accept the public judgment of the neighbors they trust."",
+  ""A child destined for a humble life must accept their quiet role within the broader community.""
+]",stop,generated,0.0,0.0,,,,,
+generation,google/gemma-4-31b-it,adversarial-length-locked,Yoruba,Kèrègbè tí kò lọ́rùn ni yóò júwe bí àgbẹ̀ ó ti so òun kọ́.,A gourd without a neck will show the farmer how to secure it properly.,The neckless gourd will itself indicate to the farmer how to tie it up.,A gourd without a neck will show the farmer how to secure it properly.,"[""A flawed vessel reveals the skill of the one who mends it."", ""A broken pot proves the strength of the potter's hands."", ""A leaking gourd shows the need for a better harvest."", ""A small vessel teaches the farmer how to plant seeds.""]",stop,partial,1.0,0.0,,,,,
+generation,google/gemini-2.5-flash,adversarial-length-locked,Yoruba,Kèrègbè tí kò lọ́rùn ni yóò júwe bí àgbẹ̀ ó ti so òun kọ́.,A gourd without a neck will show the farmer how to secure it properly.,The neckless gourd will itself indicate to the farmer how to tie it up.,A gourd without a neck will show the farmer how to secure it properly.,"[
+  ""A challenging situation will reveal the best way to handle it, teaching resourcefulness."",
+  ""A person without proper guidance will struggle to find their place in the community."",
+  ""One's true character is often revealed when faced with unexpected difficulties."",
+  ""The wisdom of the elders is essential for navigating life's complex problems.""
+]",stop,generated,0.0,0.0,,,,,
+generation,qwen/qwen3.7-max,adversarial-hard-negative,Arabic,اللي يعوزه البيت يحرم على الجامع,A person should take care of their own family before offering help to others.,Charity begins at home.,A person should take care of their own family before offering help to others.,"[""A person must provide for their own household before giving charity to the community."", ""One should retain all their wealth at home instead of donating to religious charities."", ""Religious institutions are strictly forbidden from accepting donations a family needs."", ""The daily needs of a private home are far too sacred to be fulfilled by public funds.""]",stop,partial,1.0,0.0,,,,,
+generation,google/gemma-4-31b-it,adversarial-hard-negative,Arabic,اللي يعوزه البيت يحرم على الجامع,A person should take care of their own family before offering help to others.,Charity begins at home.,A person should take care of their own family before offering help to others.,"[""Prioritize the needs of your own family before helping others."", ""Give to the community first to ensure your family is blessed."", ""Balance your family needs equally with your charitable duties."", ""Help those in your community who are as needy as your family.""]",stop,generated,0.0,0.0,,,,,
+generation,google/gemini-2.5-flash,adversarial-hard-negative,Arabic,اللي يعوزه البيت يحرم على الجامع,A person should take care of their own family before offering help to others.,,,"[""One should prioritize their family's needs over external charitable acts."", ""Charity begins at home, but should not end there."", ""It is important to ensure your family is well-provided for before helping others."", ""You should only help others if your family has no needs at all.""]",stop,parse_fallback,,,"Options contain a generic English idiom/proverb that is not tied to this specific meaning. opts=[""One should prioritize their family's needs over external charitable acts."", 'Charity begins at home, but should not end there.', 'It is important to ensure your family is well-provided for before helping others.', 'You should only help others if your family has no needs at all.']",,,,
+generation,qwen/qwen3.7-max,adversarial-hard-negative,English,That which does not kill us makes us stronger,Facing hardships helps us become more resilient and capable.,Adversity builds resilience.,Facing hardships helps us become more resilient and capable.,"[""Surviving difficult challenges ultimately builds our resilience and inner strength."", ""Surviving difficult challenges ultimately reveals our natural resilience and strength."", ""Defeating formidable opponents ultimately builds our resilience and inner strength."", ""Surviving difficult challenges ultimately grants us immunity to future pain and grief.""]",stop,length_fallback,4.0,1.0,,,,,
+generation,google/gemma-4-31b-it,adversarial-hard-negative,English,That which does not kill us makes us stronger,Facing hardships helps us become more resilient and capable.,Adversity builds resilience.,Facing hardships helps us become more resilient and capable.,"[""Facing hardships helps us become more resilient and capable."", ""Surviving a crisis ensures we avoid future difficulties."", ""Enduring a struggle proves we are naturally superior."", ""Overcoming a trauma removes our vulnerability to pain.""]",stop,partial,1.0,0.0,,,,,
+generation,google/gemini-2.5-flash,adversarial-hard-negative,English,That which does not kill us makes us stronger,Facing hardships helps us become more resilient and capable.,Adversity builds resilience.,Facing hardships helps us become more resilient and capable.,"[""Adversity and challenges contribute to our growth and fortitude."", ""Avoiding difficult situations prevents us from experiencing personal development."", ""Overcoming obstacles is a sign of inherent strength, not a cause of it."", ""Only life-threatening experiences truly build character and resolve.""]",stop,generated,0.0,0.0,,,,,
+generation,qwen/qwen3.7-max,adversarial-hard-negative,Yoruba,Kèrègbè tí kò lọ́rùn ni yóò júwe bí àgbẹ̀ ó ti so òun kọ́.,A gourd without a neck will show the farmer how to secure it properly.,The neckless gourd will itself indicate to the farmer how to tie it up.,A gourd without a neck will show the farmer how to secure it properly.,"[""A flawed vessel forces the skilled farmer to invent a new method for securing it."", ""A skilled farmer must carefully teach an apprentice to properly tie a flawed vessel."", ""A stubborn vessel will quickly shatter if the farmer tries to force a normal knot."", ""A wise farmer will quickly discard a flawed vessel that cannot take a common knot.""]",stop,partial,2.0,0.0,,,,,
+generation,google/gemma-4-31b-it,adversarial-hard-negative,Yoruba,Kèrègbè tí kò lọ́rùn ni yóò júwe bí àgbẹ̀ ó ti so òun kọ́.,A gourd without a neck will show the farmer how to secure it properly.,The neckless gourd will itself indicate to the farmer how to tie it up.,A gourd without a neck will show the farmer how to secure it properly.,"[""A flawed vessel teaches the farmer how to secure it properly."", ""A broken gourd forces the farmer to change his planting method."", ""A neckless gourd reveals the farmer's failure to secure the crop."", ""A defective gourd shows the farmer how to improve his harvest.""]",stop,length_fallback,5.0,2.0,,,,,
+generation,google/gemini-2.5-flash,adversarial-hard-negative,Yoruba,Kèrègbè tí kò lọ́rùn ni yóò júwe bí àgbẹ̀ ó ti so òun kọ́.,A gourd without a neck will show the farmer how to secure it properly.,The neckless gourd will itself indicate to the farmer how to tie it up.,A gourd without a neck will show the farmer how to secure it properly.,"[""A difficult situation will reveal the true measure of one's resourcefulness."", ""A stubborn person will eventually learn humility through hardship."", ""A flawed tool will always hinder the progress of a diligent worker."", ""A challenging task requires careful planning and preparation.""]",stop,partial,1.0,0.0,,,,,
+generation,qwen/qwen3.7-max,taxonomy-guided,Arabic,اللي يعوزه البيت يحرم على الجامع,A person should take care of their own family before offering help to others.,Charity begins at home.,A person should take care of their own family before offering help to others.,"[
+  ""Individuals must prioritize providing for their household before donating to local public charities."",
+  ""Families need to gather sufficient resources so they can eventually contribute to local religious groups."",
+  ""Companies must secure internal operations and staff welfare before funding external social projects."",
+  ""People should generously share their household wealth with religious groups to earn spiritual merit.""
+]",stop,generated,0.0,0.0,,,,,
+generation,google/gemma-4-31b-it,taxonomy-guided,Arabic,اللي يعوزه البيت يحرم على الجامع,A person should take care of their own family before offering help to others.,Charity begins at home.,A person should take care of their own family before offering help to others.,"[""Prioritize your own family's needs before helping others."", ""Focus on the needs of your home and immediate circle."", ""Give generously to the community to ensure a blessing."", ""Offer help to everyone regardless of your own status.""]",stop,generated,0.0,0.0,,,,,
+generation,google/gemini-2.5-flash,taxonomy-guided,Arabic,اللي يعوزه البيت يحرم على الجامع,A person should take care of their own family before offering help to others.,,,"[""One should prioritize their immediate family's needs before extending assistance to the wider community."", ""It is important to contribute to your local community whenever possible."", ""Charity begins at home, but it should not end there."", ""Helping others is a noble act, regardless of your personal circumstances.""]",stop,parse_fallback,,,"Options contain a generic English idiom/proverb that is not tied to this specific meaning. opts=[""One should prioritize their immediate family's needs before extending assistance to the wider community."", 'It is important to contribute to your local community whenever possible.', 'Charity begins at home, but it should not end there.', 'Helping others is a noble act, regardless of your personal circumstances.']",,,,
+generation,qwen/qwen3.7-max,taxonomy-guided,English,That which does not kill us makes us stronger,Facing hardships helps us become more resilient and capable.,Adversity builds resilience.,Facing hardships helps us become more resilient and capable.,"[""Surviving severe adversity ultimately builds greater personal resilience and fortitude."", ""Enduring severe adversity ultimately guarantees our continued survival and physical safety."", ""Subjecting muscles to intense physical strain causes them to rebuild with increased mass."", ""Experiencing any level of severe trauma automatically builds greater personal resilience.""]",stop,generated,0.0,0.0,,,,,
+generation,google/gemma-4-31b-it,taxonomy-guided,English,That which does not kill us makes us stronger,Facing hardships helps us become more resilient and capable.,Adversity builds resilience.,Facing hardships helps us become more resilient and capable.,"[""Overcoming adversity builds greater inner strength."", ""Surviving a crisis ensures a long life."", ""Careful planning prevents future failures."", ""Every difficult experience brings success.""]",stop,generated,0.0,0.0,,,,,
+generation,google/gemini-2.5-flash,taxonomy-guided,English,That which does not kill us makes us stronger,Facing hardships helps us become more resilient and capable.,Adversity builds resilience.,Facing hardships helps us become more resilient and capable.,"[""Adversity and challenges contribute to our growth and fortitude."", ""Surviving difficult experiences means we are more powerful than before."", ""Avoiding danger is the best way to ensure a long and healthy life."", ""Any experience, regardless of its nature, inevitably leads to personal improvement.""]",stop,generated,0.0,0.0,,,,,
+generation,qwen/qwen3.7-max,taxonomy-guided,Yoruba,Kèrègbè tí kò lọ́rùn ni yóò júwe bí àgbẹ̀ ó ti so òun kọ́.,A gourd without a neck will show the farmer how to secure it properly.,The neckless gourd will itself indicate to the farmer how to tie it up.,A gourd without a neck will show the farmer how to secure it properly.,"[""A person born with an unusual flaw must invent a unique method to navigate their daily struggles and secure their place in the village."", ""A youth carrying a strange physical defect will forever remain a heavy burden for the aging elders to manage within the local village."", ""An elder who has lost their physical strength will rely on the wisdom of their ancestors to guide the young hunters in the deep forest."", ""The village elders will always gather to weave a special carrying net for any orphan who lacks the guidance of a proper family line.""]",stop,generated,0.0,0.0,,,,,
+generation,google/gemma-4-31b-it,taxonomy-guided,Yoruba,Kèrègbè tí kò lọ́rùn ni yóò júwe bí àgbẹ̀ ó ti so òun kọ́.,A gourd without a neck will show the farmer how to secure it properly.,The neckless gourd will itself indicate to the farmer how to tie it up.,A gourd without a neck will show the farmer how to secure it properly.,"[""A flawed tool forces the craftsman to refine his technique."", ""A neckless gourd is difficult for a farmer to carry."", ""A diligent farmer ensures every harvest is stored safely."", ""The farmer teaches the gourd how to grow straight.""]",stop,generated,0.0,0.0,,,,,
+generation,google/gemini-2.5-flash,taxonomy-guided,Yoruba,Kèrègbè tí kò lọ́rùn ni yóò júwe bí àgbẹ̀ ó ti so òun kọ́.,A gourd without a neck will show the farmer how to secure it properly.,The neckless gourd will itself indicate to the farmer how to tie it up.,A gourd without a neck will show the farmer how to secure it properly.,"[
+  ""A difficult situation will reveal the true skill and ingenuity of a person."",
+  ""One must adapt their methods when faced with an unusual challenge."",
+  ""A person's true character is revealed when they are under pressure."",
+  ""Even the most flawed vessel can serve a useful purpose if handled with care.""
+]",stop,partial,1.0,0.0,,,,,
+generation,qwen/qwen3.7-max,overgenerate-select,Arabic,اللي يعوزه البيت يحرم على الجامع,A person should take care of their own family before offering help to others.,Charity begins at home.,A person should take care of their own family before offering help to others.,"[""Ensure your family is provided for before donating to public causes."", ""Spiritual duties at the mosque outweigh the material desires of the home."", ""Private behavior at home should mirror the strict discipline of the mosque."", ""Hoarding wealth for one's family is a sin against the broader community.""]",stop,generated,0.0,0.0,,,,,
+generation,google/gemma-4-31b-it,overgenerate-select,Arabic,اللي يعوزه البيت يحرم على الجامع,A person should take care of their own family before offering help to others.,Charity begins at home.,A person should take care of their own family before offering help to others.,"[""Prioritize the needs of your own household before helping others."", ""Religious obligations should never outweigh family duties."", ""Charity is only virtuous when given from a place of abundance."", ""Family members must be the sole beneficiaries of one's wealth.""]",stop,generated,0.0,0.0,,,,,
+generation,google/gemini-2.5-flash,overgenerate-select,Arabic,اللي يعوزه البيت يحرم على الجامع,A person should take care of their own family before offering help to others.,,,"```json
+[
+  ""Charity begins at home, so prioritize your family's needs."",
+  ""One should always give to the community before personal gain."",
+  ""It is important to share your wealth with those less fortunate."",
+  ""Focus on your spiritual duties before worldly responsibilities.""
+]
+```",stop,parse_fallback,,,"Options contain a generic English idiom/proverb that is not tied to this specific meaning. opts=[""Charity begins at home, so prioritize your family's needs."", 'One should always give to the community before personal gain.', 'It is important to share your wealth with those less fortunate.', 'Focus on your spiritual duties before worldly responsibilities.']",,,,
+generation,qwen/qwen3.7-max,overgenerate-select,English,That which does not kill us makes us stronger,Facing hardships helps us become more resilient and capable.,Adversity builds resilience.,Facing hardships helps us become more resilient and capable.,"[""Overcoming severe adversity builds enduring personal resilience and fortitude."", ""Escaping fatal danger inevitably results in greater physical power and vitality."", ""Profound trauma causes individuals to become emotionally detached and ruthless."", ""True success requires enduring immense suffering to prove inherent human worth.""]",stop,generated,0.0,0.0,,,,,
+generation,google/gemma-4-31b-it,overgenerate-select,English,That which does not kill us makes us stronger,Facing hardships helps us become more resilient and capable.,Adversity builds resilience.,Facing hardships helps us become more resilient and capable.,"[""Overcoming difficult experiences increases our inner strength."", ""Survival is the only requirement for personal growth."", ""Avoiding danger is the most effective way to build power."", ""Physical endurance is developed through near-fatal events.""]",stop,generated,0.0,0.0,,,,,
+generation,google/gemini-2.5-flash,overgenerate-select,English,That which does not kill us makes us stronger,Facing hardships helps us become more resilient and capable.,Adversity builds resilience.,Facing hardships helps us become more resilient and capable.,"```json
+[
+  ""Adversity and challenges contribute to personal growth and increased fortitude."",
+  ""Avoiding danger is the surest path to a long and healthy life."",
+  ""Only through extreme suffering can one truly understand their own limits."",
+  ""Survival is the ultimate measure of one's inherent strength and resilience.""
+]
+```",stop,generated,0.0,0.0,,,,,
+generation,qwen/qwen3.7-max,overgenerate-select,Yoruba,Kèrègbè tí kò lọ́rùn ni yóò júwe bí àgbẹ̀ ó ti so òun kọ́.,A gourd without a neck will show the farmer how to secure it properly.,The neckless gourd will itself indicate to the farmer how to tie it up.,A gourd without a neck will show the farmer how to secure it properly.,"[
+  ""Every uniquely shaped calabash forces the harvester to invent a new binding method."",
+  ""Any barren yam mound shows the cultivator that the earth spirits withhold favor."",
+  ""One cracked clay pot eventually reveals which village well is starting to run dry."",
+  ""Only after the first blade shatters does the blacksmith learn to temper the hoe.""
+]",stop,generated,0.0,0.0,,,,,
+generation,google/gemma-4-31b-it,overgenerate-select,Yoruba,Kèrègbè tí kò lọ́rùn ni yóò júwe bí àgbẹ̀ ó ti so òun kọ́.,A gourd without a neck will show the farmer how to secure it properly.,The neckless gourd will itself indicate to the farmer how to tie it up.,A gourd without a neck will show the farmer how to secure it properly.,"[""A gourd without a neck will show the farmer how to secure it properly."", ""A flawed vessel reveals the true skill of the one who crafts it."", ""The smallest mistake in a harvest teaches the village a great lesson."", ""A broken tool forces the worker to find a more efficient method.""]",stop,generated,0.0,0.0,,,,,
+generation,google/gemini-2.5-flash,overgenerate-select,Yoruba,Kèrègbè tí kò lọ́rùn ni yóò júwe bí àgbẹ̀ ó ti so òun kọ́.,A gourd without a neck will show the farmer how to secure it properly.,The neckless gourd will itself indicate to the farmer how to tie it up.,A gourd without a neck will show the farmer how to secure it properly.,"```json
+[
+  ""A challenging situation will reveal the best approach to overcome it."",
+  ""A stubborn person will eventually yield to a stronger will."",
+  ""One's true character is revealed in times of adversity."",
+  ""The most difficult tasks often require the simplest solutions.""
+]
+```",stop,generated,0.0,0.0,,,,,
+audit,,adversarial-length-locked,,,,,,A.,stop,,,,,qwen_qwen3.7-max_adversarial-length-locked_Arabic_0,meta-llama/llama-3.3-70b-instruct,"Which option is correct?
+
+A. A person must prioritize providing for their own household before donating to the community.
+B. Let's wait and hold to see what the future holds.
+C. A person of two minds is a liar, and a person of three minds is a hypocrite
+D. The best answer will come from the person who is not angry.",A
+audit,,adversarial-length-locked,,,,,,A,stop,,,,,qwen_qwen3.7-max_adversarial-length-locked_Arabic_0,mistralai/mistral-small-3.2-24b-instruct,"Which option is correct?
+
+A. A person must prioritize providing for their own household before donating to the community.
+B. Let's wait and hold to see what the future holds.
+C. A person of two minds is a liar, and a person of three minds is a hypocrite
+D. The best answer will come from the person who is not angry.",A
+audit,,adversarial-length-locked,,,,,,A,stop,,,,,qwen_qwen3.7-max_adversarial-length-locked_Arabic_0,google/gemma-3-27b-it,"Which option is correct?
+
+A. A person must prioritize providing for their own household before donating to the community.
+B. Let's wait and hold to see what the future holds.
+C. A person of two minds is a liar, and a person of three minds is a hypocrite
+D. The best answer will come from the person who is not angry.",A
+audit,,adversarial-length-locked,,,,,,D,stop,,,,,qwen_qwen3.7-max_adversarial-length-locked_Arabic_0,deepseek/deepseek-v3.2,"Which option is correct?
+
+A. A person must prioritize providing for their own household before donating to the community.
+B. Let's wait and hold to see what the future holds.
+C. A person of two minds is a liar, and a person of three minds is a hypocrite
+D. The best answer will come from the person who is not angry.",D
+audit,,adversarial-length-locked,,,,,,B.,stop,,,,,google_gemma-4-31b-it_adversarial-length-locked_Arabic_0,meta-llama/llama-3.3-70b-instruct,"Which option is correct?
+
+A. Give your largest donations to the local community.
+B. Prioritize your own family's needs before helping others.
+C. Ensure your home is clean before visiting a temple.
+D. Share all your wealth equally with your neighbors.",B
+audit,,adversarial-length-locked,,,,,,A. Give your largest donations to the local community.,stop,,,,,google_gemma-4-31b-it_adversarial-length-locked_Arabic_0,mistralai/mistral-small-3.2-24b-instruct,"Which option is correct?
+
+A. Give your largest donations to the local community.
+B. Prioritize your own family's needs before helping others.
+C. Ensure your home is clean before visiting a temple.
+D. Share all your wealth equally with your neighbors.",A
+audit,,adversarial-length-locked,,,,,,C,stop,,,,,google_gemma-4-31b-it_adversarial-length-locked_Arabic_0,google/gemma-3-27b-it,"Which option is correct?
+
+A. Give your largest donations to the local community.
+B. Prioritize your own family's needs before helping others.
+C. Ensure your home is clean before visiting a temple.
+D. Share all your wealth equally with your neighbors.",C
+audit,,adversarial-length-locked,,,,,,C,stop,,,,,google_gemma-4-31b-it_adversarial-length-locked_Arabic_0,deepseek/deepseek-v3.2,"Which option is correct?
+
+A. Give your largest donations to the local community.
+B. Prioritize your own family's needs before helping others.
+C. Ensure your home is clean before visiting a temple.
+D. Share all your wealth equally with your neighbors.",C
+audit,,adversarial-length-locked,,,,,,D,stop,,,,,google_gemini-2.5-flash_adversarial-length-locked_Arabic_0,meta-llama/llama-3.3-70b-instruct,"Which option is correct?
+
+A. The best answer will come from the person who is not angry.
+B. With care do you realize your opportunities.
+C. A person should take care of their own family before offering help to others.
+D. After black clouds, clear weather./ Slow and steady wins the race.
+",D
+audit,,adversarial-length-locked,,,,,,A. The best answer will come from the person who is not angry.,stop,,,,,google_gemini-2.5-flash_adversarial-length-locked_Arabic_0,mistralai/mistral-small-3.2-24b-instruct,"Which option is correct?
+
+A. The best answer will come from the person who is not angry.
+B. With care do you realize your opportunities.
+C. A person should take care of their own family before offering help to others.
+D. After black clouds, clear weather./ Slow and steady wins the race.
+",A
+audit,,adversarial-length-locked,,,,,,A,stop,,,,,google_gemini-2.5-flash_adversarial-length-locked_Arabic_0,google/gemma-3-27b-it,"Which option is correct?
+
+A. The best answer will come from the person who is not angry.
+B. With care do you realize your opportunities.
+C. A person should take care of their own family before offering help to others.
+D. After black clouds, clear weather./ Slow and steady wins the race.
+",A
+audit,,adversarial-length-locked,,,,,,A,stop,,,,,google_gemini-2.5-flash_adversarial-length-locked_Arabic_0,deepseek/deepseek-v3.2,"Which option is correct?
+
+A. The best answer will come from the person who is not angry.
+B. With care do you realize your opportunities.
+C. A person should take care of their own family before offering help to others.
+D. After black clouds, clear weather./ Slow and steady wins the race.
+",A
+audit,,adversarial-length-locked,,,,,,D.,stop,,,,,qwen_qwen3.7-max_adversarial-length-locked_English_1,meta-llama/llama-3.3-70b-instruct,"Which option is correct?
+
+A. As art is the outcome of creative imagination, people who lack this vision may fail to appreciate it.
+B. People who do unscrupulous or wrongful actions may become themselves victims of a similar action.
+C. People abandon a failing enterprise when problems develop.
+D. Enduring severe hardships allows people to develop greater emotional resilience and practical skills.",D
+audit,,adversarial-length-locked,,,,,,A,stop,,,,,qwen_qwen3.7-max_adversarial-length-locked_English_1,mistralai/mistral-small-3.2-24b-instruct,"Which option is correct?
+
+A. As art is the outcome of creative imagination, people who lack this vision may fail to appreciate it.
+B. People who do unscrupulous or wrongful actions may become themselves victims of a similar action.
+C. People abandon a failing enterprise when problems develop.
+D. Enduring severe hardships allows people to develop greater emotional resilience and practical skills.",A
+audit,,adversarial-length-locked,,,,,,A,stop,,,,,qwen_qwen3.7-max_adversarial-length-locked_English_1,google/gemma-3-27b-it,"Which option is correct?
+
+A. As art is the outcome of creative imagination, people who lack this vision may fail to appreciate it.
+B. People who do unscrupulous or wrongful actions may become themselves victims of a similar action.
+C. People abandon a failing enterprise when problems develop.
+D. Enduring severe hardships allows people to develop greater emotional resilience and practical skills.",A
+audit,,adversarial-length-locked,,,,,,A,stop,,,,,qwen_qwen3.7-max_adversarial-length-locked_English_1,deepseek/deepseek-v3.2,"Which option is correct?
+
+A. As art is the outcome of creative imagination, people who lack this vision may fail to appreciate it.
+B. People who do unscrupulous or wrongful actions may become themselves victims of a similar action.
+C. People abandon a failing enterprise when problems develop.
+D. Enduring severe hardships allows people to develop greater emotional resilience and practical skills.",A
+audit,,adversarial-length-locked,,,,,,A.,stop,,,,,google_gemma-4-31b-it_adversarial-length-locked_English_1,meta-llama/llama-3.3-70b-instruct,"Which option is correct?
+
+A. Facing hardships helps us become more resilient and capable.
+B. Enduring pain allows us to ignore future physical injuries.
+C. Surviving danger ensures that we avoid similar accidents.
+D. Intimacy can cause us to lose our regard.",A
+audit,,adversarial-length-locked,,,,,,A,stop,,,,,google_gemma-4-31b-it_adversarial-length-locked_English_1,mistralai/mistral-small-3.2-24b-instruct,"Which option is correct?
+
+A. Facing hardships helps us become more resilient and capable.
+B. Enduring pain allows us to ignore future physical injuries.
+C. Surviving danger ensures that we avoid similar accidents.
+D. Intimacy can cause us to lose our regard.",A
+audit,,adversarial-length-locked,,,,,,A,stop,,,,,google_gemma-4-31b-it_adversarial-length-locked_English_1,google/gemma-3-27b-it,"Which option is correct?
+
+A. Facing hardships helps us become more resilient and capable.
+B. Enduring pain allows us to ignore future physical injuries.
+C. Surviving danger ensures that we avoid similar accidents.
+D. Intimacy can cause us to lose our regard.",A
+audit,,adversarial-length-locked,,,,,,A,stop,,,,,google_gemma-4-31b-it_adversarial-length-locked_English_1,deepseek/deepseek-v3.2,"Which option is correct?
+
+A. Facing hardships helps us become more resilient and capable.
+B. Enduring pain allows us to ignore future physical injuries.
+C. Surviving danger ensures that we avoid similar accidents.
+D. Intimacy can cause us to lose our regard.",A
+audit,,adversarial-length-locked,,,,,,B.,stop,,,,,google_gemini-2.5-flash_adversarial-length-locked_English_1,meta-llama/llama-3.3-70b-instruct,"Which option is correct?
+
+A. Avoiding difficult situations ensures a peaceful and untroubled existence.
+B. Adversity builds character and increases our ability to cope with future challenges.
+C. Overcoming minor obstacles leads to a sense of temporary accomplishment.
+D. Life's struggles are best ignored to maintain a positive outlook.",B
+audit,,adversarial-length-locked,,,,,,B. Adversity builds character and increases our ability to cope with future challenges.,stop,,,,,google_gemini-2.5-flash_adversarial-length-locked_English_1,mistralai/mistral-small-3.2-24b-instruct,"Which option is correct?
+
+A. Avoiding difficult situations ensures a peaceful and untroubled existence.
+B. Adversity builds character and increases our ability to cope with future challenges.
+C. Overcoming minor obstacles leads to a sense of temporary accomplishment.
+D. Life's struggles are best ignored to maintain a positive outlook.",B
+audit,,adversarial-length-locked,,,,,,B,stop,,,,,google_gemini-2.5-flash_adversarial-length-locked_English_1,google/gemma-3-27b-it,"Which option is correct?
+
+A. Avoiding difficult situations ensures a peaceful and untroubled existence.
+B. Adversity builds character and increases our ability to cope with future challenges.
+C. Overcoming minor obstacles leads to a sense of temporary accomplishment.
+D. Life's struggles are best ignored to maintain a positive outlook.",B
+audit,,adversarial-length-locked,,,,,,B,stop,,,,,google_gemini-2.5-flash_adversarial-length-locked_English_1,deepseek/deepseek-v3.2,"Which option is correct?
+
+A. Avoiding difficult situations ensures a peaceful and untroubled existence.
+B. Adversity builds character and increases our ability to cope with future challenges.
+C. Overcoming minor obstacles leads to a sense of temporary accomplishment.
+D. Life's struggles are best ignored to maintain a positive outlook.",B
+audit,,adversarial-length-locked,,,,,,C.,stop,,,,,qwen_qwen3.7-max_adversarial-length-locked_Yoruba_2,meta-llama/llama-3.3-70b-instruct,"Which option is correct?
+
+A. A wise elder guiding a stubborn youth must enforce strict rules to maintain the social order.
+B. A family hiding a shameful defect must accept the public judgment of the neighbors they trust.
+C. A person born lacking standard advantages must invent unique strategies to secure their future.
+D. A child destined for a humble life must accept their quiet role within the broader community.",C
+audit,,adversarial-length-locked,,,,,,C. A person born lacking standard advantages must invent unique strategies to secure their future.,stop,,,,,qwen_qwen3.7-max_adversarial-length-locked_Yoruba_2,mistralai/mistral-small-3.2-24b-instruct,"Which option is correct?
+
+A. A wise elder guiding a stubborn youth must enforce strict rules to maintain the social order.
+B. A family hiding a shameful defect must accept the public judgment of the neighbors they trust.
+C. A person born lacking standard advantages must invent unique strategies to secure their future.
+D. A child destined for a humble life must accept their quiet role within the broader community.",C
+audit,,adversarial-length-locked,,,,,,C,stop,,,,,qwen_qwen3.7-max_adversarial-length-locked_Yoruba_2,google/gemma-3-27b-it,"Which option is correct?
+
+A. A wise elder guiding a stubborn youth must enforce strict rules to maintain the social order.
+B. A family hiding a shameful defect must accept the public judgment of the neighbors they trust.
+C. A person born lacking standard advantages must invent unique strategies to secure their future.
+D. A child destined for a humble life must accept their quiet role within the broader community.",C
+audit,,adversarial-length-locked,,,,,,C,stop,,,,,qwen_qwen3.7-max_adversarial-length-locked_Yoruba_2,deepseek/deepseek-v3.2,"Which option is correct?
+
+A. A wise elder guiding a stubborn youth must enforce strict rules to maintain the social order.
+B. A family hiding a shameful defect must accept the public judgment of the neighbors they trust.
+C. A person born lacking standard advantages must invent unique strategies to secure their future.
+D. A child destined for a humble life must accept their quiet role within the broader community.",C
+audit,,adversarial-length-locked,,,,,,D.,stop,,,,,google_gemma-4-31b-it_adversarial-length-locked_Yoruba_2,meta-llama/llama-3.3-70b-instruct,"Which option is correct?
+
+A. Whoever conceals a disease is beyond help from a doctor.
+B. A leaking gourd shows the need for a better harvest.
+C. A small vessel teaches the farmer how to plant seeds.
+D. A flawed vessel reveals the skill of the one who mends it.",D
+audit,,adversarial-length-locked,,,,,,D. A flawed vessel reveals the skill of the one who mends it.,stop,,,,,google_gemma-4-31b-it_adversarial-length-locked_Yoruba_2,mistralai/mistral-small-3.2-24b-instruct,"Which option is correct?
+
+A. Whoever conceals a disease is beyond help from a doctor.
+B. A leaking gourd shows the need for a better harvest.
+C. A small vessel teaches the farmer how to plant seeds.
+D. A flawed vessel reveals the skill of the one who mends it.",D
+audit,,adversarial-length-locked,,,,,,D,stop,,,,,google_gemma-4-31b-it_adversarial-length-locked_Yoruba_2,google/gemma-3-27b-it,"Which option is correct?
+
+A. Whoever conceals a disease is beyond help from a doctor.
+B. A leaking gourd shows the need for a better harvest.
+C. A small vessel teaches the farmer how to plant seeds.
+D. A flawed vessel reveals the skill of the one who mends it.",D
+audit,,adversarial-length-locked,,,,,,A,stop,,,,,google_gemma-4-31b-it_adversarial-length-locked_Yoruba_2,deepseek/deepseek-v3.2,"Which option is correct?
+
+A. Whoever conceals a disease is beyond help from a doctor.
+B. A leaking gourd shows the need for a better harvest.
+C. A small vessel teaches the farmer how to plant seeds.
+D. A flawed vessel reveals the skill of the one who mends it.",A
+audit,,adversarial-length-locked,,,,,,C.,stop,,,,,google_gemini-2.5-flash_adversarial-length-locked_Yoruba_2,meta-llama/llama-3.3-70b-instruct,"Which option is correct?
+
+A. A challenging situation will reveal the best way to handle it, teaching resourcefulness.
+B. A person without proper guidance will struggle to find their place in the community.
+C. One's true character is often revealed when faced with unexpected difficulties.
+D. The wisdom of the elders is essential for navigating life's complex problems.",C
+audit,,adversarial-length-locked,,,,,,C. One's true character is often revealed when faced with unexpected difficulties.,stop,,,,,google_gemini-2.5-flash_adversarial-length-locked_Yoruba_2,mistralai/mistral-small-3.2-24b-instruct,"Which option is correct?
+
+A. A challenging situation will reveal the best way to handle it, teaching resourcefulness.
+B. A person without proper guidance will struggle to find their place in the community.
+C. One's true character is often revealed when faced with unexpected difficulties.
+D. The wisdom of the elders is essential for navigating life's complex problems.",C
+audit,,adversarial-length-locked,,,,,,C,stop,,,,,google_gemini-2.5-flash_adversarial-length-locked_Yoruba_2,google/gemma-3-27b-it,"Which option is correct?
+
+A. A challenging situation will reveal the best way to handle it, teaching resourcefulness.
+B. A person without proper guidance will struggle to find their place in the community.
+C. One's true character is often revealed when faced with unexpected difficulties.
+D. The wisdom of the elders is essential for navigating life's complex problems.",C
+audit,,adversarial-length-locked,,,,,,C,stop,,,,,google_gemini-2.5-flash_adversarial-length-locked_Yoruba_2,deepseek/deepseek-v3.2,"Which option is correct?
+
+A. A challenging situation will reveal the best way to handle it, teaching resourcefulness.
+B. A person without proper guidance will struggle to find their place in the community.
+C. One's true character is often revealed when faced with unexpected difficulties.
+D. The wisdom of the elders is essential for navigating life's complex problems.",C
+audit,,adversarial-hard-negative,,,,,,B.,stop,,,,,qwen_qwen3.7-max_adversarial-hard-negative_Arabic_0,meta-llama/llama-3.3-70b-instruct,"Which option is correct?
+
+A. Good health is a crown worn by the healthy that only the ill can see.
+B. A person must provide for their own household before giving charity to the community.
+C. Religious institutions are strictly forbidden from accepting donations a family needs.
+D. The daily needs of a private home are far too sacred to be fulfilled by public funds.",B
+audit,,adversarial-hard-negative,,,,,,B,stop,,,,,qwen_qwen3.7-max_adversarial-hard-negative_Arabic_0,mistralai/mistral-small-3.2-24b-instruct,"Which option is correct?
+
+A. Good health is a crown worn by the healthy that only the ill can see.
+B. A person must provide for their own household before giving charity to the community.
+C. Religious institutions are strictly forbidden from accepting donations a family needs.
+D. The daily needs of a private home are far too sacred to be fulfilled by public funds.",B
+audit,,adversarial-hard-negative,,,,,,A,stop,,,,,qwen_qwen3.7-max_adversarial-hard-negative_Arabic_0,google/gemma-3-27b-it,"Which option is correct?
+
+A. Good health is a crown worn by the healthy that only the ill can see.
+B. A person must provide for their own household before giving charity to the community.
+C. Religious institutions are strictly forbidden from accepting donations a family needs.
+D. The daily needs of a private home are far too sacred to be fulfilled by public funds.",A
+audit,,adversarial-hard-negative,,,,,,A,stop,,,,,qwen_qwen3.7-max_adversarial-hard-negative_Arabic_0,deepseek/deepseek-v3.2,"Which option is correct?
+
+A. Good health is a crown worn by the healthy that only the ill can see.
+B. A person must provide for their own household before giving charity to the community.
+C. Religious institutions are strictly forbidden from accepting donations a family needs.
+D. The daily needs of a private home are far too sacred to be fulfilled by public funds.",A
+audit,,adversarial-hard-negative,,,,,,C.,stop,,,,,google_gemma-4-31b-it_adversarial-hard-negative_Arabic_0,meta-llama/llama-3.3-70b-instruct,"Which option is correct?
+
+A. Give to the community first to ensure your family is blessed.
+B. Balance your family needs equally with your charitable duties.
+C. Prioritize the needs of your own family before helping others.
+D. Help those in your community who are as needy as your family.",C
+audit,,adversarial-hard-negative,,,,,,C. Prioritize the needs of your own family before helping others.,stop,,,,,google_gemma-4-31b-it_adversarial-hard-negative_Arabic_0,mistralai/mistral-small-3.2-24b-instruct,"Which option is correct?
+
+A. Give to the community first to ensure your family is blessed.
+B. Balance your family needs equally with your charitable duties.
+C. Prioritize the needs of your own family before helping others.
+D. Help those in your community who are as needy as your family.",C
+audit,,adversarial-hard-negative,,,,,,C,stop,,,,,google_gemma-4-31b-it_adversarial-hard-negative_Arabic_0,google/gemma-3-27b-it,"Which option is correct?
+
+A. Give to the community first to ensure your family is blessed.
+B. Balance your family needs equally with your charitable duties.
+C. Prioritize the needs of your own family before helping others.
+D. Help those in your community who are as needy as your family.",C
+audit,,adversarial-hard-negative,,,,,,C,stop,,,,,google_gemma-4-31b-it_adversarial-hard-negative_Arabic_0,deepseek/deepseek-v3.2,"Which option is correct?
+
+A. Give to the community first to ensure your family is blessed.
+B. Balance your family needs equally with your charitable duties.
+C. Prioritize the needs of your own family before helping others.
+D. Help those in your community who are as needy as your family.",C
+audit,,adversarial-hard-negative,,,,,,B.,stop,,,,,google_gemini-2.5-flash_adversarial-hard-negative_Arabic_0,meta-llama/llama-3.3-70b-instruct,"Which option is correct?
+
+A. I curse my own child, but I hate whoever says “amen.”
+B. In haste there is regret, but in patience and care there is peace and safety.
+C. The stupid might want to help you, but they just ended up hurting you.
+D. A person should take care of their own family before offering help to others.",B
+audit,,adversarial-hard-negative,,,,,,D. A person should take care of their own family before offering help to others.,stop,,,,,google_gemini-2.5-flash_adversarial-hard-negative_Arabic_0,mistralai/mistral-small-3.2-24b-instruct,"Which option is correct?
+
+A. I curse my own child, but I hate whoever says “amen.”
+B. In haste there is regret, but in patience and care there is peace and safety.
+C. The stupid might want to help you, but they just ended up hurting you.
+D. A person should take care of their own family before offering help to others.",D
+audit,,adversarial-hard-negative,,,,,,B,stop,,,,,google_gemini-2.5-flash_adversarial-hard-negative_Arabic_0,google/gemma-3-27b-it,"Which option is correct?
+
+A. I curse my own child, but I hate whoever says “amen.”
+B. In haste there is regret, but in patience and care there is peace and safety.
+C. The stupid might want to help you, but they just ended up hurting you.
+D. A person should take care of their own family before offering help to others.",B
+audit,,adversarial-hard-negative,,,,,,B,stop,,,,,google_gemini-2.5-flash_adversarial-hard-negative_Arabic_0,deepseek/deepseek-v3.2,"Which option is correct?
+
+A. I curse my own child, but I hate whoever says “amen.”
+B. In haste there is regret, but in patience and care there is peace and safety.
+C. The stupid might want to help you, but they just ended up hurting you.
+D. A person should take care of their own family before offering help to others.",B
+audit,,adversarial-hard-negative,,,,,,A,stop,,,,,qwen_qwen3.7-max_adversarial-hard-negative_English_1,meta-llama/llama-3.3-70b-instruct,"Which option is correct?
+
+A. Surviving difficult challenges ultimately builds our resilience and inner strength.
+B. If you are determined enough, you can find a way to achieve what you want, even if it is difficult.
+C. Some inconvenien t situations are beyond our control and will only get better with time.
+D. Sometimes, escaping a difficult situation only leads to a worse situation.",A
+audit,,adversarial-hard-negative,,,,,,A,stop,,,,,qwen_qwen3.7-max_adversarial-hard-negative_English_1,mistralai/mistral-small-3.2-24b-instruct,"Which option is correct?
+
+A. Surviving difficult challenges ultimately builds our resilience and inner strength.
+B. If you are determined enough, you can find a way to achieve what you want, even if it is difficult.
+C. Some inconvenien t situations are beyond our control and will only get better with time.
+D. Sometimes, escaping a difficult situation only leads to a worse situation.",A
+audit,,adversarial-hard-negative,,,,,,"thought
+B",stop,,,,,qwen_qwen3.7-max_adversarial-hard-negative_English_1,google/gemma-3-27b-it,"Which option is correct?
+
+A. Surviving difficult challenges ultimately builds our resilience and inner strength.
+B. If you are determined enough, you can find a way to achieve what you want, even if it is difficult.
+C. Some inconvenien t situations are beyond our control and will only get better with time.
+D. Sometimes, escaping a difficult situation only leads to a worse situation.",B
+audit,,adversarial-hard-negative,,,,,,D,stop,,,,,qwen_qwen3.7-max_adversarial-hard-negative_English_1,deepseek/deepseek-v3.2,"Which option is correct?
+
+A. Surviving difficult challenges ultimately builds our resilience and inner strength.
+B. If you are determined enough, you can find a way to achieve what you want, even if it is difficult.
+C. Some inconvenien t situations are beyond our control and will only get better with time.
+D. Sometimes, escaping a difficult situation only leads to a worse situation.",D
+audit,,adversarial-hard-negative,,,,,,B.,stop,,,,,google_gemma-4-31b-it_adversarial-hard-negative_English_1,meta-llama/llama-3.3-70b-instruct,"Which option is correct?
+
+A. Surviving a crisis ensures we avoid future difficulties.
+B. Facing hardships helps us become more resilient and capable.
+C. Life is full of surprises and the unexpected.
+D. Overcoming a trauma removes our vulnerability to pain.",B
+audit,,adversarial-hard-negative,,,,,,B. Facing hardships helps us become more resilient and capable.,stop,,,,,google_gemma-4-31b-it_adversarial-hard-negative_English_1,mistralai/mistral-small-3.2-24b-instruct,"Which option is correct?
+
+A. Surviving a crisis ensures we avoid future difficulties.
+B. Facing hardships helps us become more resilient and capable.
+C. Life is full of surprises and the unexpected.
+D. Overcoming a trauma removes our vulnerability to pain.",B
+audit,,adversarial-hard-negative,,,,,,B,stop,,,,,google_gemma-4-31b-it_adversarial-hard-negative_English_1,google/gemma-3-27b-it,"Which option is correct?
+
+A. Surviving a crisis ensures we avoid future difficulties.
+B. Facing hardships helps us become more resilient and capable.
+C. Life is full of surprises and the unexpected.
+D. Overcoming a trauma removes our vulnerability to pain.",B
+audit,,adversarial-hard-negative,,,,,,B,stop,,,,,google_gemma-4-31b-it_adversarial-hard-negative_English_1,deepseek/deepseek-v3.2,"Which option is correct?
+
+A. Surviving a crisis ensures we avoid future difficulties.
+B. Facing hardships helps us become more resilient and capable.
+C. Life is full of surprises and the unexpected.
+D. Overcoming a trauma removes our vulnerability to pain.",B
+audit,,adversarial-hard-negative,,,,,,C,stop,,,,,google_gemini-2.5-flash_adversarial-hard-negative_English_1,meta-llama/llama-3.3-70b-instruct,"Which option is correct?
+
+A. Avoiding difficult situations prevents us from experiencing personal development.
+B. Overcoming obstacles is a sign of inherent strength, not a cause of it.
+C. Adversity and challenges contribute to our growth and fortitude.
+D. Only life-threatening experiences truly build character and resolve.",C
+audit,,adversarial-hard-negative,,,,,,C. Adversity and challenges contribute to our growth and fortitude.,stop,,,,,google_gemini-2.5-flash_adversarial-hard-negative_English_1,mistralai/mistral-small-3.2-24b-instruct,"Which option is correct?
+
+A. Avoiding difficult situations prevents us from experiencing personal development.
+B. Overcoming obstacles is a sign of inherent strength, not a cause of it.
+C. Adversity and challenges contribute to our growth and fortitude.
+D. Only life-threatening experiences truly build character and resolve.",C
+audit,,adversarial-hard-negative,,,,,,C,stop,,,,,google_gemini-2.5-flash_adversarial-hard-negative_English_1,google/gemma-3-27b-it,"Which option is correct?
+
+A. Avoiding difficult situations prevents us from experiencing personal development.
+B. Overcoming obstacles is a sign of inherent strength, not a cause of it.
+C. Adversity and challenges contribute to our growth and fortitude.
+D. Only life-threatening experiences truly build character and resolve.",C
+audit,,adversarial-hard-negative,,,,,,C,stop,,,,,google_gemini-2.5-flash_adversarial-hard-negative_English_1,deepseek/deepseek-v3.2,"Which option is correct?
+
+A. Avoiding difficult situations prevents us from experiencing personal development.
+B. Overcoming obstacles is a sign of inherent strength, not a cause of it.
+C. Adversity and challenges contribute to our growth and fortitude.
+D. Only life-threatening experiences truly build character and resolve.",C
+audit,,adversarial-hard-negative,,,,,,D,stop,,,,,qwen_qwen3.7-max_adversarial-hard-negative_Yoruba_2,meta-llama/llama-3.3-70b-instruct,"Which option is correct?
+
+A. When it comes to frying, the palm weevil will contract.
+B. A stubborn vessel will quickly shatter if the farmer tries to force a normal knot.
+C. Whoever gives birth to a beautiful girl gives birth to trouble.
+D. A flawed vessel forces the skilled farmer to invent a new method for securing it.",D
+audit,,adversarial-hard-negative,,,,,,D. A flawed vessel forces the skilled farmer to invent a new method for securing it.,stop,,,,,qwen_qwen3.7-max_adversarial-hard-negative_Yoruba_2,mistralai/mistral-small-3.2-24b-instruct,"Which option is correct?
+
+A. When it comes to frying, the palm weevil will contract.
+B. A stubborn vessel will quickly shatter if the farmer tries to force a normal knot.
+C. Whoever gives birth to a beautiful girl gives birth to trouble.
+D. A flawed vessel forces the skilled farmer to invent a new method for securing it.",D
+audit,,adversarial-hard-negative,,,,,,C,stop,,,,,qwen_qwen3.7-max_adversarial-hard-negative_Yoruba_2,google/gemma-3-27b-it,"Which option is correct?
+
+A. When it comes to frying, the palm weevil will contract.
+B. A stubborn vessel will quickly shatter if the farmer tries to force a normal knot.
+C. Whoever gives birth to a beautiful girl gives birth to trouble.
+D. A flawed vessel forces the skilled farmer to invent a new method for securing it.",C
+audit,,adversarial-hard-negative,,,,,,D,stop,,,,,qwen_qwen3.7-max_adversarial-hard-negative_Yoruba_2,deepseek/deepseek-v3.2,"Which option is correct?
+
+A. When it comes to frying, the palm weevil will contract.
+B. A stubborn vessel will quickly shatter if the farmer tries to force a normal knot.
+C. Whoever gives birth to a beautiful girl gives birth to trouble.
+D. A flawed vessel forces the skilled farmer to invent a new method for securing it.",D
+audit,,adversarial-hard-negative,,,,,,A,stop,,,,,google_gemma-4-31b-it_adversarial-hard-negative_Yoruba_2,meta-llama/llama-3.3-70b-instruct,"Which option is correct?
+
+A. A flawed vessel teaches the farmer how to secure it properly.
+B. The shin forces the stream to speak out. 380 human nature
+C. It is the leavings from the farmer’s farm table that the king eats on his throne.
+D. Only people like monkeys have their cloth ing torn by monkeys.",A
+audit,,adversarial-hard-negative,,,,,,C,stop,,,,,google_gemma-4-31b-it_adversarial-hard-negative_Yoruba_2,mistralai/mistral-small-3.2-24b-instruct,"Which option is correct?
+
+A. A flawed vessel teaches the farmer how to secure it properly.
+B. The shin forces the stream to speak out. 380 human nature
+C. It is the leavings from the farmer’s farm table that the king eats on his throne.
+D. Only people like monkeys have their cloth ing torn by monkeys.",C
+audit,,adversarial-hard-negative,,,,,,C,stop,,,,,google_gemma-4-31b-it_adversarial-hard-negative_Yoruba_2,google/gemma-3-27b-it,"Which option is correct?
+
+A. A flawed vessel teaches the farmer how to secure it properly.
+B. The shin forces the stream to speak out. 380 human nature
+C. It is the leavings from the farmer’s farm table that the king eats on his throne.
+D. Only people like monkeys have their cloth ing torn by monkeys.",C
+audit,,adversarial-hard-negative,,,,,,C,stop,,,,,google_gemma-4-31b-it_adversarial-hard-negative_Yoruba_2,deepseek/deepseek-v3.2,"Which option is correct?
+
+A. A flawed vessel teaches the farmer how to secure it properly.
+B. The shin forces the stream to speak out. 380 human nature
+C. It is the leavings from the farmer’s farm table that the king eats on his throne.
+D. Only people like monkeys have their cloth ing torn by monkeys.",C
+audit,,adversarial-hard-negative,,,,,,B.,stop,,,,,google_gemini-2.5-flash_adversarial-hard-negative_Yoruba_2,meta-llama/llama-3.3-70b-instruct,"Which option is correct?
+
+A. The person who makes off with one’s daugh ter will think nothing of making off with one’s wife.
+B. A difficult situation will reveal the true measure of one's resourcefulness.
+C. A flawed tool will always hinder the progress of a diligent worker.
+D. A challenging task requires careful planning and preparation.",B
+audit,,adversarial-hard-negative,,,,,,B,stop,,,,,google_gemini-2.5-flash_adversarial-hard-negative_Yoruba_2,mistralai/mistral-small-3.2-24b-instruct,"Which option is correct?
+
+A. The person who makes off with one’s daugh ter will think nothing of making off with one’s wife.
+B. A difficult situation will reveal the true measure of one's resourcefulness.
+C. A flawed tool will always hinder the progress of a diligent worker.
+D. A challenging task requires careful planning and preparation.",B
+audit,,adversarial-hard-negative,,,,,,A,stop,,,,,google_gemini-2.5-flash_adversarial-hard-negative_Yoruba_2,google/gemma-3-27b-it,"Which option is correct?
+
+A. The person who makes off with one’s daugh ter will think nothing of making off with one’s wife.
+B. A difficult situation will reveal the true measure of one's resourcefulness.
+C. A flawed tool will always hinder the progress of a diligent worker.
+D. A challenging task requires careful planning and preparation.",A
+audit,,adversarial-hard-negative,,,,,,A,stop,,,,,google_gemini-2.5-flash_adversarial-hard-negative_Yoruba_2,deepseek/deepseek-v3.2,"Which option is correct?
+
+A. The person who makes off with one’s daugh ter will think nothing of making off with one’s wife.
+B. A difficult situation will reveal the true measure of one's resourcefulness.
+C. A flawed tool will always hinder the progress of a diligent worker.
+D. A challenging task requires careful planning and preparation.",A
+audit,,taxonomy-guided,,,,,,C.,stop,,,,,qwen_qwen3.7-max_taxonomy-guided_Arabic_0,meta-llama/llama-3.3-70b-instruct,"Which option is correct?
+
+A. Families need to gather sufficient resources so they can eventually contribute to local religious groups.
+B. Companies must secure internal operations and staff welfare before funding external social projects.
+C. Individuals must prioritize providing for their household before donating to local public charities.
+D. People should generously share their household wealth with religious groups to earn spiritual merit.",C
+audit,,taxonomy-guided,,,,,,B,stop,,,,,qwen_qwen3.7-max_taxonomy-guided_Arabic_0,mistralai/mistral-small-3.2-24b-instruct,"Which option is correct?
+
+A. Families need to gather sufficient resources so they can eventually contribute to local religious groups.
+B. Companies must secure internal operations and staff welfare before funding external social projects.
+C. Individuals must prioritize providing for their household before donating to local public charities.
+D. People should generously share their household wealth with religious groups to earn spiritual merit.",B
+audit,,taxonomy-guided,,,,,,C,stop,,,,,qwen_qwen3.7-max_taxonomy-guided_Arabic_0,google/gemma-3-27b-it,"Which option is correct?
+
+A. Families need to gather sufficient resources so they can eventually contribute to local religious groups.
+B. Companies must secure internal operations and staff welfare before funding external social projects.
+C. Individuals must prioritize providing for their household before donating to local public charities.
+D. People should generously share their household wealth with religious groups to earn spiritual merit.",C
+audit,,taxonomy-guided,,,,,,C,stop,,,,,qwen_qwen3.7-max_taxonomy-guided_Arabic_0,deepseek/deepseek-v3.2,"Which option is correct?
+
+A. Families need to gather sufficient resources so they can eventually contribute to local religious groups.
+B. Companies must secure internal operations and staff welfare before funding external social projects.
+C. Individuals must prioritize providing for their household before donating to local public charities.
+D. People should generously share their household wealth with religious groups to earn spiritual merit.",C
+audit,,taxonomy-guided,,,,,,D.,stop,,,,,google_gemma-4-31b-it_taxonomy-guided_Arabic_0,meta-llama/llama-3.3-70b-instruct,"Which option is correct?
+
+A. Focus on the needs of your home and immediate circle.
+B. Give generously to the community to ensure a blessing.
+C. Offer help to everyone regardless of your own status.
+D. Prioritize your own family's needs before helping others.",D
+audit,,taxonomy-guided,,,,,,A. Focus on the needs of your home and immediate circle.,stop,,,,,google_gemma-4-31b-it_taxonomy-guided_Arabic_0,mistralai/mistral-small-3.2-24b-instruct,"Which option is correct?
+
+A. Focus on the needs of your home and immediate circle.
+B. Give generously to the community to ensure a blessing.
+C. Offer help to everyone regardless of your own status.
+D. Prioritize your own family's needs before helping others.",A
+audit,,taxonomy-guided,,,,,,D,stop,,,,,google_gemma-4-31b-it_taxonomy-guided_Arabic_0,google/gemma-3-27b-it,"Which option is correct?
+
+A. Focus on the needs of your home and immediate circle.
+B. Give generously to the community to ensure a blessing.
+C. Offer help to everyone regardless of your own status.
+D. Prioritize your own family's needs before helping others.",D
+audit,,taxonomy-guided,,,,,,D,stop,,,,,google_gemma-4-31b-it_taxonomy-guided_Arabic_0,deepseek/deepseek-v3.2,"Which option is correct?
+
+A. Focus on the needs of your home and immediate circle.
+B. Give generously to the community to ensure a blessing.
+C. Offer help to everyone regardless of your own status.
+D. Prioritize your own family's needs before helping others.",D
+audit,,taxonomy-guided,,,,,,D,stop,,,,,google_gemini-2.5-flash_taxonomy-guided_Arabic_0,meta-llama/llama-3.3-70b-instruct,"Which option is correct?
+
+A. A person should take care of their own family before offering help to others.
+B. Choose a partner/ friend before choosing a path.
+C. A person of two minds is a liar, and a person of three minds is a hypocrite
+D. It's easier to give advice than to take it.",D
+audit,,taxonomy-guided,,,,,,A. A person should take care of their own family before offering help to others.,stop,,,,,google_gemini-2.5-flash_taxonomy-guided_Arabic_0,mistralai/mistral-small-3.2-24b-instruct,"Which option is correct?
+
+A. A person should take care of their own family before offering help to others.
+B. Choose a partner/ friend before choosing a path.
+C. A person of two minds is a liar, and a person of three minds is a hypocrite
+D. It's easier to give advice than to take it.",A
+audit,,taxonomy-guided,,,,,,A,stop,,,,,google_gemini-2.5-flash_taxonomy-guided_Arabic_0,google/gemma-3-27b-it,"Which option is correct?
+
+A. A person should take care of their own family before offering help to others.
+B. Choose a partner/ friend before choosing a path.
+C. A person of two minds is a liar, and a person of three minds is a hypocrite
+D. It's easier to give advice than to take it.",A
+audit,,taxonomy-guided,,,,,,C,stop,,,,,google_gemini-2.5-flash_taxonomy-guided_Arabic_0,deepseek/deepseek-v3.2,"Which option is correct?
+
+A. A person should take care of their own family before offering help to others.
+B. Choose a partner/ friend before choosing a path.
+C. A person of two minds is a liar, and a person of three minds is a hypocrite
+D. It's easier to give advice than to take it.",C
+audit,,taxonomy-guided,,,,,,B.,stop,,,,,qwen_qwen3.7-max_taxonomy-guided_English_1,meta-llama/llama-3.3-70b-instruct,"Which option is correct?
+
+A. Enduring severe adversity ultimately guarantees our continued survival and physical safety.
+B. Surviving severe adversity ultimately builds greater personal resilience and fortitude.
+C. Subjecting muscles to intense physical strain causes them to rebuild with increased mass.
+D. Experiencing any level of severe trauma automatically builds greater personal resilience.",B
+audit,,taxonomy-guided,,,,,,B. Surviving severe adversity ultimately builds greater personal resilience and fortitude.,stop,,,,,qwen_qwen3.7-max_taxonomy-guided_English_1,mistralai/mistral-small-3.2-24b-instruct,"Which option is correct?
+
+A. Enduring severe adversity ultimately guarantees our continued survival and physical safety.
+B. Surviving severe adversity ultimately builds greater personal resilience and fortitude.
+C. Subjecting muscles to intense physical strain causes them to rebuild with increased mass.
+D. Experiencing any level of severe trauma automatically builds greater personal resilience.",B
+audit,,taxonomy-guided,,,,,,B,stop,,,,,qwen_qwen3.7-max_taxonomy-guided_English_1,google/gemma-3-27b-it,"Which option is correct?
+
+A. Enduring severe adversity ultimately guarantees our continued survival and physical safety.
+B. Surviving severe adversity ultimately builds greater personal resilience and fortitude.
+C. Subjecting muscles to intense physical strain causes them to rebuild with increased mass.
+D. Experiencing any level of severe trauma automatically builds greater personal resilience.",B
+audit,,taxonomy-guided,,,,,,B,stop,,,,,qwen_qwen3.7-max_taxonomy-guided_English_1,deepseek/deepseek-v3.2,"Which option is correct?
+
+A. Enduring severe adversity ultimately guarantees our continued survival and physical safety.
+B. Surviving severe adversity ultimately builds greater personal resilience and fortitude.
+C. Subjecting muscles to intense physical strain causes them to rebuild with increased mass.
+D. Experiencing any level of severe trauma automatically builds greater personal resilience.",B
+audit,,taxonomy-guided,,,,,,C.,stop,,,,,google_gemma-4-31b-it_taxonomy-guided_English_1,meta-llama/llama-3.3-70b-instruct,"Which option is correct?
+
+A. Surviving a crisis ensures a long life.
+B. Careful planning prevents future failures.
+C. Overcoming adversity builds greater inner strength.
+D. Every difficult experience brings success.",C
+audit,,taxonomy-guided,,,,,,C. Overcoming adversity builds greater inner strength.,stop,,,,,google_gemma-4-31b-it_taxonomy-guided_English_1,mistralai/mistral-small-3.2-24b-instruct,"Which option is correct?
+
+A. Surviving a crisis ensures a long life.
+B. Careful planning prevents future failures.
+C. Overcoming adversity builds greater inner strength.
+D. Every difficult experience brings success.",C
+audit,,taxonomy-guided,,,,,,C,stop,,,,,google_gemma-4-31b-it_taxonomy-guided_English_1,google/gemma-3-27b-it,"Which option is correct?
+
+A. Surviving a crisis ensures a long life.
+B. Careful planning prevents future failures.
+C. Overcoming adversity builds greater inner strength.
+D. Every difficult experience brings success.",C
+audit,,taxonomy-guided,,,,,,C,stop,,,,,google_gemma-4-31b-it_taxonomy-guided_English_1,deepseek/deepseek-v3.2,"Which option is correct?
+
+A. Surviving a crisis ensures a long life.
+B. Careful planning prevents future failures.
+C. Overcoming adversity builds greater inner strength.
+D. Every difficult experience brings success.",C
+audit,,taxonomy-guided,,,,,,D.,stop,,,,,google_gemini-2.5-flash_taxonomy-guided_English_1,meta-llama/llama-3.3-70b-instruct,"Which option is correct?
+
+A. Surviving difficult experiences means we are more powerful than before.
+B. Avoiding danger is the best way to ensure a long and healthy life.
+C. Any experience, regardless of its nature, inevitably leads to personal improvement.
+D. Adversity and challenges contribute to our growth and fortitude.",D
+audit,,taxonomy-guided,,,,,,D. Adversity and challenges contribute to our growth and fortitude.,stop,,,,,google_gemini-2.5-flash_taxonomy-guided_English_1,mistralai/mistral-small-3.2-24b-instruct,"Which option is correct?
+
+A. Surviving difficult experiences means we are more powerful than before.
+B. Avoiding danger is the best way to ensure a long and healthy life.
+C. Any experience, regardless of its nature, inevitably leads to personal improvement.
+D. Adversity and challenges contribute to our growth and fortitude.",D
+audit,,taxonomy-guided,,,,,,D,stop,,,,,google_gemini-2.5-flash_taxonomy-guided_English_1,google/gemma-3-27b-it,"Which option is correct?
+
+A. Surviving difficult experiences means we are more powerful than before.
+B. Avoiding danger is the best way to ensure a long and healthy life.
+C. Any experience, regardless of its nature, inevitably leads to personal improvement.
+D. Adversity and challenges contribute to our growth and fortitude.",D
+audit,,taxonomy-guided,,,,,,D,stop,,,,,google_gemini-2.5-flash_taxonomy-guided_English_1,deepseek/deepseek-v3.2,"Which option is correct?
+
+A. Surviving difficult experiences means we are more powerful than before.
+B. Avoiding danger is the best way to ensure a long and healthy life.
+C. Any experience, regardless of its nature, inevitably leads to personal improvement.
+D. Adversity and challenges contribute to our growth and fortitude.",D
+audit,,taxonomy-guided,,,,,,A.,stop,,,,,qwen_qwen3.7-max_taxonomy-guided_Yoruba_2,meta-llama/llama-3.3-70b-instruct,"Which option is correct?
+
+A. A person born with an unusual flaw must invent a unique method to navigate their daily struggles and secure their place in the village.
+B. A youth carrying a strange physical defect will forever remain a heavy burden for the aging elders to manage within the local village.
+C. An elder who has lost their physical strength will rely on the wisdom of their ancestors to guide the young hunters in the deep forest.
+D. The village elders will always gather to weave a special carrying net for any orphan who lacks the guidance of a proper family line.",A
+audit,,taxonomy-guided,,,,,,A. A person born with an unusual flaw must invent a unique method to navigate their daily struggles and secure their place in the village.,stop,,,,,qwen_qwen3.7-max_taxonomy-guided_Yoruba_2,mistralai/mistral-small-3.2-24b-instruct,"Which option is correct?
+
+A. A person born with an unusual flaw must invent a unique method to navigate their daily struggles and secure their place in the village.
+B. A youth carrying a strange physical defect will forever remain a heavy burden for the aging elders to manage within the local village.
+C. An elder who has lost their physical strength will rely on the wisdom of their ancestors to guide the young hunters in the deep forest.
+D. The village elders will always gather to weave a special carrying net for any orphan who lacks the guidance of a proper family line.",A
+audit,,taxonomy-guided,,,,,,A,stop,,,,,qwen_qwen3.7-max_taxonomy-guided_Yoruba_2,google/gemma-3-27b-it,"Which option is correct?
+
+A. A person born with an unusual flaw must invent a unique method to navigate their daily struggles and secure their place in the village.
+B. A youth carrying a strange physical defect will forever remain a heavy burden for the aging elders to manage within the local village.
+C. An elder who has lost their physical strength will rely on the wisdom of their ancestors to guide the young hunters in the deep forest.
+D. The village elders will always gather to weave a special carrying net for any orphan who lacks the guidance of a proper family line.",A
+audit,,taxonomy-guided,,,,,,A,stop,,,,,qwen_qwen3.7-max_taxonomy-guided_Yoruba_2,deepseek/deepseek-v3.2,"Which option is correct?
+
+A. A person born with an unusual flaw must invent a unique method to navigate their daily struggles and secure their place in the village.
+B. A youth carrying a strange physical defect will forever remain a heavy burden for the aging elders to manage within the local village.
+C. An elder who has lost their physical strength will rely on the wisdom of their ancestors to guide the young hunters in the deep forest.
+D. The village elders will always gather to weave a special carrying net for any orphan who lacks the guidance of a proper family line.",A
+audit,,taxonomy-guided,,,,,,C.,stop,,,,,google_gemma-4-31b-it_taxonomy-guided_Yoruba_2,meta-llama/llama-3.3-70b-instruct,"Which option is correct?
+
+A. A neckless gourd is difficult for a farmer to carry.
+B. A flawed tool forces the craftsman to refine his technique.
+C. A diligent farmer ensures every harvest is stored safely.
+D. The farmer teaches the gourd how to grow straight.",C
+audit,,taxonomy-guided,,,,,,B. A flawed tool forces the craftsman to refine his technique.,stop,,,,,google_gemma-4-31b-it_taxonomy-guided_Yoruba_2,mistralai/mistral-small-3.2-24b-instruct,"Which option is correct?
+
+A. A neckless gourd is difficult for a farmer to carry.
+B. A flawed tool forces the craftsman to refine his technique.
+C. A diligent farmer ensures every harvest is stored safely.
+D. The farmer teaches the gourd how to grow straight.",B
+audit,,taxonomy-guided,,,,,,B,stop,,,,,google_gemma-4-31b-it_taxonomy-guided_Yoruba_2,google/gemma-3-27b-it,"Which option is correct?
+
+A. A neckless gourd is difficult for a farmer to carry.
+B. A flawed tool forces the craftsman to refine his technique.
+C. A diligent farmer ensures every harvest is stored safely.
+D. The farmer teaches the gourd how to grow straight.",B
+audit,,taxonomy-guided,,,,,,B,stop,,,,,google_gemma-4-31b-it_taxonomy-guided_Yoruba_2,deepseek/deepseek-v3.2,"Which option is correct?
+
+A. A neckless gourd is difficult for a farmer to carry.
+B. A flawed tool forces the craftsman to refine his technique.
+C. A diligent farmer ensures every harvest is stored safely.
+D. The farmer teaches the gourd how to grow straight.",B
+audit,,taxonomy-guided,,,,,,C,stop,,,,,google_gemini-2.5-flash_taxonomy-guided_Yoruba_2,meta-llama/llama-3.3-70b-instruct,"Which option is correct?
+
+A. One must adapt their methods when faced with an unusual challenge.
+B. We know not what God will do’’ keeps one from committing suicide.
+C. A difficult situation will reveal the true skill and ingenuity of a person.
+D. Even the most flawed vessel can serve a useful purpose if handled with care.",C
+audit,,taxonomy-guided,,,,,,C. A difficult situation will reveal the true skill and ingenuity of a person.,stop,,,,,google_gemini-2.5-flash_taxonomy-guided_Yoruba_2,mistralai/mistral-small-3.2-24b-instruct,"Which option is correct?
+
+A. One must adapt their methods when faced with an unusual challenge.
+B. We know not what God will do’’ keeps one from committing suicide.
+C. A difficult situation will reveal the true skill and ingenuity of a person.
+D. Even the most flawed vessel can serve a useful purpose if handled with care.",C
+audit,,taxonomy-guided,,,,,,A,stop,,,,,google_gemini-2.5-flash_taxonomy-guided_Yoruba_2,google/gemma-3-27b-it,"Which option is correct?
+
+A. One must adapt their methods when faced with an unusual challenge.
+B. We know not what God will do’’ keeps one from committing suicide.
+C. A difficult situation will reveal the true skill and ingenuity of a person.
+D. Even the most flawed vessel can serve a useful purpose if handled with care.",A
+audit,,taxonomy-guided,,,,,,C,stop,,,,,google_gemini-2.5-flash_taxonomy-guided_Yoruba_2,deepseek/deepseek-v3.2,"Which option is correct?
+
+A. One must adapt their methods when faced with an unusual challenge.
+B. We know not what God will do’’ keeps one from committing suicide.
+C. A difficult situation will reveal the true skill and ingenuity of a person.
+D. Even the most flawed vessel can serve a useful purpose if handled with care.",C
+audit,,overgenerate-select,,,,,,D.,stop,,,,,qwen_qwen3.7-max_overgenerate-select_Arabic_0,meta-llama/llama-3.3-70b-instruct,"Which option is correct?
+
+A. Spiritual duties at the mosque outweigh the material desires of the home.
+B. Private behavior at home should mirror the strict discipline of the mosque.
+C. Hoarding wealth for one's family is a sin against the broader community.
+D. Ensure your family is provided for before donating to public causes.",D
+audit,,overgenerate-select,,,,,,B. Private behavior at home should mirror the strict discipline of the mosque.,stop,,,,,qwen_qwen3.7-max_overgenerate-select_Arabic_0,mistralai/mistral-small-3.2-24b-instruct,"Which option is correct?
+
+A. Spiritual duties at the mosque outweigh the material desires of the home.
+B. Private behavior at home should mirror the strict discipline of the mosque.
+C. Hoarding wealth for one's family is a sin against the broader community.
+D. Ensure your family is provided for before donating to public causes.",B
+audit,,overgenerate-select,,,,,,C,stop,,,,,qwen_qwen3.7-max_overgenerate-select_Arabic_0,google/gemma-3-27b-it,"Which option is correct?
+
+A. Spiritual duties at the mosque outweigh the material desires of the home.
+B. Private behavior at home should mirror the strict discipline of the mosque.
+C. Hoarding wealth for one's family is a sin against the broader community.
+D. Ensure your family is provided for before donating to public causes.",C
+audit,,overgenerate-select,,,,,,A,stop,,,,,qwen_qwen3.7-max_overgenerate-select_Arabic_0,deepseek/deepseek-v3.2,"Which option is correct?
+
+A. Spiritual duties at the mosque outweigh the material desires of the home.
+B. Private behavior at home should mirror the strict discipline of the mosque.
+C. Hoarding wealth for one's family is a sin against the broader community.
+D. Ensure your family is provided for before donating to public causes.",A
+audit,,overgenerate-select,,,,,,A,stop,,,,,google_gemma-4-31b-it_overgenerate-select_Arabic_0,meta-llama/llama-3.3-70b-instruct,"Which option is correct?
+
+A. Prioritize the needs of your own household before helping others.
+B. Religious obligations should never outweigh family duties.
+C. Charity is only virtuous when given from a place of abundance.
+D. Family members must be the sole beneficiaries of one's wealth.",A
+audit,,overgenerate-select,,,,,,A,stop,,,,,google_gemma-4-31b-it_overgenerate-select_Arabic_0,mistralai/mistral-small-3.2-24b-instruct,"Which option is correct?
+
+A. Prioritize the needs of your own household before helping others.
+B. Religious obligations should never outweigh family duties.
+C. Charity is only virtuous when given from a place of abundance.
+D. Family members must be the sole beneficiaries of one's wealth.",A
+audit,,overgenerate-select,,,,,,A,stop,,,,,google_gemma-4-31b-it_overgenerate-select_Arabic_0,google/gemma-3-27b-it,"Which option is correct?
+
+A. Prioritize the needs of your own household before helping others.
+B. Religious obligations should never outweigh family duties.
+C. Charity is only virtuous when given from a place of abundance.
+D. Family members must be the sole beneficiaries of one's wealth.",A
+audit,,overgenerate-select,,,,,,A,stop,,,,,google_gemma-4-31b-it_overgenerate-select_Arabic_0,deepseek/deepseek-v3.2,"Which option is correct?
+
+A. Prioritize the needs of your own household before helping others.
+B. Religious obligations should never outweigh family duties.
+C. Charity is only virtuous when given from a place of abundance.
+D. Family members must be the sole beneficiaries of one's wealth.",A
+audit,,overgenerate-select,,,,,,"A, B, C, D",stop,,,,,google_gemini-2.5-flash_overgenerate-select_Arabic_0,meta-llama/llama-3.3-70b-instruct,"Which option is correct?
+
+A. It's easier to give advice than to take it.
+B. A person should take care of their own family before offering help to others.
+C.  Trust in the Lord with all your heart, and do not lean on your own understanding.
+D. Things don’t always go as they’re planned.",D
+audit,,overgenerate-select,,,,,,A,stop,,,,,google_gemini-2.5-flash_overgenerate-select_Arabic_0,mistralai/mistral-small-3.2-24b-instruct,"Which option is correct?
+
+A. It's easier to give advice than to take it.
+B. A person should take care of their own family before offering help to others.
+C.  Trust in the Lord with all your heart, and do not lean on your own understanding.
+D. Things don’t always go as they’re planned.",A
+audit,,overgenerate-select,,,,,,A,stop,,,,,google_gemini-2.5-flash_overgenerate-select_Arabic_0,google/gemma-3-27b-it,"Which option is correct?
+
+A. It's easier to give advice than to take it.
+B. A person should take care of their own family before offering help to others.
+C.  Trust in the Lord with all your heart, and do not lean on your own understanding.
+D. Things don’t always go as they’re planned.",A
+audit,,overgenerate-select,,,,,,C,stop,,,,,google_gemini-2.5-flash_overgenerate-select_Arabic_0,deepseek/deepseek-v3.2,"Which option is correct?
+
+A. It's easier to give advice than to take it.
+B. A person should take care of their own family before offering help to others.
+C.  Trust in the Lord with all your heart, and do not lean on your own understanding.
+D. Things don’t always go as they’re planned.",C
+audit,,overgenerate-select,,,,,,C.,stop,,,,,qwen_qwen3.7-max_overgenerate-select_English_1,meta-llama/llama-3.3-70b-instruct,"Which option is correct?
+
+A. Escaping fatal danger inevitably results in greater physical power and vitality.
+B. Profound trauma causes individuals to become emotionally detached and ruthless.
+C. Overcoming severe adversity builds enduring personal resilience and fortitude.
+D. True success requires enduring immense suffering to prove inherent human worth.",C
+audit,,overgenerate-select,,,,,,C. Overcoming severe adversity builds enduring personal resilience and fortitude.,stop,,,,,qwen_qwen3.7-max_overgenerate-select_English_1,mistralai/mistral-small-3.2-24b-instruct,"Which option is correct?
+
+A. Escaping fatal danger inevitably results in greater physical power and vitality.
+B. Profound trauma causes individuals to become emotionally detached and ruthless.
+C. Overcoming severe adversity builds enduring personal resilience and fortitude.
+D. True success requires enduring immense suffering to prove inherent human worth.",C
+audit,,overgenerate-select,,,,,,"thought
+C",stop,,,,,qwen_qwen3.7-max_overgenerate-select_English_1,google/gemma-3-27b-it,"Which option is correct?
+
+A. Escaping fatal danger inevitably results in greater physical power and vitality.
+B. Profound trauma causes individuals to become emotionally detached and ruthless.
+C. Overcoming severe adversity builds enduring personal resilience and fortitude.
+D. True success requires enduring immense suffering to prove inherent human worth.",C
+audit,,overgenerate-select,,,,,,C,stop,,,,,qwen_qwen3.7-max_overgenerate-select_English_1,deepseek/deepseek-v3.2,"Which option is correct?
+
+A. Escaping fatal danger inevitably results in greater physical power and vitality.
+B. Profound trauma causes individuals to become emotionally detached and ruthless.
+C. Overcoming severe adversity builds enduring personal resilience and fortitude.
+D. True success requires enduring immense suffering to prove inherent human worth.",C
+audit,,overgenerate-select,,,,,,D.,stop,,,,,google_gemma-4-31b-it_overgenerate-select_English_1,meta-llama/llama-3.3-70b-instruct,"Which option is correct?
+
+A. Survival is the only requirement for personal growth.
+B. Avoiding danger is the most effective way to build power.
+C. Physical endurance is developed through near-fatal events.
+D. Overcoming difficult experiences increases our inner strength.",D
+audit,,overgenerate-select,,,,,,D.,stop,,,,,google_gemma-4-31b-it_overgenerate-select_English_1,mistralai/mistral-small-3.2-24b-instruct,"Which option is correct?
+
+A. Survival is the only requirement for personal growth.
+B. Avoiding danger is the most effective way to build power.
+C. Physical endurance is developed through near-fatal events.
+D. Overcoming difficult experiences increases our inner strength.",D
+audit,,overgenerate-select,,,,,,D,stop,,,,,google_gemma-4-31b-it_overgenerate-select_English_1,google/gemma-3-27b-it,"Which option is correct?
+
+A. Survival is the only requirement for personal growth.
+B. Avoiding danger is the most effective way to build power.
+C. Physical endurance is developed through near-fatal events.
+D. Overcoming difficult experiences increases our inner strength.",D
+audit,,overgenerate-select,,,,,,D,stop,,,,,google_gemma-4-31b-it_overgenerate-select_English_1,deepseek/deepseek-v3.2,"Which option is correct?
+
+A. Survival is the only requirement for personal growth.
+B. Avoiding danger is the most effective way to build power.
+C. Physical endurance is developed through near-fatal events.
+D. Overcoming difficult experiences increases our inner strength.",D
+audit,,overgenerate-select,,,,,,A.,stop,,,,,google_gemini-2.5-flash_overgenerate-select_English_1,meta-llama/llama-3.3-70b-instruct,"Which option is correct?
+
+A. Adversity and challenges contribute to personal growth and increased fortitude.
+B. Avoiding danger is the surest path to a long and healthy life.
+C. Only through extreme suffering can one truly understand their own limits.
+D. Survival is the ultimate measure of one's inherent strength and resilience.",A
+audit,,overgenerate-select,,,,,,A,stop,,,,,google_gemini-2.5-flash_overgenerate-select_English_1,mistralai/mistral-small-3.2-24b-instruct,"Which option is correct?
+
+A. Adversity and challenges contribute to personal growth and increased fortitude.
+B. Avoiding danger is the surest path to a long and healthy life.
+C. Only through extreme suffering can one truly understand their own limits.
+D. Survival is the ultimate measure of one's inherent strength and resilience.",A
+audit,,overgenerate-select,,,,,,A,stop,,,,,google_gemini-2.5-flash_overgenerate-select_English_1,google/gemma-3-27b-it,"Which option is correct?
+
+A. Adversity and challenges contribute to personal growth and increased fortitude.
+B. Avoiding danger is the surest path to a long and healthy life.
+C. Only through extreme suffering can one truly understand their own limits.
+D. Survival is the ultimate measure of one's inherent strength and resilience.",A
+audit,,overgenerate-select,,,,,,A,stop,,,,,google_gemini-2.5-flash_overgenerate-select_English_1,deepseek/deepseek-v3.2,"Which option is correct?
+
+A. Adversity and challenges contribute to personal growth and increased fortitude.
+B. Avoiding danger is the surest path to a long and healthy life.
+C. Only through extreme suffering can one truly understand their own limits.
+D. Survival is the ultimate measure of one's inherent strength and resilience.",A
+audit,,overgenerate-select,,,,,,D.,stop,,,,,qwen_qwen3.7-max_overgenerate-select_Yoruba_2,meta-llama/llama-3.3-70b-instruct,"Which option is correct?
+
+A. Any barren yam mound shows the cultivator that the earth spirits withhold favor.
+B. Every uniquely shaped calabash forces the harvester to invent a new binding method.
+C. One cracked clay pot eventually reveals which village well is starting to run dry.
+D. Only after the first blade shatters does the blacksmith learn to temper the hoe.",D
+audit,,overgenerate-select,,,,,,D,stop,,,,,qwen_qwen3.7-max_overgenerate-select_Yoruba_2,mistralai/mistral-small-3.2-24b-instruct,"Which option is correct?
+
+A. Any barren yam mound shows the cultivator that the earth spirits withhold favor.
+B. Every uniquely shaped calabash forces the harvester to invent a new binding method.
+C. One cracked clay pot eventually reveals which village well is starting to run dry.
+D. Only after the first blade shatters does the blacksmith learn to temper the hoe.",D
+audit,,overgenerate-select,,,,,,"thought
+D",stop,,,,,qwen_qwen3.7-max_overgenerate-select_Yoruba_2,google/gemma-3-27b-it,"Which option is correct?
+
+A. Any barren yam mound shows the cultivator that the earth spirits withhold favor.
+B. Every uniquely shaped calabash forces the harvester to invent a new binding method.
+C. One cracked clay pot eventually reveals which village well is starting to run dry.
+D. Only after the first blade shatters does the blacksmith learn to temper the hoe.",D
+audit,,overgenerate-select,,,,,,D,stop,,,,,qwen_qwen3.7-max_overgenerate-select_Yoruba_2,deepseek/deepseek-v3.2,"Which option is correct?
+
+A. Any barren yam mound shows the cultivator that the earth spirits withhold favor.
+B. Every uniquely shaped calabash forces the harvester to invent a new binding method.
+C. One cracked clay pot eventually reveals which village well is starting to run dry.
+D. Only after the first blade shatters does the blacksmith learn to temper the hoe.",D
+audit,,overgenerate-select,,,,,,A.,stop,,,,,google_gemma-4-31b-it_overgenerate-select_Yoruba_2,meta-llama/llama-3.3-70b-instruct,"Which option is correct?
+
+A. A flawed vessel reveals the true skill of the one who crafts it.
+B. The smallest mistake in a harvest teaches the village a great lesson.
+C. A gourd without a neck will show the farmer how to secure it properly.
+D. A broken tool forces the worker to find a more efficient method.",A
+audit,,overgenerate-select,,,,,,D. A broken tool forces the worker to find a more efficient method.,stop,,,,,google_gemma-4-31b-it_overgenerate-select_Yoruba_2,mistralai/mistral-small-3.2-24b-instruct,"Which option is correct?
+
+A. A flawed vessel reveals the true skill of the one who crafts it.
+B. The smallest mistake in a harvest teaches the village a great lesson.
+C. A gourd without a neck will show the farmer how to secure it properly.
+D. A broken tool forces the worker to find a more efficient method.",D
+audit,,overgenerate-select,,,,,,D,stop,,,,,google_gemma-4-31b-it_overgenerate-select_Yoruba_2,google/gemma-3-27b-it,"Which option is correct?
+
+A. A flawed vessel reveals the true skill of the one who crafts it.
+B. The smallest mistake in a harvest teaches the village a great lesson.
+C. A gourd without a neck will show the farmer how to secure it properly.
+D. A broken tool forces the worker to find a more efficient method.",D
+audit,,overgenerate-select,,,,,,A,stop,,,,,google_gemma-4-31b-it_overgenerate-select_Yoruba_2,deepseek/deepseek-v3.2,"Which option is correct?
+
+A. A flawed vessel reveals the true skill of the one who crafts it.
+B. The smallest mistake in a harvest teaches the village a great lesson.
+C. A gourd without a neck will show the farmer how to secure it properly.
+D. A broken tool forces the worker to find a more efficient method.",A
+audit,,overgenerate-select,,,,,,B.,stop,,,,,google_gemini-2.5-flash_overgenerate-select_Yoruba_2,meta-llama/llama-3.3-70b-instruct,"Which option is correct?
+
+A. A stubborn person will eventually yield to a stronger will.
+B. One's true character is revealed in times of adversity.
+C. The most difficult tasks often require the simplest solutions.
+D. A challenging situation will reveal the best approach to overcome it.",B
+audit,,overgenerate-select,,,,,,B,stop,,,,,google_gemini-2.5-flash_overgenerate-select_Yoruba_2,mistralai/mistral-small-3.2-24b-instruct,"Which option is correct?
+
+A. A stubborn person will eventually yield to a stronger will.
+B. One's true character is revealed in times of adversity.
+C. The most difficult tasks often require the simplest solutions.
+D. A challenging situation will reveal the best approach to overcome it.",B
+audit,,overgenerate-select,,,,,,"thought
+B",stop,,,,,google_gemini-2.5-flash_overgenerate-select_Yoruba_2,google/gemma-3-27b-it,"Which option is correct?
+
+A. A stubborn person will eventually yield to a stronger will.
+B. One's true character is revealed in times of adversity.
+C. The most difficult tasks often require the simplest solutions.
+D. A challenging situation will reveal the best approach to overcome it.",B
+audit,,overgenerate-select,,,,,,B,stop,,,,,google_gemini-2.5-flash_overgenerate-select_Yoruba_2,deepseek/deepseek-v3.2,"Which option is correct?
+
+A. A stubborn person will eventually yield to a stronger will.
+B. One's true character is revealed in times of adversity.
+C. The most difficult tasks often require the simplest solutions.
+D. A challenging situation will reveal the best approach to overcome it.",B

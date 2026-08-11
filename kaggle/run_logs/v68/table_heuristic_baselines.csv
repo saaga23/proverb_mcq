@@ -1,0 +1,6 @@
+baseline,accuracy,ci_lower,ci_upper,n
+all_A,0.25,,,180
+all_D,0.25,,,180
+random,0.2501,,,180
+shortest,0.1389,,,180
+longest,0.4111,,,180

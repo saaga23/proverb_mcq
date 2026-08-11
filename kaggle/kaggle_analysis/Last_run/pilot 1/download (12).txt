@@ -1,0 +1,552 @@
+7.3s 1 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+7.3s 2 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+7.3s 3 0.00s - to python to disable frozen modules.
+7.3s 4 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+8.0s 5 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+8.0s 6 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+8.0s 7 0.00s - to python to disable frozen modules.
+8.0s 8 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+9.1s 9 Prompt variants JSON ready
+10.9s 10 Loaded prompt variants from pilot1_prompt_variants.json
+10.9s 11 [2026-06-17T20:42:04.680557+00:00] Starting Pilot 1 TEST with dynamic model pools
+10.9s 12 Cost cap: $5.0
+10.9s 13 
+10.9s 14 Sampled 3 proverbs:
+10.9s 15 language
+10.9s 16 Arabic     1
+10.9s 17 English    1
+10.9s 18 Yoruba     1
+10.9s 19 dtype: int64
+10.9s 20 
+10.9s 21 === PREFLIGHT CHECK ===
+10.9s 22 API key present: True (73 chars)
+10.9s 23 Active generator pool: ['qwen/qwen3.5-397b-a17b', 'google/gemma-4-31b-it', 'meta-llama/llama-4-maverick', 'deepseek/deepseek-v4-pro', 'anthropic/claude-opus-4.8', 'qwen/qwen3.7-max']
+10.9s 24 Benched generators: []
+10.9s 25 Active audit committee: ['anthropic/claude-sonnet-4', 'meta-llama/llama-3.3-70b-instruct', 'mistralai/mistral-small-3.2-24b-instruct', 'google/gemma-3-27b-it']
+10.9s 26 Benched auditors: []
+10.9s 27 Prompt variants: ['adversarial-length-locked', 'adversarial-hard-negative', 'taxonomy-guided', 'few-shot-predictive', 'overgenerate-select']
+10.9s 28 Test sample size: 3 proverbs
+10.9s 29 Cost cap: $5.0
+10.9s 30 Generation max_tokens: 4096 (high ceiling; reasoning models use max_completion_tokens)
+10.9s 31 Self-critique enabled: True (critic: google/gemini-2.5-flash-preview)
+10.9s 32 Audit max_tokens: 256
+10.9s 33 Parser self-test passed
+11.2s 34 Fetched live catalog: 336 models
+11.2s 35 Price table refreshed: 0 models added
+11.2s 36 All active models found in live catalog.
+11.2s 37 
+11.2s 38 -- Cheap API probes (echo letter A) --
+16.4s 39 [CHEAP PREFLIGHT OK] qwen/qwen3.5-397b-a17b: 'A'
+17.9s 40 [CHEAP PREFLIGHT OK] google/gemma-4-31b-it: 'A'
+18.3s 41 [CHEAP PREFLIGHT OK] meta-llama/llama-4-maverick: 'A'
+19.0s 42 [CHEAP PREFLIGHT OK] deepseek/deepseek-v4-pro: 'A'
+20.7s 43 [CHEAP PREFLIGHT OK] anthropic/claude-opus-4.8: 'A'
+24.5s 44 [CHEAP PREFLIGHT OK] qwen/qwen3.7-max: 'A'
+25.9s 45 [CHEAP PREFLIGHT OK] anthropic/claude-sonnet-4: 'A'
+26.4s 46 [CHEAP PREFLIGHT OK] meta-llama/llama-3.3-70b-instruct: 'A'
+27.2s 47 [CHEAP PREFLIGHT OK] mistralai/mistral-small-3.2-24b-instruct: 'A'
+28.3s 48 [CHEAP PREFLIGHT OK] google/gemma-3-27b-it: 'A'
+28.3s 49 HTTP 0 for google/gemini-2.5-flash-preview (strategy 1/2): {"error":{"message":"google/gemini-2.5-flash-preview is not a valid model ID","code":400},"user_id":"org_3DWGs1EUNwTfi3O4J5MPSavppff"}
+28.3s 50 HTTP 0 for google/gemini-2.5-flash-preview (strategy 2/2): {"error":{"message":"google/gemini-2.5-flash-preview is not a valid model ID","code":400},"user_id":"org_3DWGs1EUNwTfi3O4J5MPSavppff"}
+28.3s 51 [CHEAP PREFLIGHT FAIL] google/gemini-2.5-flash-preview: 400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions
+28.3s 52 HTTP 0 for google/gemini-2.5-flash-preview (strategy 1/2): {"error":{"message":"google/gemini-2.5-flash-preview is not a valid model ID","code":400},"user_id":"org_3DWGs1EUNwTfi3O4J5MPSavppff"}
+28.6s 53 HTTP 0 for google/gemini-2.5-flash-preview (strategy 2/2): {"error":{"message":"google/gemini-2.5-flash-preview is not a valid model ID","code":400},"user_id":"org_3DWGs1EUNwTfi3O4J5MPSavppff"}
+28.6s 54 [CHEAP PREFLIGHT FAIL] google/gemini-2.5-flash-preview: 400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions
+28.6s 55 WARN: critic model google/gemini-2.5-flash-preview failed cheap preflight; disabling self-critique.
+32.6s 56 [CHEAP PREFLIGHT OK] qwen/qwen3-14b: 'A'
+36.4s 57 [CHEAP PREFLIGHT OK] google/gemini-2.5-pro: 'A'
+36.7s 58 [CHEAP PREFLIGHT OK] meta-llama/llama-4-scout-17b-16e-instruct: 'A'
+37.5s 59 [CHEAP PREFLIGHT OK] openai/gpt-4.1: 'A'
+38.1s 60 [CHEAP PREFLIGHT OK] openai/gpt-4o-mini: 'A'
+52.6s 61 [CHEAP PREFLIGHT OK] qwen/qwen3-32b: 'A'
+52.6s 62 HTTP 0 for meta-llama/llama-3.1-405b-instruct (strategy 1/2): {"error":{"message":"No endpoints found for meta-llama/llama-3.1-405b-instruct.","code":404},"user_id":"org_3DWGs1EUNwTfi3O4J5MPSavppff"}
+52.6s 63 HTTP 0 for meta-llama/llama-3.1-405b-instruct (strategy 2/2): {"error":{"message":"No endpoints found for meta-llama/llama-3.1-405b-instruct.","code":404},"user_id":"org_3DWGs1EUNwTfi3O4J5MPSavppff"}
+52.6s 64 [CHEAP PREFLIGHT FAIL] meta-llama/llama-3.1-405b-instruct: 404 Client Error: Not Found for url: https://openrouter.ai/api/v1/chat/completions
+52.6s 65 HTTP 0 for meta-llama/llama-3.1-405b-instruct (strategy 1/2): {"error":{"message":"No endpoints found for meta-llama/llama-3.1-405b-instruct.","code":404},"user_id":"org_3DWGs1EUNwTfi3O4J5MPSavppff"}
+52.8s 66 HTTP 0 for meta-llama/llama-3.1-405b-instruct (strategy 2/2): {"error":{"message":"No endpoints found for meta-llama/llama-3.1-405b-instruct.","code":404},"user_id":"org_3DWGs1EUNwTfi3O4J5MPSavppff"}
+52.8s 67 [CHEAP PREFLIGHT FAIL] meta-llama/llama-3.1-405b-instruct: 404 Client Error: Not Found for url: https://openrouter.ai/api/v1/chat/completions
+52.8s 68 [POOL] COMMITTEE EXCLUDED meta-llama/llama-3.1-405b-instruct (cheap_preflight_failed)
+54.0s 69 [CHEAP PREFLIGHT OK] amazon/nova-lite-v1: 'A'
+54.0s 70 
+54.0s 71 -- Generator probes (real generation path) --
+109.0s 72 [HARD_FALLBACK] qwen/qwen3.5-397b-a17b/adversarial-length-locked: Truncated response (finish_reason=length)
+109.0s 73 raw_text='Thinking Process:\n\n1.  **Analyze the Request:**\n    *   Input: Arabic Proverb "اللي يعوزه البيت يحرم على الجامع" (Literal: What the house needs is forbidden to the collector/mosque).\n    *   Correct Meaning: "Charity begins at home."\n    *   Task: Generate 4 answer options as a JSON array of strings.\n    *   Index 0: Correct paraphrase.\n    *   Indices 1-3: Incorrect but plausible distract finish_reason=length
+109.0s 74 [FAIL] qwen/qwen3.5-397b-a17b: generation status=hard_fallback opts=['Charity begins at home.', 'A bird in the hand is worth two in the bush.', 'Kindness begets kindness.', "To take the credit for someone else's work."]
+109.0s 75 error: Truncated response (finish_reason=length)
+109.0s 76 raw_model_output: 'Thinking Process:\n\n1.  **Analyze the Request:**\n    *   Input: Arabic Proverb "اللي يعوزه البيت يحرم على الجامع" (Literal: What the house needs is forbidden to the collector/mosque).\n    *   Correct Meaning: "Charity begins at home."\n    *   Task: Generate 4 answer options as a JSON array of strings.\n    *   Index 0: Correct paraphrase.\n    *   Indices 1-3: Incorrect but plausible distractors.\n    *   Constraints:\n        1.  Length lock: Distractors must be within ±20% character count of Index '
+109.0s 77 finish_reason: length
+109.0s 78 [POOL] GENERATOR SUBSTITUTION: qwen/qwen3.5-397b-a17b -> qwen/qwen3-14b (preflight:hard_fallback (fail_count=2))
+110.0s 79 [OK] google/gemma-4-31b-it: status=generated opts=['Charity begins at home.', 'Faith requires action.', 'Family values endure.', 'Giving brings rewards.']
+111.7s 80 [OK] meta-llama/llama-4-maverick: status=generated opts=['Charity begins with those nearest you', 'Generosity is best spent on strangers', 'One should prioritize public welfare', 'Family needs should be considered last']
+178.6s 81 [HARD_FALLBACK] deepseek/deepseek-v4-pro/adversarial-length-locked: Truncated response (finish_reason=length)
+178.6s 82 raw_text='We are asked: "Proverb (Arabic): اللي يعوزه البيت يحرم على الجامع. Correct meaning: Charity begins at home. Generate 4 answer options as a JSON array of strings: Index 0: a correct paraphrase of the meaning; Indices 1-3: incorrect but plausible distractors."\n\nWe must follow constraints:\n\n1. Length lock: every distractor must be within ±20% character count of index 0. So we first need to craft finish_reason=length
+178.6s 83 [FAIL] deepseek/deepseek-v4-pro: generation status=hard_fallback opts=['Charity begins at home.', 'Born to suffer.', 'The last straw.', 'The monkey is a gazelle in the eyes of his mother']
+178.6s 84 error: Truncated response (finish_reason=length)
+178.6s 85 raw_model_output: 'We are asked: "Proverb (Arabic): اللي يعوزه البيت يحرم على الجامع. Correct meaning: Charity begins at home. Generate 4 answer options as a JSON array of strings: Index 0: a correct paraphrase of the meaning; Indices 1-3: incorrect but plausible distractors."\n\nWe must follow constraints:\n\n1. Length lock: every distractor must be within ±20% character count of index 0. So we first need to craft the correct paraphrase, count its characters, then ensure the distractors are within ±20% of that length'
+178.6s 86 finish_reason: length
+178.6s 87 [POOL] GENERATOR SUBSTITUTION: deepseek/deepseek-v4-pro -> google/gemini-2.5-pro (preflight:hard_fallback (fail_count=2))
+181.6s 88 [OK] anthropic/claude-opus-4.8: status=generated opts=['Take care of your own household before helping others.', 'Visit your neighbors before tending to your relatives.', 'Share your wealth freely with strangers and travelers.', 'Build a grand house to earn respect among people.']
+255.5s 89 [OK] qwen/qwen3.7-max: status=generated opts=['You must support your own family before aiding the public.', 'You must repair your own building before funding the church.', 'You must conceal your own savings before trusting the market.', 'You must instruct your own children before leading the nation.']
+257.0s 90 [OK] qwen/qwen3-14b: status=length_fallback opts=['Charity begins at home.', 'The monkey is a gazelle in the eyes of his mother', "Time is like a sword; if you don't cut it, it will cut you", 'Mind your own business.']
+270.2s 91 [OK] google/gemini-2.5-pro: status=generated opts=['Prioritize the needs of your household over outside causes.', 'Respect the sanctity of a place of worship above all else.', 'Accumulate personal wealth before donating to public works.', "Keep your family's private matters out of public discussion."]
+270.2s 92 
+270.2s 93 -- Audit probes (real audit path) --
+273.1s 94 [OK] anthropic/claude-sonnet-4: vote=A
+273.5s 95 [OK] meta-llama/llama-3.3-70b-instruct: vote=A
+275.0s 96 [OK] mistralai/mistral-small-3.2-24b-instruct: vote=A
+275.9s 97 [OK] google/gemma-3-27b-it: vote=A
+275.9s 98 
+275.9s 99 -- Cost envelope --
+275.9s 100 Preflight spend so far: $0.0434
+275.9s 101 Estimated generation cost: $0.1548
+275.9s 102 Estimated audit cost: $0.0727
+275.9s 103 Estimated total: $0.2708 / $5.00 cap
+275.9s 104 PREFLIGHT PASSED
+275.9s 105 
+275.9s 106 
+275.9s 107 === Starting generation with active generators: ['google/gemma-4-31b-it', 'meta-llama/llama-4-maverick', 'anthropic/claude-opus-4.8', 'qwen/qwen3.7-max', 'qwen/qwen3-14b', 'google/gemini-2.5-pro'] ===
+275.9s 108 
+275.9s 109 === Generating with prompt variant: adversarial-length-locked ===
+403.7s 110 Variant adversarial-length-locked progress: 1/3 rows; cost: $0.0782
+514.3s 111 [HARD_FALLBACK] meta-llama/llama-4-maverick/adversarial-length-locked: Empty response content
+514.3s 112 raw_text='' finish_reason=stop
+514.3s 113 [POOL] GENERATOR SUBSTITUTION: meta-llama/llama-4-maverick -> meta-llama/llama-4-scout-17b-16e-instruct (hard_fallback (fail_count=2))
+613.6s 114 Variant adversarial-length-locked progress: 3/3 rows; cost: $0.1502
+613.6s 115 Cumulative cost after variant adversarial-length-locked: $0.1502
+613.6s 116 
+613.6s 117 === Generating with prompt variant: adversarial-hard-negative ===
+704.0s 118 Variant adversarial-hard-negative progress: 1/3 rows; cost: $0.1870
+833.1s 119 [HARD_FALLBACK] meta-llama/llama-4-scout-17b-16e-instruct/adversarial-hard-negative: Empty response content
+833.1s 120 raw_text='' finish_reason=stop
+833.1s 121 [POOL] GENERATOR SUBSTITUTION: meta-llama/llama-4-scout-17b-16e-instruct -> openai/gpt-4.1 (hard_fallback (fail_count=2))
+1103.8s 122 Variant adversarial-hard-negative progress: 3/3 rows; cost: $0.2582
+1103.8s 123 Cumulative cost after variant adversarial-hard-negative: $0.2582
+1103.8s 124 
+1103.8s 125 === Generating with prompt variant: taxonomy-guided ===
+1233.5s 126 Variant taxonomy-guided progress: 1/3 rows; cost: $0.2991
+1394.2s 127 Variant taxonomy-guided progress: 3/3 rows; cost: $0.3565
+1394.2s 128 Cumulative cost after variant taxonomy-guided: $0.3565
+1394.2s 129 
+1394.2s 130 === Generating with prompt variant: few-shot-predictive ===
+1506.6s 131 Variant few-shot-predictive progress: 1/3 rows; cost: $0.3890
+1870.2s 132 Variant few-shot-predictive progress: 3/3 rows; cost: $0.4472
+1870.2s 133 Cumulative cost after variant few-shot-predictive: $0.4472
+1870.2s 134 
+1870.2s 135 === Generating with prompt variant: overgenerate-select ===
+1962.6s 136 Variant overgenerate-select progress: 1/3 rows; cost: $0.4819
+2215.2s 137 Variant overgenerate-select progress: 3/3 rows; cost: $0.5724
+2215.2s 138 Cumulative cost after variant overgenerate-select: $0.5724
+2215.2s 139 
+2215.2s 140 === Running blind shortcut audit with active auditors: ['anthropic/claude-sonnet-4', 'meta-llama/llama-3.3-70b-instruct', 'mistralai/mistral-small-3.2-24b-instruct', 'google/gemma-3-27b-it'] ===
+2269.5s 141 Audited 10/90 MCQs; cost: $0.5844
+2323.1s 142 [POOL] COMMITTEE SUBSTITUTION: anthropic/claude-sonnet-4 -> openai/gpt-4o-mini (unparseable_vote (fail_count=2))
+2330.2s 143 Audited 20/90 MCQs; cost: $0.5974
+2360.4s 144 Audited 30/90 MCQs; cost: $0.5977
+2397.1s 145 Audited 40/90 MCQs; cost: $0.5982
+2440.1s 146 Audited 50/90 MCQs; cost: $0.5985
+2471.7s 147 Audited 60/90 MCQs; cost: $0.5989
+2517.6s 148 Audited 70/90 MCQs; cost: $0.5993
+2553.0s 149 Audited 80/90 MCQs; cost: $0.5997
+2580.3s 150 Audited 90/90 MCQs; cost: $0.6001
+2580.3s 151 
+2580.3s 152 === Per-generator/variant consensus accuracy ===
+2580.3s 153 
+2580.3s 154 Generator: google/gemma-4-31b-it
+2580.3s 155 language                     ALL  Arabic  English  Yoruba
+2580.3s 156 variant
+2580.3s 157 adversarial-hard-negative  0.333     0.0      1.0     0.0
+2580.3s 158 adversarial-length-locked  0.667     1.0      1.0     0.0
+2580.3s 159 few-shot-predictive        0.667     0.0      1.0     1.0
+2580.3s 160 overgenerate-select        0.667     1.0      1.0     0.0
+2580.3s 161 taxonomy-guided            0.333     0.0      1.0     0.0
+2580.3s 162 
+2580.3s 163 Generator: anthropic/claude-opus-4.8
+2580.3s 164 language                     ALL  Arabic  English  Yoruba
+2580.3s 165 variant
+2580.3s 166 adversarial-hard-negative  1.000     1.0      1.0     1.0
+2580.3s 167 adversarial-length-locked  1.000     1.0      1.0     1.0
+2580.3s 168 few-shot-predictive        0.000     0.0      0.0     0.0
+2580.3s 169 overgenerate-select        0.333     0.0      1.0     0.0
+2580.3s 170 taxonomy-guided            1.000     1.0      1.0     1.0
+2580.3s 171 
+2580.3s 172 Generator: qwen/qwen3.7-max
+2580.3s 173 language                     ALL  Arabic  English  Yoruba
+2580.3s 174 variant
+2580.3s 175 adversarial-hard-negative  0.667     1.0      1.0     0.0
+2580.3s 176 adversarial-length-locked  1.000     1.0      1.0     1.0
+2580.3s 177 few-shot-predictive        0.667     1.0      1.0     0.0
+2580.3s 178 overgenerate-select        0.333     0.0      1.0     0.0
+2580.3s 179 taxonomy-guided            0.667     0.0      1.0     1.0
+2580.3s 180 
+2580.3s 181 Generator: qwen/qwen3-14b
+2580.3s 182 language                     ALL  Arabic  English  Yoruba
+2580.3s 183 variant
+2580.3s 184 adversarial-hard-negative  0.333     0.0      0.0     1.0
+2580.3s 185 adversarial-length-locked  0.667     1.0      0.0     1.0
+2580.3s 186 few-shot-predictive        0.333     1.0      0.0     0.0
+2580.3s 187 overgenerate-select        0.667     1.0      1.0     0.0
+2580.3s 188 taxonomy-guided            0.333     0.0      1.0     0.0
+2580.3s 189 
+2580.3s 190 Generator: google/gemini-2.5-pro
+2580.3s 191 language                     ALL  Arabic  English  Yoruba
+2580.3s 192 variant
+2580.3s 193 adversarial-hard-negative  0.667     1.0      1.0     0.0
+2580.3s 194 adversarial-length-locked  0.667     1.0      1.0     0.0
+2580.3s 195 few-shot-predictive        0.333     0.0      1.0     0.0
+2580.3s 196 overgenerate-select        0.667     0.0      1.0     1.0
+2580.3s 197 taxonomy-guided            0.667     0.0      1.0     1.0
+2580.3s 198 
+2580.3s 199 Generator: openai/gpt-4.1
+2580.3s 200 language                     ALL  Arabic  English  Yoruba
+2580.3s 201 variant
+2580.3s 202 adversarial-hard-negative  0.000     NaN      NaN     0.0
+2580.3s 203 adversarial-length-locked    NaN     NaN      NaN     NaN
+2580.3s 204 few-shot-predictive        0.667     1.0      0.0     1.0
+2580.3s 205 overgenerate-select        0.333     1.0      0.0     0.0
+2580.3s 206 taxonomy-guided            0.333     1.0      0.0     0.0
+2580.3s 207 
+2580.3s 208 Generator: qwen/qwen3.5-397b-a17b
+2580.3s 209 language                   ALL
+2580.3s 210 variant
+2580.3s 211 adversarial-hard-negative  NaN
+2580.3s 212 adversarial-length-locked  NaN
+2580.3s 213 few-shot-predictive        NaN
+2580.3s 214 overgenerate-select        NaN
+2580.3s 215 taxonomy-guided            NaN
+2580.3s 216 
+2580.3s 217 Generator: deepseek/deepseek-v4-pro
+2580.3s 218 language                   ALL
+2580.3s 219 variant
+2580.3s 220 adversarial-hard-negative  NaN
+2580.3s 221 adversarial-length-locked  NaN
+2580.3s 222 few-shot-predictive        NaN
+2580.3s 223 overgenerate-select        NaN
+2580.3s 224 taxonomy-guided            NaN
+2580.3s 225 
+2580.3s 226 Generator: meta-llama/llama-4-maverick
+2580.3s 227 language                     ALL  Arabic  English  Yoruba
+2580.3s 228 variant
+2580.3s 229 adversarial-hard-negative    NaN     NaN      NaN     NaN
+2580.3s 230 adversarial-length-locked  0.333     0.0      1.0     0.0
+2580.3s 231 few-shot-predictive          NaN     NaN      NaN     NaN
+2580.3s 232 overgenerate-select          NaN     NaN      NaN     NaN
+2580.3s 233 taxonomy-guided              NaN     NaN      NaN     NaN
+2580.3s 234 
+2580.3s 235 Generator: meta-llama/llama-4-scout-17b-16e-instruct
+2580.3s 236 language                   ALL  Arabic  English
+2580.3s 237 variant
+2580.3s 238 adversarial-hard-negative  0.0     0.0      0.0
+2580.3s 239 adversarial-length-locked  NaN     NaN      NaN
+2580.3s 240 few-shot-predictive        NaN     NaN      NaN
+2580.3s 241 overgenerate-select        NaN     NaN      NaN
+2580.3s 242 taxonomy-guided            NaN     NaN      NaN
+2580.3s 243 
+2580.3s 244 === Per-model accuracy by generator ===
+2580.3s 245 generator_model                                    model  accuracy  n
+2580.3s 246 google/gemma-4-31b-it        meta-llama/llama-3.3-70b-instruct  0.600000 15
+2580.3s 247 google/gemma-4-31b-it mistralai/mistral-small-3.2-24b-instruct  0.533333 15
+2580.3s 248 google/gemma-4-31b-it                    google/gemma-3-27b-it  0.533333 15
+2580.3s 249 google/gemma-4-31b-it                       openai/gpt-4o-mini  0.416667 12
+2580.3s 250 google/gemma-4-31b-it                anthropic/claude-sonnet-4  0.666667  3
+2580.3s 251 anthropic/claude-opus-4.8        meta-llama/llama-3.3-70b-instruct  0.733333 15
+2580.3s 252 anthropic/claude-opus-4.8 mistralai/mistral-small-3.2-24b-instruct  0.733333 15
+2580.3s 253 anthropic/claude-opus-4.8                    google/gemma-3-27b-it  0.666667 15
+2580.3s 254 anthropic/claude-opus-4.8                       openai/gpt-4o-mini  0.333333 12
+2580.3s 255 anthropic/claude-opus-4.8                anthropic/claude-sonnet-4  0.333333  3
+2580.3s 256 qwen/qwen3.7-max        meta-llama/llama-3.3-70b-instruct  0.533333 15
+2580.3s 257 qwen/qwen3.7-max mistralai/mistral-small-3.2-24b-instruct  0.600000 15
+2580.3s 258 qwen/qwen3.7-max                    google/gemma-3-27b-it  0.666667 15
+2580.3s 259 qwen/qwen3.7-max                       openai/gpt-4o-mini  0.500000 12
+2580.3s 260 qwen/qwen3.7-max                anthropic/claude-sonnet-4  1.000000  3
+2580.3s 261 qwen/qwen3-14b        meta-llama/llama-3.3-70b-instruct  0.600000 15
+2580.3s 262 qwen/qwen3-14b mistralai/mistral-small-3.2-24b-instruct  0.333333 15
+2580.3s 263 qwen/qwen3-14b                    google/gemma-3-27b-it  0.333333 15
+2580.3s 264 qwen/qwen3-14b                       openai/gpt-4o-mini  0.333333 12
+2580.3s 265 qwen/qwen3-14b                anthropic/claude-sonnet-4  0.500000  2
+2580.3s 266 google/gemini-2.5-pro        meta-llama/llama-3.3-70b-instruct  0.533333 15
+2580.3s 267 google/gemini-2.5-pro mistralai/mistral-small-3.2-24b-instruct  0.666667 15
+2580.3s 268 google/gemini-2.5-pro                    google/gemma-3-27b-it  0.733333 15
+2580.3s 269 google/gemini-2.5-pro                       openai/gpt-4o-mini  0.583333 12
+2580.3s 270 google/gemini-2.5-pro                anthropic/claude-sonnet-4  0.500000  2
+2580.3s 271 openai/gpt-4.1        meta-llama/llama-3.3-70b-instruct  0.600000 10
+2580.3s 272 openai/gpt-4.1 mistralai/mistral-small-3.2-24b-instruct  0.400000 10
+2580.3s 273 openai/gpt-4.1                    google/gemma-3-27b-it  0.500000 10
+2580.3s 274 openai/gpt-4.1                       openai/gpt-4o-mini  0.400000 10
+2580.3s 275 meta-llama/llama-4-maverick        meta-llama/llama-3.3-70b-instruct  0.333333  3
+2580.3s 276 meta-llama/llama-4-maverick mistralai/mistral-small-3.2-24b-instruct  0.333333  3
+2580.3s 277 meta-llama/llama-4-maverick                    google/gemma-3-27b-it  0.333333  3
+2580.3s 278 meta-llama/llama-4-maverick                anthropic/claude-sonnet-4  0.333333  3
+2580.3s 279 meta-llama/llama-4-scout-17b-16e-instruct        meta-llama/llama-3.3-70b-instruct  0.500000  2
+2580.3s 280 meta-llama/llama-4-scout-17b-16e-instruct mistralai/mistral-small-3.2-24b-instruct  0.000000  2
+2580.3s 281 meta-llama/llama-4-scout-17b-16e-instruct                    google/gemma-3-27b-it  0.000000  2
+2580.3s 282 meta-llama/llama-4-scout-17b-16e-instruct                       openai/gpt-4o-mini  0.000000  2
+2580.3s 283 VALIDATION ISSUES:
+2580.3s 284 Auditor anthropic/claude-sonnet-4 missing votes: 82.2%
+2580.5s 285 Exported 30 items for human annotation to /kaggle/working/openrouter_pilot1_test_output/pilot1_test_human_annotation_sample.csv
+2582.1s 286 Generated 9 visualisations:
+2582.1s 287 - Shortcut by Variant: /kaggle/working/openrouter_pilot1_test_output/fig1_consensus_by_variant.png
+2582.1s 288 - Shortcut by Language: /kaggle/working/openrouter_pilot1_test_output/fig2_consensus_by_language.png
+2582.1s 289 - Shortcut by Generator: /kaggle/working/openrouter_pilot1_test_output/fig3_consensus_by_generator.png
+2582.1s 290 - Generator × Variant Heatmap: /kaggle/working/openrouter_pilot1_test_output/fig4_generator_variant_heatmap.png
+2582.1s 291 - Position Distribution: /kaggle/working/openrouter_pilot1_test_output/fig5_position_distribution.png
+2582.1s 292 - Generation Status: /kaggle/working/openrouter_pilot1_test_output/fig6_generation_status.png
+2582.1s 293 - Fallback Rate by Generator: /kaggle/working/openrouter_pilot1_test_output/fig7_fallback_rate_by_generator.png
+2582.1s 294 - Auditor Hit Rates: /kaggle/working/openrouter_pilot1_test_output/fig8_auditor_hit_rates.png
+2582.1s 295 - Consensus Fraction Distribution: /kaggle/working/openrouter_pilot1_test_output/fig10_consensus_fraction_distribution.png
+2582.1s 296 
+2582.1s 297 Saved outputs to /kaggle/working/openrouter_pilot1_test_output
+2582.1s 298 Total estimated cost: $0.6001 / $5.00
+2582.3s 299 [2026-06-17T21:24:56.088913+00:00] Starting Pilot 1 TEST with dynamic model pools
+2582.3s 300 Cost cap: $5.0
+2582.3s 301 
+2582.3s 302 Sampled 3 proverbs:
+2582.3s 303 language
+2582.3s 304 Arabic     1
+2582.3s 305 English    1
+2582.3s 306 Yoruba     1
+2582.3s 307 dtype: int64
+2582.3s 308 
+2582.3s 309 Found existing state file: /kaggle/working/openrouter_pilot1_test_output/pool_state.json
+2582.3s 310 Rehydrated cost: $0.6001
+2582.3s 311 Active generators: ['google/gemma-4-31b-it', 'anthropic/claude-opus-4.8', 'qwen/qwen3.7-max', 'qwen/qwen3-14b', 'google/gemini-2.5-pro', 'openai/gpt-4.1']
+2582.3s 312 Active auditors: ['meta-llama/llama-3.3-70b-instruct', 'mistralai/mistral-small-3.2-24b-instruct', 'google/gemma-3-27b-it', 'openai/gpt-4o-mini']
+2582.3s 313 Resumed 90 generated MCQs from /kaggle/working/openrouter_pilot1_test_output/pilot1_test_generated_mcqs.csv
+2582.3s 314 Resumed 90 audit records from /kaggle/working/openrouter_pilot1_test_output/pilot1_test_audit_results.csv
+2582.3s 315 
+2582.3s 316 === PREFLIGHT CHECK ===
+2582.3s 317 API key present: True (73 chars)
+2582.3s 318 Active generator pool: ['google/gemma-4-31b-it', 'anthropic/claude-opus-4.8', 'qwen/qwen3.7-max', 'qwen/qwen3-14b', 'google/gemini-2.5-pro', 'openai/gpt-4.1']
+2582.3s 319 Benched generators: ['qwen/qwen3.5-397b-a17b', 'deepseek/deepseek-v4-pro', 'meta-llama/llama-4-maverick', 'meta-llama/llama-4-scout-17b-16e-instruct']
+2582.3s 320 Active audit committee: ['meta-llama/llama-3.3-70b-instruct', 'mistralai/mistral-small-3.2-24b-instruct', 'google/gemma-3-27b-it', 'openai/gpt-4o-mini']
+2582.3s 321 Benched auditors: ['meta-llama/llama-3.1-405b-instruct', 'anthropic/claude-sonnet-4']
+2582.3s 322 Prompt variants: ['adversarial-length-locked', 'adversarial-hard-negative', 'taxonomy-guided', 'few-shot-predictive', 'overgenerate-select']
+2582.3s 323 Test sample size: 3 proverbs
+2582.3s 324 Cost cap: $5.0
+2582.3s 325 Generation max_tokens: 4096 (high ceiling; reasoning models use max_completion_tokens)
+2582.3s 326 Self-critique enabled: False (critic: google/gemini-2.5-flash-preview)
+2582.3s 327 Audit max_tokens: 256
+2582.3s 328 Parser self-test passed
+2582.4s 329 Fetched live catalog: 336 models
+2582.6s 330 Price table refreshed: 0 models added
+2582.6s 331 All active models found in live catalog.
+2582.6s 332 
+2582.6s 333 -- Cheap API probes (echo letter A) --
+2583.3s 334 [CHEAP PREFLIGHT OK] google/gemma-4-31b-it: 'A'
+2585.1s 335 [CHEAP PREFLIGHT OK] anthropic/claude-opus-4.8: 'A'
+2588.8s 336 [CHEAP PREFLIGHT OK] qwen/qwen3.7-max: 'A'
+2593.4s 337 [CHEAP PREFLIGHT OK] qwen/qwen3-14b: 'A'
+2597.2s 338 [CHEAP PREFLIGHT OK] google/gemini-2.5-pro: 'A'
+2597.9s 339 [CHEAP PREFLIGHT OK] openai/gpt-4.1: 'A'
+2599.0s 340 [CHEAP PREFLIGHT OK] meta-llama/llama-3.3-70b-instruct: 'A'
+2599.9s 341 [CHEAP PREFLIGHT OK] mistralai/mistral-small-3.2-24b-instruct: 'A'
+2600.9s 342 [CHEAP PREFLIGHT OK] google/gemma-3-27b-it: 'A'
+2601.7s 343 [CHEAP PREFLIGHT OK] openai/gpt-4o-mini: 'A'
+2605.4s 344 [CHEAP PREFLIGHT OK] qwen/qwen3-32b: 'A'
+2606.4s 345 [CHEAP PREFLIGHT OK] amazon/nova-lite-v1: 'A'
+2606.4s 346 
+2606.4s 347 -- Generator probes (real generation path) --
+2614.8s 348 [OK] google/gemma-4-31b-it: status=generated opts=["Prioritize your own family's needs.", 'Follow the local community rules.', 'Support the religious institutions.', 'Maintain a clean domestic space.']
+2617.5s 349 [OK] anthropic/claude-opus-4.8: status=generated opts=['Take care of your own family before helping others.', 'Always share your wealth with those in greatest need.', 'Offer your time freely to serve the wider community.', 'Give generously to public causes before private ones.']
+2689.0s 350 [OK] qwen/qwen3.7-max: status=generated opts=['You must support your own family before giving to the community.', 'You must support your local mosque before giving to the community.', 'You must keep your money at home before giving to the community.', 'You must support the community before giving to your own family.']
+2691.3s 351 [OK] qwen/qwen3-14b: status=length_fallback opts=['Charity begins at home.', 'A bird in the hand is worth two in the bush.', 'Born to suffer.', 'The monkey is a gazelle in the eyes of his mother']
+2705.5s 352 [OK] google/gemini-2.5-pro: status=generated opts=['One should prioritize the needs of their own family first.', 'Public contributions are more important than household needs.', 'It is wrong to give away what is essential for your home.', "Acquiring material wealth should be one's primary goal."]
+2706.6s 353 [OK] openai/gpt-4.1: status=generated opts=["One should first take care of their family's needs before helping others.", 'Helping strangers is more important than supporting your own family.', 'Generosity should always be shown to the community before thinking of oneself.', 'It is best to give to public causes even if your household lacks necessities.']
+2706.6s 354 
+2706.6s 355 -- Audit probes (real audit path) --
+2707.8s 356 [OK] meta-llama/llama-3.3-70b-instruct: vote=B
+2708.3s 357 [OK] mistralai/mistral-small-3.2-24b-instruct: vote=B
+2708.8s 358 [OK] google/gemma-3-27b-it: vote=B
+2709.5s 359 [OK] openai/gpt-4o-mini: vote=B
+2709.5s 360 
+2709.5s 361 -- Cost envelope --
+2709.5s 362 Preflight spend so far: $0.6350
+2709.5s 363 Estimated generation cost: $0.1853
+2709.5s 364 Estimated audit cost: $0.0084
+2709.5s 365 Estimated total: $0.8287 / $5.00 cap
+2709.5s 366 PREFLIGHT PASSED
+2709.5s 367 
+2709.5s 368 
+2709.5s 369 === Starting generation with active generators: ['google/gemma-4-31b-it', 'anthropic/claude-opus-4.8', 'qwen/qwen3.7-max', 'qwen/qwen3-14b', 'google/gemini-2.5-pro', 'openai/gpt-4.1'] ===
+2709.5s 370 
+2709.5s 371 === Generating with prompt variant: adversarial-length-locked ===
+2710.6s 372 Variant adversarial-length-locked progress: 1/3 rows; cost: $0.6360
+2712.9s 373 Variant adversarial-length-locked progress: 3/3 rows; cost: $0.6380
+2712.9s 374 Cumulative cost after variant adversarial-length-locked: $0.6380
+2712.9s 375 
+2712.9s 376 === Generating with prompt variant: adversarial-hard-negative ===
+2714.3s 377 Variant adversarial-hard-negative progress: 1/3 rows; cost: $0.6390
+2715.8s 378 Variant adversarial-hard-negative progress: 3/3 rows; cost: $0.6398
+2715.8s 379 Cumulative cost after variant adversarial-hard-negative: $0.6398
+2715.8s 380 
+2715.8s 381 === Generating with prompt variant: taxonomy-guided ===
+2715.8s 382 Variant taxonomy-guided progress: 1/3 rows; cost: $0.6398
+2715.8s 383 Variant taxonomy-guided progress: 3/3 rows; cost: $0.6398
+2715.8s 384 Cumulative cost after variant taxonomy-guided: $0.6398
+2715.8s 385 
+2715.8s 386 === Generating with prompt variant: few-shot-predictive ===
+2715.8s 387 Variant few-shot-predictive progress: 1/3 rows; cost: $0.6398
+2715.8s 388 Variant few-shot-predictive progress: 3/3 rows; cost: $0.6398
+2715.8s 389 Cumulative cost after variant few-shot-predictive: $0.6398
+2715.8s 390 
+2715.8s 391 === Generating with prompt variant: overgenerate-select ===
+2715.8s 392 Variant overgenerate-select progress: 1/3 rows; cost: $0.6398
+2716.0s 393 Variant overgenerate-select progress: 3/3 rows; cost: $0.6398
+2716.0s 394 Cumulative cost after variant overgenerate-select: $0.6398
+2716.0s 395 
+2716.0s 396 === Running blind shortcut audit with active auditors: ['meta-llama/llama-3.3-70b-instruct', 'mistralai/mistral-small-3.2-24b-instruct', 'google/gemma-3-27b-it', 'openai/gpt-4o-mini'] ===
+2733.3s 397 
+2733.3s 398 === Per-generator/variant consensus accuracy ===
+2733.3s 399 
+2733.3s 400 Generator: google/gemma-4-31b-it
+2733.3s 401 language                     ALL  Arabic  English  Yoruba
+2733.3s 402 variant
+2733.3s 403 adversarial-hard-negative  0.333     0.0      1.0     0.0
+2733.3s 404 adversarial-length-locked  0.667     1.0      1.0     0.0
+2733.3s 405 few-shot-predictive        0.667     0.0      1.0     1.0
+2733.3s 406 overgenerate-select        0.667     1.0      1.0     0.0
+2733.3s 407 taxonomy-guided            0.333     0.0      1.0     0.0
+2733.3s 408 
+2733.3s 409 Generator: anthropic/claude-opus-4.8
+2733.3s 410 language                     ALL  Arabic  English  Yoruba
+2733.3s 411 variant
+2733.3s 412 adversarial-hard-negative  1.000     1.0      1.0     1.0
+2733.3s 413 adversarial-length-locked  1.000     1.0      1.0     1.0
+2733.3s 414 few-shot-predictive        0.000     0.0      0.0     0.0
+2733.3s 415 overgenerate-select        0.333     0.0      1.0     0.0
+2733.3s 416 taxonomy-guided            1.000     1.0      1.0     1.0
+2733.3s 417 
+2733.3s 418 Generator: qwen/qwen3.7-max
+2733.3s 419 language                     ALL  Arabic  English  Yoruba
+2733.3s 420 variant
+2733.3s 421 adversarial-hard-negative  0.667     1.0      1.0     0.0
+2733.3s 422 adversarial-length-locked  1.000     1.0      1.0     1.0
+2733.3s 423 few-shot-predictive        0.667     1.0      1.0     0.0
+2733.3s 424 overgenerate-select        0.333     0.0      1.0     0.0
+2733.3s 425 taxonomy-guided            0.667     0.0      1.0     1.0
+2733.3s 426 
+2733.3s 427 Generator: qwen/qwen3-14b
+2733.3s 428 language                     ALL  Arabic  English  Yoruba
+2733.3s 429 variant
+2733.3s 430 adversarial-hard-negative  0.333     0.0      0.0     1.0
+2733.3s 431 adversarial-length-locked  0.667     1.0      0.0     1.0
+2733.3s 432 few-shot-predictive        0.333     1.0      0.0     0.0
+2733.3s 433 overgenerate-select        0.667     1.0      1.0     0.0
+2733.3s 434 taxonomy-guided            0.333     0.0      1.0     0.0
+2733.3s 435 
+2733.3s 436 Generator: google/gemini-2.5-pro
+2733.3s 437 language                     ALL  Arabic  English  Yoruba
+2733.3s 438 variant
+2733.3s 439 adversarial-hard-negative  0.667     1.0      1.0     0.0
+2733.3s 440 adversarial-length-locked  0.667     1.0      1.0     0.0
+2733.3s 441 few-shot-predictive        0.333     0.0      1.0     0.0
+2733.3s 442 overgenerate-select        0.667     0.0      1.0     1.0
+2733.3s 443 taxonomy-guided            0.667     0.0      1.0     1.0
+2733.3s 444 
+2733.3s 445 Generator: openai/gpt-4.1
+2733.3s 446 language                     ALL  Arabic  English  Yoruba
+2733.3s 447 variant
+2733.3s 448 adversarial-hard-negative  0.333     0.0      1.0     0.0
+2733.3s 449 adversarial-length-locked  0.667     1.0      1.0     0.0
+2733.3s 450 few-shot-predictive        0.667     1.0      0.0     1.0
+2733.3s 451 overgenerate-select        0.333     1.0      0.0     0.0
+2733.3s 452 taxonomy-guided            0.333     1.0      0.0     0.0
+2733.3s 453 
+2733.3s 454 Generator: qwen/qwen3.5-397b-a17b
+2733.3s 455 language                   ALL
+2733.3s 456 variant
+2733.3s 457 adversarial-hard-negative  NaN
+2733.3s 458 adversarial-length-locked  NaN
+2733.3s 459 few-shot-predictive        NaN
+2733.3s 460 overgenerate-select        NaN
+2733.3s 461 taxonomy-guided            NaN
+2733.3s 462 
+2733.3s 463 Generator: deepseek/deepseek-v4-pro
+2733.3s 464 language                   ALL
+2733.3s 465 variant
+2733.3s 466 adversarial-hard-negative  NaN
+2733.3s 467 adversarial-length-locked  NaN
+2733.3s 468 few-shot-predictive        NaN
+2733.3s 469 overgenerate-select        NaN
+2733.3s 470 taxonomy-guided            NaN
+2733.3s 471 
+2733.3s 472 Generator: meta-llama/llama-4-maverick
+2733.3s 473 language                     ALL  Arabic  English  Yoruba
+2733.3s 474 variant
+2733.3s 475 adversarial-hard-negative    NaN     NaN      NaN     NaN
+2733.3s 476 adversarial-length-locked  0.333     0.0      1.0     0.0
+2733.3s 477 few-shot-predictive          NaN     NaN      NaN     NaN
+2733.3s 478 overgenerate-select          NaN     NaN      NaN     NaN
+2733.3s 479 taxonomy-guided              NaN     NaN      NaN     NaN
+2733.3s 480 
+2733.3s 481 Generator: meta-llama/llama-4-scout-17b-16e-instruct
+2733.3s 482 language                   ALL  Arabic  English
+2733.3s 483 variant
+2733.3s 484 adversarial-hard-negative  0.0     0.0      0.0
+2733.3s 485 adversarial-length-locked  NaN     NaN      NaN
+2733.3s 486 few-shot-predictive        NaN     NaN      NaN
+2733.3s 487 overgenerate-select        NaN     NaN      NaN
+2733.3s 488 taxonomy-guided            NaN     NaN      NaN
+2733.3s 489 
+2733.3s 490 === Per-model accuracy by generator ===
+2733.3s 491 generator_model                                    model  accuracy  n
+2733.3s 492 google/gemma-4-31b-it        meta-llama/llama-3.3-70b-instruct  0.600000 15
+2733.3s 493 google/gemma-4-31b-it mistralai/mistral-small-3.2-24b-instruct  0.533333 15
+2733.3s 494 google/gemma-4-31b-it                    google/gemma-3-27b-it  0.533333 15
+2733.3s 495 google/gemma-4-31b-it                       openai/gpt-4o-mini  0.416667 12
+2733.3s 496 google/gemma-4-31b-it                anthropic/claude-sonnet-4  0.666667  3
+2733.3s 497 anthropic/claude-opus-4.8        meta-llama/llama-3.3-70b-instruct  0.733333 15
+2733.3s 498 anthropic/claude-opus-4.8 mistralai/mistral-small-3.2-24b-instruct  0.733333 15
+2733.3s 499 anthropic/claude-opus-4.8                    google/gemma-3-27b-it  0.666667 15
+2733.3s 500 anthropic/claude-opus-4.8                       openai/gpt-4o-mini  0.333333 12
+2733.3s 501 anthropic/claude-opus-4.8                anthropic/claude-sonnet-4  0.333333  3
+2733.3s 502 qwen/qwen3.7-max        meta-llama/llama-3.3-70b-instruct  0.533333 15
+2733.3s 503 qwen/qwen3.7-max mistralai/mistral-small-3.2-24b-instruct  0.600000 15
+2733.3s 504 qwen/qwen3.7-max                    google/gemma-3-27b-it  0.666667 15
+2733.3s 505 qwen/qwen3.7-max                       openai/gpt-4o-mini  0.500000 12
+2733.3s 506 qwen/qwen3.7-max                anthropic/claude-sonnet-4  1.000000  3
+2733.3s 507 qwen/qwen3-14b        meta-llama/llama-3.3-70b-instruct  0.600000 15
+2733.3s 508 qwen/qwen3-14b mistralai/mistral-small-3.2-24b-instruct  0.333333 15
+2733.3s 509 qwen/qwen3-14b                    google/gemma-3-27b-it  0.333333 15
+2733.3s 510 qwen/qwen3-14b                       openai/gpt-4o-mini  0.333333 12
+2733.3s 511 qwen/qwen3-14b                anthropic/claude-sonnet-4  0.500000  2
+2733.3s 512 google/gemini-2.5-pro        meta-llama/llama-3.3-70b-instruct  0.533333 15
+2733.3s 513 google/gemini-2.5-pro mistralai/mistral-small-3.2-24b-instruct  0.666667 15
+2733.3s 514 google/gemini-2.5-pro                    google/gemma-3-27b-it  0.733333 15
+2733.3s 515 google/gemini-2.5-pro                       openai/gpt-4o-mini  0.583333 12
+2733.3s 516 google/gemini-2.5-pro                anthropic/claude-sonnet-4  0.500000  2
+2733.3s 517 openai/gpt-4.1        meta-llama/llama-3.3-70b-instruct  0.533333 15
+2733.3s 518 openai/gpt-4.1 mistralai/mistral-small-3.2-24b-instruct  0.400000 15
+2733.3s 519 openai/gpt-4.1                    google/gemma-3-27b-it  0.533333 15
+2733.3s 520 openai/gpt-4.1                       openai/gpt-4o-mini  0.466667 15
+2733.3s 521 meta-llama/llama-4-maverick        meta-llama/llama-3.3-70b-instruct  0.333333  3
+2733.3s 522 meta-llama/llama-4-maverick mistralai/mistral-small-3.2-24b-instruct  0.333333  3
+2733.3s 523 meta-llama/llama-4-maverick                    google/gemma-3-27b-it  0.333333  3
+2733.3s 524 meta-llama/llama-4-maverick                anthropic/claude-sonnet-4  0.333333  3
+2733.3s 525 meta-llama/llama-4-scout-17b-16e-instruct        meta-llama/llama-3.3-70b-instruct  0.500000  2
+2733.3s 526 meta-llama/llama-4-scout-17b-16e-instruct mistralai/mistral-small-3.2-24b-instruct  0.000000  2
+2733.3s 527 meta-llama/llama-4-scout-17b-16e-instruct                    google/gemma-3-27b-it  0.000000  2
+2733.3s 528 meta-llama/llama-4-scout-17b-16e-instruct                       openai/gpt-4o-mini  0.000000  2
+2733.3s 529 VALIDATION ISSUES:
+2733.3s 530 Auditor anthropic/claude-sonnet-4 missing votes: 83.2%
+2733.3s 531 Exported 30 items for human annotation to /kaggle/working/openrouter_pilot1_test_output/pilot1_test_human_annotation_sample.csv
+2734.9s 532 Generated 9 visualisations:
+2734.9s 533 - Shortcut by Variant: /kaggle/working/openrouter_pilot1_test_output/fig1_consensus_by_variant.png
+2734.9s 534 - Shortcut by Language: /kaggle/working/openrouter_pilot1_test_output/fig2_consensus_by_language.png
+2734.9s 535 - Shortcut by Generator: /kaggle/working/openrouter_pilot1_test_output/fig3_consensus_by_generator.png
+2734.9s 536 - Generator × Variant Heatmap: /kaggle/working/openrouter_pilot1_test_output/fig4_generator_variant_heatmap.png
+2734.9s 537 - Position Distribution: /kaggle/working/openrouter_pilot1_test_output/fig5_position_distribution.png
+2734.9s 538 - Generation Status: /kaggle/working/openrouter_pilot1_test_output/fig6_generation_status.png
+2734.9s 539 - Fallback Rate by Generator: /kaggle/working/openrouter_pilot1_test_output/fig7_fallback_rate_by_generator.png
+2734.9s 540 - Auditor Hit Rates: /kaggle/working/openrouter_pilot1_test_output/fig8_auditor_hit_rates.png
+2734.9s 541 - Consensus Fraction Distribution: /kaggle/working/openrouter_pilot1_test_output/fig10_consensus_fraction_distribution.png
+2734.9s 542 
+2734.9s 543 Saved outputs to /kaggle/working/openrouter_pilot1_test_output
+2734.9s 544 Total estimated cost: $0.6400 / $5.00
+2738.1s 545 /usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+2738.1s 546 cells[i][c] = re.sub('\\\\\|', '|', cell)
+2738.3s 547 /usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+2738.3s 548 text = re.sub(r'_', '\_', text) # Escape underscores in display text
+2739.0s 549 [NbConvertApp] Converting notebook __notebook__.ipynb to notebook
+2739.4s 550 [NbConvertApp] Writing 190325 bytes to __notebook__.ipynb
+2742.3s 551 [NbConvertApp] Converting notebook __notebook__.ipynb to html
+2743.8s 552 [NbConvertApp] Writing 788773 bytes to __results__.html

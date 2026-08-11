@@ -14,13 +14,20 @@ A Next.js annotation interface for evaluating proverb understanding across Arabi
 - Anonymous annotator identity via `localStorage`
 - Batch-based annotation (10 items per batch)
 - Two-part judgment: correctness + confidence
+- **Per-option plausibility ratings** (1–5 scale)
+- **Shortcut flag detection** (same structure, length outlier, semantic echo, generic idiom, cultural mismatch)
+- Option randomization per item (blind presentation)
 - Attention checks embedded in batches
-- Minimum time guard (3 seconds) to prevent rushing
+- Minimum time guard (10 seconds) to prevent rushing
+- Training/practice item with feedback before real annotation
+- Consent flow on landing page
 - Atomic fetch-and-lock via Supabase RPC (`FOR UPDATE SKIP LOCKED`)
 - Hidden gold answers (never exposed to browser)
 - Time tracking per item
 - Optional annotator notes
 - Progress tracking
+- Admin dashboard (password-protected)
+- RTL support for Arabic proverbs
 
 ## Setup
 
@@ -80,12 +87,13 @@ Open [http://localhost:3000](http://localhost:3000) to see the app.
 - `item_id` (FK to pg_annotation_items)
 - `annotator_id` - anonymous annotator ID
 - `selected_answer` - A/B/C/D
-- `correctness` - correct/incorrect/unsure/cannot_answer
 - `confidence` - high/medium/low
 - `time_taken_ms` - time spent on item
 - `is_attention_check` - whether this was an attention check
 - `attention_passed` - whether attention check was passed
 - `annotator_notes` - optional text notes
+- `plausibility_ratings` - JSONB map of option letter to 1–5 plausibility score
+- `shortcut_flags` - array of detected shortcut artifacts
 - `created_at`
 - **Unique constraint**: `(item_id, annotator_id)`
 

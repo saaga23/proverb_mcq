@@ -26,6 +26,7 @@ export default function Home() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [success, setSuccess] = useState(false)
+  const [consentGiven, setConsentGiven] = useState(false)
 
   useEffect(() => {
     let id = localStorage.getItem('pg_annotator_id')
@@ -223,10 +224,34 @@ export default function Home() {
               </div>
             )}
 
+            {/* Consent */}
+            <div className="bg-slate-50 rounded-lg p-4 mb-6">
+              <label className="flex items-start gap-3 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={consentGiven}
+                  onChange={(e) => setConsentGiven(e.target.checked)}
+                  className="mt-1 w-4 h-4 text-indigo-600 rounded border-slate-300"
+                />
+                <span className="text-sm text-slate-700">
+                  I have read the{' '}
+                  <a
+                    href="https://github.com/saaga23/proverb_mcq/blob/main/annotation/protocol.md"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-indigo-600 underline hover:text-indigo-800"
+                  >
+                    annotation protocol
+                  </a>{' '}
+                  and consent to participate in this research study. *
+                </span>
+              </label>
+            </div>
+
             {/* Submit button */}
             <button
               type="submit"
-              disabled={loading || !form.language_expertise || !form.is_native_speaker}
+              disabled={loading || !form.language_expertise || !form.is_native_speaker || !consentGiven}
               className={`w-full py-3 px-6 rounded-lg font-semibold transition-all flex items-center justify-center gap-2 ${
                 loading || !form.language_expertise || !form.is_native_speaker
                   ? 'bg-slate-300 text-slate-500 cursor-not-allowed'

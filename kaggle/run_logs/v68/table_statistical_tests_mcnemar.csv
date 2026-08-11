@@ -1,0 +1,7 @@
+variant_a,variant_b,n_pairs,b,c,statistic,p_value,significant_005
+adversarial-hard-negative,adversarial-length-locked,15,3,2,0.2,0.654721,False
+adversarial-hard-negative,overgenerate-select,15,5,3,0.5,0.4795,False
+adversarial-hard-negative,taxonomy-guided,15,5,3,0.5,0.4795,False
+adversarial-length-locked,overgenerate-select,15,3,2,0.2,0.654721,False
+adversarial-length-locked,taxonomy-guided,15,4,3,0.1429,0.705457,False
+overgenerate-select,taxonomy-guided,15,3,3,0.0,1.0,False

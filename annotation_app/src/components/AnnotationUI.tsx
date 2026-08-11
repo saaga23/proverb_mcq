@@ -29,16 +29,33 @@ type AnnotationResult = {
 }
 
 const BATCH_SIZE = 10
-const MIN_TIME_MS = 3000
+const MIN_TIME_MS = 10000
+
+function seededShuffle<T>(arr: T[], seed: string): T[] {
+  let hash = 0
+  for (let i = 0; i < seed.length; i++) {
+    hash = ((hash << 5) - hash) + seed.charCodeAt(i)
+    hash |= 0
+  }
+  const result = [...arr]
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.abs(hash) % (i + 1)
+    hash = (hash * 16807 + j) % 2147483647
+    ;[result[i], result[j]] = [result[j], result[i]]
+  }
+  return result
+}
 
 export function AnnotationUI() {
   const [annotatorId, setAnnotatorId] = useState<string | null>(null)
   const [items, setItems] = useState<Item[]>([])
   const [currentIndex, setCurrentIndex] = useState(0)
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null)
-  const [correctness, setCorrectness] = useState<string | null>(null)
   const [confidence, setConfidence] = useState<string | null>(null)
   const [notes, setNotes] = useState('')
+  const [plausibilityRatings, setPlausibilityRatings] = useState<Record<string, number>>({A:0,B:0,C:0,D:0})
+  const [shortcutFlags, setShortcutFlags] = useState<string[]>([])
+  const [trainingComplete, setTrainingComplete] = useState(false)
   const [loading, setLoading] = useState(true)
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -50,6 +67,9 @@ export function AnnotationUI() {
   const currentItem = items[currentIndex]
   const isLastItem = currentIndex === items.length - 1
   const timeTaken = Date.now() - startTime
+  const isRTL = currentItem?.language === 'Arabic'
+  const [showTrainingFeedback, setShowTrainingFeedback] = useState(false)
+  const [trainingCorrect, setTrainingCorrect] = useState(false)
 
   // Initialize annotator ID
   useEffect(() => {
@@ -94,11 +114,13 @@ export function AnnotationUI() {
       setItems(data as Item[])
       setCurrentIndex(0)
       setSelectedAnswer(null)
-      setCorrectness(null)
       setConfidence(null)
       setNotes('')
+      setPlausibilityRatings({A:0,B:0,C:0,D:0})
+      setShortcutFlags([])
       setStartTime(Date.now())
       setShowAttentionBanner(data[0]?.is_attention_check || false)
+      setShowTrainingFeedback(false)
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to load items')
     } finally {
@@ -107,7 +129,7 @@ export function AnnotationUI() {
   }, [])
 
   const handleSubmit = async () => {
-    if (!annotatorId || !currentItem || !selectedAnswer || !correctness || !confidence) return
+    if (!annotatorId || !currentItem || !selectedAnswer || !confidence) return
     if (submitting) return
 
     // Minimum time guard
@@ -121,18 +143,35 @@ export function AnnotationUI() {
 
     try {
       const isAttention = currentItem.is_attention_check
-      const attentionPassed = isAttention ? correctness === 'correct' : null
+      let attentionPassed = null
+      if (isAttention) {
+        const { data: checkData } = await supabase.rpc('pg_check_attention', {
+          p_item_id: currentItem.id,
+          p_selected_answer: selectedAnswer,
+        })
+        attentionPassed = checkData || false
+      }
+
+      // Training feedback (first item only, before real annotation)
+      const isTrainingItem = !trainingComplete && currentIndex === 0 && items.length > 0 && !isAttention
+      if (isTrainingItem) {
+        setTrainingCorrect(selectedAnswer === currentItem.correct_label)
+        setShowTrainingFeedback(true)
+      }
 
       const { error: insertError } = await supabase.from('pg_annotations').insert({
         item_id: currentItem.id,
         annotator_id: annotatorId,
         selected_answer: selectedAnswer,
-        correctness,
         confidence,
         time_taken_ms: timeTaken,
         is_attention_check: isAttention,
         attention_passed: attentionPassed,
         annotator_notes: notes.trim() || null,
+        plausibility_ratings: Object.fromEntries(
+          Object.entries(plausibilityRatings).filter(([,v]) => v > 0)
+        ),
+        shortcut_flags: shortcutFlags.length > 0 ? shortcutFlags : null,
       })
 
       if (insertError) throw insertError
@@ -158,7 +197,6 @@ export function AnnotationUI() {
         const nextIndex = currentIndex + 1
         setCurrentIndex(nextIndex)
         setSelectedAnswer(null)
-        setCorrectness(null)
         setConfidence(null)
         setNotes('')
         setStartTime(Date.now())
@@ -239,14 +277,18 @@ export function AnnotationUI() {
 
   if (!currentItem) return null
 
-  const options = [
-    { key: 'A', text: currentItem.option_a },
-    { key: 'B', text: currentItem.option_b },
-    { key: 'C', text: currentItem.option_c },
-    { key: 'D', text: currentItem.option_d },
-  ]
+  const options = (() => {
+    const raw = [
+      { key: 'A', text: currentItem.option_a },
+      { key: 'B', text: currentItem.option_b },
+      { key: 'C', text: currentItem.option_c },
+      { key: 'D', text: currentItem.option_d },
+    ]
+    const shuffled = seededShuffle(raw, currentItem.id)
+    return shuffled.map((opt, idx) => ({ ...opt, displayKey: String.fromCharCode(65 + idx) }))
+  })()
 
-  const canSubmit = selectedAnswer && correctness && confidence && !submitting
+  const canSubmit = selectedAnswer && confidence && !submitting && !showTrainingFeedback
 
   return (
     <div className="max-w-3xl mx-auto p-4 sm:p-6">
@@ -292,6 +334,42 @@ export function AnnotationUI() {
         </div>
       )}
 
+      {/* Training feedback */}
+      {showTrainingFeedback && (
+        <div className={`mb-6 rounded-lg p-4 flex items-start gap-3 ${trainingCorrect ? 'bg-green-50 border border-green-200' : 'bg-red-50 border border-red-200'}`}>
+          {trainingCorrect ? <CheckCircle className="w-5 h-5 text-green-600 mt-0.5" /> : <AlertCircle className="w-5 h-5 text-red-600 mt-0.5" />}
+          <div>
+            <p className={`font-semibold ${trainingCorrect ? 'text-green-800' : 'text-red-800'}`}>
+              {trainingCorrect ? 'Correct!' : 'Not quite — this was a practice item.'}
+            </p>
+            <p className="text-sm text-slate-700 mt-1">
+              The correct meaning is <strong>{currentItem.correct_label}</strong>: {currentItem.gold_meaning || 'the intended meaning'}
+            </p>
+            <button
+              onClick={() => {
+                setShowTrainingFeedback(false)
+                setTrainingComplete(true)
+                // Auto-advance to next item after training
+                if (!isLastItem) {
+                  const nextIndex = currentIndex + 1
+                  setCurrentIndex(nextIndex)
+                  setSelectedAnswer(null)
+                  setConfidence(null)
+                  setNotes('')
+                  setPlausibilityRatings({A:0,B:0,C:0,D:0})
+                  setShortcutFlags([])
+                  setStartTime(Date.now())
+                  setShowAttentionBanner(items[nextIndex]?.is_attention_check || false)
+                }
+              }}
+              className="mt-3 text-sm bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700"
+            >
+              Start Real Annotation
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* Main annotation card */}
       <div className="bg-white rounded-2xl shadow-xl p-6 sm:p-8">
         {/* Language badge */}
@@ -309,7 +387,7 @@ export function AnnotationUI() {
         {/* Proverb */}
         <div className="mb-8">
           <h2 className="text-lg font-semibold text-slate-700 mb-3">Proverb:</h2>
-          <div className="bg-slate-50 rounded-lg p-4 sm:p-6">
+          <div className={`bg-slate-50 rounded-lg p-4 sm:p-6 ${isRTL ? 'rtl' : ''}`} dir={isRTL ? 'rtl' : 'ltr'}>
             <p className="text-xl sm:text-2xl font-medium text-slate-900 leading-relaxed">
               {currentItem.proverb}
             </p>
@@ -336,7 +414,7 @@ export function AnnotationUI() {
                       ? 'bg-indigo-600 text-white'
                       : 'bg-slate-100 text-slate-600'
                   }`}>
-                    {option.key}
+                    {option.displayKey}
                   </span>
                   <p className="text-slate-800 leading-relaxed pt-1">{option.text}</p>
                 </div>
@@ -345,34 +423,8 @@ export function AnnotationUI() {
           </div>
         </div>
 
-        {/* Correctness judgment */}
-        <div className="mb-8">
-          <h2 className="text-lg font-semibold text-slate-700 mb-3">Is this the correct meaning?</h2>
-          <div className="flex flex-wrap gap-3">
-            {[
-              { value: 'correct', label: 'Correct', color: 'green' },
-              { value: 'incorrect', label: 'Incorrect', color: 'red' },
-              { value: 'unsure', label: 'Unsure', color: 'yellow' },
-              { value: 'cannot_answer', label: 'Cannot Answer', color: 'gray' },
-            ].map((option) => (
-              <button
-                key={option.value}
-                onClick={() => setCorrectness(option.value)}
-                className={`px-4 py-2 rounded-lg border-2 font-medium transition-all ${
-                  correctness === option.value
-                    ? `border-${option.color}-500 bg-${option.color}-50 text-${option.color}-700`
-                    : 'border-slate-200 hover:border-slate-300 text-slate-600'
-                }`}
-              >
-                {option.label}
-              </button>
-            ))}
-          </div>
-        </div>
-
         {/* Confidence judgment */}
-        {correctness && correctness !== 'cannot_answer' && (
-          <div className="mb-8">
+        <div className="mb-8">
             <h2 className="text-lg font-semibold text-slate-700 mb-3">How confident are you?</h2>
             <div className="flex flex-wrap gap-3">
               {[
@@ -395,7 +447,67 @@ export function AnnotationUI() {
               ))}
             </div>
           </div>
-        )}
+
+        {/* Plausibility ratings */}
+        <div className="mb-8">
+          <h2 className="text-lg font-semibold text-slate-700 mb-3">Rate how plausible each option is as the correct meaning (1 = not plausible, 5 = very plausible):</h2>
+          <div className="space-y-3">
+            {options.map((option) => (
+              <div key={option.key} className="flex items-center gap-4">
+                <span className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold bg-slate-100 text-slate-600">
+                  {option.displayKey}
+                </span>
+                <p className="text-slate-800 leading-relaxed pt-1 flex-1">{option.text}</p>
+                <div className="flex gap-1">
+                  {[1,2,3,4,5].map((rating) => (
+                    <button
+                      key={rating}
+                      onClick={() => setPlausibilityRatings(prev => ({...prev, [option.key]: rating}))}
+                      className={`w-8 h-8 rounded-full text-sm font-medium transition-all ${
+                        plausibilityRatings[option.key] === rating
+                          ? 'bg-indigo-600 text-white'
+                          : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                      }`}
+                    >
+                      {rating}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Shortcut flags */}
+        <div className="mb-8">
+          <h2 className="text-lg font-semibold text-slate-700 mb-3">Does any option show a shortcut artifact? (check all that apply)</h2>
+          <div className="flex flex-wrap gap-3">
+            {[
+              { value: 'same_structure', label: 'Same structure as correct answer' },
+              { value: 'length_outlier', label: 'Length outlier' },
+              { value: 'semantic_echo', label: 'Semantic echo' },
+              { value: 'generic_idiom', label: 'Generic idiom' },
+              { value: 'cultural_mismatch', label: 'Cultural mismatch' },
+              { value: 'none', label: 'None of the above' },
+            ].map((flag) => (
+              <label key={flag.value} className="flex items-center gap-2 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={shortcutFlags.includes(flag.value)}
+                  onChange={(e) => {
+                    if (e.target.checked) {
+                      setShortcutFlags(prev => [...prev, flag.value])
+                    } else {
+                      setShortcutFlags(prev => prev.filter(f => f !== flag.value))
+                    }
+                  }}
+                  className="w-4 h-4 text-indigo-600 rounded border-slate-300"
+                />
+                <span className="text-sm text-slate-700">{flag.label}</span>
+              </label>
+            ))}
+          </div>
+        </div>
 
         {/* Notes */}
         <div className="mb-8">
@@ -436,7 +548,6 @@ export function AnnotationUI() {
             <button
               onClick={() => {
                 setSelectedAnswer(null)
-                setCorrectness(null)
                 setConfidence(null)
                 setNotes('')
                 setStartTime(Date.now())

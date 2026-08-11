@@ -1,0 +1,18 @@
+model,n_total,n_answered,n_refusal,acc_vs_consensus,acc_vs_correct,english_acc,arabic_acc,yoruba_acc
+Qwen/Qwen2.5-7B-Instruct,60,60,0,0.4833,0.6333,0.55,0.45,0.45
+anthropic/claude-3-haiku,60,60,0,0.5833,0.7833,0.7,0.55,0.5
+deepseek-ai/DeepSeek-R1-Distill-Qwen-32B,60,60,0,0.5,0.65,0.65,0.6,0.25
+google/gemini-2.5-flash,60,60,0,0.5,0.7833,0.7,0.5,0.3
+meta-llama/Llama-3.2-3B-Instruct,60,60,0,0.5333,0.6333,0.65,0.6,0.35
+microsoft/Phi-3.5-mini-instruct,60,60,0,0.45,0.5833,0.5,0.45,0.4
+openai/gpt-4o-mini,60,60,0,0.55,0.7833,0.65,0.5,0.5
+
+=== SUMMARY STATISTICS ===
+metric,value
+fleiss_kappa_all_models,0.4845
+mean_pairwise_cohen_kappa,0.4846
+min_pairwise_cohen_kappa,0.2952
+max_pairwise_cohen_kappa,0.7988
+n_models,7
+n_items,60
+source_report,iaa_report_20260708_121120.json

@@ -94,6 +94,26 @@ BEGIN
       SELECT 1 FROM public.pg_annotations
       WHERE annotator_id = p_annotator_id AND is_attention_check = true AND pg_annotations.attention_passed = true
     );
+  END;
+$$;
+
+-- Check if an attention check answer is correct without exposing the gold answer
+CREATE OR REPLACE FUNCTION public.pg_check_attention(
+  p_item_id TEXT,
+  p_selected_answer TEXT
+)
+RETURNS BOOLEAN
+LANGUAGE plpgsql
+SECURITY DEFINER
+SET search_path = public
+AS $$
+BEGIN
+  RETURN EXISTS (
+    SELECT 1 FROM public.pg_annotation_items
+    WHERE id = p_item_id
+      AND is_attention_check = true
+      AND correct_label = p_selected_answer
+  );
 END;
 $$;
 
@@ -101,3 +121,4 @@ $$;
 GRANT EXECUTE ON FUNCTION public.pg_get_items(TEXT, INTEGER) TO anon;
 GRANT EXECUTE ON FUNCTION public.pg_mark_complete(TEXT[]) TO anon;
 GRANT EXECUTE ON FUNCTION public.pg_get_progress(TEXT) TO anon;
+GRANT EXECUTE ON FUNCTION public.pg_check_attention(TEXT, TEXT) TO anon;

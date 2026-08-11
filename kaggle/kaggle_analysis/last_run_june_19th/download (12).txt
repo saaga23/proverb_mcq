@@ -1,0 +1,346 @@
+8.5s 1 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+8.5s 2 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+8.5s 3 0.00s - to python to disable frozen modules.
+8.5s 4 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+9.3s 5 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+9.3s 6 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+9.3s 7 0.00s - to python to disable frozen modules.
+9.3s 8 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+10.7s 9 Prompt variants JSON ready
+12.5s 10 Loaded prompt variants from pilot1_prompt_variants.json
+12.7s 11 [2026-06-19T14:29:42.572504+00:00] Starting Pilot 1 TEST with dynamic model pools
+12.7s 12 Cost cap: $5.0
+12.7s 13 
+12.7s 14 Sampled 3 proverbs:
+12.7s 15 language
+12.7s 16 Arabic     1
+12.7s 17 English    1
+12.7s 18 Yoruba     1
+12.7s 19 dtype: int64
+12.7s 20 
+12.7s 21 === PREFLIGHT CHECK ===
+12.7s 22 API key present: True (73 chars)
+12.7s 23 Active generator pool: ['qwen/qwen3.5-397b-a17b', 'google/gemma-4-31b-it', 'meta-llama/llama-4-maverick', 'deepseek/deepseek-v4-pro', 'anthropic/claude-opus-4.8', 'qwen/qwen3.7-max']
+12.7s 24 Benched generators: []
+12.7s 25 Active audit committee: ['meta-llama/llama-3.3-70b-instruct', 'mistralai/mistral-small-3.2-24b-instruct', 'google/gemma-3-27b-it', 'qwen/qwen3-32b']
+12.7s 26 Benched auditors: []
+12.7s 27 Prompt variants: ['adversarial-length-locked', 'adversarial-hard-negative', 'taxonomy-guided', 'adversarial-contrastive', 'overgenerate-select']
+12.7s 28 Test sample size: 3 proverbs
+12.7s 29 Cost cap: $5.0
+12.7s 30 Generation max_tokens: 4096 (high ceiling; reasoning models use max_completion_tokens)
+12.7s 31 Self-critique enabled: True (critic: anthropic/claude-3.5-haiku)
+12.7s 32 Audit max_tokens: 256
+12.7s 33 Parser self-test passed
+13.0s 34 Fetched live catalog: 340 models
+13.0s 35 Price table refreshed: 0 models added
+13.0s 36 All active models found in live catalog.
+13.0s 37 
+13.0s 38 -- Cheap API probes (echo letter A) --
+18.9s 39 [CHEAP PREFLIGHT OK] qwen/qwen3.5-397b-a17b: 'A'
+23.8s 40 [CHEAP PREFLIGHT OK] google/gemma-4-31b-it: 'A'
+24.3s 41 [CHEAP PREFLIGHT OK] meta-llama/llama-4-maverick: 'A'
+25.3s 42 [CHEAP PREFLIGHT OK] deepseek/deepseek-v4-pro: 'A'
+26.8s 43 [CHEAP PREFLIGHT OK] anthropic/claude-opus-4.8: 'A'
+31.4s 44 [CHEAP PREFLIGHT OK] qwen/qwen3.7-max: 'A'
+32.2s 45 [CHEAP PREFLIGHT OK] meta-llama/llama-3.3-70b-instruct: 'A'
+32.6s 46 [CHEAP PREFLIGHT OK] mistralai/mistral-small-3.2-24b-instruct: 'A'
+32.8s 47 [CHEAP PREFLIGHT OK] google/gemma-3-27b-it: 'A'
+35.8s 48 [CHEAP PREFLIGHT OK] qwen/qwen3-32b: 'A'
+36.4s 49 [CHEAP PREFLIGHT OK] anthropic/claude-3.5-haiku: 'A'
+38.9s 50 [CHEAP PREFLIGHT OK] google/gemini-2.5-pro: 'A'
+39.4s 51 [CHEAP PREFLIGHT OK] google/gemini-2.5-flash: 'A'
+40.0s 52 [CHEAP PREFLIGHT OK] openai/gpt-4.1-mini: 'A'
+40.8s 53 [CHEAP PREFLIGHT OK] openai/gpt-4.1-nano: 'A'
+41.4s 54 [CHEAP PREFLIGHT OK] openai/gpt-4o-mini: 'A'
+42.8s 55 [CHEAP PREFLIGHT OK] deepseek/deepseek-v3.2: 'A'
+42.8s 56 HTTP 0 for meta-llama/llama-3.1-405b-instruct (strategy 1/2): {"error":{"message":"No endpoints found for meta-llama/llama-3.1-405b-instruct.","code":404},"user_id":"org_3DWGs1EUNwTfi3O4J5MPSavppff"}
+42.8s 57 HTTP 0 for meta-llama/llama-3.1-405b-instruct (strategy 2/2): {"error":{"message":"No endpoints found for meta-llama/llama-3.1-405b-instruct.","code":404},"user_id":"org_3DWGs1EUNwTfi3O4J5MPSavppff"}
+42.8s 58 [CHEAP PREFLIGHT FAIL] meta-llama/llama-3.1-405b-instruct: 404 Client Error: Not Found for url: https://openrouter.ai/api/v1/chat/completions
+42.8s 59 HTTP 0 for meta-llama/llama-3.1-405b-instruct (strategy 1/2): {"error":{"message":"No endpoints found for meta-llama/llama-3.1-405b-instruct.","code":404},"user_id":"org_3DWGs1EUNwTfi3O4J5MPSavppff"}
+42.8s 60 HTTP 0 for meta-llama/llama-3.1-405b-instruct (strategy 2/2): {"error":{"message":"No endpoints found for meta-llama/llama-3.1-405b-instruct.","code":404},"user_id":"org_3DWGs1EUNwTfi3O4J5MPSavppff"}
+42.8s 61 [CHEAP PREFLIGHT FAIL] meta-llama/llama-3.1-405b-instruct: 404 Client Error: Not Found for url: https://openrouter.ai/api/v1/chat/completions
+42.8s 62 [POOL] COMMITTEE EXCLUDED meta-llama/llama-3.1-405b-instruct (cheap_preflight_failed)
+43.4s 63 [CHEAP PREFLIGHT OK] amazon/nova-lite-v1: 'A'
+43.4s 64 
+43.4s 65 -- Generator probes (real generation path) --
+170.0s 66 [OK] qwen/qwen3.5-397b-a17b: status=generated opts=['One should prioritize their own household before helping others.', 'One ought to seek approval from neighbors before fixing the home.', 'One must accumulate wealth for personal use before aiding anyone.', 'One needs to treat strangers and family members with equal care.']
+173.9s 67 [SELF-CRITIQUE] google/gemma-4-31b-it/adversarial-length-locked: critic picked A (correct A) — rewriting (round 1)
+176.3s 68 [OK] google/gemma-4-31b-it: status=generated opts=['Prioritize your own family first.', 'Support your community first.', 'Give to the mosque before home.', 'Balance home and public duty.']
+177.7s 69 [SELF-CRITIQUE] meta-llama/llama-4-maverick/adversarial-length-locked: critic picked A (correct A) — rewriting (round 1)
+178.7s 70 [SELF-CRITIQUE] rewrite failed for meta-llama/llama-4-maverick/adversarial-length-locked: Empty critique rewrite response
+178.7s 71 [OK] meta-llama/llama-4-maverick: status=generated opts=['Charity starts with family', 'Generosity is for strangers', 'Wealth is for sharing publicly', 'Helping others is a last priority']
+228.0s 72 [HARD_FALLBACK] deepseek/deepseek-v4-pro/adversarial-length-locked: Truncated response (finish_reason=length)
+228.0s 73 raw_text='We are asked: "Proverb (Arabic): اللي يعوزه البيت يحرم على الجامع. Correct meaning: Charity begins at home." Generate 4 answer options as JSON array: index 0 correct paraphrase, indices 1-3 incorrect but plausible distractors. Constraints: length lock: every distractor within ±20% character count of index 0. Register lock: same register, style, tense, sentence structure. No negation/antonym traps finish_reason=length
+228.0s 74 [FAIL] deepseek/deepseek-v4-pro: generation status=hard_fallback opts=['Charity begins at home.', 'A bird in the hand is worth two in the bush.', 'Kindness begets kindness.', "To take the credit for someone else's work."]
+228.0s 75 error: Truncated response (finish_reason=length)
+228.0s 76 raw_model_output: 'We are asked: "Proverb (Arabic): اللي يعوزه البيت يحرم على الجامع. Correct meaning: Charity begins at home." Generate 4 answer options as JSON array: index 0 correct paraphrase, indices 1-3 incorrect but plausible distractors. Constraints: length lock: every distractor within ±20% character count of index 0. Register lock: same register, style, tense, sentence structure. No negation/antonym traps. No meta-words. No source-language words. Each distractor wrong in different semantic way.\n\nFirst, u'
+228.0s 77 finish_reason: length
+228.0s 78 [POOL] GENERATOR SUBSTITUTION: deepseek/deepseek-v4-pro -> google/gemini-2.5-pro (preflight:hard_fallback (fail_count=2))
+231.4s 79 [SELF-CRITIQUE] anthropic/claude-opus-4.8/adversarial-length-locked: critic picked A (correct A) — rewriting (round 1)
+234.2s 80 [OK] anthropic/claude-opus-4.8: status=generated opts=['Take care of your own family before helping outsiders.', 'Share your blessings with the community before keeping them.', 'Whoever gives to the mosque secures rewards for his home.', 'A generous host always finds plenty to offer his guests.']
+328.0s 81 [SELF-CRITIQUE] qwen/qwen3.7-max/adversarial-length-locked: critic picked A (correct A) — rewriting (round 1)
+422.9s 82 [OK] qwen/qwen3.7-max: status=generated opts=['People must support their family before giving to the community.', 'People must secure their own wealth before giving to the community.', 'People must look after themselves before giving to the community.', 'People must help their neighbors before giving to the community.']
+438.4s 83 [SELF-CRITIQUE] google/gemini-2.5-pro/adversarial-length-locked: critic picked A (correct A) — rewriting (round 1)
+456.2s 84 [OK] google/gemini-2.5-pro: status=generated opts=["One's primary responsibility is to provide for their own household.", 'A strong home is the foundation of a strong community.', 'True faith is best expressed through private, domestic devotion.', "Generosity towards the community should reflect one's own prosperity."]
+456.2s 85 
+456.2s 86 -- Audit probes (real audit path) --
+456.6s 87 [OK] meta-llama/llama-3.3-70b-instruct: vote=A
+457.3s 88 [OK] mistralai/mistral-small-3.2-24b-instruct: vote=D
+459.1s 89 [OK] google/gemma-3-27b-it: vote=D
+464.2s 90 [OK] qwen/qwen3-32b: vote=D
+464.2s 91 
+464.2s 92 -- Cost envelope --
+464.2s 93 Preflight spend so far: $0.0915
+464.2s 94 Estimated generation cost: $0.1585
+464.2s 95 Estimated audit cost: $0.0069
+464.2s 96 Estimated total: $0.2569 / $5.00 cap
+464.2s 97 PREFLIGHT PASSED
+464.2s 98 
+464.2s 99 
+464.2s 100 === Starting generation with active generators: ['qwen/qwen3.5-397b-a17b', 'google/gemma-4-31b-it', 'meta-llama/llama-4-maverick', 'anthropic/claude-opus-4.8', 'qwen/qwen3.7-max', 'google/gemini-2.5-pro'] ===
+464.2s 101 
+464.2s 102 === Generating with prompt variant: adversarial-length-locked ===
+513.8s 103 [HARD_FALLBACK] qwen/qwen3.5-397b-a17b/adversarial-length-locked: Truncated response (finish_reason=length)
+513.8s 104 raw_text='Thinking Process:\n\n1.  **Analyze the Request:**\n    *   Input: Arabic proverb "اللي يعوزه البيت يحرم على الجامع" (Literal: What the house needs is forbidden to the collector/mosque).\n    *   Correct Meaning: "Charity begins at home."\n    *   Task: Generate 4 answer options as a JSON array of strings.\n    *   Index 0: Correct paraphrase.\n    *   Indices 1-3: Incorrect but plausible distract finish_reason=length
+513.8s 105 [POOL] GENERATOR SUBSTITUTION: qwen/qwen3.5-397b-a17b -> google/gemini-2.5-flash (hard_fallback (fail_count=2))
+517.2s 106 [HARD_FALLBACK] meta-llama/llama-4-maverick/adversarial-length-locked: Empty response content
+517.2s 107 raw_text='' finish_reason=stop
+517.2s 108 [POOL] GENERATOR SUBSTITUTION: meta-llama/llama-4-maverick -> openai/gpt-4.1-mini (hard_fallback (fail_count=2))
+520.7s 109 [SELF-CRITIQUE] anthropic/claude-opus-4.8/adversarial-length-locked: critic picked A (correct A) — rewriting (round 1)
+600.6s 110 [SELF-CRITIQUE] qwen/qwen3.7-max/adversarial-length-locked: critic picked A (correct A) — rewriting (round 1)
+705.3s 111 [SELF-CRITIQUE] google/gemini-2.5-pro/adversarial-length-locked: critic picked A (correct A) — rewriting (round 1)
+726.2s 112 Variant adversarial-length-locked progress: 1/3 rows; cost: $0.1717
+728.3s 113 [SELF-CRITIQUE] google/gemma-4-31b-it/adversarial-length-locked: critic picked A (correct A) — rewriting (round 1)
+736.9s 114 [SELF-CRITIQUE] anthropic/claude-opus-4.8/adversarial-length-locked: critic picked A (correct A) — rewriting (round 1)
+816.3s 115 [SELF-CRITIQUE] qwen/qwen3.7-max/adversarial-length-locked: critic picked A (correct A) — rewriting (round 1)
+908.0s 116 [SELF-CRITIQUE] google/gemini-2.5-pro/adversarial-length-locked: critic picked A (correct A) — rewriting (round 1)
+925.7s 117 [SELF-CRITIQUE] google/gemini-2.5-flash/adversarial-length-locked: critic picked A (correct A) — rewriting (round 1)
+935.4s 118 [SELF-CRITIQUE] openai/gpt-4.1-mini/adversarial-length-locked: critic picked A (correct A) — rewriting (round 1)
+941.8s 119 [SELF-CRITIQUE] google/gemma-4-31b-it/adversarial-length-locked: critic picked A (correct A) — rewriting (round 1)
+1035.9s 120 [SELF-CRITIQUE] qwen/qwen3.7-max/adversarial-length-locked: critic picked A (correct A) — rewriting (round 1)
+1115.4s 121 [SELF-CRITIQUE] google/gemini-2.5-pro/adversarial-length-locked: critic picked A (correct A) — rewriting (round 1)
+1137.0s 122 Variant adversarial-length-locked progress: 3/3 rows; cost: $0.3181
+1137.0s 123 Cumulative cost after variant adversarial-length-locked: $0.3181
+1137.0s 124 
+1137.0s 125 === Generating with prompt variant: adversarial-hard-negative ===
+1144.0s 126 [SELF-CRITIQUE] anthropic/claude-opus-4.8/adversarial-hard-negative: critic picked A (correct A) — rewriting (round 1)
+1189.3s 127 [SELF-CRITIQUE] qwen/qwen3.7-max/adversarial-hard-negative: critic picked A (correct A) — rewriting (round 1)
+1410.4s 128 [PARSE_FALLBACK] google/gemini-2.5-pro/adversarial-hard-negative: Parsed options contain meta-text / markdown. opts=['**Generating Options**', "I'm currently focused on creating plausible multiple-choice answers for the Arabic proverb provided. My aim is to craft distractors that are conceptually related but not the correct interpretation.", '**Developing Distractors**', "I am now working on crafting the incorrect options. My focus is on ensuring they relate thematically to the proverb's core idea of needs and communal versus personal responsibility, while maintaining a similar linguistic feel."]
+1410.4s 129 raw_text='**Generating Options**\n\nI\'m currently focused on creating plausible multiple-choice answers for the Arabic proverb provided. My aim is to craft distractors that are conceptually related but not the correct interpretation.\n\n**Developing Distractors**\n\nI am now working on crafting the incorrect options. My focus is on ensuring they relate thematically to the proverb\'s core idea of needs and finish_reason=None
+1412.2s 130 [SELF-CRITIQUE] google/gemini-2.5-flash/adversarial-hard-negative: critic picked A (correct A) — rewriting (round 1)
+1415.7s 131 [SELF-CRITIQUE] openai/gpt-4.1-mini/adversarial-hard-negative: critic picked A (correct A) — rewriting (round 1)
+1416.7s 132 Variant adversarial-hard-negative progress: 1/3 rows; cost: $0.3549
+1419.1s 133 [SELF-CRITIQUE] google/gemma-4-31b-it/adversarial-hard-negative: critic picked A (correct A) — rewriting (round 1)
+1423.9s 134 [SELF-CRITIQUE] anthropic/claude-opus-4.8/adversarial-hard-negative: critic picked A (correct A) — rewriting (round 1)
+1474.0s 135 [SELF-CRITIQUE] qwen/qwen3.7-max/adversarial-hard-negative: critic picked A (correct A) — rewriting (round 1)
+1556.5s 136 [SELF-CRITIQUE] google/gemini-2.5-flash/adversarial-hard-negative: critic picked A (correct A) — rewriting (round 1)
+1561.1s 137 [SELF-CRITIQUE] openai/gpt-4.1-mini/adversarial-hard-negative: critic picked A (correct A) — rewriting (round 1)
+1570.2s 138 [SELF-CRITIQUE] anthropic/claude-opus-4.8/adversarial-hard-negative: critic picked A (correct A) — rewriting (round 1)
+1629.6s 139 [SELF-CRITIQUE] qwen/qwen3.7-max/adversarial-hard-negative: critic picked A (correct A) — rewriting (round 1)
+1728.1s 140 Variant adversarial-hard-negative progress: 3/3 rows; cost: $0.4615
+1728.1s 141 Cumulative cost after variant adversarial-hard-negative: $0.4615
+1728.1s 142 
+1728.1s 143 === Generating with prompt variant: taxonomy-guided ===
+1819.1s 144 [SELF-CRITIQUE] qwen/qwen3.7-max/taxonomy-guided: critic picked A (correct A) — rewriting (round 1)
+2001.7s 145 [SELF-CRITIQUE] google/gemini-2.5-pro/taxonomy-guided: critic picked A (correct A) — rewriting (round 1)
+2026.2s 146 [SELF-CRITIQUE] openai/gpt-4.1-mini/taxonomy-guided: critic picked A (correct A) — rewriting (round 1)
+2027.7s 147 Variant taxonomy-guided progress: 1/3 rows; cost: $0.5288
+2033.4s 148 [SELF-CRITIQUE] google/gemma-4-31b-it/taxonomy-guided: critic picked A (correct A) — rewriting (round 1)
+2098.9s 149 [SELF-CRITIQUE] qwen/qwen3.7-max/taxonomy-guided: critic picked A (correct A) — rewriting (round 1)
+2178.2s 150 [SELF-CRITIQUE] google/gemini-2.5-pro/taxonomy-guided: critic picked A (correct A) — rewriting (round 1)
+2201.2s 151 [SELF-CRITIQUE] google/gemini-2.5-flash/taxonomy-guided: critic picked A (correct A) — rewriting (round 1)
+2204.5s 152 [SELF-CRITIQUE] openai/gpt-4.1-mini/taxonomy-guided: critic picked A (correct A) — rewriting (round 1)
+2274.4s 153 [SELF-CRITIQUE] google/gemini-2.5-pro/taxonomy-guided: critic picked A (correct A) — rewriting (round 1)
+2403.3s 154 [SELF-CRITIQUE] rewrite failed for google/gemini-2.5-pro/taxonomy-guided: Critique rewrite contains meta-text / markdown. opts=["**Refining Proverbs' Meaning**", 'I\'m currently focused on clarifying the precise implications of the proverb "Kèrègbè tí kò lọ́rùn ni yóò júwe bí àgbẹ̀ ó ti so òun kọ́." My aim is to accurately reflect that the gourd\'s lack of a neck directly signifies the farmer\'s failed harvest, ensuring the meaning is exceptionally clear for the user.', '**Crafting Better Distractors**', "I'm now focusing on enhancing the plausibility of the incorrect answer choices. My objective is to create options that more subtly misinterpret the proverb, making them a more compelling challenge for the expert user without sacrificing clarity."]
+2412.4s 155 [SELF-CRITIQUE] openai/gpt-4.1-mini/taxonomy-guided: critic picked A (correct A) — rewriting (round 1)
+2413.7s 156 Variant taxonomy-guided progress: 3/3 rows; cost: $0.6265
+2413.7s 157 Cumulative cost after variant taxonomy-guided: $0.6265
+2413.7s 158 
+2413.7s 159 === Generating with prompt variant: adversarial-contrastive ===
+2417.7s 160 [SELF-CRITIQUE] google/gemma-4-31b-it/adversarial-contrastive: critic picked A (correct A) — rewriting (round 1)
+2424.2s 161 [SELF-CRITIQUE] anthropic/claude-opus-4.8/adversarial-contrastive: critic picked A (correct A) — rewriting (round 1)
+2475.2s 162 [SELF-CRITIQUE] qwen/qwen3.7-max/adversarial-contrastive: critic picked A (correct A) — rewriting (round 1)
+2561.5s 163 [SELF-CRITIQUE] google/gemini-2.5-flash/adversarial-contrastive: critic picked A (correct A) — rewriting (round 1)
+2565.3s 164 [SELF-CRITIQUE] openai/gpt-4.1-mini/adversarial-contrastive: critic picked A (correct A) — rewriting (round 1)
+2566.4s 165 Variant adversarial-contrastive progress: 1/3 rows; cost: $0.6737
+2572.3s 166 [SELF-CRITIQUE] anthropic/claude-opus-4.8/adversarial-contrastive: critic picked A (correct A) — rewriting (round 1)
+2623.9s 167 [SELF-CRITIQUE] qwen/qwen3.7-max/adversarial-contrastive: critic picked A (correct A) — rewriting (round 1)
+2710.1s 168 [SELF-CRITIQUE] google/gemini-2.5-flash/adversarial-contrastive: critic picked A (correct A) — rewriting (round 1)
+2712.7s 169 [SELF-CRITIQUE] openai/gpt-4.1-mini/adversarial-contrastive: critic picked A (correct A) — rewriting (round 1)
+2728.2s 170 [SELF-CRITIQUE] google/gemma-4-31b-it/adversarial-contrastive: critic picked A (correct A) — rewriting (round 1)
+2738.9s 171 [SELF-CRITIQUE] anthropic/claude-opus-4.8/adversarial-contrastive: critic picked A (correct A) — rewriting (round 1)
+2818.0s 172 [SELF-CRITIQUE] qwen/qwen3.7-max/adversarial-contrastive: critic picked A (correct A) — rewriting (round 1)
+2934.0s 173 [SELF-CRITIQUE] google/gemini-2.5-flash/adversarial-contrastive: critic picked A (correct A) — rewriting (round 1)
+2937.6s 174 [SELF-CRITIQUE] openai/gpt-4.1-mini/adversarial-contrastive: critic picked A (correct A) — rewriting (round 1)
+2939.0s 175 Variant adversarial-contrastive progress: 3/3 rows; cost: $0.7839
+2939.0s 176 Cumulative cost after variant adversarial-contrastive: $0.7839
+2939.0s 177 
+2939.0s 178 === Generating with prompt variant: overgenerate-select ===
+2943.3s 179 [SELF-CRITIQUE] google/gemma-4-31b-it/overgenerate-select: critic picked A (correct A) — rewriting (round 1)
+3050.3s 180 [SELF-CRITIQUE] qwen/qwen3.7-max/overgenerate-select: critic picked A (correct A) — rewriting (round 1)
+3181.5s 181 [SELF-CRITIQUE] openai/gpt-4.1-mini/overgenerate-select: critic picked A (correct A) — rewriting (round 1)
+3182.4s 182 Variant overgenerate-select progress: 1/3 rows; cost: $0.8394
+3205.7s 183 [SELF-CRITIQUE] google/gemma-4-31b-it/overgenerate-select: critic picked A (correct A) — rewriting (round 1)
+3222.1s 184 [SELF-CRITIQUE] anthropic/claude-opus-4.8/overgenerate-select: critic picked A (correct A) — rewriting (round 1)
+3325.2s 185 [SELF-CRITIQUE] qwen/qwen3.7-max/overgenerate-select: critic picked A (correct A) — rewriting (round 1)
+3416.7s 186 [SELF-CRITIQUE] google/gemini-2.5-pro/overgenerate-select: critic picked A (correct A) — rewriting (round 1)
+3561.1s 187 [SELF-CRITIQUE] rewrite failed for google/gemini-2.5-pro/overgenerate-select: Critique rewrite contains meta-text / markdown. opts=['**Developing Question and Options**', 'I\'m currently refining the multiple-choice question for the proverb. My focus is on crafting a clear and accurate correct answer that captures the essence of "Adversity builds resilience," while ensuring the other options are plausible distractors.', '**Refining Distractors and Options**', "I'm currently working on new answer choices that better obscure the correct meaning. The goal is to create more compelling incorrect options, making the selection process a tougher challenge for the user while maintaining the core message of resilience through adversity."]
+3565.5s 188 [SELF-CRITIQUE] openai/gpt-4.1-mini/overgenerate-select: critic picked A (correct A) — rewriting (round 1)
+3569.9s 189 [SELF-CRITIQUE] google/gemma-4-31b-it/overgenerate-select: critic picked A (correct A) — rewriting (round 1)
+3590.8s 190 [SELF-CRITIQUE] anthropic/claude-opus-4.8/overgenerate-select: critic picked A (correct A) — rewriting (round 1)
+3685.4s 191 Variant overgenerate-select progress: 3/3 rows; cost: $0.9371
+3685.4s 192 Cumulative cost after variant overgenerate-select: $0.9371
+3685.4s 193 
+3685.4s 194 === Running blind shortcut audit with active auditors: ['meta-llama/llama-3.3-70b-instruct', 'mistralai/mistral-small-3.2-24b-instruct', 'google/gemma-3-27b-it', 'qwen/qwen3-32b'] ===
+3740.3s 195 [POOL] COMMITTEE SUBSTITUTION: qwen/qwen3-32b -> openai/gpt-4o-mini (audit_exception:ValueError (fail_count=2))
+3766.2s 196 Audited 10/90 MCQs; cost: $0.9381
+3789.3s 197 Audited 20/90 MCQs; cost: $0.9385
+3820.9s 198 Audited 30/90 MCQs; cost: $0.9389
+3862.4s 199 Audited 40/90 MCQs; cost: $0.9393
+3901.8s 200 Audited 50/90 MCQs; cost: $0.9397
+3943.7s 201 Audited 60/90 MCQs; cost: $0.9400
+3980.4s 202 Audited 70/90 MCQs; cost: $0.9405
+4043.2s 203 Audited 80/90 MCQs; cost: $0.9408
+4083.4s 204 Audited 90/90 MCQs; cost: $0.9412
+4083.4s 205 
+4083.4s 206 === Per-generator/variant consensus accuracy ===
+4083.4s 207 
+4083.4s 208 Generator: google/gemma-4-31b-it
+4083.4s 209 language                     ALL  Arabic  English  Yoruba
+4083.4s 210 variant
+4083.4s 211 adversarial-contrastive    1.000     1.0      1.0     1.0
+4083.4s 212 adversarial-hard-negative  0.333     0.0      1.0     0.0
+4083.4s 213 adversarial-length-locked  0.333     0.0      1.0     0.0
+4083.4s 214 overgenerate-select        0.667     1.0      1.0     0.0
+4083.4s 215 taxonomy-guided            0.333     0.0      1.0     0.0
+4083.4s 216 
+4083.4s 217 Generator: anthropic/claude-opus-4.8
+4083.4s 218 language                     ALL  Arabic  English  Yoruba
+4083.4s 219 variant
+4083.4s 220 adversarial-contrastive    1.000     1.0      1.0     1.0
+4083.4s 221 adversarial-hard-negative  0.667     1.0      1.0     0.0
+4083.4s 222 adversarial-length-locked  0.667     0.0      1.0     1.0
+4083.4s 223 overgenerate-select        1.000     1.0      1.0     1.0
+4083.4s 224 taxonomy-guided            1.000     1.0      1.0     1.0
+4083.4s 225 
+4083.4s 226 Generator: qwen/qwen3.7-max
+4083.4s 227 language                     ALL  Arabic  English  Yoruba
+4083.4s 228 variant
+4083.4s 229 adversarial-contrastive    0.667     1.0      1.0     0.0
+4083.4s 230 adversarial-hard-negative  0.667     1.0      1.0     0.0
+4083.4s 231 adversarial-length-locked  0.667     1.0      1.0     0.0
+4083.4s 232 overgenerate-select        0.333     1.0      0.0     0.0
+4083.4s 233 taxonomy-guided            0.333     0.0      1.0     0.0
+4083.4s 234 
+4083.4s 235 Generator: google/gemini-2.5-pro
+4083.4s 236 language                     ALL  Arabic  English  Yoruba
+4083.4s 237 variant
+4083.4s 238 adversarial-contrastive    0.333     0.0      1.0     0.0
+4083.4s 239 adversarial-hard-negative  0.333     1.0      0.0     0.0
+4083.4s 240 adversarial-length-locked  0.000     0.0      0.0     0.0
+4083.4s 241 overgenerate-select        0.333     0.0      1.0     0.0
+4083.4s 242 taxonomy-guided            0.667     1.0      1.0     0.0
+4083.4s 243 
+4083.4s 244 Generator: google/gemini-2.5-flash
+4083.4s 245 language                     ALL  Arabic  English  Yoruba
+4083.4s 246 variant
+4083.4s 247 adversarial-contrastive    0.667     1.0      1.0     0.0
+4083.4s 248 adversarial-hard-negative  0.333     0.0      1.0     0.0
+4083.4s 249 adversarial-length-locked  0.500     NaN      1.0     0.0
+4083.4s 250 overgenerate-select        0.333     0.0      1.0     0.0
+4083.4s 251 taxonomy-guided            0.000     0.0      0.0     0.0
+4083.4s 252 
+4083.4s 253 Generator: openai/gpt-4.1-mini
+4083.4s 254 language                     ALL  Arabic  English  Yoruba
+4083.4s 255 variant
+4083.4s 256 adversarial-contrastive    0.333     0.0      1.0     0.0
+4083.4s 257 adversarial-hard-negative  0.333     0.0      1.0     0.0
+4083.4s 258 adversarial-length-locked  0.500     NaN      1.0     0.0
+4083.4s 259 overgenerate-select        0.667     1.0      1.0     0.0
+4083.4s 260 taxonomy-guided            0.667     1.0      1.0     0.0
+4083.4s 261 
+4083.4s 262 Generator: deepseek/deepseek-v4-pro
+4083.4s 263 language                   ALL
+4083.4s 264 variant
+4083.4s 265 adversarial-contrastive    NaN
+4083.4s 266 adversarial-hard-negative  NaN
+4083.4s 267 adversarial-length-locked  NaN
+4083.4s 268 overgenerate-select        NaN
+4083.4s 269 taxonomy-guided            NaN
+4083.4s 270 
+4083.4s 271 Generator: qwen/qwen3.5-397b-a17b
+4083.4s 272 language                   ALL  Arabic
+4083.4s 273 variant
+4083.4s 274 adversarial-contrastive    NaN     NaN
+4083.4s 275 adversarial-hard-negative  NaN     NaN
+4083.4s 276 adversarial-length-locked  1.0     1.0
+4083.4s 277 overgenerate-select        NaN     NaN
+4083.4s 278 taxonomy-guided            NaN     NaN
+4083.4s 279 
+4083.4s 280 Generator: meta-llama/llama-4-maverick
+4083.4s 281 language                   ALL  Arabic
+4083.4s 282 variant
+4083.4s 283 adversarial-contrastive    NaN     NaN
+4083.4s 284 adversarial-hard-negative  NaN     NaN
+4083.4s 285 adversarial-length-locked  0.0     0.0
+4083.4s 286 overgenerate-select        NaN     NaN
+4083.4s 287 taxonomy-guided            NaN     NaN
+4083.4s 288 
+4083.4s 289 === Per-model accuracy by generator ===
+4083.4s 290 generator_model                                    model  accuracy  n
+4083.4s 291 google/gemma-4-31b-it        meta-llama/llama-3.3-70b-instruct  0.400000 15
+4083.4s 292 google/gemma-4-31b-it mistralai/mistral-small-3.2-24b-instruct  0.533333 15
+4083.4s 293 google/gemma-4-31b-it                    google/gemma-3-27b-it  0.466667 15
+4083.4s 294 google/gemma-4-31b-it                       openai/gpt-4o-mini  0.500000 14
+4083.4s 295 google/gemma-4-31b-it                           qwen/qwen3-32b  0.000000  1
+4083.4s 296 anthropic/claude-opus-4.8        meta-llama/llama-3.3-70b-instruct  0.866667 15
+4083.4s 297 anthropic/claude-opus-4.8 mistralai/mistral-small-3.2-24b-instruct  0.800000 15
+4083.4s 298 anthropic/claude-opus-4.8                    google/gemma-3-27b-it  0.733333 15
+4083.4s 299 anthropic/claude-opus-4.8                       openai/gpt-4o-mini  0.600000 15
+4083.4s 300 qwen/qwen3.7-max        meta-llama/llama-3.3-70b-instruct  0.466667 15
+4083.4s 301 qwen/qwen3.7-max mistralai/mistral-small-3.2-24b-instruct  0.600000 15
+4083.4s 302 qwen/qwen3.7-max                    google/gemma-3-27b-it  0.600000 15
+4083.4s 303 qwen/qwen3.7-max                       openai/gpt-4o-mini  0.266667 15
+4083.4s 304 google/gemini-2.5-pro        meta-llama/llama-3.3-70b-instruct  0.400000 15
+4083.4s 305 google/gemini-2.5-pro mistralai/mistral-small-3.2-24b-instruct  0.333333 15
+4083.4s 306 google/gemini-2.5-pro                    google/gemma-3-27b-it  0.333333 15
+4083.4s 307 google/gemini-2.5-pro                       openai/gpt-4o-mini  0.266667 15
+4083.4s 308 google/gemini-2.5-flash        meta-llama/llama-3.3-70b-instruct  0.142857 14
+4083.4s 309 google/gemini-2.5-flash mistralai/mistral-small-3.2-24b-instruct  0.500000 14
+4083.4s 310 google/gemini-2.5-flash                    google/gemma-3-27b-it  0.285714 14
+4083.4s 311 google/gemini-2.5-flash                       openai/gpt-4o-mini  0.285714 14
+4083.4s 312 openai/gpt-4.1-mini        meta-llama/llama-3.3-70b-instruct  0.571429 14
+4083.4s 313 openai/gpt-4.1-mini mistralai/mistral-small-3.2-24b-instruct  0.500000 14
+4083.4s 314 openai/gpt-4.1-mini                    google/gemma-3-27b-it  0.357143 14
+4083.4s 315 openai/gpt-4.1-mini                       openai/gpt-4o-mini  0.357143 14
+4083.4s 316 qwen/qwen3.5-397b-a17b        meta-llama/llama-3.3-70b-instruct  1.000000  1
+4083.4s 317 qwen/qwen3.5-397b-a17b mistralai/mistral-small-3.2-24b-instruct  1.000000  1
+4083.4s 318 qwen/qwen3.5-397b-a17b                    google/gemma-3-27b-it  1.000000  1
+4083.4s 319 qwen/qwen3.5-397b-a17b                           qwen/qwen3-32b  1.000000  1
+4083.4s 320 meta-llama/llama-4-maverick        meta-llama/llama-3.3-70b-instruct  0.000000  1
+4083.4s 321 meta-llama/llama-4-maverick mistralai/mistral-small-3.2-24b-instruct  0.000000  1
+4083.4s 322 meta-llama/llama-4-maverick                    google/gemma-3-27b-it  0.000000  1
+4083.6s 323 VALIDATION ISSUES:
+4083.6s 324 Auditor qwen/qwen3-32b missing votes: 97.8%
+4083.6s 325 Exported 29 items for human annotation to /kaggle/working/openrouter_pilot1_test_output/pilot1_test_human_annotation_sample.csv
+4085.4s 326 Generated 9 visualisations:
+4085.4s 327 - Shortcut by Variant: /kaggle/working/openrouter_pilot1_test_output/fig1_consensus_by_variant.png
+4085.4s 328 - Shortcut by Language: /kaggle/working/openrouter_pilot1_test_output/fig2_consensus_by_language.png
+4085.4s 329 - Shortcut by Generator: /kaggle/working/openrouter_pilot1_test_output/fig3_consensus_by_generator.png
+4085.4s 330 - Generator × Variant Heatmap: /kaggle/working/openrouter_pilot1_test_output/fig4_generator_variant_heatmap.png
+4085.4s 331 - Position Distribution: /kaggle/working/openrouter_pilot1_test_output/fig5_position_distribution.png
+4085.4s 332 - Generation Status: /kaggle/working/openrouter_pilot1_test_output/fig6_generation_status.png
+4085.4s 333 - Fallback Rate by Generator: /kaggle/working/openrouter_pilot1_test_output/fig7_fallback_rate_by_generator.png
+4085.4s 334 - Auditor Hit Rates: /kaggle/working/openrouter_pilot1_test_output/fig8_auditor_hit_rates.png
+4085.4s 335 - Consensus Fraction Distribution: /kaggle/working/openrouter_pilot1_test_output/fig10_consensus_fraction_distribution.png
+4085.4s 336 
+4085.4s 337 Saved outputs to /kaggle/working/openrouter_pilot1_test_output
+4085.4s 338 Total estimated cost: $0.9412 / $5.00
+4088.9s 339 /usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+4088.9s 340 cells[i][c] = re.sub('\\\\\|', '|', cell)
+4089.1s 341 /usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+4089.1s 342 text = re.sub(r'_', '\_', text) # Escape underscores in display text
+4089.9s 343 [NbConvertApp] Converting notebook __notebook__.ipynb to notebook
+4090.4s 344 [NbConvertApp] Writing 174518 bytes to __notebook__.ipynb
+4093.8s 345 [NbConvertApp] Converting notebook __notebook__.ipynb to html
+4095.4s 346 [NbConvertApp] Writing 775479 bytes to __results__.html

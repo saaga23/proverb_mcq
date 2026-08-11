@@ -1,0 +1,3010 @@
+{
+  "run_timestamp": "2026-06-20T17:24:13.952074+00:00",
+  "seed": 20260615,
+  "n_per_language": 1,
+  "generator_pool": {
+    "name": "GENERATOR",
+    "pool": [
+      "qwen/qwen3.7-max",
+      "google/gemma-4-31b-it",
+      "google/gemini-2.5-flash",
+      "anthropic/claude-sonnet-4",
+      "openai/gpt-4.1-mini",
+      "google/gemini-2.5-pro",
+      "openai/gpt-4.1-nano",
+      "qwen/qwen3.5-397b-a17b",
+      "meta-llama/llama-4-maverick",
+      "deepseek/deepseek-v4-pro"
+    ],
+    "active": [
+      "openai/gpt-4.1-mini",
+      "google/gemini-2.5-pro",
+      "openai/gpt-4.1-nano"
+    ],
+    "benched": [
+      "qwen/qwen3.7-max",
+      "google/gemma-4-31b-it",
+      "google/gemini-2.5-flash",
+      "anthropic/claude-sonnet-4"
+    ],
+    "failure_counts": {
+      "qwen/qwen3.7-max": 2,
+      "anthropic/claude-sonnet-4": 2,
+      "google/gemma-4-31b-it": 2,
+      "google/gemini-2.5-flash": 2,
+      "openai/gpt-4.1-mini": 0,
+      "google/gemini-2.5-pro": 0,
+      "openai/gpt-4.1-nano": 0
+    },
+    "substitutions": [
+      {
+        "out": "qwen/qwen3.7-max",
+        "in": "anthropic/claude-sonnet-4",
+        "reason": "parse_fallback (fail_count=2)",
+        "timestamp": "2026-06-20T17:13:08.196563+00:00"
+      },
+      {
+        "out": "google/gemma-4-31b-it",
+        "in": "openai/gpt-4.1-mini",
+        "reason": "parse_fallback (fail_count=2)",
+        "timestamp": "2026-06-20T17:16:00.183932+00:00"
+      },
+      {
+        "out": "google/gemini-2.5-flash",
+        "in": "google/gemini-2.5-pro",
+        "reason": "parse_fallback (fail_count=2)",
+        "timestamp": "2026-06-20T17:16:05.716155+00:00"
+      },
+      {
+        "out": "anthropic/claude-sonnet-4",
+        "in": "openai/gpt-4.1-nano",
+        "reason": "parse_fallback (fail_count=2)",
+        "timestamp": "2026-06-20T17:16:13.233330+00:00"
+      }
+    ],
+    "fail_threshold": 2
+  },
+  "committee_pool": {
+    "name": "COMMITTEE",
+    "pool": [
+      "meta-llama/llama-3.3-70b-instruct",
+      "mistralai/mistral-small-3.2-24b-instruct",
+      "google/gemma-3-27b-it",
+      "deepseek/deepseek-v3.2",
+      "deepseek/deepseek-v3.2",
+      "amazon/nova-lite-v1"
+    ],
+    "active": [
+      "meta-llama/llama-3.3-70b-instruct",
+      "mistralai/mistral-small-3.2-24b-instruct",
+      "google/gemma-3-27b-it",
+      "deepseek/deepseek-v3.2"
+    ],
+    "benched": [],
+    "failure_counts": {},
+    "substitutions": [],
+    "fail_threshold": 2
+  },
+  "substitutions": {
+    "generators": [
+      {
+        "out": "qwen/qwen3.7-max",
+        "in": "anthropic/claude-sonnet-4",
+        "reason": "parse_fallback (fail_count=2)",
+        "timestamp": "2026-06-20T17:13:08.196563+00:00"
+      },
+      {
+        "out": "google/gemma-4-31b-it",
+        "in": "openai/gpt-4.1-mini",
+        "reason": "parse_fallback (fail_count=2)",
+        "timestamp": "2026-06-20T17:16:00.183932+00:00"
+      },
+      {
+        "out": "google/gemini-2.5-flash",
+        "in": "google/gemini-2.5-pro",
+        "reason": "parse_fallback (fail_count=2)",
+        "timestamp": "2026-06-20T17:16:05.716155+00:00"
+      },
+      {
+        "out": "anthropic/claude-sonnet-4",
+        "in": "openai/gpt-4.1-nano",
+        "reason": "parse_fallback (fail_count=2)",
+        "timestamp": "2026-06-20T17:16:13.233330+00:00"
+      }
+    ],
+    "auditors": []
+  },
+  "prompt_variants": [
+    {
+      "name": "adversarial-length-locked",
+      "rationale": "Strict length and register parity plus explicit ban on negation/antonym shortcuts."
+    },
+    {
+      "name": "adversarial-hard-negative",
+      "rationale": "Forces generation of semantically close distractors rather than obvious reversals or unrelated idioms."
+    },
+    {
+      "name": "taxonomy-guided",
+      "rationale": "Haladyna / VERGE taxonomy with tightened surface constraints to prevent label echo and antonym traps."
+    },
+    {
+      "name": "adversarial-contrastive",
+      "rationale": "Contrastive distractors that change a single semantic role; avoids example arrays that confuse parsers."
+    },
+    {
+      "name": "overgenerate-select",
+      "rationale": "Overgenerate-then-select with adversarial filtering and length/register locks."
+    }
+  ],
+  "cost_cap_usd": 5.0,
+  "estimated_cost_usd": 0.188631,
+  "per_variant_comparison": [
+    {
+      "generator_model": "openai/gpt-4.1-mini",
+      "variant": "adversarial-length-locked",
+      "language": "ALL",
+      "n": 0,
+      "consensus_accuracy": NaN,
+      "mean_consensus_frac": NaN,
+      "flag": "N/A"
+    },
+    {
+      "generator_model": "openai/gpt-4.1-mini",
+      "variant": "adversarial-hard-negative",
+      "language": "ALL",
+      "n": 0,
+      "consensus_accuracy": NaN,
+      "mean_consensus_frac": NaN,
+      "flag": "N/A"
+    },
+    {
+      "generator_model": "openai/gpt-4.1-mini",
+      "variant": "taxonomy-guided",
+      "language": "ALL",
+      "n": 0,
+      "consensus_accuracy": NaN,
+      "mean_consensus_frac": NaN,
+      "flag": "N/A"
+    },
+    {
+      "generator_model": "openai/gpt-4.1-mini",
+      "variant": "adversarial-contrastive",
+      "language": "Yoruba",
+      "n": 1,
+      "consensus_accuracy": 0.0,
+      "mean_consensus_frac": 0.75,
+      "flag": "PASS"
+    },
+    {
+      "generator_model": "openai/gpt-4.1-mini",
+      "variant": "adversarial-contrastive",
+      "language": "ALL",
+      "n": 1,
+      "consensus_accuracy": 0.0,
+      "mean_consensus_frac": 0.75,
+      "flag": "PASS"
+    },
+    {
+      "generator_model": "openai/gpt-4.1-mini",
+      "variant": "overgenerate-select",
+      "language": "English",
+      "n": 1,
+      "consensus_accuracy": 1.0,
+      "mean_consensus_frac": 0.75,
+      "flag": "FAIL"
+    },
+    {
+      "generator_model": "openai/gpt-4.1-mini",
+      "variant": "overgenerate-select",
+      "language": "Arabic",
+      "n": 1,
+      "consensus_accuracy": 0.0,
+      "mean_consensus_frac": 0.5,
+      "flag": "PASS"
+    },
+    {
+      "generator_model": "openai/gpt-4.1-mini",
+      "variant": "overgenerate-select",
+      "language": "Yoruba",
+      "n": 1,
+      "consensus_accuracy": 0.0,
+      "mean_consensus_frac": 0.5,
+      "flag": "PASS"
+    },
+    {
+      "generator_model": "openai/gpt-4.1-mini",
+      "variant": "overgenerate-select",
+      "language": "ALL",
+      "n": 3,
+      "consensus_accuracy": 0.3333333333333333,
+      "mean_consensus_frac": 0.5833333333333334,
+      "flag": "REVIEW"
+    },
+    {
+      "generator_model": "google/gemini-2.5-pro",
+      "variant": "adversarial-length-locked",
+      "language": "ALL",
+      "n": 0,
+      "consensus_accuracy": NaN,
+      "mean_consensus_frac": NaN,
+      "flag": "N/A"
+    },
+    {
+      "generator_model": "google/gemini-2.5-pro",
+      "variant": "adversarial-hard-negative",
+      "language": "ALL",
+      "n": 0,
+      "consensus_accuracy": NaN,
+      "mean_consensus_frac": NaN,
+      "flag": "N/A"
+    },
+    {
+      "generator_model": "google/gemini-2.5-pro",
+      "variant": "taxonomy-guided",
+      "language": "ALL",
+      "n": 0,
+      "consensus_accuracy": NaN,
+      "mean_consensus_frac": NaN,
+      "flag": "N/A"
+    },
+    {
+      "generator_model": "google/gemini-2.5-pro",
+      "variant": "adversarial-contrastive",
+      "language": "Yoruba",
+      "n": 1,
+      "consensus_accuracy": 1.0,
+      "mean_consensus_frac": 1.0,
+      "flag": "FAIL"
+    },
+    {
+      "generator_model": "google/gemini-2.5-pro",
+      "variant": "adversarial-contrastive",
+      "language": "ALL",
+      "n": 1,
+      "consensus_accuracy": 1.0,
+      "mean_consensus_frac": 1.0,
+      "flag": "FAIL"
+    },
+    {
+      "generator_model": "google/gemini-2.5-pro",
+      "variant": "overgenerate-select",
+      "language": "English",
+      "n": 1,
+      "consensus_accuracy": 1.0,
+      "mean_consensus_frac": 1.0,
+      "flag": "FAIL"
+    },
+    {
+      "generator_model": "google/gemini-2.5-pro",
+      "variant": "overgenerate-select",
+      "language": "Arabic",
+      "n": 1,
+      "consensus_accuracy": 0.0,
+      "mean_consensus_frac": 1.0,
+      "flag": "PASS"
+    },
+    {
+      "generator_model": "google/gemini-2.5-pro",
+      "variant": "overgenerate-select",
+      "language": "Yoruba",
+      "n": 1,
+      "consensus_accuracy": 0.0,
+      "mean_consensus_frac": 1.0,
+      "flag": "PASS"
+    },
+    {
+      "generator_model": "google/gemini-2.5-pro",
+      "variant": "overgenerate-select",
+      "language": "ALL",
+      "n": 3,
+      "consensus_accuracy": 0.3333333333333333,
+      "mean_consensus_frac": 1.0,
+      "flag": "REVIEW"
+    },
+    {
+      "generator_model": "openai/gpt-4.1-nano",
+      "variant": "adversarial-length-locked",
+      "language": "ALL",
+      "n": 0,
+      "consensus_accuracy": NaN,
+      "mean_consensus_frac": NaN,
+      "flag": "N/A"
+    },
+    {
+      "generator_model": "openai/gpt-4.1-nano",
+      "variant": "adversarial-hard-negative",
+      "language": "ALL",
+      "n": 0,
+      "consensus_accuracy": NaN,
+      "mean_consensus_frac": NaN,
+      "flag": "N/A"
+    },
+    {
+      "generator_model": "openai/gpt-4.1-nano",
+      "variant": "taxonomy-guided",
+      "language": "ALL",
+      "n": 0,
+      "consensus_accuracy": NaN,
+      "mean_consensus_frac": NaN,
+      "flag": "N/A"
+    },
+    {
+      "generator_model": "openai/gpt-4.1-nano",
+      "variant": "adversarial-contrastive",
+      "language": "Yoruba",
+      "n": 1,
+      "consensus_accuracy": 0.0,
+      "mean_consensus_frac": 0.75,
+      "flag": "PASS"
+    },
+    {
+      "generator_model": "openai/gpt-4.1-nano",
+      "variant": "adversarial-contrastive",
+      "language": "ALL",
+      "n": 1,
+      "consensus_accuracy": 0.0,
+      "mean_consensus_frac": 0.75,
+      "flag": "PASS"
+    },
+    {
+      "generator_model": "openai/gpt-4.1-nano",
+      "variant": "overgenerate-select",
+      "language": "English",
+      "n": 1,
+      "consensus_accuracy": 0.0,
+      "mean_consensus_frac": 0.5,
+      "flag": "PASS"
+    },
+    {
+      "generator_model": "openai/gpt-4.1-nano",
+      "variant": "overgenerate-select",
+      "language": "Arabic",
+      "n": 1,
+      "consensus_accuracy": 1.0,
+      "mean_consensus_frac": 0.75,
+      "flag": "FAIL"
+    },
+    {
+      "generator_model": "openai/gpt-4.1-nano",
+      "variant": "overgenerate-select",
+      "language": "Yoruba",
+      "n": 1,
+      "consensus_accuracy": 0.0,
+      "mean_consensus_frac": 0.5,
+      "flag": "PASS"
+    },
+    {
+      "generator_model": "openai/gpt-4.1-nano",
+      "variant": "overgenerate-select",
+      "language": "ALL",
+      "n": 3,
+      "consensus_accuracy": 0.3333333333333333,
+      "mean_consensus_frac": 0.5833333333333334,
+      "flag": "REVIEW"
+    },
+    {
+      "generator_model": "qwen/qwen3.7-max",
+      "variant": "adversarial-length-locked",
+      "language": "Arabic",
+      "n": 1,
+      "consensus_accuracy": 1.0,
+      "mean_consensus_frac": 1.0,
+      "flag": "FAIL"
+    },
+    {
+      "generator_model": "qwen/qwen3.7-max",
+      "variant": "adversarial-length-locked",
+      "language": "ALL",
+      "n": 1,
+      "consensus_accuracy": 1.0,
+      "mean_consensus_frac": 1.0,
+      "flag": "FAIL"
+    },
+    {
+      "generator_model": "qwen/qwen3.7-max",
+      "variant": "adversarial-hard-negative",
+      "language": "ALL",
+      "n": 0,
+      "consensus_accuracy": NaN,
+      "mean_consensus_frac": NaN,
+      "flag": "N/A"
+    },
+    {
+      "generator_model": "qwen/qwen3.7-max",
+      "variant": "taxonomy-guided",
+      "language": "ALL",
+      "n": 0,
+      "consensus_accuracy": NaN,
+      "mean_consensus_frac": NaN,
+      "flag": "N/A"
+    },
+    {
+      "generator_model": "qwen/qwen3.7-max",
+      "variant": "adversarial-contrastive",
+      "language": "ALL",
+      "n": 0,
+      "consensus_accuracy": NaN,
+      "mean_consensus_frac": NaN,
+      "flag": "N/A"
+    },
+    {
+      "generator_model": "qwen/qwen3.7-max",
+      "variant": "overgenerate-select",
+      "language": "ALL",
+      "n": 0,
+      "consensus_accuracy": NaN,
+      "mean_consensus_frac": NaN,
+      "flag": "N/A"
+    },
+    {
+      "generator_model": "google/gemma-4-31b-it",
+      "variant": "adversarial-length-locked",
+      "language": "English",
+      "n": 1,
+      "consensus_accuracy": 1.0,
+      "mean_consensus_frac": 1.0,
+      "flag": "FAIL"
+    },
+    {
+      "generator_model": "google/gemma-4-31b-it",
+      "variant": "adversarial-length-locked",
+      "language": "Arabic",
+      "n": 1,
+      "consensus_accuracy": 0.0,
+      "mean_consensus_frac": 0.5,
+      "flag": "PASS"
+    },
+    {
+      "generator_model": "google/gemma-4-31b-it",
+      "variant": "adversarial-length-locked",
+      "language": "Yoruba",
+      "n": 1,
+      "consensus_accuracy": 0.0,
+      "mean_consensus_frac": 1.0,
+      "flag": "PASS"
+    },
+    {
+      "generator_model": "google/gemma-4-31b-it",
+      "variant": "adversarial-length-locked",
+      "language": "ALL",
+      "n": 3,
+      "consensus_accuracy": 0.3333333333333333,
+      "mean_consensus_frac": 0.8333333333333334,
+      "flag": "REVIEW"
+    },
+    {
+      "generator_model": "google/gemma-4-31b-it",
+      "variant": "adversarial-hard-negative",
+      "language": "English",
+      "n": 1,
+      "consensus_accuracy": 1.0,
+      "mean_consensus_frac": 0.75,
+      "flag": "FAIL"
+    },
+    {
+      "generator_model": "google/gemma-4-31b-it",
+      "variant": "adversarial-hard-negative",
+      "language": "Arabic",
+      "n": 1,
+      "consensus_accuracy": 0.0,
+      "mean_consensus_frac": 0.75,
+      "flag": "PASS"
+    },
+    {
+      "generator_model": "google/gemma-4-31b-it",
+      "variant": "adversarial-hard-negative",
+      "language": "Yoruba",
+      "n": 1,
+      "consensus_accuracy": 0.0,
+      "mean_consensus_frac": 1.0,
+      "flag": "PASS"
+    },
+    {
+      "generator_model": "google/gemma-4-31b-it",
+      "variant": "adversarial-hard-negative",
+      "language": "ALL",
+      "n": 3,
+      "consensus_accuracy": 0.3333333333333333,
+      "mean_consensus_frac": 0.8333333333333334,
+      "flag": "REVIEW"
+    },
+    {
+      "generator_model": "google/gemma-4-31b-it",
+      "variant": "taxonomy-guided",
+      "language": "English",
+      "n": 1,
+      "consensus_accuracy": 0.0,
+      "mean_consensus_frac": 1.0,
+      "flag": "PASS"
+    },
+    {
+      "generator_model": "google/gemma-4-31b-it",
+      "variant": "taxonomy-guided",
+      "language": "Arabic",
+      "n": 1,
+      "consensus_accuracy": 0.0,
+      "mean_consensus_frac": 0.5,
+      "flag": "PASS"
+    },
+    {
+      "generator_model": "google/gemma-4-31b-it",
+      "variant": "taxonomy-guided",
+      "language": "Yoruba",
+      "n": 1,
+      "consensus_accuracy": 0.0,
+      "mean_consensus_frac": 0.75,
+      "flag": "PASS"
+    },
+    {
+      "generator_model": "google/gemma-4-31b-it",
+      "variant": "taxonomy-guided",
+      "language": "ALL",
+      "n": 3,
+      "consensus_accuracy": 0.0,
+      "mean_consensus_frac": 0.75,
+      "flag": "PASS"
+    },
+    {
+      "generator_model": "google/gemma-4-31b-it",
+      "variant": "adversarial-contrastive",
+      "language": "English",
+      "n": 1,
+      "consensus_accuracy": 1.0,
+      "mean_consensus_frac": 0.5,
+      "flag": "FAIL"
+    },
+    {
+      "generator_model": "google/gemma-4-31b-it",
+      "variant": "adversarial-contrastive",
+      "language": "Arabic",
+      "n": 1,
+      "consensus_accuracy": 0.0,
+      "mean_consensus_frac": 1.0,
+      "flag": "PASS"
+    },
+    {
+      "generator_model": "google/gemma-4-31b-it",
+      "variant": "adversarial-contrastive",
+      "language": "ALL",
+      "n": 2,
+      "consensus_accuracy": 0.5,
+      "mean_consensus_frac": 0.75,
+      "flag": "FAIL"
+    },
+    {
+      "generator_model": "google/gemma-4-31b-it",
+      "variant": "overgenerate-select",
+      "language": "ALL",
+      "n": 0,
+      "consensus_accuracy": NaN,
+      "mean_consensus_frac": NaN,
+      "flag": "N/A"
+    },
+    {
+      "generator_model": "google/gemini-2.5-flash",
+      "variant": "adversarial-length-locked",
+      "language": "English",
+      "n": 1,
+      "consensus_accuracy": 1.0,
+      "mean_consensus_frac": 1.0,
+      "flag": "FAIL"
+    },
+    {
+      "generator_model": "google/gemini-2.5-flash",
+      "variant": "adversarial-length-locked",
+      "language": "Arabic",
+      "n": 1,
+      "consensus_accuracy": 1.0,
+      "mean_consensus_frac": 1.0,
+      "flag": "FAIL"
+    },
+    {
+      "generator_model": "google/gemini-2.5-flash",
+      "variant": "adversarial-length-locked",
+      "language": "Yoruba",
+      "n": 1,
+      "consensus_accuracy": 0.0,
+      "mean_consensus_frac": 0.75,
+      "flag": "PASS"
+    },
+    {
+      "generator_model": "google/gemini-2.5-flash",
+      "variant": "adversarial-length-locked",
+      "language": "ALL",
+      "n": 3,
+      "consensus_accuracy": 0.6666666666666666,
+      "mean_consensus_frac": 0.9166666666666666,
+      "flag": "FAIL"
+    },
+    {
+      "generator_model": "google/gemini-2.5-flash",
+      "variant": "adversarial-hard-negative",
+      "language": "English",
+      "n": 1,
+      "consensus_accuracy": 1.0,
+      "mean_consensus_frac": 1.0,
+      "flag": "FAIL"
+    },
+    {
+      "generator_model": "google/gemini-2.5-flash",
+      "variant": "adversarial-hard-negative",
+      "language": "Arabic",
+      "n": 1,
+      "consensus_accuracy": 0.0,
+      "mean_consensus_frac": 0.5,
+      "flag": "PASS"
+    },
+    {
+      "generator_model": "google/gemini-2.5-flash",
+      "variant": "adversarial-hard-negative",
+      "language": "Yoruba",
+      "n": 1,
+      "consensus_accuracy": 1.0,
+      "mean_consensus_frac": 0.75,
+      "flag": "FAIL"
+    },
+    {
+      "generator_model": "google/gemini-2.5-flash",
+      "variant": "adversarial-hard-negative",
+      "language": "ALL",
+      "n": 3,
+      "consensus_accuracy": 0.6666666666666666,
+      "mean_consensus_frac": 0.75,
+      "flag": "FAIL"
+    },
+    {
+      "generator_model": "google/gemini-2.5-flash",
+      "variant": "taxonomy-guided",
+      "language": "English",
+      "n": 1,
+      "consensus_accuracy": 1.0,
+      "mean_consensus_frac": 1.0,
+      "flag": "FAIL"
+    },
+    {
+      "generator_model": "google/gemini-2.5-flash",
+      "variant": "taxonomy-guided",
+      "language": "Arabic",
+      "n": 1,
+      "consensus_accuracy": 0.0,
+      "mean_consensus_frac": 1.0,
+      "flag": "PASS"
+    },
+    {
+      "generator_model": "google/gemini-2.5-flash",
+      "variant": "taxonomy-guided",
+      "language": "Yoruba",
+      "n": 1,
+      "consensus_accuracy": 0.0,
+      "mean_consensus_frac": 1.0,
+      "flag": "PASS"
+    },
+    {
+      "generator_model": "google/gemini-2.5-flash",
+      "variant": "taxonomy-guided",
+      "language": "ALL",
+      "n": 3,
+      "consensus_accuracy": 0.3333333333333333,
+      "mean_consensus_frac": 1.0,
+      "flag": "REVIEW"
+    },
+    {
+      "generator_model": "google/gemini-2.5-flash",
+      "variant": "adversarial-contrastive",
+      "language": "English",
+      "n": 1,
+      "consensus_accuracy": 1.0,
+      "mean_consensus_frac": 0.75,
+      "flag": "FAIL"
+    },
+    {
+      "generator_model": "google/gemini-2.5-flash",
+      "variant": "adversarial-contrastive",
+      "language": "Arabic",
+      "n": 1,
+      "consensus_accuracy": 1.0,
+      "mean_consensus_frac": 0.75,
+      "flag": "FAIL"
+    },
+    {
+      "generator_model": "google/gemini-2.5-flash",
+      "variant": "adversarial-contrastive",
+      "language": "ALL",
+      "n": 2,
+      "consensus_accuracy": 1.0,
+      "mean_consensus_frac": 0.75,
+      "flag": "FAIL"
+    },
+    {
+      "generator_model": "google/gemini-2.5-flash",
+      "variant": "overgenerate-select",
+      "language": "ALL",
+      "n": 0,
+      "consensus_accuracy": NaN,
+      "mean_consensus_frac": NaN,
+      "flag": "N/A"
+    },
+    {
+      "generator_model": "anthropic/claude-sonnet-4",
+      "variant": "adversarial-length-locked",
+      "language": "English",
+      "n": 1,
+      "consensus_accuracy": 1.0,
+      "mean_consensus_frac": 0.5,
+      "flag": "FAIL"
+    },
+    {
+      "generator_model": "anthropic/claude-sonnet-4",
+      "variant": "adversarial-length-locked",
+      "language": "Yoruba",
+      "n": 1,
+      "consensus_accuracy": 1.0,
+      "mean_consensus_frac": 0.75,
+      "flag": "FAIL"
+    },
+    {
+      "generator_model": "anthropic/claude-sonnet-4",
+      "variant": "adversarial-length-locked",
+      "language": "ALL",
+      "n": 2,
+      "consensus_accuracy": 1.0,
+      "mean_consensus_frac": 0.625,
+      "flag": "FAIL"
+    },
+    {
+      "generator_model": "anthropic/claude-sonnet-4",
+      "variant": "adversarial-hard-negative",
+      "language": "English",
+      "n": 1,
+      "consensus_accuracy": 0.0,
+      "mean_consensus_frac": 0.5,
+      "flag": "PASS"
+    },
+    {
+      "generator_model": "anthropic/claude-sonnet-4",
+      "variant": "adversarial-hard-negative",
+      "language": "Arabic",
+      "n": 1,
+      "consensus_accuracy": 1.0,
+      "mean_consensus_frac": 0.5,
+      "flag": "FAIL"
+    },
+    {
+      "generator_model": "anthropic/claude-sonnet-4",
+      "variant": "adversarial-hard-negative",
+      "language": "Yoruba",
+      "n": 1,
+      "consensus_accuracy": 1.0,
+      "mean_consensus_frac": 0.5,
+      "flag": "FAIL"
+    },
+    {
+      "generator_model": "anthropic/claude-sonnet-4",
+      "variant": "adversarial-hard-negative",
+      "language": "ALL",
+      "n": 3,
+      "consensus_accuracy": 0.6666666666666666,
+      "mean_consensus_frac": 0.5,
+      "flag": "FAIL"
+    },
+    {
+      "generator_model": "anthropic/claude-sonnet-4",
+      "variant": "taxonomy-guided",
+      "language": "English",
+      "n": 1,
+      "consensus_accuracy": 1.0,
+      "mean_consensus_frac": 0.75,
+      "flag": "FAIL"
+    },
+    {
+      "generator_model": "anthropic/claude-sonnet-4",
+      "variant": "taxonomy-guided",
+      "language": "Arabic",
+      "n": 1,
+      "consensus_accuracy": 1.0,
+      "mean_consensus_frac": 0.75,
+      "flag": "FAIL"
+    },
+    {
+      "generator_model": "anthropic/claude-sonnet-4",
+      "variant": "taxonomy-guided",
+      "language": "Yoruba",
+      "n": 1,
+      "consensus_accuracy": 0.0,
+      "mean_consensus_frac": 0.5,
+      "flag": "PASS"
+    },
+    {
+      "generator_model": "anthropic/claude-sonnet-4",
+      "variant": "taxonomy-guided",
+      "language": "ALL",
+      "n": 3,
+      "consensus_accuracy": 0.6666666666666666,
+      "mean_consensus_frac": 0.6666666666666666,
+      "flag": "FAIL"
+    },
+    {
+      "generator_model": "anthropic/claude-sonnet-4",
+      "variant": "adversarial-contrastive",
+      "language": "English",
+      "n": 1,
+      "consensus_accuracy": 1.0,
+      "mean_consensus_frac": 1.0,
+      "flag": "FAIL"
+    },
+    {
+      "generator_model": "anthropic/claude-sonnet-4",
+      "variant": "adversarial-contrastive",
+      "language": "Arabic",
+      "n": 1,
+      "consensus_accuracy": 1.0,
+      "mean_consensus_frac": 0.5,
+      "flag": "FAIL"
+    },
+    {
+      "generator_model": "anthropic/claude-sonnet-4",
+      "variant": "adversarial-contrastive",
+      "language": "ALL",
+      "n": 2,
+      "consensus_accuracy": 1.0,
+      "mean_consensus_frac": 0.75,
+      "flag": "FAIL"
+    },
+    {
+      "generator_model": "anthropic/claude-sonnet-4",
+      "variant": "overgenerate-select",
+      "language": "ALL",
+      "n": 0,
+      "consensus_accuracy": NaN,
+      "mean_consensus_frac": NaN,
+      "flag": "N/A"
+    }
+  ],
+  "per_model_accuracy": [
+    {
+      "generator_model": "openai/gpt-4.1-mini",
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "accuracy": 0.5,
+      "n": 4
+    },
+    {
+      "generator_model": "openai/gpt-4.1-mini",
+      "model": "mistralai/mistral-small-3.2-24b-instruct",
+      "accuracy": 0.25,
+      "n": 4
+    },
+    {
+      "generator_model": "openai/gpt-4.1-mini",
+      "model": "google/gemma-3-27b-it",
+      "accuracy": 0.5,
+      "n": 4
+    },
+    {
+      "generator_model": "openai/gpt-4.1-mini",
+      "model": "deepseek/deepseek-v3.2",
+      "accuracy": 0.25,
+      "n": 4
+    },
+    {
+      "generator_model": "google/gemini-2.5-pro",
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "accuracy": 0.5,
+      "n": 4
+    },
+    {
+      "generator_model": "google/gemini-2.5-pro",
+      "model": "mistralai/mistral-small-3.2-24b-instruct",
+      "accuracy": 0.5,
+      "n": 4
+    },
+    {
+      "generator_model": "google/gemini-2.5-pro",
+      "model": "google/gemma-3-27b-it",
+      "accuracy": 0.5,
+      "n": 4
+    },
+    {
+      "generator_model": "google/gemini-2.5-pro",
+      "model": "deepseek/deepseek-v3.2",
+      "accuracy": 0.5,
+      "n": 4
+    },
+    {
+      "generator_model": "openai/gpt-4.1-nano",
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "accuracy": 0.0,
+      "n": 4
+    },
+    {
+      "generator_model": "openai/gpt-4.1-nano",
+      "model": "mistralai/mistral-small-3.2-24b-instruct",
+      "accuracy": 0.25,
+      "n": 4
+    },
+    {
+      "generator_model": "openai/gpt-4.1-nano",
+      "model": "google/gemma-3-27b-it",
+      "accuracy": 0.25,
+      "n": 4
+    },
+    {
+      "generator_model": "openai/gpt-4.1-nano",
+      "model": "deepseek/deepseek-v3.2",
+      "accuracy": 0.75,
+      "n": 4
+    },
+    {
+      "generator_model": "qwen/qwen3.7-max",
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "accuracy": 1.0,
+      "n": 1
+    },
+    {
+      "generator_model": "qwen/qwen3.7-max",
+      "model": "mistralai/mistral-small-3.2-24b-instruct",
+      "accuracy": 1.0,
+      "n": 1
+    },
+    {
+      "generator_model": "qwen/qwen3.7-max",
+      "model": "google/gemma-3-27b-it",
+      "accuracy": 1.0,
+      "n": 1
+    },
+    {
+      "generator_model": "qwen/qwen3.7-max",
+      "model": "deepseek/deepseek-v3.2",
+      "accuracy": 1.0,
+      "n": 1
+    },
+    {
+      "generator_model": "google/gemma-4-31b-it",
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "accuracy": 0.18181818181818182,
+      "n": 11
+    },
+    {
+      "generator_model": "google/gemma-4-31b-it",
+      "model": "mistralai/mistral-small-3.2-24b-instruct",
+      "accuracy": 0.5454545454545454,
+      "n": 11
+    },
+    {
+      "generator_model": "google/gemma-4-31b-it",
+      "model": "google/gemma-3-27b-it",
+      "accuracy": 0.2727272727272727,
+      "n": 11
+    },
+    {
+      "generator_model": "google/gemma-4-31b-it",
+      "model": "deepseek/deepseek-v3.2",
+      "accuracy": 0.18181818181818182,
+      "n": 11
+    },
+    {
+      "generator_model": "google/gemini-2.5-flash",
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "accuracy": 0.5454545454545454,
+      "n": 11
+    },
+    {
+      "generator_model": "google/gemini-2.5-flash",
+      "model": "mistralai/mistral-small-3.2-24b-instruct",
+      "accuracy": 0.5454545454545454,
+      "n": 11
+    },
+    {
+      "generator_model": "google/gemini-2.5-flash",
+      "model": "google/gemma-3-27b-it",
+      "accuracy": 0.6363636363636364,
+      "n": 11
+    },
+    {
+      "generator_model": "google/gemini-2.5-flash",
+      "model": "deepseek/deepseek-v3.2",
+      "accuracy": 0.5454545454545454,
+      "n": 11
+    },
+    {
+      "generator_model": "anthropic/claude-sonnet-4",
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "accuracy": 0.9,
+      "n": 10
+    },
+    {
+      "generator_model": "anthropic/claude-sonnet-4",
+      "model": "mistralai/mistral-small-3.2-24b-instruct",
+      "accuracy": 0.7,
+      "n": 10
+    },
+    {
+      "generator_model": "anthropic/claude-sonnet-4",
+      "model": "google/gemma-3-27b-it",
+      "accuracy": 0.3,
+      "n": 10
+    },
+    {
+      "generator_model": "anthropic/claude-sonnet-4",
+      "model": "deepseek/deepseek-v3.2",
+      "accuracy": 0.5,
+      "n": 10
+    }
+  ],
+  "cost_history": [
+    {
+      "model": "qwen/qwen3.7-max",
+      "purpose": "generation-qwen/qwen3.7-max-adversarial-length-locked",
+      "input_tokens": 290,
+      "output_tokens": 5445,
+      "cost_usd": 0.02078125,
+      "cumulative_usd": 0.02078125
+    },
+    {
+      "model": "qwen/qwen3.7-max",
+      "purpose": "generation-qwen/qwen3.7-max-adversarial-length-locked",
+      "input_tokens": 290,
+      "output_tokens": 7398,
+      "cost_usd": 0.028105,
+      "cumulative_usd": 0.048886250000000006
+    },
+    {
+      "model": "google/gemma-4-31b-it",
+      "purpose": "generation-google/gemma-4-31b-it-adversarial-length-locked",
+      "input_tokens": 303,
+      "output_tokens": 39,
+      "cost_usd": 5.04e-05,
+      "cumulative_usd": 0.048936650000000005
+    },
+    {
+      "model": "google/gemini-2.5-flash",
+      "purpose": "generation-google/gemini-2.5-flash-adversarial-length-locked",
+      "input_tokens": 273,
+      "output_tokens": 46,
+      "cost_usd": 6.855e-05,
+      "cumulative_usd": 0.049005200000000006
+    },
+    {
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "purpose": "audit-preflight",
+      "input_tokens": 74,
+      "output_tokens": 3,
+      "cost_usd": 8.36e-06,
+      "cumulative_usd": 0.049013560000000005
+    },
+    {
+      "model": "mistralai/mistral-small-3.2-24b-instruct",
+      "purpose": "audit-preflight",
+      "input_tokens": 64,
+      "output_tokens": 2,
+      "cost_usd": 5.2e-06,
+      "cumulative_usd": 0.04901876
+    },
+    {
+      "model": "google/gemma-3-27b-it",
+      "purpose": "audit-preflight",
+      "input_tokens": 104,
+      "output_tokens": 6,
+      "cost_usd": 9.280000000000001e-06,
+      "cumulative_usd": 0.04902804
+    },
+    {
+      "model": "deepseek/deepseek-v3.2",
+      "purpose": "audit-preflight",
+      "input_tokens": 62,
+      "output_tokens": 2,
+      "cost_usd": 1.4872000000000001e-05,
+      "cumulative_usd": 0.049042912
+    },
+    {
+      "model": "qwen/qwen3.7-max",
+      "purpose": "generation-qwen/qwen3.7-max-adversarial-length-locked",
+      "input_tokens": 290,
+      "output_tokens": 5287,
+      "cost_usd": 0.02018875,
+      "cumulative_usd": 0.069231662
+    },
+    {
+      "model": "qwen/qwen3.7-max",
+      "purpose": "generation-qwen/qwen3.7-max-adversarial-length-locked",
+      "input_tokens": 290,
+      "output_tokens": 3415,
+      "cost_usd": 0.01316875,
+      "cumulative_usd": 0.082400412
+    },
+    {
+      "model": "google/gemma-4-31b-it",
+      "purpose": "generation-google/gemma-4-31b-it-adversarial-length-locked",
+      "input_tokens": 292,
+      "output_tokens": 32,
+      "cost_usd": 4.656e-05,
+      "cumulative_usd": 0.08244697200000001
+    },
+    {
+      "model": "google/gemini-2.5-flash",
+      "purpose": "generation-google/gemini-2.5-flash-adversarial-length-locked",
+      "input_tokens": 273,
+      "output_tokens": 46,
+      "cost_usd": 6.855e-05,
+      "cumulative_usd": 0.08251552200000001
+    },
+    {
+      "model": "google/gemma-4-31b-it",
+      "purpose": "generation-google/gemma-4-31b-it-adversarial-length-locked",
+      "input_tokens": 292,
+      "output_tokens": 25,
+      "cost_usd": 4.404e-05,
+      "cumulative_usd": 0.082559562
+    },
+    {
+      "model": "google/gemini-2.5-flash",
+      "purpose": "generation-google/gemini-2.5-flash-adversarial-length-locked",
+      "input_tokens": 273,
+      "output_tokens": 41,
+      "cost_usd": 6.555e-05,
+      "cumulative_usd": 0.082625112
+    },
+    {
+      "model": "anthropic/claude-sonnet-4",
+      "purpose": "generation-anthropic/claude-sonnet-4-adversarial-length-locked",
+      "input_tokens": 318,
+      "output_tokens": 36,
+      "cost_usd": 0.001494,
+      "cumulative_usd": 0.084119112
+    },
+    {
+      "model": "google/gemma-4-31b-it",
+      "purpose": "generation-google/gemma-4-31b-it-adversarial-length-locked",
+      "input_tokens": 507,
+      "output_tokens": 54,
+      "cost_usd": 8.028e-05,
+      "cumulative_usd": 0.084199392
+    },
+    {
+      "model": "google/gemma-4-31b-it",
+      "purpose": "generation-google/gemma-4-31b-it-adversarial-length-locked",
+      "input_tokens": 507,
+      "output_tokens": 59,
+      "cost_usd": 8.208e-05,
+      "cumulative_usd": 0.084281472
+    },
+    {
+      "model": "google/gemini-2.5-flash",
+      "purpose": "generation-google/gemini-2.5-flash-adversarial-length-locked",
+      "input_tokens": 488,
+      "output_tokens": 109,
+      "cost_usd": 0.00013859999999999998,
+      "cumulative_usd": 0.084420072
+    },
+    {
+      "model": "anthropic/claude-sonnet-4",
+      "purpose": "generation-anthropic/claude-sonnet-4-adversarial-length-locked",
+      "input_tokens": 592,
+      "output_tokens": 67,
+      "cost_usd": 0.002781,
+      "cumulative_usd": 0.087201072
+    },
+    {
+      "model": "google/gemma-4-31b-it",
+      "purpose": "generation-google/gemma-4-31b-it-adversarial-hard-negative",
+      "input_tokens": 279,
+      "output_tokens": 39,
+      "cost_usd": 4.752e-05,
+      "cumulative_usd": 0.087248592
+    },
+    {
+      "model": "google/gemini-2.5-flash",
+      "purpose": "generation-google/gemini-2.5-flash-adversarial-hard-negative",
+      "input_tokens": 260,
+      "output_tokens": 45,
+      "cost_usd": 6.6e-05,
+      "cumulative_usd": 0.087314592
+    },
+    {
+      "model": "anthropic/claude-sonnet-4",
+      "purpose": "generation-anthropic/claude-sonnet-4-adversarial-hard-negative",
+      "input_tokens": 322,
+      "output_tokens": 45,
+      "cost_usd": 0.001641,
+      "cumulative_usd": 0.088955592
+    },
+    {
+      "model": "anthropic/claude-sonnet-4",
+      "purpose": "generation-anthropic/claude-sonnet-4-adversarial-hard-negative",
+      "input_tokens": 322,
+      "output_tokens": 45,
+      "cost_usd": 0.001641,
+      "cumulative_usd": 0.090596592
+    },
+    {
+      "model": "google/gemma-4-31b-it",
+      "purpose": "generation-google/gemma-4-31b-it-adversarial-hard-negative",
+      "input_tokens": 279,
+      "output_tokens": 24,
+      "cost_usd": 4.2119999999999997e-05,
+      "cumulative_usd": 0.09063871200000001
+    },
+    {
+      "model": "google/gemini-2.5-flash",
+      "purpose": "generation-google/gemini-2.5-flash-adversarial-hard-negative",
+      "input_tokens": 260,
+      "output_tokens": 39,
+      "cost_usd": 6.24e-05,
+      "cumulative_usd": 0.09070111200000001
+    },
+    {
+      "model": "anthropic/claude-sonnet-4",
+      "purpose": "generation-anthropic/claude-sonnet-4-adversarial-hard-negative",
+      "input_tokens": 312,
+      "output_tokens": 40,
+      "cost_usd": 0.001536,
+      "cumulative_usd": 0.09223711200000001
+    },
+    {
+      "model": "google/gemma-4-31b-it",
+      "purpose": "generation-google/gemma-4-31b-it-adversarial-hard-negative",
+      "input_tokens": 494,
+      "output_tokens": 62,
+      "cost_usd": 8.159999999999999e-05,
+      "cumulative_usd": 0.09231871200000001
+    },
+    {
+      "model": "google/gemini-2.5-flash",
+      "purpose": "generation-google/gemini-2.5-flash-adversarial-hard-negative",
+      "input_tokens": 475,
+      "output_tokens": 64,
+      "cost_usd": 0.00010965000000000001,
+      "cumulative_usd": 0.09242836200000001
+    },
+    {
+      "model": "anthropic/claude-sonnet-4",
+      "purpose": "generation-anthropic/claude-sonnet-4-adversarial-hard-negative",
+      "input_tokens": 586,
+      "output_tokens": 72,
+      "cost_usd": 0.002838,
+      "cumulative_usd": 0.09526636200000001
+    },
+    {
+      "model": "google/gemma-4-31b-it",
+      "purpose": "generation-google/gemma-4-31b-it-taxonomy-guided",
+      "input_tokens": 299,
+      "output_tokens": 45,
+      "cost_usd": 5.2079999999999996e-05,
+      "cumulative_usd": 0.095318442
+    },
+    {
+      "model": "google/gemini-2.5-flash",
+      "purpose": "generation-google/gemini-2.5-flash-taxonomy-guided",
+      "input_tokens": 269,
+      "output_tokens": 41,
+      "cost_usd": 6.495e-05,
+      "cumulative_usd": 0.095383392
+    },
+    {
+      "model": "anthropic/claude-sonnet-4",
+      "purpose": "generation-anthropic/claude-sonnet-4-taxonomy-guided",
+      "input_tokens": 325,
+      "output_tokens": 48,
+      "cost_usd": 0.001695,
+      "cumulative_usd": 0.097078392
+    },
+    {
+      "model": "google/gemma-4-31b-it",
+      "purpose": "generation-google/gemma-4-31b-it-taxonomy-guided",
+      "input_tokens": 299,
+      "output_tokens": 37,
+      "cost_usd": 4.9199999999999997e-05,
+      "cumulative_usd": 0.097127592
+    },
+    {
+      "model": "google/gemini-2.5-flash",
+      "purpose": "generation-google/gemini-2.5-flash-taxonomy-guided",
+      "input_tokens": 269,
+      "output_tokens": 41,
+      "cost_usd": 6.495e-05,
+      "cumulative_usd": 0.09719254199999999
+    },
+    {
+      "model": "anthropic/claude-sonnet-4",
+      "purpose": "generation-anthropic/claude-sonnet-4-taxonomy-guided",
+      "input_tokens": 315,
+      "output_tokens": 50,
+      "cost_usd": 0.001695,
+      "cumulative_usd": 0.098887542
+    },
+    {
+      "model": "google/gemma-4-31b-it",
+      "purpose": "generation-google/gemma-4-31b-it-taxonomy-guided",
+      "input_tokens": 503,
+      "output_tokens": 60,
+      "cost_usd": 8.196e-05,
+      "cumulative_usd": 0.098969502
+    },
+    {
+      "model": "google/gemini-2.5-flash",
+      "purpose": "generation-google/gemini-2.5-flash-taxonomy-guided",
+      "input_tokens": 484,
+      "output_tokens": 64,
+      "cost_usd": 0.000111,
+      "cumulative_usd": 0.099080502
+    },
+    {
+      "model": "anthropic/claude-sonnet-4",
+      "purpose": "generation-anthropic/claude-sonnet-4-taxonomy-guided",
+      "input_tokens": 589,
+      "output_tokens": 64,
+      "cost_usd": 0.002727,
+      "cumulative_usd": 0.101807502
+    },
+    {
+      "model": "google/gemma-4-31b-it",
+      "purpose": "generation-google/gemma-4-31b-it-adversarial-contrastive",
+      "input_tokens": 341,
+      "output_tokens": 30,
+      "cost_usd": 5.172e-05,
+      "cumulative_usd": 0.101859222
+    },
+    {
+      "model": "google/gemma-4-31b-it",
+      "purpose": "generation-google/gemma-4-31b-it-adversarial-contrastive",
+      "input_tokens": 341,
+      "output_tokens": 30,
+      "cost_usd": 5.172e-05,
+      "cumulative_usd": 0.101910942
+    },
+    {
+      "model": "google/gemini-2.5-flash",
+      "purpose": "generation-google/gemini-2.5-flash-adversarial-contrastive",
+      "input_tokens": 322,
+      "output_tokens": 40,
+      "cost_usd": 7.23e-05,
+      "cumulative_usd": 0.101983242
+    },
+    {
+      "model": "google/gemini-2.5-flash",
+      "purpose": "generation-google/gemini-2.5-flash-adversarial-contrastive",
+      "input_tokens": 322,
+      "output_tokens": 40,
+      "cost_usd": 7.23e-05,
+      "cumulative_usd": 0.102055542
+    },
+    {
+      "model": "anthropic/claude-sonnet-4",
+      "purpose": "generation-anthropic/claude-sonnet-4-adversarial-contrastive",
+      "input_tokens": 387,
+      "output_tokens": 36,
+      "cost_usd": 0.001701,
+      "cumulative_usd": 0.103756542
+    },
+    {
+      "model": "anthropic/claude-sonnet-4",
+      "purpose": "generation-anthropic/claude-sonnet-4-adversarial-contrastive",
+      "input_tokens": 387,
+      "output_tokens": 51,
+      "cost_usd": 0.001926,
+      "cumulative_usd": 0.10568254199999999
+    },
+    {
+      "model": "google/gemma-4-31b-it",
+      "purpose": "generation-google/gemma-4-31b-it-adversarial-contrastive",
+      "input_tokens": 341,
+      "output_tokens": 26,
+      "cost_usd": 5.028e-05,
+      "cumulative_usd": 0.10573282199999999
+    },
+    {
+      "model": "google/gemma-4-31b-it",
+      "purpose": "generation-google/gemma-4-31b-it-adversarial-contrastive",
+      "input_tokens": 352,
+      "output_tokens": 28,
+      "cost_usd": 5.2319999999999994e-05,
+      "cumulative_usd": 0.10578514199999998
+    },
+    {
+      "model": "google/gemini-2.5-flash",
+      "purpose": "generation-google/gemini-2.5-flash-adversarial-contrastive",
+      "input_tokens": 322,
+      "output_tokens": 36,
+      "cost_usd": 6.989999999999999e-05,
+      "cumulative_usd": 0.10585504199999998
+    },
+    {
+      "model": "google/gemini-2.5-flash",
+      "purpose": "generation-google/gemini-2.5-flash-adversarial-contrastive",
+      "input_tokens": 322,
+      "output_tokens": 36,
+      "cost_usd": 6.989999999999999e-05,
+      "cumulative_usd": 0.10592494199999998
+    },
+    {
+      "model": "anthropic/claude-sonnet-4",
+      "purpose": "generation-anthropic/claude-sonnet-4-adversarial-contrastive",
+      "input_tokens": 377,
+      "output_tokens": 34,
+      "cost_usd": 0.001641,
+      "cumulative_usd": 0.10756594199999998
+    },
+    {
+      "model": "anthropic/claude-sonnet-4",
+      "purpose": "generation-anthropic/claude-sonnet-4-adversarial-contrastive",
+      "input_tokens": 377,
+      "output_tokens": 34,
+      "cost_usd": 0.001641,
+      "cumulative_usd": 0.10920694199999999
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "purpose": "generation-openai/gpt-4.1-mini-adversarial-contrastive",
+      "input_tokens": 537,
+      "output_tokens": 74,
+      "cost_usd": 0.0003332,
+      "cumulative_usd": 0.109540142
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "generation-google/gemini-2.5-pro-adversarial-contrastive",
+      "input_tokens": 537,
+      "output_tokens": 1827,
+      "cost_usd": 0.01894125,
+      "cumulative_usd": 0.128481392
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "generation-openai/gpt-4.1-nano-adversarial-contrastive",
+      "input_tokens": 537,
+      "output_tokens": 66,
+      "cost_usd": 8.010000000000001e-05,
+      "cumulative_usd": 0.128561492
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "purpose": "generation-openai/gpt-4.1-mini-overgenerate-select",
+      "input_tokens": 335,
+      "output_tokens": 43,
+      "cost_usd": 0.00020280000000000002,
+      "cumulative_usd": 0.128764292
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "generation-google/gemini-2.5-pro-overgenerate-select",
+      "input_tokens": 334,
+      "output_tokens": 1728,
+      "cost_usd": 0.0176975,
+      "cumulative_usd": 0.146461792
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "generation-openai/gpt-4.1-nano-overgenerate-select",
+      "input_tokens": 335,
+      "output_tokens": 34,
+      "cost_usd": 4.71e-05,
+      "cumulative_usd": 0.146508892
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "purpose": "generation-openai/gpt-4.1-mini-overgenerate-select",
+      "input_tokens": 336,
+      "output_tokens": 44,
+      "cost_usd": 0.00020480000000000002,
+      "cumulative_usd": 0.146713692
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "generation-google/gemini-2.5-pro-overgenerate-select",
+      "input_tokens": 334,
+      "output_tokens": 1833,
+      "cost_usd": 0.0187475,
+      "cumulative_usd": 0.165461192
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "generation-openai/gpt-4.1-nano-overgenerate-select",
+      "input_tokens": 336,
+      "output_tokens": 29,
+      "cost_usd": 4.52e-05,
+      "cumulative_usd": 0.165506392
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "purpose": "generation-openai/gpt-4.1-mini-overgenerate-select",
+      "input_tokens": 546,
+      "output_tokens": 66,
+      "cost_usd": 0.000324,
+      "cumulative_usd": 0.165830392
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "generation-google/gemini-2.5-pro-overgenerate-select",
+      "input_tokens": 435,
+      "output_tokens": 0,
+      "cost_usd": 0.00054375,
+      "cumulative_usd": 0.166374142
+    },
+    {
+      "model": "google/gemini-2.5-pro",
+      "purpose": "generation-google/gemini-2.5-pro-overgenerate-select",
+      "input_tokens": 549,
+      "output_tokens": 1967,
+      "cost_usd": 0.02035625,
+      "cumulative_usd": 0.186730392
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "generation-openai/gpt-4.1-nano-overgenerate-select",
+      "input_tokens": 546,
+      "output_tokens": 53,
+      "cost_usd": 7.580000000000001e-05,
+      "cumulative_usd": 0.18680619199999998
+    },
+    {
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "purpose": "audit",
+      "input_tokens": 66,
+      "output_tokens": 2,
+      "cost_usd": 7.24e-06,
+      "cumulative_usd": 0.18681343199999997
+    },
+    {
+      "model": "mistralai/mistral-small-3.2-24b-instruct",
+      "purpose": "audit",
+      "input_tokens": 57,
+      "output_tokens": 8,
+      "cost_usd": 5.875e-06,
+      "cumulative_usd": 0.18681930699999996
+    },
+    {
+      "model": "google/gemma-3-27b-it",
+      "purpose": "audit",
+      "input_tokens": 68,
+      "output_tokens": 4,
+      "cost_usd": 6.08e-06,
+      "cumulative_usd": 0.18682538699999995
+    },
+    {
+      "model": "deepseek/deepseek-v3.2",
+      "purpose": "audit",
+      "input_tokens": 55,
+      "output_tokens": 1,
+      "cost_usd": 1.2927199999999999e-05,
+      "cumulative_usd": 0.18683831419999997
+    },
+    {
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "purpose": "audit",
+      "input_tokens": 67,
+      "output_tokens": 2,
+      "cost_usd": 7.34e-06,
+      "cumulative_usd": 0.18684565419999996
+    },
+    {
+      "model": "mistralai/mistral-small-3.2-24b-instruct",
+      "purpose": "audit",
+      "input_tokens": 59,
+      "output_tokens": 10,
+      "cost_usd": 6.4249999999999995e-06,
+      "cumulative_usd": 0.18685207919999997
+    },
+    {
+      "model": "google/gemma-3-27b-it",
+      "purpose": "audit",
+      "input_tokens": 70,
+      "output_tokens": 3,
+      "cost_usd": 6.08e-06,
+      "cumulative_usd": 0.18685815919999996
+    },
+    {
+      "model": "deepseek/deepseek-v3.2",
+      "purpose": "audit",
+      "input_tokens": 56,
+      "output_tokens": 2,
+      "cost_usd": 1.34992e-05,
+      "cumulative_usd": 0.18687165839999995
+    },
+    {
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "purpose": "audit",
+      "input_tokens": 83,
+      "output_tokens": 3,
+      "cost_usd": 9.260000000000001e-06,
+      "cumulative_usd": 0.18688091839999996
+    },
+    {
+      "model": "mistralai/mistral-small-3.2-24b-instruct",
+      "purpose": "audit",
+      "input_tokens": 74,
+      "output_tokens": 13,
+      "cost_usd": 8.15e-06,
+      "cumulative_usd": 0.18688906839999997
+    },
+    {
+      "model": "google/gemma-3-27b-it",
+      "purpose": "audit",
+      "input_tokens": 81,
+      "output_tokens": 2,
+      "cost_usd": 6.800000000000001e-06,
+      "cumulative_usd": 0.18689586839999997
+    },
+    {
+      "model": "deepseek/deepseek-v3.2",
+      "purpose": "audit",
+      "input_tokens": 71,
+      "output_tokens": 2,
+      "cost_usd": 1.69312e-05,
+      "cumulative_usd": 0.18691279959999996
+    },
+    {
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "purpose": "audit",
+      "input_tokens": 61,
+      "output_tokens": 3,
+      "cost_usd": 7.06e-06,
+      "cumulative_usd": 0.18691985959999996
+    },
+    {
+      "model": "mistralai/mistral-small-3.2-24b-instruct",
+      "purpose": "audit",
+      "input_tokens": 49,
+      "output_tokens": 8,
+      "cost_usd": 5.275e-06,
+      "cumulative_usd": 0.18692513459999996
+    },
+    {
+      "model": "google/gemma-3-27b-it",
+      "purpose": "audit",
+      "input_tokens": 57,
+      "output_tokens": 2,
+      "cost_usd": 4.880000000000001e-06,
+      "cumulative_usd": 0.18693001459999997
+    },
+    {
+      "model": "deepseek/deepseek-v3.2",
+      "purpose": "audit",
+      "input_tokens": 48,
+      "output_tokens": 2,
+      "cost_usd": 1.16688e-05,
+      "cumulative_usd": 0.18694168339999997
+    },
+    {
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "purpose": "audit",
+      "input_tokens": 84,
+      "output_tokens": 2,
+      "cost_usd": 9.040000000000002e-06,
+      "cumulative_usd": 0.18695072339999996
+    },
+    {
+      "model": "mistralai/mistral-small-3.2-24b-instruct",
+      "purpose": "audit",
+      "input_tokens": 75,
+      "output_tokens": 12,
+      "cost_usd": 8.025e-06,
+      "cumulative_usd": 0.18695874839999996
+    },
+    {
+      "model": "google/gemma-3-27b-it",
+      "purpose": "audit",
+      "input_tokens": 82,
+      "output_tokens": 3,
+      "cost_usd": 7.040000000000001e-06,
+      "cumulative_usd": 0.18696578839999997
+    },
+    {
+      "model": "deepseek/deepseek-v3.2",
+      "purpose": "audit",
+      "input_tokens": 72,
+      "output_tokens": 2,
+      "cost_usd": 1.7160000000000002e-05,
+      "cumulative_usd": 0.18698294839999996
+    },
+    {
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "purpose": "audit",
+      "input_tokens": 65,
+      "output_tokens": 3,
+      "cost_usd": 7.46e-06,
+      "cumulative_usd": 0.18699040839999995
+    },
+    {
+      "model": "mistralai/mistral-small-3.2-24b-instruct",
+      "purpose": "audit",
+      "input_tokens": 55,
+      "output_tokens": 8,
+      "cost_usd": 5.724999999999999e-06,
+      "cumulative_usd": 0.18699613339999996
+    },
+    {
+      "model": "google/gemma-3-27b-it",
+      "purpose": "audit",
+      "input_tokens": 62,
+      "output_tokens": 3,
+      "cost_usd": 5.44e-06,
+      "cumulative_usd": 0.18700157339999995
+    },
+    {
+      "model": "deepseek/deepseek-v3.2",
+      "purpose": "audit",
+      "input_tokens": 52,
+      "output_tokens": 1,
+      "cost_usd": 1.22408e-05,
+      "cumulative_usd": 0.18701381419999996
+    },
+    {
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "purpose": "audit",
+      "input_tokens": 97,
+      "output_tokens": 3,
+      "cost_usd": 1.066e-05,
+      "cumulative_usd": 0.18702447419999996
+    },
+    {
+      "model": "mistralai/mistral-small-3.2-24b-instruct",
+      "purpose": "audit",
+      "input_tokens": 86,
+      "output_tokens": 17,
+      "cost_usd": 9.850000000000002e-06,
+      "cumulative_usd": 0.18703432419999996
+    },
+    {
+      "model": "google/gemma-3-27b-it",
+      "purpose": "audit",
+      "input_tokens": 93,
+      "output_tokens": 3,
+      "cost_usd": 7.92e-06,
+      "cumulative_usd": 0.18704224419999996
+    },
+    {
+      "model": "deepseek/deepseek-v3.2",
+      "purpose": "audit",
+      "input_tokens": 85,
+      "output_tokens": 2,
+      "cost_usd": 2.0134399999999998e-05,
+      "cumulative_usd": 0.18706237859999997
+    },
+    {
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "purpose": "audit",
+      "input_tokens": 128,
+      "output_tokens": 3,
+      "cost_usd": 1.3760000000000002e-05,
+      "cumulative_usd": 0.18707613859999997
+    },
+    {
+      "model": "mistralai/mistral-small-3.2-24b-instruct",
+      "purpose": "audit",
+      "input_tokens": 118,
+      "output_tokens": 2,
+      "cost_usd": 9.25e-06,
+      "cumulative_usd": 0.18708538859999996
+    },
+    {
+      "model": "google/gemma-3-27b-it",
+      "purpose": "audit",
+      "input_tokens": 128,
+      "output_tokens": 2,
+      "cost_usd": 1.056e-05,
+      "cumulative_usd": 0.18709594859999995
+    },
+    {
+      "model": "deepseek/deepseek-v3.2",
+      "purpose": "audit",
+      "input_tokens": 116,
+      "output_tokens": 2,
+      "cost_usd": 2.72272e-05,
+      "cumulative_usd": 0.18712317579999996
+    },
+    {
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "purpose": "audit",
+      "input_tokens": 98,
+      "output_tokens": 3,
+      "cost_usd": 1.0760000000000002e-05,
+      "cumulative_usd": 0.18713393579999996
+    },
+    {
+      "model": "mistralai/mistral-small-3.2-24b-instruct",
+      "purpose": "audit",
+      "input_tokens": 87,
+      "output_tokens": 16,
+      "cost_usd": 9.725e-06,
+      "cumulative_usd": 0.18714366079999994
+    },
+    {
+      "model": "google/gemma-3-27b-it",
+      "purpose": "audit",
+      "input_tokens": 96,
+      "output_tokens": 2,
+      "cost_usd": 8e-06,
+      "cumulative_usd": 0.18715166079999995
+    },
+    {
+      "model": "deepseek/deepseek-v3.2",
+      "purpose": "audit",
+      "input_tokens": 86,
+      "output_tokens": 2,
+      "cost_usd": 2.03632e-05,
+      "cumulative_usd": 0.18717202399999996
+    },
+    {
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "purpose": "audit",
+      "input_tokens": 74,
+      "output_tokens": 3,
+      "cost_usd": 8.36e-06,
+      "cumulative_usd": 0.18718038399999998
+    },
+    {
+      "model": "mistralai/mistral-small-3.2-24b-instruct",
+      "purpose": "audit",
+      "input_tokens": 64,
+      "output_tokens": 13,
+      "cost_usd": 7.4e-06,
+      "cumulative_usd": 0.18718778399999997
+    },
+    {
+      "model": "google/gemma-3-27b-it",
+      "purpose": "audit",
+      "input_tokens": 73,
+      "output_tokens": 3,
+      "cost_usd": 6.3200000000000005e-06,
+      "cumulative_usd": 0.18719410399999997
+    },
+    {
+      "model": "deepseek/deepseek-v3.2",
+      "purpose": "audit",
+      "input_tokens": 62,
+      "output_tokens": 2,
+      "cost_usd": 1.4872000000000001e-05,
+      "cumulative_usd": 0.18720897599999997
+    },
+    {
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "purpose": "audit",
+      "input_tokens": 80,
+      "output_tokens": 3,
+      "cost_usd": 8.96e-06,
+      "cumulative_usd": 0.18721793599999997
+    },
+    {
+      "model": "mistralai/mistral-small-3.2-24b-instruct",
+      "purpose": "audit",
+      "input_tokens": 70,
+      "output_tokens": 2,
+      "cost_usd": 5.65e-06,
+      "cumulative_usd": 0.18722358599999997
+    },
+    {
+      "model": "google/gemma-3-27b-it",
+      "purpose": "audit",
+      "input_tokens": 84,
+      "output_tokens": 4,
+      "cost_usd": 7.36e-06,
+      "cumulative_usd": 0.18723094599999998
+    },
+    {
+      "model": "deepseek/deepseek-v3.2",
+      "purpose": "audit",
+      "input_tokens": 68,
+      "output_tokens": 2,
+      "cost_usd": 1.62448e-05,
+      "cumulative_usd": 0.1872471908
+    },
+    {
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "purpose": "audit",
+      "input_tokens": 61,
+      "output_tokens": 2,
+      "cost_usd": 6.74e-06,
+      "cumulative_usd": 0.1872539308
+    },
+    {
+      "model": "mistralai/mistral-small-3.2-24b-instruct",
+      "purpose": "audit",
+      "input_tokens": 51,
+      "output_tokens": 8,
+      "cost_usd": 5.425e-06,
+      "cumulative_usd": 0.1872593558
+    },
+    {
+      "model": "google/gemma-3-27b-it",
+      "purpose": "audit",
+      "input_tokens": 64,
+      "output_tokens": 3,
+      "cost_usd": 5.6e-06,
+      "cumulative_usd": 0.1872649558
+    },
+    {
+      "model": "deepseek/deepseek-v3.2",
+      "purpose": "audit",
+      "input_tokens": 50,
+      "output_tokens": 8,
+      "cost_usd": 1.4185599999999998e-05,
+      "cumulative_usd": 0.1872791414
+    },
+    {
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "purpose": "audit",
+      "input_tokens": 59,
+      "output_tokens": 2,
+      "cost_usd": 6.54e-06,
+      "cumulative_usd": 0.1872856814
+    },
+    {
+      "model": "mistralai/mistral-small-3.2-24b-instruct",
+      "purpose": "audit",
+      "input_tokens": 47,
+      "output_tokens": 2,
+      "cost_usd": 3.925e-06,
+      "cumulative_usd": 0.18728960639999997
+    },
+    {
+      "model": "google/gemma-3-27b-it",
+      "purpose": "audit",
+      "input_tokens": 58,
+      "output_tokens": 4,
+      "cost_usd": 5.279999999999999e-06,
+      "cumulative_usd": 0.18729488639999997
+    },
+    {
+      "model": "deepseek/deepseek-v3.2",
+      "purpose": "audit",
+      "input_tokens": 48,
+      "output_tokens": 1,
+      "cost_usd": 1.13256e-05,
+      "cumulative_usd": 0.18730621199999997
+    },
+    {
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "purpose": "audit",
+      "input_tokens": 98,
+      "output_tokens": 3,
+      "cost_usd": 1.0760000000000002e-05,
+      "cumulative_usd": 0.18731697199999997
+    },
+    {
+      "model": "mistralai/mistral-small-3.2-24b-instruct",
+      "purpose": "audit",
+      "input_tokens": 69,
+      "output_tokens": 12,
+      "cost_usd": 7.575e-06,
+      "cumulative_usd": 0.18732454699999998
+    },
+    {
+      "model": "google/gemma-3-27b-it",
+      "purpose": "audit",
+      "input_tokens": 77,
+      "output_tokens": 4,
+      "cost_usd": 6.8e-06,
+      "cumulative_usd": 0.18733134699999998
+    },
+    {
+      "model": "deepseek/deepseek-v3.2",
+      "purpose": "audit",
+      "input_tokens": 63,
+      "output_tokens": 2,
+      "cost_usd": 1.5100800000000001e-05,
+      "cumulative_usd": 0.18734644779999998
+    },
+    {
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "purpose": "audit",
+      "input_tokens": 64,
+      "output_tokens": 3,
+      "cost_usd": 7.360000000000001e-06,
+      "cumulative_usd": 0.1873538078
+    },
+    {
+      "model": "mistralai/mistral-small-3.2-24b-instruct",
+      "purpose": "audit",
+      "input_tokens": 54,
+      "output_tokens": 8,
+      "cost_usd": 5.65e-06,
+      "cumulative_usd": 0.1873594578
+    },
+    {
+      "model": "google/gemma-3-27b-it",
+      "purpose": "audit",
+      "input_tokens": 66,
+      "output_tokens": 4,
+      "cost_usd": 5.92e-06,
+      "cumulative_usd": 0.18736537779999998
+    },
+    {
+      "model": "deepseek/deepseek-v3.2",
+      "purpose": "audit",
+      "input_tokens": 53,
+      "output_tokens": 2,
+      "cost_usd": 1.28128e-05,
+      "cumulative_usd": 0.1873781906
+    },
+    {
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "purpose": "audit",
+      "input_tokens": 99,
+      "output_tokens": 2,
+      "cost_usd": 1.054e-05,
+      "cumulative_usd": 0.1873887306
+    },
+    {
+      "model": "mistralai/mistral-small-3.2-24b-instruct",
+      "purpose": "audit",
+      "input_tokens": 90,
+      "output_tokens": 19,
+      "cost_usd": 1.055e-05,
+      "cumulative_usd": 0.1873992806
+    },
+    {
+      "model": "google/gemma-3-27b-it",
+      "purpose": "audit",
+      "input_tokens": 100,
+      "output_tokens": 4,
+      "cost_usd": 8.64e-06,
+      "cumulative_usd": 0.1874079206
+    },
+    {
+      "model": "deepseek/deepseek-v3.2",
+      "purpose": "audit",
+      "input_tokens": 88,
+      "output_tokens": 2,
+      "cost_usd": 2.08208e-05,
+      "cumulative_usd": 0.1874287414
+    },
+    {
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "purpose": "audit",
+      "input_tokens": 100,
+      "output_tokens": 2,
+      "cost_usd": 1.064e-05,
+      "cumulative_usd": 0.1874393814
+    },
+    {
+      "model": "mistralai/mistral-small-3.2-24b-instruct",
+      "purpose": "audit",
+      "input_tokens": 90,
+      "output_tokens": 15,
+      "cost_usd": 9.75e-06,
+      "cumulative_usd": 0.1874491314
+    },
+    {
+      "model": "google/gemma-3-27b-it",
+      "purpose": "audit",
+      "input_tokens": 99,
+      "output_tokens": 3,
+      "cost_usd": 8.400000000000001e-06,
+      "cumulative_usd": 0.1874575314
+    },
+    {
+      "model": "deepseek/deepseek-v3.2",
+      "purpose": "audit",
+      "input_tokens": 89,
+      "output_tokens": 2,
+      "cost_usd": 2.10496e-05,
+      "cumulative_usd": 0.18747858099999998
+    },
+    {
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "purpose": "audit",
+      "input_tokens": 101,
+      "output_tokens": 2,
+      "cost_usd": 1.0740000000000002e-05,
+      "cumulative_usd": 0.187489321
+    },
+    {
+      "model": "mistralai/mistral-small-3.2-24b-instruct",
+      "purpose": "audit",
+      "input_tokens": 91,
+      "output_tokens": 2,
+      "cost_usd": 7.225e-06,
+      "cumulative_usd": 0.187496546
+    },
+    {
+      "model": "google/gemma-3-27b-it",
+      "purpose": "audit",
+      "input_tokens": 101,
+      "output_tokens": 4,
+      "cost_usd": 8.720000000000001e-06,
+      "cumulative_usd": 0.18750526599999998
+    },
+    {
+      "model": "deepseek/deepseek-v3.2",
+      "purpose": "audit",
+      "input_tokens": 89,
+      "output_tokens": 2,
+      "cost_usd": 2.10496e-05,
+      "cumulative_usd": 0.18752631559999997
+    },
+    {
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "purpose": "audit",
+      "input_tokens": 78,
+      "output_tokens": 3,
+      "cost_usd": 8.76e-06,
+      "cumulative_usd": 0.18753507559999996
+    },
+    {
+      "model": "mistralai/mistral-small-3.2-24b-instruct",
+      "purpose": "audit",
+      "input_tokens": 71,
+      "output_tokens": 2,
+      "cost_usd": 5.725e-06,
+      "cumulative_usd": 0.18754080059999997
+    },
+    {
+      "model": "google/gemma-3-27b-it",
+      "purpose": "audit",
+      "input_tokens": 75,
+      "output_tokens": 3,
+      "cost_usd": 6.480000000000001e-06,
+      "cumulative_usd": 0.18754728059999998
+    },
+    {
+      "model": "deepseek/deepseek-v3.2",
+      "purpose": "audit",
+      "input_tokens": 68,
+      "output_tokens": 2,
+      "cost_usd": 1.62448e-05,
+      "cumulative_usd": 0.1875635254
+    },
+    {
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "purpose": "audit",
+      "input_tokens": 78,
+      "output_tokens": 2,
+      "cost_usd": 8.44e-06,
+      "cumulative_usd": 0.18757196539999998
+    },
+    {
+      "model": "mistralai/mistral-small-3.2-24b-instruct",
+      "purpose": "audit",
+      "input_tokens": 68,
+      "output_tokens": 2,
+      "cost_usd": 5.5e-06,
+      "cumulative_usd": 0.18757746539999998
+    },
+    {
+      "model": "google/gemma-3-27b-it",
+      "purpose": "audit",
+      "input_tokens": 76,
+      "output_tokens": 3,
+      "cost_usd": 6.560000000000001e-06,
+      "cumulative_usd": 0.18758402539999997
+    },
+    {
+      "model": "deepseek/deepseek-v3.2",
+      "purpose": "audit",
+      "input_tokens": 66,
+      "output_tokens": 2,
+      "cost_usd": 1.57872e-05,
+      "cumulative_usd": 0.18759981259999997
+    },
+    {
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "purpose": "audit",
+      "input_tokens": 98,
+      "output_tokens": 3,
+      "cost_usd": 1.0760000000000002e-05,
+      "cumulative_usd": 0.18761057259999997
+    },
+    {
+      "model": "mistralai/mistral-small-3.2-24b-instruct",
+      "purpose": "audit",
+      "input_tokens": 68,
+      "output_tokens": 12,
+      "cost_usd": 7.5e-06,
+      "cumulative_usd": 0.18761807259999996
+    },
+    {
+      "model": "google/gemma-3-27b-it",
+      "purpose": "audit",
+      "input_tokens": 82,
+      "output_tokens": 4,
+      "cost_usd": 7.2000000000000005e-06,
+      "cumulative_usd": 0.18762527259999998
+    },
+    {
+      "model": "deepseek/deepseek-v3.2",
+      "purpose": "audit",
+      "input_tokens": 67,
+      "output_tokens": 2,
+      "cost_usd": 1.6016e-05,
+      "cumulative_usd": 0.18764128859999998
+    },
+    {
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "purpose": "audit",
+      "input_tokens": 76,
+      "output_tokens": 2,
+      "cost_usd": 8.24e-06,
+      "cumulative_usd": 0.18764952859999998
+    },
+    {
+      "model": "mistralai/mistral-small-3.2-24b-instruct",
+      "purpose": "audit",
+      "input_tokens": 67,
+      "output_tokens": 2,
+      "cost_usd": 5.425e-06,
+      "cumulative_usd": 0.18765495359999998
+    },
+    {
+      "model": "google/gemma-3-27b-it",
+      "purpose": "audit",
+      "input_tokens": 72,
+      "output_tokens": 3,
+      "cost_usd": 6.24e-06,
+      "cumulative_usd": 0.18766119359999997
+    },
+    {
+      "model": "deepseek/deepseek-v3.2",
+      "purpose": "audit",
+      "input_tokens": 64,
+      "output_tokens": 2,
+      "cost_usd": 1.53296e-05,
+      "cumulative_usd": 0.18767652319999997
+    },
+    {
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "purpose": "audit",
+      "input_tokens": 98,
+      "output_tokens": 3,
+      "cost_usd": 1.0760000000000002e-05,
+      "cumulative_usd": 0.18768728319999997
+    },
+    {
+      "model": "mistralai/mistral-small-3.2-24b-instruct",
+      "purpose": "audit",
+      "input_tokens": 69,
+      "output_tokens": 12,
+      "cost_usd": 7.575e-06,
+      "cumulative_usd": 0.18769485819999998
+    },
+    {
+      "model": "google/gemma-3-27b-it",
+      "purpose": "audit",
+      "input_tokens": 76,
+      "output_tokens": 3,
+      "cost_usd": 6.560000000000001e-06,
+      "cumulative_usd": 0.18770141819999997
+    },
+    {
+      "model": "deepseek/deepseek-v3.2",
+      "purpose": "audit",
+      "input_tokens": 65,
+      "output_tokens": 1,
+      "cost_usd": 1.52152e-05,
+      "cumulative_usd": 0.18771663339999997
+    },
+    {
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "purpose": "audit",
+      "input_tokens": 86,
+      "output_tokens": 3,
+      "cost_usd": 9.559999999999998e-06,
+      "cumulative_usd": 0.18772619339999996
+    },
+    {
+      "model": "mistralai/mistral-small-3.2-24b-instruct",
+      "purpose": "audit",
+      "input_tokens": 75,
+      "output_tokens": 3,
+      "cost_usd": 6.225e-06,
+      "cumulative_usd": 0.18773241839999996
+    },
+    {
+      "model": "google/gemma-3-27b-it",
+      "purpose": "audit",
+      "input_tokens": 84,
+      "output_tokens": 3,
+      "cost_usd": 7.2e-06,
+      "cumulative_usd": 0.18773961839999997
+    },
+    {
+      "model": "deepseek/deepseek-v3.2",
+      "purpose": "audit",
+      "input_tokens": 73,
+      "output_tokens": 2,
+      "cost_usd": 1.73888e-05,
+      "cumulative_usd": 0.18775700719999996
+    },
+    {
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "purpose": "audit",
+      "input_tokens": 100,
+      "output_tokens": 3,
+      "cost_usd": 1.096e-05,
+      "cumulative_usd": 0.18776796719999997
+    },
+    {
+      "model": "mistralai/mistral-small-3.2-24b-instruct",
+      "purpose": "audit",
+      "input_tokens": 89,
+      "output_tokens": 2,
+      "cost_usd": 7.075e-06,
+      "cumulative_usd": 0.18777504219999996
+    },
+    {
+      "model": "google/gemma-3-27b-it",
+      "purpose": "audit",
+      "input_tokens": 94,
+      "output_tokens": 3,
+      "cost_usd": 8e-06,
+      "cumulative_usd": 0.18778304219999997
+    },
+    {
+      "model": "deepseek/deepseek-v3.2",
+      "purpose": "audit",
+      "input_tokens": 88,
+      "output_tokens": 1,
+      "cost_usd": 2.04776e-05,
+      "cumulative_usd": 0.18780351979999999
+    },
+    {
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "purpose": "audit",
+      "input_tokens": 98,
+      "output_tokens": 2,
+      "cost_usd": 1.0440000000000002e-05,
+      "cumulative_usd": 0.18781395979999999
+    },
+    {
+      "model": "mistralai/mistral-small-3.2-24b-instruct",
+      "purpose": "audit",
+      "input_tokens": 88,
+      "output_tokens": 2,
+      "cost_usd": 7e-06,
+      "cumulative_usd": 0.1878209598
+    },
+    {
+      "model": "google/gemma-3-27b-it",
+      "purpose": "audit",
+      "input_tokens": 99,
+      "output_tokens": 3,
+      "cost_usd": 8.400000000000001e-06,
+      "cumulative_usd": 0.18782935979999998
+    },
+    {
+      "model": "deepseek/deepseek-v3.2",
+      "purpose": "audit",
+      "input_tokens": 87,
+      "output_tokens": 2,
+      "cost_usd": 2.0592e-05,
+      "cumulative_usd": 0.1878499518
+    },
+    {
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "purpose": "audit",
+      "input_tokens": 96,
+      "output_tokens": 3,
+      "cost_usd": 1.0560000000000002e-05,
+      "cumulative_usd": 0.1878605118
+    },
+    {
+      "model": "mistralai/mistral-small-3.2-24b-instruct",
+      "purpose": "audit",
+      "input_tokens": 85,
+      "output_tokens": 2,
+      "cost_usd": 6.775e-06,
+      "cumulative_usd": 0.18786728679999998
+    },
+    {
+      "model": "google/gemma-3-27b-it",
+      "purpose": "audit",
+      "input_tokens": 94,
+      "output_tokens": 4,
+      "cost_usd": 8.16e-06,
+      "cumulative_usd": 0.18787544679999998
+    },
+    {
+      "model": "deepseek/deepseek-v3.2",
+      "purpose": "audit",
+      "input_tokens": 84,
+      "output_tokens": 1,
+      "cost_usd": 1.95624e-05,
+      "cumulative_usd": 0.1878950092
+    },
+    {
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "purpose": "audit",
+      "input_tokens": 67,
+      "output_tokens": 2,
+      "cost_usd": 7.34e-06,
+      "cumulative_usd": 0.18790234919999999
+    },
+    {
+      "model": "mistralai/mistral-small-3.2-24b-instruct",
+      "purpose": "audit",
+      "input_tokens": 56,
+      "output_tokens": 12,
+      "cost_usd": 6.6e-06,
+      "cumulative_usd": 0.18790894919999998
+    },
+    {
+      "model": "google/gemma-3-27b-it",
+      "purpose": "audit",
+      "input_tokens": 70,
+      "output_tokens": 4,
+      "cost_usd": 6.24e-06,
+      "cumulative_usd": 0.18791518919999997
+    },
+    {
+      "model": "deepseek/deepseek-v3.2",
+      "purpose": "audit",
+      "input_tokens": 55,
+      "output_tokens": 2,
+      "cost_usd": 1.3270400000000001e-05,
+      "cumulative_usd": 0.18792845959999996
+    },
+    {
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "purpose": "audit",
+      "input_tokens": 65,
+      "output_tokens": 2,
+      "cost_usd": 7.139999999999999e-06,
+      "cumulative_usd": 0.18793559959999995
+    },
+    {
+      "model": "mistralai/mistral-small-3.2-24b-instruct",
+      "purpose": "audit",
+      "input_tokens": 54,
+      "output_tokens": 8,
+      "cost_usd": 5.65e-06,
+      "cumulative_usd": 0.18794124959999994
+    },
+    {
+      "model": "google/gemma-3-27b-it",
+      "purpose": "audit",
+      "input_tokens": 67,
+      "output_tokens": 3,
+      "cost_usd": 5.84e-06,
+      "cumulative_usd": 0.18794708959999995
+    },
+    {
+      "model": "deepseek/deepseek-v3.2",
+      "purpose": "audit",
+      "input_tokens": 53,
+      "output_tokens": 2,
+      "cost_usd": 1.28128e-05,
+      "cumulative_usd": 0.18795990239999996
+    },
+    {
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "purpose": "audit",
+      "input_tokens": 65,
+      "output_tokens": 2,
+      "cost_usd": 7.139999999999999e-06,
+      "cumulative_usd": 0.18796704239999995
+    },
+    {
+      "model": "mistralai/mistral-small-3.2-24b-instruct",
+      "purpose": "audit",
+      "input_tokens": 54,
+      "output_tokens": 2,
+      "cost_usd": 4.450000000000001e-06,
+      "cumulative_usd": 0.18797149239999994
+    },
+    {
+      "model": "google/gemma-3-27b-it",
+      "purpose": "audit",
+      "input_tokens": 62,
+      "output_tokens": 3,
+      "cost_usd": 5.44e-06,
+      "cumulative_usd": 0.18797693239999994
+    },
+    {
+      "model": "deepseek/deepseek-v3.2",
+      "purpose": "audit",
+      "input_tokens": 53,
+      "output_tokens": 2,
+      "cost_usd": 1.28128e-05,
+      "cumulative_usd": 0.18798974519999995
+    },
+    {
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "purpose": "audit",
+      "input_tokens": 72,
+      "output_tokens": 2,
+      "cost_usd": 7.84e-06,
+      "cumulative_usd": 0.18799758519999996
+    },
+    {
+      "model": "mistralai/mistral-small-3.2-24b-instruct",
+      "purpose": "audit",
+      "input_tokens": 61,
+      "output_tokens": 8,
+      "cost_usd": 6.175000000000001e-06,
+      "cumulative_usd": 0.18800376019999995
+    },
+    {
+      "model": "google/gemma-3-27b-it",
+      "purpose": "audit",
+      "input_tokens": 73,
+      "output_tokens": 4,
+      "cost_usd": 6.48e-06,
+      "cumulative_usd": 0.18801024019999996
+    },
+    {
+      "model": "deepseek/deepseek-v3.2",
+      "purpose": "audit",
+      "input_tokens": 60,
+      "output_tokens": 2,
+      "cost_usd": 1.44144e-05,
+      "cumulative_usd": 0.18802465459999995
+    },
+    {
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "purpose": "audit",
+      "input_tokens": 72,
+      "output_tokens": 2,
+      "cost_usd": 7.84e-06,
+      "cumulative_usd": 0.18803249459999996
+    },
+    {
+      "model": "mistralai/mistral-small-3.2-24b-instruct",
+      "purpose": "audit",
+      "input_tokens": 60,
+      "output_tokens": 8,
+      "cost_usd": 6.1e-06,
+      "cumulative_usd": 0.18803859459999997
+    },
+    {
+      "model": "google/gemma-3-27b-it",
+      "purpose": "audit",
+      "input_tokens": 69,
+      "output_tokens": 3,
+      "cost_usd": 6e-06,
+      "cumulative_usd": 0.18804459459999998
+    },
+    {
+      "model": "deepseek/deepseek-v3.2",
+      "purpose": "audit",
+      "input_tokens": 60,
+      "output_tokens": 2,
+      "cost_usd": 1.44144e-05,
+      "cumulative_usd": 0.18805900899999997
+    },
+    {
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "purpose": "audit",
+      "input_tokens": 81,
+      "output_tokens": 2,
+      "cost_usd": 8.740000000000001e-06,
+      "cumulative_usd": 0.18806774899999998
+    },
+    {
+      "model": "mistralai/mistral-small-3.2-24b-instruct",
+      "purpose": "audit",
+      "input_tokens": 51,
+      "output_tokens": 8,
+      "cost_usd": 5.425e-06,
+      "cumulative_usd": 0.18807317399999998
+    },
+    {
+      "model": "google/gemma-3-27b-it",
+      "purpose": "audit",
+      "input_tokens": 59,
+      "output_tokens": 3,
+      "cost_usd": 5.199999999999999e-06,
+      "cumulative_usd": 0.188078374
+    },
+    {
+      "model": "deepseek/deepseek-v3.2",
+      "purpose": "audit",
+      "input_tokens": 50,
+      "output_tokens": 2,
+      "cost_usd": 1.21264e-05,
+      "cumulative_usd": 0.1880905004
+    },
+    {
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "purpose": "audit",
+      "input_tokens": 131,
+      "output_tokens": 2,
+      "cost_usd": 1.3740000000000002e-05,
+      "cumulative_usd": 0.1881042404
+    },
+    {
+      "model": "mistralai/mistral-small-3.2-24b-instruct",
+      "purpose": "audit",
+      "input_tokens": 101,
+      "output_tokens": 2,
+      "cost_usd": 7.974999999999999e-06,
+      "cumulative_usd": 0.1881122154
+    },
+    {
+      "model": "google/gemma-3-27b-it",
+      "purpose": "audit",
+      "input_tokens": 136,
+      "output_tokens": 6,
+      "cost_usd": 1.184e-05,
+      "cumulative_usd": 0.18812405540000002
+    },
+    {
+      "model": "deepseek/deepseek-v3.2",
+      "purpose": "audit",
+      "input_tokens": 100,
+      "output_tokens": 2,
+      "cost_usd": 2.35664e-05,
+      "cumulative_usd": 0.18814762180000003
+    },
+    {
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "purpose": "audit",
+      "input_tokens": 114,
+      "output_tokens": 3,
+      "cost_usd": 1.236e-05,
+      "cumulative_usd": 0.18815998180000001
+    },
+    {
+      "model": "mistralai/mistral-small-3.2-24b-instruct",
+      "purpose": "audit",
+      "input_tokens": 103,
+      "output_tokens": 21,
+      "cost_usd": 1.1925e-05,
+      "cumulative_usd": 0.1881719068
+    },
+    {
+      "model": "google/gemma-3-27b-it",
+      "purpose": "audit",
+      "input_tokens": 143,
+      "output_tokens": 7,
+      "cost_usd": 1.2559999999999998e-05,
+      "cumulative_usd": 0.1881844668
+    },
+    {
+      "model": "deepseek/deepseek-v3.2",
+      "purpose": "audit",
+      "input_tokens": 102,
+      "output_tokens": 2,
+      "cost_usd": 2.4024000000000002e-05,
+      "cumulative_usd": 0.18820849080000002
+    },
+    {
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "purpose": "audit",
+      "input_tokens": 121,
+      "output_tokens": 2,
+      "cost_usd": 1.2740000000000002e-05,
+      "cumulative_usd": 0.18822123080000003
+    },
+    {
+      "model": "mistralai/mistral-small-3.2-24b-instruct",
+      "purpose": "audit",
+      "input_tokens": 91,
+      "output_tokens": 21,
+      "cost_usd": 1.1025e-05,
+      "cumulative_usd": 0.18823225580000003
+    },
+    {
+      "model": "google/gemma-3-27b-it",
+      "purpose": "audit",
+      "input_tokens": 103,
+      "output_tokens": 4,
+      "cost_usd": 8.880000000000001e-06,
+      "cumulative_usd": 0.18824113580000001
+    },
+    {
+      "model": "deepseek/deepseek-v3.2",
+      "purpose": "audit",
+      "input_tokens": 92,
+      "output_tokens": 2,
+      "cost_usd": 2.1736e-05,
+      "cumulative_usd": 0.1882628718
+    },
+    {
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "purpose": "audit",
+      "input_tokens": 105,
+      "output_tokens": 3,
+      "cost_usd": 1.146e-05,
+      "cumulative_usd": 0.1882743318
+    },
+    {
+      "model": "mistralai/mistral-small-3.2-24b-instruct",
+      "purpose": "audit",
+      "input_tokens": 77,
+      "output_tokens": 2,
+      "cost_usd": 6.175e-06,
+      "cumulative_usd": 0.1882805068
+    },
+    {
+      "model": "google/gemma-3-27b-it",
+      "purpose": "audit",
+      "input_tokens": 84,
+      "output_tokens": 3,
+      "cost_usd": 7.2e-06,
+      "cumulative_usd": 0.1882877068
+    },
+    {
+      "model": "deepseek/deepseek-v3.2",
+      "purpose": "audit",
+      "input_tokens": 74,
+      "output_tokens": 2,
+      "cost_usd": 1.76176e-05,
+      "cumulative_usd": 0.1883053244
+    },
+    {
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "purpose": "audit",
+      "input_tokens": 74,
+      "output_tokens": 2,
+      "cost_usd": 8.040000000000001e-06,
+      "cumulative_usd": 0.1883133644
+    },
+    {
+      "model": "mistralai/mistral-small-3.2-24b-instruct",
+      "purpose": "audit",
+      "input_tokens": 64,
+      "output_tokens": 2,
+      "cost_usd": 5.2e-06,
+      "cumulative_usd": 0.1883185644
+    },
+    {
+      "model": "google/gemma-3-27b-it",
+      "purpose": "audit",
+      "input_tokens": 77,
+      "output_tokens": 4,
+      "cost_usd": 6.8e-06,
+      "cumulative_usd": 0.1883253644
+    },
+    {
+      "model": "deepseek/deepseek-v3.2",
+      "purpose": "audit",
+      "input_tokens": 63,
+      "output_tokens": 2,
+      "cost_usd": 1.5100800000000001e-05,
+      "cumulative_usd": 0.1883404652
+    },
+    {
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "purpose": "audit",
+      "input_tokens": 71,
+      "output_tokens": 2,
+      "cost_usd": 7.74e-06,
+      "cumulative_usd": 0.1883482052
+    },
+    {
+      "model": "mistralai/mistral-small-3.2-24b-instruct",
+      "purpose": "audit",
+      "input_tokens": 61,
+      "output_tokens": 10,
+      "cost_usd": 6.5750000000000006e-06,
+      "cumulative_usd": 0.18835478020000002
+    },
+    {
+      "model": "google/gemma-3-27b-it",
+      "purpose": "audit",
+      "input_tokens": 72,
+      "output_tokens": 4,
+      "cost_usd": 6.4e-06,
+      "cumulative_usd": 0.1883611802
+    },
+    {
+      "model": "deepseek/deepseek-v3.2",
+      "purpose": "audit",
+      "input_tokens": 59,
+      "output_tokens": 2,
+      "cost_usd": 1.41856e-05,
+      "cumulative_usd": 0.1883753658
+    },
+    {
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "purpose": "audit",
+      "input_tokens": 102,
+      "output_tokens": 5,
+      "cost_usd": 1.18e-05,
+      "cumulative_usd": 0.1883871658
+    },
+    {
+      "model": "mistralai/mistral-small-3.2-24b-instruct",
+      "purpose": "audit",
+      "input_tokens": 74,
+      "output_tokens": 2,
+      "cost_usd": 5.95e-06,
+      "cumulative_usd": 0.1883931158
+    },
+    {
+      "model": "google/gemma-3-27b-it",
+      "purpose": "audit",
+      "input_tokens": 79,
+      "output_tokens": 2,
+      "cost_usd": 6.640000000000001e-06,
+      "cumulative_usd": 0.1883997558
+    },
+    {
+      "model": "deepseek/deepseek-v3.2",
+      "purpose": "audit",
+      "input_tokens": 71,
+      "output_tokens": 2,
+      "cost_usd": 1.69312e-05,
+      "cumulative_usd": 0.188416687
+    },
+    {
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "purpose": "audit",
+      "input_tokens": 78,
+      "output_tokens": 3,
+      "cost_usd": 8.76e-06,
+      "cumulative_usd": 0.188425447
+    },
+    {
+      "model": "mistralai/mistral-small-3.2-24b-instruct",
+      "purpose": "audit",
+      "input_tokens": 68,
+      "output_tokens": 12,
+      "cost_usd": 7.5e-06,
+      "cumulative_usd": 0.188432947
+    },
+    {
+      "model": "google/gemma-3-27b-it",
+      "purpose": "audit",
+      "input_tokens": 78,
+      "output_tokens": 3,
+      "cost_usd": 6.720000000000001e-06,
+      "cumulative_usd": 0.18843966699999998
+    },
+    {
+      "model": "deepseek/deepseek-v3.2",
+      "purpose": "audit",
+      "input_tokens": 65,
+      "output_tokens": 2,
+      "cost_usd": 1.55584e-05,
+      "cumulative_usd": 0.18845522539999998
+    },
+    {
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "purpose": "audit",
+      "input_tokens": 83,
+      "output_tokens": 8,
+      "cost_usd": 1.0860000000000001e-05,
+      "cumulative_usd": 0.18846608539999998
+    },
+    {
+      "model": "mistralai/mistral-small-3.2-24b-instruct",
+      "purpose": "audit",
+      "input_tokens": 54,
+      "output_tokens": 9,
+      "cost_usd": 5.85e-06,
+      "cumulative_usd": 0.18847193539999998
+    },
+    {
+      "model": "google/gemma-3-27b-it",
+      "purpose": "audit",
+      "input_tokens": 90,
+      "output_tokens": 7,
+      "cost_usd": 8.32e-06,
+      "cumulative_usd": 0.1884802554
+    },
+    {
+      "model": "deepseek/deepseek-v3.2",
+      "purpose": "audit",
+      "input_tokens": 52,
+      "output_tokens": 2,
+      "cost_usd": 1.2584000000000002e-05,
+      "cumulative_usd": 0.1884928394
+    },
+    {
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "purpose": "audit",
+      "input_tokens": 96,
+      "output_tokens": 2,
+      "cost_usd": 1.0240000000000002e-05,
+      "cumulative_usd": 0.1885030794
+    },
+    {
+      "model": "mistralai/mistral-small-3.2-24b-instruct",
+      "purpose": "audit",
+      "input_tokens": 86,
+      "output_tokens": 2,
+      "cost_usd": 6.8500000000000005e-06,
+      "cumulative_usd": 0.1885099294
+    },
+    {
+      "model": "google/gemma-3-27b-it",
+      "purpose": "audit",
+      "input_tokens": 101,
+      "output_tokens": 3,
+      "cost_usd": 8.560000000000001e-06,
+      "cumulative_usd": 0.1885184894
+    },
+    {
+      "model": "deepseek/deepseek-v3.2",
+      "purpose": "audit",
+      "input_tokens": 88,
+      "output_tokens": 2,
+      "cost_usd": 2.08208e-05,
+      "cumulative_usd": 0.18853931019999998
+    },
+    {
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "purpose": "audit",
+      "input_tokens": 90,
+      "output_tokens": 3,
+      "cost_usd": 9.960000000000001e-06,
+      "cumulative_usd": 0.18854927019999998
+    },
+    {
+      "model": "mistralai/mistral-small-3.2-24b-instruct",
+      "purpose": "audit",
+      "input_tokens": 80,
+      "output_tokens": 2,
+      "cost_usd": 6.4000000000000006e-06,
+      "cumulative_usd": 0.18855567019999997
+    },
+    {
+      "model": "google/gemma-3-27b-it",
+      "purpose": "audit",
+      "input_tokens": 120,
+      "output_tokens": 7,
+      "cost_usd": 1.0719999999999999e-05,
+      "cumulative_usd": 0.18856639019999996
+    },
+    {
+      "model": "deepseek/deepseek-v3.2",
+      "purpose": "audit",
+      "input_tokens": 79,
+      "output_tokens": 2,
+      "cost_usd": 1.8761599999999997e-05,
+      "cumulative_usd": 0.18858515179999996
+    },
+    {
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "purpose": "audit",
+      "input_tokens": 107,
+      "output_tokens": 2,
+      "cost_usd": 1.1340000000000002e-05,
+      "cumulative_usd": 0.18859649179999996
+    },
+    {
+      "model": "mistralai/mistral-small-3.2-24b-instruct",
+      "purpose": "audit",
+      "input_tokens": 77,
+      "output_tokens": 15,
+      "cost_usd": 8.774999999999998e-06,
+      "cumulative_usd": 0.18860526679999995
+    },
+    {
+      "model": "google/gemma-3-27b-it",
+      "purpose": "audit",
+      "input_tokens": 87,
+      "output_tokens": 3,
+      "cost_usd": 7.44e-06,
+      "cumulative_usd": 0.18861270679999995
+    },
+    {
+      "model": "deepseek/deepseek-v3.2",
+      "purpose": "audit",
+      "input_tokens": 77,
+      "output_tokens": 2,
+      "cost_usd": 1.8304e-05,
+      "cumulative_usd": 0.18863101079999994
+    }
+  ],
+  "validation_issues": [],
+  "position_distribution": {
+    "A": 12,
+    "B": 11,
+    "C": 11,
+    "D": 11
+  },
+  "duplicate_options_count": 0,
+  "distractor_metrics": {
+    "n_mcqs": 45,
+    "avg_distractor_key_similarity": 0.3233,
+    "std_distractor_key_similarity": 0.2407,
+    "avg_pairwise_option_similarity": 0.3503,
+    "std_pairwise_option_similarity": 0.2083,
+    "option_length_mean": 52.8,
+    "option_length_cv": 0.4324,
+    "nli_replaced_total": 9,
+    "duplicate_options_count": 0
+  },
+  "with_proverb_baseline_accuracy": null,
+  "figure_paths": {
+    "Shortcut by Variant": "/kaggle/working/openrouter_pilot1_test_output/fig1_consensus_by_variant.png",
+    "Shortcut by Language": "/kaggle/working/openrouter_pilot1_test_output/fig2_consensus_by_language.png",
+    "Shortcut by Generator": "/kaggle/working/openrouter_pilot1_test_output/fig3_consensus_by_generator.png",
+    "Generator × Variant Heatmap": "/kaggle/working/openrouter_pilot1_test_output/fig4_generator_variant_heatmap.png",
+    "Position Distribution": "/kaggle/working/openrouter_pilot1_test_output/fig5_position_distribution.png",
+    "Generation Status": "/kaggle/working/openrouter_pilot1_test_output/fig6_generation_status.png",
+    "Fallback Rate by Generator": "/kaggle/working/openrouter_pilot1_test_output/fig7_fallback_rate_by_generator.png",
+    "Auditor Hit Rates": "/kaggle/working/openrouter_pilot1_test_output/fig8_auditor_hit_rates.png",
+    "Consensus Fraction Distribution": "/kaggle/working/openrouter_pilot1_test_output/fig10_consensus_fraction_distribution.png"
+  }
+}

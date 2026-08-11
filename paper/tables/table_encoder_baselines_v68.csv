@@ -1,0 +1,2 @@
+model,type,n,accuracy,english_acc,arabic_acc,yoruba_acc
+tfidf_cosine,shallow_lexical_baseline,180,0.3667,0.5333,0.2167,0.35

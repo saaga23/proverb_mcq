@@ -1,0 +1,1880 @@
+﻿stage,variant,language,proverb,correct_meaning,raw_model_output,status,error,mcq_id,model,prompt,extracted_vote
+generation,baseline,Arabic,تجري الرياح بما لا تشتهي السفن,Winds blow counter to what the ship wants.,,parse_fallback,Could not parse JSON options.,,,,
+generation,baseline,Arabic,مراية الحب عمياء/بصلة المحب خروف,Love is blind.,,parse_fallback,Could not parse JSON options.,,,,
+generation,baseline,Arabic,اللي يعوزه البيت يحرم على الجامع,Charity begins at home.,,parse_fallback,Could not parse JSON options.,,,,
+generation,baseline,Arabic,عصفور في اليد خير من عشرة على الشجرة:,A bird in the hand is worth two in the bush.,,parse_fallback,Could not parse JSON options.,,,,
+generation,baseline,Arabic,عتبها على أهلها من قلة عقلها.,A bad workman always blames his tools.,,parse_fallback,Could not parse JSON options.,,,,
+generation,baseline,English,After a calm comes a storm,A person might be overcome by trouble or adversity when least expected.,,parse_fallback,Could not parse JSON options.,,,,
+generation,baseline,English,Know thyself,"This proverb can be used as a caution that we should know our limits and weaknesses, or as motivation to disc over our strengths and hidden talents.",,parse_fallback,Could not parse JSON options.,,,,
+generation,baseline,English,There is an exception to every rule,"No rule or principle is perfectly inflexible, permanent, or unchanging .",,parse_fallback,Could not parse JSON options.,,,,
+generation,baseline,English,You can have too much of a good thing,Just because something is good and enjoyable doesn’t mean you should have it in unlimited quantities.,,parse_fallback,Could not parse JSON options.,,,,
+generation,baseline,English,All is well that ends well,"As long as the outcome is good, problems on the way don’t matter.",,parse_fallback,Could not parse JSON options.,,,,
+generation,baseline,Yoruba,Ìdtí ò mátà; woléwolé lẹj bá wí.,Dirt does not matter; only the sanitary inspector fusses.,,parse_fallback,Could not parse JSON options.,,,,
+generation,baseline,Yoruba,Àyúnbọ̀ lọwọ́ ńyún ẹnu.,Going-and-returning is the manner of the hand’s journey to the mouth. B,,parse_fallback,Could not parse JSON options.,,,,
+generation,baseline,Yoruba,Ilé kì í jó kí oorun kun ojú.,A house does not burn and fill the eyes with sleep.,,parse_fallback,Could not parse JSON options.,,,,
+generation,baseline,Yoruba,Kékeré lọ̀pọ̀lọ́ fi ga ju ilẹ̀ lọ.,The toad is only slightly taller than the earth.,,parse_fallback,Could not parse JSON options.,,,,
+generation,baseline,Yoruba,Kìtì ò mọ́là; ká ṣíṣẹ́ bí ẹrú ò da nǹkan.,Sudden pouncing does not capture greatness; working like a slave does not ensure anything.,,parse_fallback,Could not parse JSON options.,,,,
+generation,misconception-based,Arabic,تجري الرياح بما لا تشتهي السفن,Winds blow counter to what the ship wants.,,parse_fallback,Could not parse JSON options.,,,,
+generation,misconception-based,Arabic,مراية الحب عمياء/بصلة المحب خروف,Love is blind.,,parse_fallback,Could not parse JSON options.,,,,
+generation,misconception-based,Arabic,اللي يعوزه البيت يحرم على الجامع,Charity begins at home.,,parse_fallback,Could not parse JSON options.,,,,
+generation,misconception-based,Arabic,عصفور في اليد خير من عشرة على الشجرة:,A bird in the hand is worth two in the bush.,,parse_fallback,Could not parse JSON options.,,,,
+generation,misconception-based,Arabic,عتبها على أهلها من قلة عقلها.,A bad workman always blames his tools.,,parse_fallback,Could not parse JSON options.,,,,
+generation,misconception-based,English,After a calm comes a storm,A person might be overcome by trouble or adversity when least expected.,,parse_fallback,Could not parse JSON options.,,,,
+generation,misconception-based,English,Know thyself,"This proverb can be used as a caution that we should know our limits and weaknesses, or as motivation to disc over our strengths and hidden talents.",,parse_fallback,Could not parse JSON options.,,,,
+generation,misconception-based,English,There is an exception to every rule,"No rule or principle is perfectly inflexible, permanent, or unchanging .",,parse_fallback,Could not parse JSON options.,,,,
+generation,misconception-based,English,You can have too much of a good thing,Just because something is good and enjoyable doesn’t mean you should have it in unlimited quantities.,,parse_fallback,Could not parse JSON options.,,,,
+generation,misconception-based,English,All is well that ends well,"As long as the outcome is good, problems on the way don’t matter.",,parse_fallback,Could not parse JSON options.,,,,
+generation,misconception-based,Yoruba,Ìdtí ò mátà; woléwolé lẹj bá wí.,Dirt does not matter; only the sanitary inspector fusses.,,parse_fallback,Could not parse JSON options.,,,,
+generation,misconception-based,Yoruba,Àyúnbọ̀ lọwọ́ ńyún ẹnu.,Going-and-returning is the manner of the hand’s journey to the mouth. B,,parse_fallback,Could not parse JSON options.,,,,
+generation,misconception-based,Yoruba,Ilé kì í jó kí oorun kun ojú.,A house does not burn and fill the eyes with sleep.,,parse_fallback,Could not parse JSON options.,,,,
+generation,misconception-based,Yoruba,Kékeré lọ̀pọ̀lọ́ fi ga ju ilẹ̀ lọ.,The toad is only slightly taller than the earth.,,parse_fallback,Could not parse JSON options.,,,,
+generation,misconception-based,Yoruba,Kìtì ò mọ́là; ká ṣíṣẹ́ bí ẹrú ò da nǹkan.,Sudden pouncing does not capture greatness; working like a slave does not ensure anything.,,parse_fallback,Could not parse JSON options.,,,,
+generation,taxonomy-guided,Arabic,تجري الرياح بما لا تشتهي السفن,Winds blow counter to what the ship wants.,,parse_fallback,Could not parse JSON options.,,,,
+generation,taxonomy-guided,Arabic,مراية الحب عمياء/بصلة المحب خروف,Love is blind.,,parse_fallback,Could not parse JSON options.,,,,
+generation,taxonomy-guided,Arabic,اللي يعوزه البيت يحرم على الجامع,Charity begins at home.,,parse_fallback,Could not parse JSON options.,,,,
+generation,taxonomy-guided,Arabic,عصفور في اليد خير من عشرة على الشجرة:,A bird in the hand is worth two in the bush.,,parse_fallback,Could not parse JSON options.,,,,
+generation,taxonomy-guided,Arabic,عتبها على أهلها من قلة عقلها.,A bad workman always blames his tools.,,parse_fallback,Could not parse JSON options.,,,,
+generation,taxonomy-guided,English,After a calm comes a storm,A person might be overcome by trouble or adversity when least expected.,,parse_fallback,Could not parse JSON options.,,,,
+generation,taxonomy-guided,English,Know thyself,"This proverb can be used as a caution that we should know our limits and weaknesses, or as motivation to disc over our strengths and hidden talents.",,parse_fallback,Could not parse JSON options.,,,,
+generation,taxonomy-guided,English,There is an exception to every rule,"No rule or principle is perfectly inflexible, permanent, or unchanging .",,parse_fallback,Could not parse JSON options.,,,,
+generation,taxonomy-guided,English,You can have too much of a good thing,Just because something is good and enjoyable doesn’t mean you should have it in unlimited quantities.,,parse_fallback,Could not parse JSON options.,,,,
+generation,taxonomy-guided,English,All is well that ends well,"As long as the outcome is good, problems on the way don’t matter.",,parse_fallback,Could not parse JSON options.,,,,
+generation,taxonomy-guided,Yoruba,Ìdtí ò mátà; woléwolé lẹj bá wí.,Dirt does not matter; only the sanitary inspector fusses.,,parse_fallback,Could not parse JSON options.,,,,
+generation,taxonomy-guided,Yoruba,Àyúnbọ̀ lọwọ́ ńyún ẹnu.,Going-and-returning is the manner of the hand’s journey to the mouth. B,,parse_fallback,Could not parse JSON options.,,,,
+generation,taxonomy-guided,Yoruba,Ilé kì í jó kí oorun kun ojú.,A house does not burn and fill the eyes with sleep.,,parse_fallback,Could not parse JSON options.,,,,
+generation,taxonomy-guided,Yoruba,Kékeré lọ̀pọ̀lọ́ fi ga ju ilẹ̀ lọ.,The toad is only slightly taller than the earth.,,parse_fallback,Could not parse JSON options.,,,,
+generation,taxonomy-guided,Yoruba,Kìtì ò mọ́là; ká ṣíṣẹ́ bí ẹrú ò da nǹkan.,Sudden pouncing does not capture greatness; working like a slave does not ensure anything.,,parse_fallback,Could not parse JSON options.,,,,
+generation,few-shot-predictive,Arabic,تجري الرياح بما لا تشتهي السفن,Winds blow counter to what the ship wants.,,parse_fallback,Could not parse JSON options.,,,,
+generation,few-shot-predictive,Arabic,مراية الحب عمياء/بصلة المحب خروف,Love is blind.,,parse_fallback,Could not parse JSON options.,,,,
+generation,few-shot-predictive,Arabic,اللي يعوزه البيت يحرم على الجامع,Charity begins at home.,,parse_fallback,Could not parse JSON options.,,,,
+generation,few-shot-predictive,Arabic,عصفور في اليد خير من عشرة على الشجرة:,A bird in the hand is worth two in the bush.,,parse_fallback,Could not parse JSON options.,,,,
+generation,few-shot-predictive,Arabic,عتبها على أهلها من قلة عقلها.,A bad workman always blames his tools.,,parse_fallback,Could not parse JSON options.,,,,
+generation,few-shot-predictive,English,After a calm comes a storm,A person might be overcome by trouble or adversity when least expected.,,parse_fallback,Could not parse JSON options.,,,,
+generation,few-shot-predictive,English,Know thyself,"This proverb can be used as a caution that we should know our limits and weaknesses, or as motivation to disc over our strengths and hidden talents.",,parse_fallback,Could not parse JSON options.,,,,
+generation,few-shot-predictive,English,There is an exception to every rule,"No rule or principle is perfectly inflexible, permanent, or unchanging .",,parse_fallback,Could not parse JSON options.,,,,
+generation,few-shot-predictive,English,You can have too much of a good thing,Just because something is good and enjoyable doesn’t mean you should have it in unlimited quantities.,,parse_fallback,Could not parse JSON options.,,,,
+generation,few-shot-predictive,English,All is well that ends well,"As long as the outcome is good, problems on the way don’t matter.",,parse_fallback,Could not parse JSON options.,,,,
+generation,few-shot-predictive,Yoruba,Ìdtí ò mátà; woléwolé lẹj bá wí.,Dirt does not matter; only the sanitary inspector fusses.,,parse_fallback,Could not parse JSON options.,,,,
+generation,few-shot-predictive,Yoruba,Àyúnbọ̀ lọwọ́ ńyún ẹnu.,Going-and-returning is the manner of the hand’s journey to the mouth. B,,parse_fallback,Could not parse JSON options.,,,,
+generation,few-shot-predictive,Yoruba,Ilé kì í jó kí oorun kun ojú.,A house does not burn and fill the eyes with sleep.,,parse_fallback,Could not parse JSON options.,,,,
+generation,few-shot-predictive,Yoruba,Kékeré lọ̀pọ̀lọ́ fi ga ju ilẹ̀ lọ.,The toad is only slightly taller than the earth.,,parse_fallback,Could not parse JSON options.,,,,
+generation,few-shot-predictive,Yoruba,Kìtì ò mọ́là; ká ṣíṣẹ́ bí ẹrú ò da nǹkan.,Sudden pouncing does not capture greatness; working like a slave does not ensure anything.,,parse_fallback,Could not parse JSON options.,,,,
+generation,overgenerate-select,Arabic,تجري الرياح بما لا تشتهي السفن,Winds blow counter to what the ship wants.,,parse_fallback,Could not parse JSON options.,,,,
+generation,overgenerate-select,Arabic,مراية الحب عمياء/بصلة المحب خروف,Love is blind.,,parse_fallback,Could not parse JSON options.,,,,
+generation,overgenerate-select,Arabic,اللي يعوزه البيت يحرم على الجامع,Charity begins at home.,,parse_fallback,Could not parse JSON options.,,,,
+generation,overgenerate-select,Arabic,عصفور في اليد خير من عشرة على الشجرة:,A bird in the hand is worth two in the bush.,,parse_fallback,Could not parse JSON options.,,,,
+generation,overgenerate-select,Arabic,عتبها على أهلها من قلة عقلها.,A bad workman always blames his tools.,,parse_fallback,Could not parse JSON options.,,,,
+generation,overgenerate-select,English,After a calm comes a storm,A person might be overcome by trouble or adversity when least expected.,,parse_fallback,Could not parse JSON options.,,,,
+generation,overgenerate-select,English,Know thyself,"This proverb can be used as a caution that we should know our limits and weaknesses, or as motivation to disc over our strengths and hidden talents.",,parse_fallback,Could not parse JSON options.,,,,
+generation,overgenerate-select,English,There is an exception to every rule,"No rule or principle is perfectly inflexible, permanent, or unchanging .",,parse_fallback,Could not parse JSON options.,,,,
+generation,overgenerate-select,English,You can have too much of a good thing,Just because something is good and enjoyable doesn’t mean you should have it in unlimited quantities.,,parse_fallback,Could not parse JSON options.,,,,
+generation,overgenerate-select,English,All is well that ends well,"As long as the outcome is good, problems on the way don’t matter.",,parse_fallback,Could not parse JSON options.,,,,
+generation,overgenerate-select,Yoruba,Ìdtí ò mátà; woléwolé lẹj bá wí.,Dirt does not matter; only the sanitary inspector fusses.,,parse_fallback,Could not parse JSON options.,,,,
+generation,overgenerate-select,Yoruba,Àyúnbọ̀ lọwọ́ ńyún ẹnu.,Going-and-returning is the manner of the hand’s journey to the mouth. B,,parse_fallback,Could not parse JSON options.,,,,
+generation,overgenerate-select,Yoruba,Ilé kì í jó kí oorun kun ojú.,A house does not burn and fill the eyes with sleep.,,parse_fallback,Could not parse JSON options.,,,,
+generation,overgenerate-select,Yoruba,Kékeré lọ̀pọ̀lọ́ fi ga ju ilẹ̀ lọ.,The toad is only slightly taller than the earth.,,parse_fallback,Could not parse JSON options.,,,,
+generation,overgenerate-select,Yoruba,Kìtì ò mọ́là; ká ṣíṣẹ́ bí ẹrú ò da nǹkan.,Sudden pouncing does not capture greatness; working like a slave does not ensure anything.,,parse_fallback,Could not parse JSON options.,,,,
+audit,baseline,,,,D,,,baseline_Arabic_0,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. Winds blow counter to what the ship wants.
+B. The dove is not bothered that one sets fire to the brush; the fire rages, and the bird flies away.
+C. Planning is half of living.
+D. There is no cause for staggering about, except for the person pushing himself or herself. I",D
+audit,baseline,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,baseline_Arabic_0,openai/gpt-5,"Which option is correct?
+
+A. Winds blow counter to what the ship wants.
+B. The dove is not bothered that one sets fire to the brush; the fire rages, and the bird flies away.
+C. Planning is half of living.
+D. There is no cause for staggering about, except for the person pushing himself or herself. I",
+audit,baseline,,,,,,,baseline_Arabic_0,google/gemini-2.5-pro,"Which option is correct?
+
+A. Winds blow counter to what the ship wants.
+B. The dove is not bothered that one sets fire to the brush; the fire rages, and the bird flies away.
+C. Planning is half of living.
+D. There is no cause for staggering about, except for the person pushing himself or herself. I",
+audit,baseline,,,,"We are asked: ""Which option is",,,baseline_Arabic_0,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. Winds blow counter to what the ship wants.
+B. The dove is not bothered that one sets fire to the brush; the fire rages, and the bird flies away.
+C. Planning is half of living.
+D. There is no cause for staggering about, except for the person pushing himself or herself. I",
+audit,baseline,,,,C,,,baseline_Arabic_1,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. One never arrives at the home of the ayò game without finding children.
+B. Love is blind.
+C. The goat would wish that its kid was a hegoat, only God the King did not consent; the robust sheep would wish its lamb was a ram, only God the King would not agree; the big hen would wish its chick was a cock, only God the King would not grant her wish.
+D. This is an ironic way of saying, “Truth does not necessarily prevail.",C
+audit,baseline,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,baseline_Arabic_1,openai/gpt-5,"Which option is correct?
+
+A. One never arrives at the home of the ayò game without finding children.
+B. Love is blind.
+C. The goat would wish that its kid was a hegoat, only God the King did not consent; the robust sheep would wish its lamb was a ram, only God the King would not agree; the big hen would wish its chick was a cock, only God the King would not grant her wish.
+D. This is an ironic way of saying, “Truth does not necessarily prevail.",
+audit,baseline,,,,,,,baseline_Arabic_1,google/gemini-2.5-pro,"Which option is correct?
+
+A. One never arrives at the home of the ayò game without finding children.
+B. Love is blind.
+C. The goat would wish that its kid was a hegoat, only God the King did not consent; the robust sheep would wish its lamb was a ram, only God the King would not agree; the big hen would wish its chick was a cock, only God the King would not grant her wish.
+D. This is an ironic way of saying, “Truth does not necessarily prevail.",
+audit,baseline,,,,The user is asking which option is correct,,,baseline_Arabic_1,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. One never arrives at the home of the ayò game without finding children.
+B. Love is blind.
+C. The goat would wish that its kid was a hegoat, only God the King did not consent; the robust sheep would wish its lamb was a ram, only God the King would not agree; the big hen would wish its chick was a cock, only God the King would not grant her wish.
+D. This is an ironic way of saying, “Truth does not necessarily prevail.",
+audit,baseline,,,,I need more context to determine which,,,baseline_Arabic_2,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. Deal with a situation when it happens and not unnecessarily worry about it in advance.
+B. A person might be overcome by trouble or adversity when least expected.
+C. Charity begins at home.
+D. Evil people give good people a bad name.",
+audit,baseline,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,baseline_Arabic_2,openai/gpt-5,"Which option is correct?
+
+A. Deal with a situation when it happens and not unnecessarily worry about it in advance.
+B. A person might be overcome by trouble or adversity when least expected.
+C. Charity begins at home.
+D. Evil people give good people a bad name.",
+audit,baseline,,,,,,,baseline_Arabic_2,google/gemini-2.5-pro,"Which option is correct?
+
+A. Deal with a situation when it happens and not unnecessarily worry about it in advance.
+B. A person might be overcome by trouble or adversity when least expected.
+C. Charity begins at home.
+D. Evil people give good people a bad name.",
+audit,baseline,,,,"The user is asking ""Which option is",,,baseline_Arabic_2,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. Deal with a situation when it happens and not unnecessarily worry about it in advance.
+B. A person might be overcome by trouble or adversity when least expected.
+C. Charity begins at home.
+D. Evil people give good people a bad name.",
+audit,baseline,,,,A,,,baseline_Arabic_3,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. It is human nature to maintain hope even in a trying or doubtful situation.
+B. What is acquired without effort especially money is likely to be lost.
+C. There is nothing that gets hard that does not eventually become soft.
+D. A bird in the hand is worth two in the bush.",A
+audit,baseline,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,baseline_Arabic_3,openai/gpt-5,"Which option is correct?
+
+A. It is human nature to maintain hope even in a trying or doubtful situation.
+B. What is acquired without effort especially money is likely to be lost.
+C. There is nothing that gets hard that does not eventually become soft.
+D. A bird in the hand is worth two in the bush.",
+audit,baseline,,,,,,,baseline_Arabic_3,google/gemini-2.5-pro,"Which option is correct?
+
+A. It is human nature to maintain hope even in a trying or doubtful situation.
+B. What is acquired without effort especially money is likely to be lost.
+C. There is nothing that gets hard that does not eventually become soft.
+D. A bird in the hand is worth two in the bush.",
+audit,baseline,,,,"The user is asking ""Which option is",,,baseline_Arabic_3,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. It is human nature to maintain hope even in a trying or doubtful situation.
+B. What is acquired without effort especially money is likely to be lost.
+C. There is nothing that gets hard that does not eventually become soft.
+D. A bird in the hand is worth two in the bush.",
+audit,baseline,,,,A,,,baseline_Arabic_4,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. A bad workman always blames his tools.
+B. Shortness is an asset in dancing.
+C. Were it not for the fact that they were transported together, what would a goat want in the chicken’s stall? .
+D. Even small gifts or payments are welcome.",A
+audit,baseline,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,baseline_Arabic_4,openai/gpt-5,"Which option is correct?
+
+A. A bad workman always blames his tools.
+B. Shortness is an asset in dancing.
+C. Were it not for the fact that they were transported together, what would a goat want in the chicken’s stall? .
+D. Even small gifts or payments are welcome.",
+audit,baseline,,,,,,,baseline_Arabic_4,google/gemini-2.5-pro,"Which option is correct?
+
+A. A bad workman always blames his tools.
+B. Shortness is an asset in dancing.
+C. Were it not for the fact that they were transported together, what would a goat want in the chicken’s stall? .
+D. Even small gifts or payments are welcome.",
+audit,baseline,,,,"The user is asking ""Which option is",,,baseline_Arabic_4,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. A bad workman always blames his tools.
+B. Shortness is an asset in dancing.
+C. Were it not for the fact that they were transported together, what would a goat want in the chicken’s stall? .
+D. Even small gifts or payments are welcome.",
+audit,baseline,,,,B,,,baseline_English_5,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. Even negative attention can benefit by increasing visibility.
+B. A person might be overcome by trouble or adversity when least expected.
+C. The elderly person who acts his proper part will always be respected as an elder.
+D. Trying to obtain everything will often result in gaining nothing.",B
+audit,baseline,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,baseline_English_5,openai/gpt-5,"Which option is correct?
+
+A. Even negative attention can benefit by increasing visibility.
+B. A person might be overcome by trouble or adversity when least expected.
+C. The elderly person who acts his proper part will always be respected as an elder.
+D. Trying to obtain everything will often result in gaining nothing.",
+audit,baseline,,,,,,,baseline_English_5,google/gemini-2.5-pro,"Which option is correct?
+
+A. Even negative attention can benefit by increasing visibility.
+B. A person might be overcome by trouble or adversity when least expected.
+C. The elderly person who acts his proper part will always be respected as an elder.
+D. Trying to obtain everything will often result in gaining nothing.",
+audit,baseline,,,,"We are asked: ""Which option is",,,baseline_English_5,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. Even negative attention can benefit by increasing visibility.
+B. A person might be overcome by trouble or adversity when least expected.
+C. The elderly person who acts his proper part will always be respected as an elder.
+D. Trying to obtain everything will often result in gaining nothing.",
+audit,baseline,,,,C,,,baseline_English_6,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. Inexperience squanders vitality.
+B. The rain of one day conquers the drought.
+C. This proverb can be used as a caution that we should know our limits and weaknesses, or as motivation to disc over our strengths and hidden talents.
+D. Facial scarification causes with a great deal of pain; when it heals, its beauty becomes one’s pride.",C
+audit,baseline,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,baseline_English_6,openai/gpt-5,"Which option is correct?
+
+A. Inexperience squanders vitality.
+B. The rain of one day conquers the drought.
+C. This proverb can be used as a caution that we should know our limits and weaknesses, or as motivation to disc over our strengths and hidden talents.
+D. Facial scarification causes with a great deal of pain; when it heals, its beauty becomes one’s pride.",
+audit,baseline,,,,,,,baseline_English_6,google/gemini-2.5-pro,"Which option is correct?
+
+A. Inexperience squanders vitality.
+B. The rain of one day conquers the drought.
+C. This proverb can be used as a caution that we should know our limits and weaknesses, or as motivation to disc over our strengths and hidden talents.
+D. Facial scarification causes with a great deal of pain; when it heals, its beauty becomes one’s pride.",
+audit,baseline,,,,"We are asked: ""Which option is",,,baseline_English_6,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. Inexperience squanders vitality.
+B. The rain of one day conquers the drought.
+C. This proverb can be used as a caution that we should know our limits and weaknesses, or as motivation to disc over our strengths and hidden talents.
+D. Facial scarification causes with a great deal of pain; when it heals, its beauty becomes one’s pride.",
+audit,baseline,,,,C,,,baseline_English_7,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. An Ifá diviner-priest is never so hard up that he asks for yesterday’s sacrifice.
+B. It is a strong finish that matters most, even if one experiences a shaky start.
+C. Were one’s child to resemble one, one would rejoice; the child of a Hausa man takes up the rope-weaving trade.
+D. No rule or principle is perfectly inflexible, permanent, or unchanging .",C
+audit,baseline,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,baseline_English_7,openai/gpt-5,"Which option is correct?
+
+A. An Ifá diviner-priest is never so hard up that he asks for yesterday’s sacrifice.
+B. It is a strong finish that matters most, even if one experiences a shaky start.
+C. Were one’s child to resemble one, one would rejoice; the child of a Hausa man takes up the rope-weaving trade.
+D. No rule or principle is perfectly inflexible, permanent, or unchanging .",
+audit,baseline,,,,,,,baseline_English_7,google/gemini-2.5-pro,"Which option is correct?
+
+A. An Ifá diviner-priest is never so hard up that he asks for yesterday’s sacrifice.
+B. It is a strong finish that matters most, even if one experiences a shaky start.
+C. Were one’s child to resemble one, one would rejoice; the child of a Hausa man takes up the rope-weaving trade.
+D. No rule or principle is perfectly inflexible, permanent, or unchanging .",
+audit,baseline,,,,"We are asked: ""Which option is",,,baseline_English_7,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. An Ifá diviner-priest is never so hard up that he asks for yesterday’s sacrifice.
+B. It is a strong finish that matters most, even if one experiences a shaky start.
+C. Were one’s child to resemble one, one would rejoice; the child of a Hausa man takes up the rope-weaving trade.
+D. No rule or principle is perfectly inflexible, permanent, or unchanging .",
+audit,baseline,,,,B,,,baseline_English_8,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. Just because something is good and enjoyable doesn’t mean you should have it in unlimited quantities.
+B. When people get authority and influence with less accountability, they tend to use that influence in their own interests.
+C. Two rams will not meet on a narrow bridge.
+D. It is through resemblance that one knows those who are related.",B
+audit,baseline,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,baseline_English_8,openai/gpt-5,"Which option is correct?
+
+A. Just because something is good and enjoyable doesn’t mean you should have it in unlimited quantities.
+B. When people get authority and influence with less accountability, they tend to use that influence in their own interests.
+C. Two rams will not meet on a narrow bridge.
+D. It is through resemblance that one knows those who are related.",
+audit,baseline,,,,,,,baseline_English_8,google/gemini-2.5-pro,"Which option is correct?
+
+A. Just because something is good and enjoyable doesn’t mean you should have it in unlimited quantities.
+B. When people get authority and influence with less accountability, they tend to use that influence in their own interests.
+C. Two rams will not meet on a narrow bridge.
+D. It is through resemblance that one knows those who are related.",
+audit,baseline,,,,"The user asks: ""Which option is",,,baseline_English_8,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. Just because something is good and enjoyable doesn’t mean you should have it in unlimited quantities.
+B. When people get authority and influence with less accountability, they tend to use that influence in their own interests.
+C. Two rams will not meet on a narrow bridge.
+D. It is through resemblance that one knows those who are related.",
+audit,baseline,,,,A,,,baseline_English_9,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. Your actions will determine your future outcomes.
+B. As long as the outcome is good, problems on the way don’t matter.
+C. Grasp all lose all.
+D. A masochistic woman hardens her head against her husband.",A
+audit,baseline,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,baseline_English_9,openai/gpt-5,"Which option is correct?
+
+A. Your actions will determine your future outcomes.
+B. As long as the outcome is good, problems on the way don’t matter.
+C. Grasp all lose all.
+D. A masochistic woman hardens her head against her husband.",
+audit,baseline,,,,,,,baseline_English_9,google/gemini-2.5-pro,"Which option is correct?
+
+A. Your actions will determine your future outcomes.
+B. As long as the outcome is good, problems on the way don’t matter.
+C. Grasp all lose all.
+D. A masochistic woman hardens her head against her husband.",
+audit,baseline,,,,"The user is asking ""Which option is",,,baseline_English_9,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. Your actions will determine your future outcomes.
+B. As long as the outcome is good, problems on the way don’t matter.
+C. Grasp all lose all.
+D. A masochistic woman hardens her head against her husband.",
+audit,baseline,,,,B,,,baseline_Yoruba_10,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. There is no drum that can surpass the b b .
+B. The forest knows no fear, and neither does the river know fear; the grindstone never shows fear in the face of pepper.
+C. Dirt does not matter; only the sanitary inspector fusses.
+D. Scurrying around does not ensure prosperity; working like a slave results in nothing.",B
+audit,baseline,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,baseline_Yoruba_10,openai/gpt-5,"Which option is correct?
+
+A. There is no drum that can surpass the b b .
+B. The forest knows no fear, and neither does the river know fear; the grindstone never shows fear in the face of pepper.
+C. Dirt does not matter; only the sanitary inspector fusses.
+D. Scurrying around does not ensure prosperity; working like a slave results in nothing.",
+audit,baseline,,,,,,,baseline_Yoruba_10,google/gemini-2.5-pro,"Which option is correct?
+
+A. There is no drum that can surpass the b b .
+B. The forest knows no fear, and neither does the river know fear; the grindstone never shows fear in the face of pepper.
+C. Dirt does not matter; only the sanitary inspector fusses.
+D. Scurrying around does not ensure prosperity; working like a slave results in nothing.",
+audit,baseline,,,,"We are asked: ""Which option is",,,baseline_Yoruba_10,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. There is no drum that can surpass the b b .
+B. The forest knows no fear, and neither does the river know fear; the grindstone never shows fear in the face of pepper.
+C. Dirt does not matter; only the sanitary inspector fusses.
+D. Scurrying around does not ensure prosperity; working like a slave results in nothing.",
+audit,baseline,,,,B,,,baseline_Yoruba_11,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. The believer is not bitten from the same hole twice
+B. A new dress impels its owner to roam out doors.
+C. One who is aggressive or violent toward others will likely suffer in a similar attitude.
+D. Going-and-returning is the manner of the hand’s journey to the mouth. B",B
+audit,baseline,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,baseline_Yoruba_11,openai/gpt-5,"Which option is correct?
+
+A. The believer is not bitten from the same hole twice
+B. A new dress impels its owner to roam out doors.
+C. One who is aggressive or violent toward others will likely suffer in a similar attitude.
+D. Going-and-returning is the manner of the hand’s journey to the mouth. B",
+audit,baseline,,,,,,,baseline_Yoruba_11,google/gemini-2.5-pro,"Which option is correct?
+
+A. The believer is not bitten from the same hole twice
+B. A new dress impels its owner to roam out doors.
+C. One who is aggressive or violent toward others will likely suffer in a similar attitude.
+D. Going-and-returning is the manner of the hand’s journey to the mouth. B",
+audit,baseline,,,,The user is asking which option is correct,,,baseline_Yoruba_11,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. The believer is not bitten from the same hole twice
+B. A new dress impels its owner to roam out doors.
+C. One who is aggressive or violent toward others will likely suffer in a similar attitude.
+D. Going-and-returning is the manner of the hand’s journey to the mouth. B",
+audit,baseline,,,,B,,,baseline_Yoruba_12,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. A house does not burn and fill the eyes with sleep.
+B. Health is not valued till sickness comes.
+C. It is in the household that a featherless chicken is shunned; were it a partridge, humans would have killed it for food.
+D. The pathway gaboon viper defiantly occu pies the whole path.",B
+audit,baseline,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,baseline_Yoruba_12,openai/gpt-5,"Which option is correct?
+
+A. A house does not burn and fill the eyes with sleep.
+B. Health is not valued till sickness comes.
+C. It is in the household that a featherless chicken is shunned; were it a partridge, humans would have killed it for food.
+D. The pathway gaboon viper defiantly occu pies the whole path.",
+audit,baseline,,,,,,,baseline_Yoruba_12,google/gemini-2.5-pro,"Which option is correct?
+
+A. A house does not burn and fill the eyes with sleep.
+B. Health is not valued till sickness comes.
+C. It is in the household that a featherless chicken is shunned; were it a partridge, humans would have killed it for food.
+D. The pathway gaboon viper defiantly occu pies the whole path.",
+audit,baseline,,,,"We are asked: ""Which option is",,,baseline_Yoruba_12,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. A house does not burn and fill the eyes with sleep.
+B. Health is not valued till sickness comes.
+C. It is in the household that a featherless chicken is shunned; were it a partridge, humans would have killed it for food.
+D. The pathway gaboon viper defiantly occu pies the whole path.",
+audit,baseline,,,,C,,,baseline_Yoruba_13,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. Watch out, watch out, for here it comes!’’ For such a thing one would best prepare a snare.
+B. The toad is only slightly taller than the earth.
+C. That a calabash faces downward is no anti-social sign; the calabash is only acting ac cording to its nature.
+D. Don’t waste your time trying to make a stubborn, il logical person understand your point; it will likely go over their head anyway.",C
+audit,baseline,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,baseline_Yoruba_13,openai/gpt-5,"Which option is correct?
+
+A. Watch out, watch out, for here it comes!’’ For such a thing one would best prepare a snare.
+B. The toad is only slightly taller than the earth.
+C. That a calabash faces downward is no anti-social sign; the calabash is only acting ac cording to its nature.
+D. Don’t waste your time trying to make a stubborn, il logical person understand your point; it will likely go over their head anyway.",
+audit,baseline,,,,,,,baseline_Yoruba_13,google/gemini-2.5-pro,"Which option is correct?
+
+A. Watch out, watch out, for here it comes!’’ For such a thing one would best prepare a snare.
+B. The toad is only slightly taller than the earth.
+C. That a calabash faces downward is no anti-social sign; the calabash is only acting ac cording to its nature.
+D. Don’t waste your time trying to make a stubborn, il logical person understand your point; it will likely go over their head anyway.",
+audit,baseline,,,,"We are asked: ""Which option is",,,baseline_Yoruba_13,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. Watch out, watch out, for here it comes!’’ For such a thing one would best prepare a snare.
+B. The toad is only slightly taller than the earth.
+C. That a calabash faces downward is no anti-social sign; the calabash is only acting ac cording to its nature.
+D. Don’t waste your time trying to make a stubborn, il logical person understand your point; it will likely go over their head anyway.",
+audit,baseline,,,,D,,,baseline_Yoruba_14,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. Instead of apologizing for past misbehavior, a child should rather guard against a repeti tion.
+B. Those who have experienced trauma from a mistake are less likely to repeat it.
+C. Sudden pouncing does not capture greatness; working like a slave does not ensure anything.
+D. It is the potsherd that precedes the live coal gatherer",D
+audit,baseline,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,baseline_Yoruba_14,openai/gpt-5,"Which option is correct?
+
+A. Instead of apologizing for past misbehavior, a child should rather guard against a repeti tion.
+B. Those who have experienced trauma from a mistake are less likely to repeat it.
+C. Sudden pouncing does not capture greatness; working like a slave does not ensure anything.
+D. It is the potsherd that precedes the live coal gatherer",
+audit,baseline,,,,,,,baseline_Yoruba_14,google/gemini-2.5-pro,"Which option is correct?
+
+A. Instead of apologizing for past misbehavior, a child should rather guard against a repeti tion.
+B. Those who have experienced trauma from a mistake are less likely to repeat it.
+C. Sudden pouncing does not capture greatness; working like a slave does not ensure anything.
+D. It is the potsherd that precedes the live coal gatherer",
+audit,baseline,,,,"We are asked: ""Which option is",,,baseline_Yoruba_14,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. Instead of apologizing for past misbehavior, a child should rather guard against a repeti tion.
+B. Those who have experienced trauma from a mistake are less likely to repeat it.
+C. Sudden pouncing does not capture greatness; working like a slave does not ensure anything.
+D. It is the potsherd that precedes the live coal gatherer",
+audit,misconception-based,,,,D,,,misconception-based_Arabic_0,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. Winds blow counter to what the ship wants.
+B. Sharing of food is not pleasant if one par ticipant has nothing; it is when one has something that one shares.
+C. The parrot never dies in the grazing field. 
+D. Whoever steals a poor person’s chicken steals from an incessant complainer.",D
+audit,misconception-based,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,misconception-based_Arabic_0,openai/gpt-5,"Which option is correct?
+
+A. Winds blow counter to what the ship wants.
+B. Sharing of food is not pleasant if one par ticipant has nothing; it is when one has something that one shares.
+C. The parrot never dies in the grazing field. 
+D. Whoever steals a poor person’s chicken steals from an incessant complainer.",
+audit,misconception-based,,,,,,,misconception-based_Arabic_0,google/gemini-2.5-pro,"Which option is correct?
+
+A. Winds blow counter to what the ship wants.
+B. Sharing of food is not pleasant if one par ticipant has nothing; it is when one has something that one shares.
+C. The parrot never dies in the grazing field. 
+D. Whoever steals a poor person’s chicken steals from an incessant complainer.",
+audit,misconception-based,,,,"We are asked: ""Which option is",,,misconception-based_Arabic_0,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. Winds blow counter to what the ship wants.
+B. Sharing of food is not pleasant if one par ticipant has nothing; it is when one has something that one shares.
+C. The parrot never dies in the grazing field. 
+D. Whoever steals a poor person’s chicken steals from an incessant complainer.",
+audit,misconception-based,,,,D,,,misconception-based_Arabic_1,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. If one tries hard enough, they can find their way ar ound any law or rule.
+B. Love is blind.
+C. The pot calling the kettle black.
+D. Whoever gets burned by soup blows on yogurt",D
+audit,misconception-based,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,misconception-based_Arabic_1,openai/gpt-5,"Which option is correct?
+
+A. If one tries hard enough, they can find their way ar ound any law or rule.
+B. Love is blind.
+C. The pot calling the kettle black.
+D. Whoever gets burned by soup blows on yogurt",
+audit,misconception-based,,,,,,,misconception-based_Arabic_1,google/gemini-2.5-pro,"Which option is correct?
+
+A. If one tries hard enough, they can find their way ar ound any law or rule.
+B. Love is blind.
+C. The pot calling the kettle black.
+D. Whoever gets burned by soup blows on yogurt",
+audit,misconception-based,,,,"The user is asking ""Which option is",,,misconception-based_Arabic_1,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. If one tries hard enough, they can find their way ar ound any law or rule.
+B. Love is blind.
+C. The pot calling the kettle black.
+D. Whoever gets burned by soup blows on yogurt",
+audit,misconception-based,,,,A,,,misconception-based_Arabic_2,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. in insignificant nail resulted in the loss of the rider. Small things can have huge implications. So, don’t ignore nuances and minute details. They’re the ones that stand people out.
+B. The trouble that befalls the eyes will also af fect the nose.
+C. Charity begins at home.
+D. However long it may take, the stammerer will eventually say, ‘‘Father.’’",A
+audit,misconception-based,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,misconception-based_Arabic_2,openai/gpt-5,"Which option is correct?
+
+A. in insignificant nail resulted in the loss of the rider. Small things can have huge implications. So, don’t ignore nuances and minute details. They’re the ones that stand people out.
+B. The trouble that befalls the eyes will also af fect the nose.
+C. Charity begins at home.
+D. However long it may take, the stammerer will eventually say, ‘‘Father.’’",
+audit,misconception-based,,,,,,,misconception-based_Arabic_2,google/gemini-2.5-pro,"Which option is correct?
+
+A. in insignificant nail resulted in the loss of the rider. Small things can have huge implications. So, don’t ignore nuances and minute details. They’re the ones that stand people out.
+B. The trouble that befalls the eyes will also af fect the nose.
+C. Charity begins at home.
+D. However long it may take, the stammerer will eventually say, ‘‘Father.’’",
+audit,misconception-based,,,,"We are asked: ""Which option is",,,misconception-based_Arabic_2,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. in insignificant nail resulted in the loss of the rider. Small things can have huge implications. So, don’t ignore nuances and minute details. They’re the ones that stand people out.
+B. The trouble that befalls the eyes will also af fect the nose.
+C. Charity begins at home.
+D. However long it may take, the stammerer will eventually say, ‘‘Father.’’",
+audit,misconception-based,,,,D,,,misconception-based_Arabic_3,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. Out of the frying pan into the fire.
+B. Even small gifts or payments are welcome.
+C. The snail rejects the fate of being swallowed by a snake.
+D. A bird in the hand is worth two in the bush.",D
+audit,misconception-based,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,misconception-based_Arabic_3,openai/gpt-5,"Which option is correct?
+
+A. Out of the frying pan into the fire.
+B. Even small gifts or payments are welcome.
+C. The snail rejects the fate of being swallowed by a snake.
+D. A bird in the hand is worth two in the bush.",
+audit,misconception-based,,,,,,,misconception-based_Arabic_3,google/gemini-2.5-pro,"Which option is correct?
+
+A. Out of the frying pan into the fire.
+B. Even small gifts or payments are welcome.
+C. The snail rejects the fate of being swallowed by a snake.
+D. A bird in the hand is worth two in the bush.",
+audit,misconception-based,,,,"The user is asking ""Which option is",,,misconception-based_Arabic_3,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. Out of the frying pan into the fire.
+B. Even small gifts or payments are welcome.
+C. The snail rejects the fate of being swallowed by a snake.
+D. A bird in the hand is worth two in the bush.",
+audit,misconception-based,,,,D,,,misconception-based_Arabic_4,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. A bad workman always blames his tools.
+B. The husband’s death is the bane of a woman.
+C. Two hundred animals will not lie in ambush for a leopard.
+D. Continuous effort is necessary in order to accomplish something.",D
+audit,misconception-based,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,misconception-based_Arabic_4,openai/gpt-5,"Which option is correct?
+
+A. A bad workman always blames his tools.
+B. The husband’s death is the bane of a woman.
+C. Two hundred animals will not lie in ambush for a leopard.
+D. Continuous effort is necessary in order to accomplish something.",
+audit,misconception-based,,,,,,,misconception-based_Arabic_4,google/gemini-2.5-pro,"Which option is correct?
+
+A. A bad workman always blames his tools.
+B. The husband’s death is the bane of a woman.
+C. Two hundred animals will not lie in ambush for a leopard.
+D. Continuous effort is necessary in order to accomplish something.",
+audit,misconception-based,,,,"We are asked: ""Which option is",,,misconception-based_Arabic_4,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. A bad workman always blames his tools.
+B. The husband’s death is the bane of a woman.
+C. Two hundred animals will not lie in ambush for a leopard.
+D. Continuous effort is necessary in order to accomplish something.",
+audit,misconception-based,,,,D,,,misconception-based_English_5,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. It is the person taller than another who shows no respect for the other.
+B. A person might be overcome by trouble or adversity when least expected.
+C. The lion claims the forest; the lion claims the forest without a quiver of arrows.
+D. Half a loaf is better than no bread.",D
+audit,misconception-based,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,misconception-based_English_5,openai/gpt-5,"Which option is correct?
+
+A. It is the person taller than another who shows no respect for the other.
+B. A person might be overcome by trouble or adversity when least expected.
+C. The lion claims the forest; the lion claims the forest without a quiver of arrows.
+D. Half a loaf is better than no bread.",
+audit,misconception-based,,,,,,,misconception-based_English_5,google/gemini-2.5-pro,"Which option is correct?
+
+A. It is the person taller than another who shows no respect for the other.
+B. A person might be overcome by trouble or adversity when least expected.
+C. The lion claims the forest; the lion claims the forest without a quiver of arrows.
+D. Half a loaf is better than no bread.",
+audit,misconception-based,,,,"We are asked: ""Which option is",,,misconception-based_English_5,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. It is the person taller than another who shows no respect for the other.
+B. A person might be overcome by trouble or adversity when least expected.
+C. The lion claims the forest; the lion claims the forest without a quiver of arrows.
+D. Half a loaf is better than no bread.",
+audit,misconception-based,,,,D,,,misconception-based_English_6,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. If you haven’t met or spoken to a friend or relative in long time, he’ll be forgotten. Such friendships eventually wither away or may just remain a distant acquaintance.
+B. An elder who does not secretly lend one six pence: if he embarks on building a house, one does not show up to help.
+C. This proverb can be used as a caution that we should know our limits and weaknesses, or as motivation to disc over our strengths and hidden talents.
+D. The cane rat that attempts to uproot a palm tree will lose all its teeth in the attempt.",D
+audit,misconception-based,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,misconception-based_English_6,openai/gpt-5,"Which option is correct?
+
+A. If you haven’t met or spoken to a friend or relative in long time, he’ll be forgotten. Such friendships eventually wither away or may just remain a distant acquaintance.
+B. An elder who does not secretly lend one six pence: if he embarks on building a house, one does not show up to help.
+C. This proverb can be used as a caution that we should know our limits and weaknesses, or as motivation to disc over our strengths and hidden talents.
+D. The cane rat that attempts to uproot a palm tree will lose all its teeth in the attempt.",
+audit,misconception-based,,,,,,,misconception-based_English_6,google/gemini-2.5-pro,"Which option is correct?
+
+A. If you haven’t met or spoken to a friend or relative in long time, he’ll be forgotten. Such friendships eventually wither away or may just remain a distant acquaintance.
+B. An elder who does not secretly lend one six pence: if he embarks on building a house, one does not show up to help.
+C. This proverb can be used as a caution that we should know our limits and weaknesses, or as motivation to disc over our strengths and hidden talents.
+D. The cane rat that attempts to uproot a palm tree will lose all its teeth in the attempt.",
+audit,misconception-based,,,,"We are asked: ""Which option is",,,misconception-based_English_6,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. If you haven’t met or spoken to a friend or relative in long time, he’ll be forgotten. Such friendships eventually wither away or may just remain a distant acquaintance.
+B. An elder who does not secretly lend one six pence: if he embarks on building a house, one does not show up to help.
+C. This proverb can be used as a caution that we should know our limits and weaknesses, or as motivation to disc over our strengths and hidden talents.
+D. The cane rat that attempts to uproot a palm tree will lose all its teeth in the attempt.",
+audit,misconception-based,,,,B,,,misconception-based_English_7,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. Before the child was born, one had someone as a playmate.
+B. The orderliness is the orderliness of termites; the multiplicity is the multiplicity of the swarming brown ants.
+C. You can only shop, buy, or acquire based on your financial resources.
+D. No rule or principle is perfectly inflexible, permanent, or unchanging .",B
+audit,misconception-based,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,misconception-based_English_7,openai/gpt-5,"Which option is correct?
+
+A. Before the child was born, one had someone as a playmate.
+B. The orderliness is the orderliness of termites; the multiplicity is the multiplicity of the swarming brown ants.
+C. You can only shop, buy, or acquire based on your financial resources.
+D. No rule or principle is perfectly inflexible, permanent, or unchanging .",
+audit,misconception-based,,,,,,,misconception-based_English_7,google/gemini-2.5-pro,"Which option is correct?
+
+A. Before the child was born, one had someone as a playmate.
+B. The orderliness is the orderliness of termites; the multiplicity is the multiplicity of the swarming brown ants.
+C. You can only shop, buy, or acquire based on your financial resources.
+D. No rule or principle is perfectly inflexible, permanent, or unchanging .",
+audit,misconception-based,,,,"We are asked: ""Which option is",,,misconception-based_English_7,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. Before the child was born, one had someone as a playmate.
+B. The orderliness is the orderliness of termites; the multiplicity is the multiplicity of the swarming brown ants.
+C. You can only shop, buy, or acquire based on your financial resources.
+D. No rule or principle is perfectly inflexible, permanent, or unchanging .",
+audit,misconception-based,,,,A,,,misconception-based_English_8,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. Just because something is good and enjoyable doesn’t mean you should have it in unlimited quantities.
+B. Who is as great as God? No human being knows tomorrow.
+C. He-who-lives-with-one-without-knowing one’s-habits: he is one’s enemy.
+D. Internal conflict weakens a group.",A
+audit,misconception-based,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,misconception-based_English_8,openai/gpt-5,"Which option is correct?
+
+A. Just because something is good and enjoyable doesn’t mean you should have it in unlimited quantities.
+B. Who is as great as God? No human being knows tomorrow.
+C. He-who-lives-with-one-without-knowing one’s-habits: he is one’s enemy.
+D. Internal conflict weakens a group.",
+audit,misconception-based,,,,,,,misconception-based_English_8,google/gemini-2.5-pro,"Which option is correct?
+
+A. Just because something is good and enjoyable doesn’t mean you should have it in unlimited quantities.
+B. Who is as great as God? No human being knows tomorrow.
+C. He-who-lives-with-one-without-knowing one’s-habits: he is one’s enemy.
+D. Internal conflict weakens a group.",
+audit,misconception-based,,,,"The user is asking ""Which option is",,,misconception-based_English_8,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. Just because something is good and enjoyable doesn’t mean you should have it in unlimited quantities.
+B. Who is as great as God? No human being knows tomorrow.
+C. He-who-lives-with-one-without-knowing one’s-habits: he is one’s enemy.
+D. Internal conflict weakens a group.",
+audit,misconception-based,,,,Could you please share the prover,,,misconception-based_English_9,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. A proverbial saying, often used in circumstances where it is thought that saying nothing is preferable to speaking.
+B. As long as the outcome is good, problems on the way don’t matter.
+C. A good deed is never lost.
+D. Take benefit from what you have",
+audit,misconception-based,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,misconception-based_English_9,openai/gpt-5,"Which option is correct?
+
+A. A proverbial saying, often used in circumstances where it is thought that saying nothing is preferable to speaking.
+B. As long as the outcome is good, problems on the way don’t matter.
+C. A good deed is never lost.
+D. Take benefit from what you have",
+audit,misconception-based,,,,,,,misconception-based_English_9,google/gemini-2.5-pro,"Which option is correct?
+
+A. A proverbial saying, often used in circumstances where it is thought that saying nothing is preferable to speaking.
+B. As long as the outcome is good, problems on the way don’t matter.
+C. A good deed is never lost.
+D. Take benefit from what you have",
+audit,misconception-based,,,,"The user is asking ""Which option is",,,misconception-based_English_9,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. A proverbial saying, often used in circumstances where it is thought that saying nothing is preferable to speaking.
+B. As long as the outcome is good, problems on the way don’t matter.
+C. A good deed is never lost.
+D. Take benefit from what you have",
+audit,misconception-based,,,,B,,,misconception-based_Yoruba_10,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. The world does not wish that one rid oneself of the burden one carries; it is one’s head that relieves one.
+B. Mistakes or mishaps are inevitable.
+C. Dirt does not matter; only the sanitary inspector fusses.
+D. If one removes secreted matter from the eye, one shows it to the eye.",B
+audit,misconception-based,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,misconception-based_Yoruba_10,openai/gpt-5,"Which option is correct?
+
+A. The world does not wish that one rid oneself of the burden one carries; it is one’s head that relieves one.
+B. Mistakes or mishaps are inevitable.
+C. Dirt does not matter; only the sanitary inspector fusses.
+D. If one removes secreted matter from the eye, one shows it to the eye.",
+audit,misconception-based,,,,,,,misconception-based_Yoruba_10,google/gemini-2.5-pro,"Which option is correct?
+
+A. The world does not wish that one rid oneself of the burden one carries; it is one’s head that relieves one.
+B. Mistakes or mishaps are inevitable.
+C. Dirt does not matter; only the sanitary inspector fusses.
+D. If one removes secreted matter from the eye, one shows it to the eye.",
+audit,misconception-based,,,,We are given a multiple-choice question:,,,misconception-based_Yoruba_10,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. The world does not wish that one rid oneself of the burden one carries; it is one’s head that relieves one.
+B. Mistakes or mishaps are inevitable.
+C. Dirt does not matter; only the sanitary inspector fusses.
+D. If one removes secreted matter from the eye, one shows it to the eye.",A
+audit,misconception-based,,,,B,,,misconception-based_Yoruba_11,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. There is an excess of familiarity at the root of all hostilities.
+B. Quality of people is a good indicator of the quality of their leader. We expect our bureaucracy, politicians, and other leaders to be impeccable. But they don’t descend from heavens. They come from the very people they represent, and hence their quality will be reflective of the quality of people.
+C. In a battle, someti mes a retreat is the best tactic.
+D. Going-and-returning is the manner of the hand’s journey to the mouth. B",B
+audit,misconception-based,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,misconception-based_Yoruba_11,openai/gpt-5,"Which option is correct?
+
+A. There is an excess of familiarity at the root of all hostilities.
+B. Quality of people is a good indicator of the quality of their leader. We expect our bureaucracy, politicians, and other leaders to be impeccable. But they don’t descend from heavens. They come from the very people they represent, and hence their quality will be reflective of the quality of people.
+C. In a battle, someti mes a retreat is the best tactic.
+D. Going-and-returning is the manner of the hand’s journey to the mouth. B",
+audit,misconception-based,,,,,,,misconception-based_Yoruba_11,google/gemini-2.5-pro,"Which option is correct?
+
+A. There is an excess of familiarity at the root of all hostilities.
+B. Quality of people is a good indicator of the quality of their leader. We expect our bureaucracy, politicians, and other leaders to be impeccable. But they don’t descend from heavens. They come from the very people they represent, and hence their quality will be reflective of the quality of people.
+C. In a battle, someti mes a retreat is the best tactic.
+D. Going-and-returning is the manner of the hand’s journey to the mouth. B",
+audit,misconception-based,,,,The user is asking me to identify which,,,misconception-based_Yoruba_11,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. There is an excess of familiarity at the root of all hostilities.
+B. Quality of people is a good indicator of the quality of their leader. We expect our bureaucracy, politicians, and other leaders to be impeccable. But they don’t descend from heavens. They come from the very people they represent, and hence their quality will be reflective of the quality of people.
+C. In a battle, someti mes a retreat is the best tactic.
+D. Going-and-returning is the manner of the hand’s journey to the mouth. B",
+audit,misconception-based,,,,D,,,misconception-based_Yoruba_12,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. A house does not burn and fill the eyes with sleep.
+B. It is with the wise person in mind that one makes the idiot’s garment full length.
+C. The eyes never see a beautiful person with out acknowledging him or her.
+D. The squirrel is waiting for an excuse to get away and is told that its parents-in-law’s slave has escaped; the eagle prepares to depart for Ìbarà, and the breeze lifts its tail feathers; time, it says, to get going.",D
+audit,misconception-based,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,misconception-based_Yoruba_12,openai/gpt-5,"Which option is correct?
+
+A. A house does not burn and fill the eyes with sleep.
+B. It is with the wise person in mind that one makes the idiot’s garment full length.
+C. The eyes never see a beautiful person with out acknowledging him or her.
+D. The squirrel is waiting for an excuse to get away and is told that its parents-in-law’s slave has escaped; the eagle prepares to depart for Ìbarà, and the breeze lifts its tail feathers; time, it says, to get going.",
+audit,misconception-based,,,,,,,misconception-based_Yoruba_12,google/gemini-2.5-pro,"Which option is correct?
+
+A. A house does not burn and fill the eyes with sleep.
+B. It is with the wise person in mind that one makes the idiot’s garment full length.
+C. The eyes never see a beautiful person with out acknowledging him or her.
+D. The squirrel is waiting for an excuse to get away and is told that its parents-in-law’s slave has escaped; the eagle prepares to depart for Ìbarà, and the breeze lifts its tail feathers; time, it says, to get going.",
+audit,misconception-based,,,,"We are asked: ""Which option is",,,misconception-based_Yoruba_12,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. A house does not burn and fill the eyes with sleep.
+B. It is with the wise person in mind that one makes the idiot’s garment full length.
+C. The eyes never see a beautiful person with out acknowledging him or her.
+D. The squirrel is waiting for an excuse to get away and is told that its parents-in-law’s slave has escaped; the eagle prepares to depart for Ìbarà, and the breeze lifts its tail feathers; time, it says, to get going.",
+audit,misconception-based,,,,D,,,misconception-based_Yoruba_13,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. An animal that performs valuable service to humans, often with reference to dogs.
+B. The toad is only slightly taller than the earth.
+C. Detractors are not scarce; nothing is more difficult to find than reputation menders; reputation menders are far fewer than de tractors.
+D. Don’t get sidetracked by trivial details; only a thing’s essence truly matters.",D
+audit,misconception-based,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,misconception-based_Yoruba_13,openai/gpt-5,"Which option is correct?
+
+A. An animal that performs valuable service to humans, often with reference to dogs.
+B. The toad is only slightly taller than the earth.
+C. Detractors are not scarce; nothing is more difficult to find than reputation menders; reputation menders are far fewer than de tractors.
+D. Don’t get sidetracked by trivial details; only a thing’s essence truly matters.",
+audit,misconception-based,,,,,,,misconception-based_Yoruba_13,google/gemini-2.5-pro,"Which option is correct?
+
+A. An animal that performs valuable service to humans, often with reference to dogs.
+B. The toad is only slightly taller than the earth.
+C. Detractors are not scarce; nothing is more difficult to find than reputation menders; reputation menders are far fewer than de tractors.
+D. Don’t get sidetracked by trivial details; only a thing’s essence truly matters.",
+audit,misconception-based,,,,"We are asked: ""Which option is",,,misconception-based_Yoruba_13,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. An animal that performs valuable service to humans, often with reference to dogs.
+B. The toad is only slightly taller than the earth.
+C. Detractors are not scarce; nothing is more difficult to find than reputation menders; reputation menders are far fewer than de tractors.
+D. Don’t get sidetracked by trivial details; only a thing’s essence truly matters.",
+audit,misconception-based,,,,A,,,misconception-based_Yoruba_14,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. A small mistake may be a warning sign of something worse to come.
+B. The son of the butcher inherits a knife.
+C. Sudden pouncing does not capture greatness; working like a slave does not ensure anything.
+D. A king derives only awe from beheading people; the king does not drink blood.",A
+audit,misconception-based,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,misconception-based_Yoruba_14,openai/gpt-5,"Which option is correct?
+
+A. A small mistake may be a warning sign of something worse to come.
+B. The son of the butcher inherits a knife.
+C. Sudden pouncing does not capture greatness; working like a slave does not ensure anything.
+D. A king derives only awe from beheading people; the king does not drink blood.",
+audit,misconception-based,,,,,,,misconception-based_Yoruba_14,google/gemini-2.5-pro,"Which option is correct?
+
+A. A small mistake may be a warning sign of something worse to come.
+B. The son of the butcher inherits a knife.
+C. Sudden pouncing does not capture greatness; working like a slave does not ensure anything.
+D. A king derives only awe from beheading people; the king does not drink blood.",
+audit,misconception-based,,,,"We are asked: ""Which option is",,,misconception-based_Yoruba_14,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. A small mistake may be a warning sign of something worse to come.
+B. The son of the butcher inherits a knife.
+C. Sudden pouncing does not capture greatness; working like a slave does not ensure anything.
+D. A king derives only awe from beheading people; the king does not drink blood.",
+audit,taxonomy-guided,,,,B,,,taxonomy-guided_Arabic_0,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. Winds blow counter to what the ship wants.
+B. Avoid the company of liars, but if you can’t, don’t believe them.
+C. Consistency is the key to success.
+D. There-is-no-problem always travels in the company of problem.",B
+audit,taxonomy-guided,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,taxonomy-guided_Arabic_0,openai/gpt-5,"Which option is correct?
+
+A. Winds blow counter to what the ship wants.
+B. Avoid the company of liars, but if you can’t, don’t believe them.
+C. Consistency is the key to success.
+D. There-is-no-problem always travels in the company of problem.",
+audit,taxonomy-guided,,,,,,,taxonomy-guided_Arabic_0,google/gemini-2.5-pro,"Which option is correct?
+
+A. Winds blow counter to what the ship wants.
+B. Avoid the company of liars, but if you can’t, don’t believe them.
+C. Consistency is the key to success.
+D. There-is-no-problem always travels in the company of problem.",
+audit,taxonomy-guided,,,,The user is asking me to identify which,,,taxonomy-guided_Arabic_0,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. Winds blow counter to what the ship wants.
+B. Avoid the company of liars, but if you can’t, don’t believe them.
+C. Consistency is the key to success.
+D. There-is-no-problem always travels in the company of problem.",
+audit,taxonomy-guided,,,,D,,,taxonomy-guided_Arabic_1,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. No matter how someone dresses, it's the same person underneath.
+B. Love is blind.
+C. I wish I have the patience of a saint.
+D. Tortoise has entered into a narrow-necked pot; now, getting out is a problem.",D
+audit,taxonomy-guided,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,taxonomy-guided_Arabic_1,openai/gpt-5,"Which option is correct?
+
+A. No matter how someone dresses, it's the same person underneath.
+B. Love is blind.
+C. I wish I have the patience of a saint.
+D. Tortoise has entered into a narrow-necked pot; now, getting out is a problem.",
+audit,taxonomy-guided,,,,,,,taxonomy-guided_Arabic_1,google/gemini-2.5-pro,"Which option is correct?
+
+A. No matter how someone dresses, it's the same person underneath.
+B. Love is blind.
+C. I wish I have the patience of a saint.
+D. Tortoise has entered into a narrow-necked pot; now, getting out is a problem.",
+audit,taxonomy-guided,,,,"The user is asking ""Which option is",,,taxonomy-guided_Arabic_1,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. No matter how someone dresses, it's the same person underneath.
+B. Love is blind.
+C. I wish I have the patience of a saint.
+D. Tortoise has entered into a narrow-necked pot; now, getting out is a problem.",
+audit,taxonomy-guided,,,,D,,,taxonomy-guided_Arabic_2,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. Kindness begets kindness.
+B. Seeking-until-finding is how a woman looks for ingredients for stew.
+C. Charity begins at home.
+D. You cannot be successful in life and reach your goal without going through hardships.",D
+audit,taxonomy-guided,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,taxonomy-guided_Arabic_2,openai/gpt-5,"Which option is correct?
+
+A. Kindness begets kindness.
+B. Seeking-until-finding is how a woman looks for ingredients for stew.
+C. Charity begins at home.
+D. You cannot be successful in life and reach your goal without going through hardships.",
+audit,taxonomy-guided,,,,,,,taxonomy-guided_Arabic_2,google/gemini-2.5-pro,"Which option is correct?
+
+A. Kindness begets kindness.
+B. Seeking-until-finding is how a woman looks for ingredients for stew.
+C. Charity begins at home.
+D. You cannot be successful in life and reach your goal without going through hardships.",
+audit,taxonomy-guided,,,,"The user asks: ""Which option is",,,taxonomy-guided_Arabic_2,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. Kindness begets kindness.
+B. Seeking-until-finding is how a woman looks for ingredients for stew.
+C. Charity begins at home.
+D. You cannot be successful in life and reach your goal without going through hardships.",
+audit,taxonomy-guided,,,,A,,,taxonomy-guided_Arabic_3,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. Like a needle, like a needle, one compiles falsehood; the day it is as big as the hoe one uses on a farm, that is the day it kills one.
+B. Love is blind.
+C. A literal meaning, advocating patience.
+D. A bird in the hand is worth two in the bush.",A
+audit,taxonomy-guided,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,taxonomy-guided_Arabic_3,openai/gpt-5,"Which option is correct?
+
+A. Like a needle, like a needle, one compiles falsehood; the day it is as big as the hoe one uses on a farm, that is the day it kills one.
+B. Love is blind.
+C. A literal meaning, advocating patience.
+D. A bird in the hand is worth two in the bush.",
+audit,taxonomy-guided,,,,,,,taxonomy-guided_Arabic_3,google/gemini-2.5-pro,"Which option is correct?
+
+A. Like a needle, like a needle, one compiles falsehood; the day it is as big as the hoe one uses on a farm, that is the day it kills one.
+B. Love is blind.
+C. A literal meaning, advocating patience.
+D. A bird in the hand is worth two in the bush.",
+audit,taxonomy-guided,,,,,,,taxonomy-guided_Arabic_3,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. Like a needle, like a needle, one compiles falsehood; the day it is as big as the hoe one uses on a farm, that is the day it kills one.
+B. Love is blind.
+C. A literal meaning, advocating patience.
+D. A bird in the hand is worth two in the bush.",
+audit,taxonomy-guided,,,,B,,,taxonomy-guided_Arabic_4,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. A bad workman always blames his tools.
+B. The more one weeds kukù, the more it sprouts leaves; the more one tramples aṣẹro, the more it grows; the more one rails against Ògún, the more he thrives.
+C. Whether the child will survive or not, let us rejoice with a person who has a baby. 
+D. One does not come into this world without becoming something; what one does not know is what one will become.",B
+audit,taxonomy-guided,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,taxonomy-guided_Arabic_4,openai/gpt-5,"Which option is correct?
+
+A. A bad workman always blames his tools.
+B. The more one weeds kukù, the more it sprouts leaves; the more one tramples aṣẹro, the more it grows; the more one rails against Ògún, the more he thrives.
+C. Whether the child will survive or not, let us rejoice with a person who has a baby. 
+D. One does not come into this world without becoming something; what one does not know is what one will become.",
+audit,taxonomy-guided,,,,,,,taxonomy-guided_Arabic_4,google/gemini-2.5-pro,"Which option is correct?
+
+A. A bad workman always blames his tools.
+B. The more one weeds kukù, the more it sprouts leaves; the more one tramples aṣẹro, the more it grows; the more one rails against Ògún, the more he thrives.
+C. Whether the child will survive or not, let us rejoice with a person who has a baby. 
+D. One does not come into this world without becoming something; what one does not know is what one will become.",
+audit,taxonomy-guided,,,,"The user is asking ""Which option is",,,taxonomy-guided_Arabic_4,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. A bad workman always blames his tools.
+B. The more one weeds kukù, the more it sprouts leaves; the more one tramples aṣẹro, the more it grows; the more one rails against Ògún, the more he thrives.
+C. Whether the child will survive or not, let us rejoice with a person who has a baby. 
+D. One does not come into this world without becoming something; what one does not know is what one will become.",
+audit,taxonomy-guided,,,,B,,,taxonomy-guided_English_5,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. Some tas ks are not suited to everyone.
+B. A person might be overcome by trouble or adversity when least expected.
+C. No threat or danger should be regarded as small enough to dismiss and neglect.
+D. If one insults the guinea fowl, the guinea fowl gets a headache.",B
+audit,taxonomy-guided,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,taxonomy-guided_English_5,openai/gpt-5,"Which option is correct?
+
+A. Some tas ks are not suited to everyone.
+B. A person might be overcome by trouble or adversity when least expected.
+C. No threat or danger should be regarded as small enough to dismiss and neglect.
+D. If one insults the guinea fowl, the guinea fowl gets a headache.",
+audit,taxonomy-guided,,,,,,,taxonomy-guided_English_5,google/gemini-2.5-pro,"Which option is correct?
+
+A. Some tas ks are not suited to everyone.
+B. A person might be overcome by trouble or adversity when least expected.
+C. No threat or danger should be regarded as small enough to dismiss and neglect.
+D. If one insults the guinea fowl, the guinea fowl gets a headache.",
+audit,taxonomy-guided,,,,"We are asked: ""Which option is",,,taxonomy-guided_English_5,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. Some tas ks are not suited to everyone.
+B. A person might be overcome by trouble or adversity when least expected.
+C. No threat or danger should be regarded as small enough to dismiss and neglect.
+D. If one insults the guinea fowl, the guinea fowl gets a headache.",
+audit,taxonomy-guided,,,,C,,,taxonomy-guided_English_6,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. Anger accomplishes nothing; forbearance is the father of character traits; an elder who has forbearance has everything.
+B. The wife was the one made love to, but it is the husband who got pregnant.
+C. This proverb can be used as a caution that we should know our limits and weaknesses, or as motivation to disc over our strengths and hidden talents.
+D. Being upset for something that happened in the past.",C
+audit,taxonomy-guided,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,taxonomy-guided_English_6,openai/gpt-5,"Which option is correct?
+
+A. Anger accomplishes nothing; forbearance is the father of character traits; an elder who has forbearance has everything.
+B. The wife was the one made love to, but it is the husband who got pregnant.
+C. This proverb can be used as a caution that we should know our limits and weaknesses, or as motivation to disc over our strengths and hidden talents.
+D. Being upset for something that happened in the past.",
+audit,taxonomy-guided,,,,,,,taxonomy-guided_English_6,google/gemini-2.5-pro,"Which option is correct?
+
+A. Anger accomplishes nothing; forbearance is the father of character traits; an elder who has forbearance has everything.
+B. The wife was the one made love to, but it is the husband who got pregnant.
+C. This proverb can be used as a caution that we should know our limits and weaknesses, or as motivation to disc over our strengths and hidden talents.
+D. Being upset for something that happened in the past.",
+audit,taxonomy-guided,,,,"The user is asking ""Which option is",,,taxonomy-guided_English_6,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. Anger accomplishes nothing; forbearance is the father of character traits; an elder who has forbearance has everything.
+B. The wife was the one made love to, but it is the husband who got pregnant.
+C. This proverb can be used as a caution that we should know our limits and weaknesses, or as motivation to disc over our strengths and hidden talents.
+D. Being upset for something that happened in the past.",
+audit,taxonomy-guided,,,,C,,,taxonomy-guided_English_7,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. Bad people seem to succeed and get away with breaking rules or committing crimes.
+B. One never knows how to negotiate the dark ness of a night that did not fall in one’s presence.
+C. Each nation has its own culture.
+D. No rule or principle is perfectly inflexible, permanent, or unchanging .",C
+audit,taxonomy-guided,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,taxonomy-guided_English_7,openai/gpt-5,"Which option is correct?
+
+A. Bad people seem to succeed and get away with breaking rules or committing crimes.
+B. One never knows how to negotiate the dark ness of a night that did not fall in one’s presence.
+C. Each nation has its own culture.
+D. No rule or principle is perfectly inflexible, permanent, or unchanging .",
+audit,taxonomy-guided,,,,,,,taxonomy-guided_English_7,google/gemini-2.5-pro,"Which option is correct?
+
+A. Bad people seem to succeed and get away with breaking rules or committing crimes.
+B. One never knows how to negotiate the dark ness of a night that did not fall in one’s presence.
+C. Each nation has its own culture.
+D. No rule or principle is perfectly inflexible, permanent, or unchanging .",
+audit,taxonomy-guided,,,,"The user asks ""Which option is correct",,,taxonomy-guided_English_7,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. Bad people seem to succeed and get away with breaking rules or committing crimes.
+B. One never knows how to negotiate the dark ness of a night that did not fall in one’s presence.
+C. Each nation has its own culture.
+D. No rule or principle is perfectly inflexible, permanent, or unchanging .",
+audit,taxonomy-guided,,,,A,,,taxonomy-guided_English_8,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. Just because something is good and enjoyable doesn’t mean you should have it in unlimited quantities.
+B. No illness can be more grave than that of the person who died.
+C. The partridge meets its death on the dry season-marsh farm.
+D. It can be very costly to always learn through one’s own mistakes.",A
+audit,taxonomy-guided,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,taxonomy-guided_English_8,openai/gpt-5,"Which option is correct?
+
+A. Just because something is good and enjoyable doesn’t mean you should have it in unlimited quantities.
+B. No illness can be more grave than that of the person who died.
+C. The partridge meets its death on the dry season-marsh farm.
+D. It can be very costly to always learn through one’s own mistakes.",
+audit,taxonomy-guided,,,,,,,taxonomy-guided_English_8,google/gemini-2.5-pro,"Which option is correct?
+
+A. Just because something is good and enjoyable doesn’t mean you should have it in unlimited quantities.
+B. No illness can be more grave than that of the person who died.
+C. The partridge meets its death on the dry season-marsh farm.
+D. It can be very costly to always learn through one’s own mistakes.",
+audit,taxonomy-guided,,,,"We are asked: ""Which option is",,,taxonomy-guided_English_8,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. Just because something is good and enjoyable doesn’t mean you should have it in unlimited quantities.
+B. No illness can be more grave than that of the person who died.
+C. The partridge meets its death on the dry season-marsh farm.
+D. It can be very costly to always learn through one’s own mistakes.",
+audit,taxonomy-guided,,,,A,,,taxonomy-guided_English_9,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. To strike while the iron is hot is to act decisively and take an opportunity when it arises.
+B. As long as the outcome is good, problems on the way don’t matter.
+C. If love is shallow, people will find faults in each other.
+D. You learn best from doing.",A
+audit,taxonomy-guided,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,taxonomy-guided_English_9,openai/gpt-5,"Which option is correct?
+
+A. To strike while the iron is hot is to act decisively and take an opportunity when it arises.
+B. As long as the outcome is good, problems on the way don’t matter.
+C. If love is shallow, people will find faults in each other.
+D. You learn best from doing.",
+audit,taxonomy-guided,,,,,,,taxonomy-guided_English_9,google/gemini-2.5-pro,"Which option is correct?
+
+A. To strike while the iron is hot is to act decisively and take an opportunity when it arises.
+B. As long as the outcome is good, problems on the way don’t matter.
+C. If love is shallow, people will find faults in each other.
+D. You learn best from doing.",
+audit,taxonomy-guided,,,,The user is asking which option is correct,,,taxonomy-guided_English_9,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. To strike while the iron is hot is to act decisively and take an opportunity when it arises.
+B. As long as the outcome is good, problems on the way don’t matter.
+C. If love is shallow, people will find faults in each other.
+D. You learn best from doing.",
+audit,taxonomy-guided,,,,A,,,taxonomy-guided_Yoruba_10,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. Entities with greater power or size experience more significant consequences when they fail.
+B. One’s name is one’s bridle.
+C. Dirt does not matter; only the sanitary inspector fusses.
+D. Don't trust your enemies.",A
+audit,taxonomy-guided,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,taxonomy-guided_Yoruba_10,openai/gpt-5,"Which option is correct?
+
+A. Entities with greater power or size experience more significant consequences when they fail.
+B. One’s name is one’s bridle.
+C. Dirt does not matter; only the sanitary inspector fusses.
+D. Don't trust your enemies.",
+audit,taxonomy-guided,,,,,,,taxonomy-guided_Yoruba_10,google/gemini-2.5-pro,"Which option is correct?
+
+A. Entities with greater power or size experience more significant consequences when they fail.
+B. One’s name is one’s bridle.
+C. Dirt does not matter; only the sanitary inspector fusses.
+D. Don't trust your enemies.",
+audit,taxonomy-guided,,,,"The user asks: ""Which option is",,,taxonomy-guided_Yoruba_10,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. Entities with greater power or size experience more significant consequences when they fail.
+B. One’s name is one’s bridle.
+C. Dirt does not matter; only the sanitary inspector fusses.
+D. Don't trust your enemies.",
+audit,taxonomy-guided,,,,D,,,taxonomy-guided_Yoruba_11,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. Those in need must accept what is available without complaint.
+B. bluster one's way out
+C. It is better to be in safe than sorry
+D. Going-and-returning is the manner of the hand’s journey to the mouth. B",D
+audit,taxonomy-guided,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,taxonomy-guided_Yoruba_11,openai/gpt-5,"Which option is correct?
+
+A. Those in need must accept what is available without complaint.
+B. bluster one's way out
+C. It is better to be in safe than sorry
+D. Going-and-returning is the manner of the hand’s journey to the mouth. B",
+audit,taxonomy-guided,,,,,,,taxonomy-guided_Yoruba_11,google/gemini-2.5-pro,"Which option is correct?
+
+A. Those in need must accept what is available without complaint.
+B. bluster one's way out
+C. It is better to be in safe than sorry
+D. Going-and-returning is the manner of the hand’s journey to the mouth. B",
+audit,taxonomy-guided,,,,The user is asking which option is correct,,,taxonomy-guided_Yoruba_11,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. Those in need must accept what is available without complaint.
+B. bluster one's way out
+C. It is better to be in safe than sorry
+D. Going-and-returning is the manner of the hand’s journey to the mouth. B",
+audit,taxonomy-guided,,,,B,,,taxonomy-guided_Yoruba_12,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. A house does not burn and fill the eyes with sleep.
+B. What you learn when you are young will be invaluable when your grow old.
+C. The effort is big, but the reward none
+D. It is an alarm that is raised without moderation that finds no helpers.",B
+audit,taxonomy-guided,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,taxonomy-guided_Yoruba_12,openai/gpt-5,"Which option is correct?
+
+A. A house does not burn and fill the eyes with sleep.
+B. What you learn when you are young will be invaluable when your grow old.
+C. The effort is big, but the reward none
+D. It is an alarm that is raised without moderation that finds no helpers.",
+audit,taxonomy-guided,,,,,,,taxonomy-guided_Yoruba_12,google/gemini-2.5-pro,"Which option is correct?
+
+A. A house does not burn and fill the eyes with sleep.
+B. What you learn when you are young will be invaluable when your grow old.
+C. The effort is big, but the reward none
+D. It is an alarm that is raised without moderation that finds no helpers.",
+audit,taxonomy-guided,,,,"We are asked: ""Which option is",,,taxonomy-guided_Yoruba_12,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. A house does not burn and fill the eyes with sleep.
+B. What you learn when you are young will be invaluable when your grow old.
+C. The effort is big, but the reward none
+D. It is an alarm that is raised without moderation that finds no helpers.",
+audit,taxonomy-guided,,,,A,,,taxonomy-guided_Yoruba_13,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. A little precaution before a crisis is better than lot of firefighting afterwards.
+B. The toad is only slightly taller than the earth.
+C. Coming-to-earth is nothing like going-to heaven.
+D. A woman does not take a lover’s money and then complain of menorrhagia.",A
+audit,taxonomy-guided,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,taxonomy-guided_Yoruba_13,openai/gpt-5,"Which option is correct?
+
+A. A little precaution before a crisis is better than lot of firefighting afterwards.
+B. The toad is only slightly taller than the earth.
+C. Coming-to-earth is nothing like going-to heaven.
+D. A woman does not take a lover’s money and then complain of menorrhagia.",
+audit,taxonomy-guided,,,,,,,taxonomy-guided_Yoruba_13,google/gemini-2.5-pro,"Which option is correct?
+
+A. A little precaution before a crisis is better than lot of firefighting afterwards.
+B. The toad is only slightly taller than the earth.
+C. Coming-to-earth is nothing like going-to heaven.
+D. A woman does not take a lover’s money and then complain of menorrhagia.",
+audit,taxonomy-guided,,,,"We are asked: ""Which option is",,,taxonomy-guided_Yoruba_13,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. A little precaution before a crisis is better than lot of firefighting afterwards.
+B. The toad is only slightly taller than the earth.
+C. Coming-to-earth is nothing like going-to heaven.
+D. A woman does not take a lover’s money and then complain of menorrhagia.",
+audit,taxonomy-guided,,,,A,,,taxonomy-guided_Yoruba_14,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. We prepared stew for Fádípẹ̀, and Fájẹbẹ̀ ate it; the person who deserved the stew got it.
+B. Whoever finds something can keep it.
+C. Sudden pouncing does not capture greatness; working like a slave does not ensure anything.
+D. Don’t try to fix imaginary problems as they may never hap pen, but face them when they actually come to you.",A
+audit,taxonomy-guided,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,taxonomy-guided_Yoruba_14,openai/gpt-5,"Which option is correct?
+
+A. We prepared stew for Fádípẹ̀, and Fájẹbẹ̀ ate it; the person who deserved the stew got it.
+B. Whoever finds something can keep it.
+C. Sudden pouncing does not capture greatness; working like a slave does not ensure anything.
+D. Don’t try to fix imaginary problems as they may never hap pen, but face them when they actually come to you.",
+audit,taxonomy-guided,,,,,,,taxonomy-guided_Yoruba_14,google/gemini-2.5-pro,"Which option is correct?
+
+A. We prepared stew for Fádípẹ̀, and Fájẹbẹ̀ ate it; the person who deserved the stew got it.
+B. Whoever finds something can keep it.
+C. Sudden pouncing does not capture greatness; working like a slave does not ensure anything.
+D. Don’t try to fix imaginary problems as they may never hap pen, but face them when they actually come to you.",
+audit,taxonomy-guided,,,,"We are asked: ""Which option is",,,taxonomy-guided_Yoruba_14,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. We prepared stew for Fádípẹ̀, and Fájẹbẹ̀ ate it; the person who deserved the stew got it.
+B. Whoever finds something can keep it.
+C. Sudden pouncing does not capture greatness; working like a slave does not ensure anything.
+D. Don’t try to fix imaginary problems as they may never hap pen, but face them when they actually come to you.",
+audit,few-shot-predictive,,,,D,,,few-shot-predictive_Arabic_0,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. Winds blow counter to what the ship wants.
+B. You can't teach an old dog new tricks.
+C. Two people doing something together share the responsibility equally.
+D. A young chick that goes missing cannot thereby justify the presentation of a he-goat to the masquerader as replacement. Ọ",D
+audit,few-shot-predictive,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,few-shot-predictive_Arabic_0,openai/gpt-5,"Which option is correct?
+
+A. Winds blow counter to what the ship wants.
+B. You can't teach an old dog new tricks.
+C. Two people doing something together share the responsibility equally.
+D. A young chick that goes missing cannot thereby justify the presentation of a he-goat to the masquerader as replacement. Ọ",
+audit,few-shot-predictive,,,,,,,few-shot-predictive_Arabic_0,google/gemini-2.5-pro,"Which option is correct?
+
+A. Winds blow counter to what the ship wants.
+B. You can't teach an old dog new tricks.
+C. Two people doing something together share the responsibility equally.
+D. A young chick that goes missing cannot thereby justify the presentation of a he-goat to the masquerader as replacement. Ọ",
+audit,few-shot-predictive,,,,The user is asking me to identify which,,,few-shot-predictive_Arabic_0,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. Winds blow counter to what the ship wants.
+B. You can't teach an old dog new tricks.
+C. Two people doing something together share the responsibility equally.
+D. A young chick that goes missing cannot thereby justify the presentation of a he-goat to the masquerader as replacement. Ọ",
+audit,few-shot-predictive,,,,B,,,few-shot-predictive_Arabic_1,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. When an animal falls to the ground, the hunter’s eyes lose their wildness.
+B. Love is blind.
+C. Foolish inquiries elicit inappropriate responses.
+D. Don't give a fool a platform.",B
+audit,few-shot-predictive,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,few-shot-predictive_Arabic_1,openai/gpt-5,"Which option is correct?
+
+A. When an animal falls to the ground, the hunter’s eyes lose their wildness.
+B. Love is blind.
+C. Foolish inquiries elicit inappropriate responses.
+D. Don't give a fool a platform.",
+audit,few-shot-predictive,,,,,,,few-shot-predictive_Arabic_1,google/gemini-2.5-pro,"Which option is correct?
+
+A. When an animal falls to the ground, the hunter’s eyes lose their wildness.
+B. Love is blind.
+C. Foolish inquiries elicit inappropriate responses.
+D. Don't give a fool a platform.",
+audit,few-shot-predictive,,,,"The user is asking ""Which option is",,,few-shot-predictive_Arabic_1,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. When an animal falls to the ground, the hunter’s eyes lose their wildness.
+B. Love is blind.
+C. Foolish inquiries elicit inappropriate responses.
+D. Don't give a fool a platform.",
+audit,few-shot-predictive,,,,B,,,few-shot-predictive_Arabic_2,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. One’s master cannot be so tyrannical that he orders one not to shit. 430 rights and responsibilities
+B. The person to whom a bride is being brought does not strain his neck [to see her from a distance].
+C. Charity begins at home.
+D. The harder you work, the more ideas and chances you may make for yourself.",B
+audit,few-shot-predictive,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,few-shot-predictive_Arabic_2,openai/gpt-5,"Which option is correct?
+
+A. One’s master cannot be so tyrannical that he orders one not to shit. 430 rights and responsibilities
+B. The person to whom a bride is being brought does not strain his neck [to see her from a distance].
+C. Charity begins at home.
+D. The harder you work, the more ideas and chances you may make for yourself.",
+audit,few-shot-predictive,,,,,,,few-shot-predictive_Arabic_2,google/gemini-2.5-pro,"Which option is correct?
+
+A. One’s master cannot be so tyrannical that he orders one not to shit. 430 rights and responsibilities
+B. The person to whom a bride is being brought does not strain his neck [to see her from a distance].
+C. Charity begins at home.
+D. The harder you work, the more ideas and chances you may make for yourself.",
+audit,few-shot-predictive,,,,"The user is asking ""Which option is",,,few-shot-predictive_Arabic_2,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. One’s master cannot be so tyrannical that he orders one not to shit. 430 rights and responsibilities
+B. The person to whom a bride is being brought does not strain his neck [to see her from a distance].
+C. Charity begins at home.
+D. The harder you work, the more ideas and chances you may make for yourself.",
+audit,few-shot-predictive,,,,C,,,few-shot-predictive_Arabic_3,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. The child spawned by a fish resembles a fish; the child sired by a leopard resembles a leopard; the child born to a Fulbe per son will weave ropes.
+B. It is inside oneself that the name one will name one’s child resides.
+C. Whatever outcome the majority of people in a nation or community desire is the one that is most likely to happen.
+D. A bird in the hand is worth two in the bush.",C
+audit,few-shot-predictive,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,few-shot-predictive_Arabic_3,openai/gpt-5,"Which option is correct?
+
+A. The child spawned by a fish resembles a fish; the child sired by a leopard resembles a leopard; the child born to a Fulbe per son will weave ropes.
+B. It is inside oneself that the name one will name one’s child resides.
+C. Whatever outcome the majority of people in a nation or community desire is the one that is most likely to happen.
+D. A bird in the hand is worth two in the bush.",
+audit,few-shot-predictive,,,,,,,few-shot-predictive_Arabic_3,google/gemini-2.5-pro,"Which option is correct?
+
+A. The child spawned by a fish resembles a fish; the child sired by a leopard resembles a leopard; the child born to a Fulbe per son will weave ropes.
+B. It is inside oneself that the name one will name one’s child resides.
+C. Whatever outcome the majority of people in a nation or community desire is the one that is most likely to happen.
+D. A bird in the hand is worth two in the bush.",
+audit,few-shot-predictive,,,,The user is asking me to identify which,,,few-shot-predictive_Arabic_3,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. The child spawned by a fish resembles a fish; the child sired by a leopard resembles a leopard; the child born to a Fulbe per son will weave ropes.
+B. It is inside oneself that the name one will name one’s child resides.
+C. Whatever outcome the majority of people in a nation or community desire is the one that is most likely to happen.
+D. A bird in the hand is worth two in the bush.",
+audit,few-shot-predictive,,,,D,,,few-shot-predictive_Arabic_4,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. A bad workman always blames his tools.
+B. That a calabash faces downward is no anti-social sign; the calabash is only acting ac cording to its nature.
+C. If you give a greedy person something small, he will expect more and more from you.
+D. One sees only other peoples’ occiputs; only others can see one’s own.",D
+audit,few-shot-predictive,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,few-shot-predictive_Arabic_4,openai/gpt-5,"Which option is correct?
+
+A. A bad workman always blames his tools.
+B. That a calabash faces downward is no anti-social sign; the calabash is only acting ac cording to its nature.
+C. If you give a greedy person something small, he will expect more and more from you.
+D. One sees only other peoples’ occiputs; only others can see one’s own.",
+audit,few-shot-predictive,,,,,,,few-shot-predictive_Arabic_4,google/gemini-2.5-pro,"Which option is correct?
+
+A. A bad workman always blames his tools.
+B. That a calabash faces downward is no anti-social sign; the calabash is only acting ac cording to its nature.
+C. If you give a greedy person something small, he will expect more and more from you.
+D. One sees only other peoples’ occiputs; only others can see one’s own.",
+audit,few-shot-predictive,,,,"The user is asking ""Which option is",,,few-shot-predictive_Arabic_4,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. A bad workman always blames his tools.
+B. That a calabash faces downward is no anti-social sign; the calabash is only acting ac cording to its nature.
+C. If you give a greedy person something small, he will expect more and more from you.
+D. One sees only other peoples’ occiputs; only others can see one’s own.",
+audit,few-shot-predictive,,,,B,,,few-shot-predictive_English_5,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. People who came to the world are far fewer than people who came as companions.
+B. A person might be overcome by trouble or adversity when least expected.
+C. You have to wait for the donkey's years.
+D. There are many routes one can take to reach a destinat ion.",B
+audit,few-shot-predictive,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,few-shot-predictive_English_5,openai/gpt-5,"Which option is correct?
+
+A. People who came to the world are far fewer than people who came as companions.
+B. A person might be overcome by trouble or adversity when least expected.
+C. You have to wait for the donkey's years.
+D. There are many routes one can take to reach a destinat ion.",
+audit,few-shot-predictive,,,,,,,few-shot-predictive_English_5,google/gemini-2.5-pro,"Which option is correct?
+
+A. People who came to the world are far fewer than people who came as companions.
+B. A person might be overcome by trouble or adversity when least expected.
+C. You have to wait for the donkey's years.
+D. There are many routes one can take to reach a destinat ion.",
+audit,few-shot-predictive,,,,"We are asked: ""Which option is",,,few-shot-predictive_English_5,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. People who came to the world are far fewer than people who came as companions.
+B. A person might be overcome by trouble or adversity when least expected.
+C. You have to wait for the donkey's years.
+D. There are many routes one can take to reach a destinat ion.",
+audit,few-shot-predictive,,,,D,,,few-shot-predictive_English_6,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. Moderate your preening and strutting, beautiful woman of [the town of] Ṣàpn. 
+B. The snake is hungry, and the tortoise saunters by.
+C. This proverb can be used as a caution that we should know our limits and weaknesses, or as motivation to disc over our strengths and hidden talents.
+D. I curse my own child but I hate whoever says “amen.”",D
+audit,few-shot-predictive,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,few-shot-predictive_English_6,openai/gpt-5,"Which option is correct?
+
+A. Moderate your preening and strutting, beautiful woman of [the town of] Ṣàpn. 
+B. The snake is hungry, and the tortoise saunters by.
+C. This proverb can be used as a caution that we should know our limits and weaknesses, or as motivation to disc over our strengths and hidden talents.
+D. I curse my own child but I hate whoever says “amen.”",
+audit,few-shot-predictive,,,,,,,few-shot-predictive_English_6,google/gemini-2.5-pro,"Which option is correct?
+
+A. Moderate your preening and strutting, beautiful woman of [the town of] Ṣàpn. 
+B. The snake is hungry, and the tortoise saunters by.
+C. This proverb can be used as a caution that we should know our limits and weaknesses, or as motivation to disc over our strengths and hidden talents.
+D. I curse my own child but I hate whoever says “amen.”",
+audit,few-shot-predictive,,,,"The user is asking ""Which option is",,,few-shot-predictive_English_6,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. Moderate your preening and strutting, beautiful woman of [the town of] Ṣàpn. 
+B. The snake is hungry, and the tortoise saunters by.
+C. This proverb can be used as a caution that we should know our limits and weaknesses, or as motivation to disc over our strengths and hidden talents.
+D. I curse my own child but I hate whoever says “amen.”",
+audit,few-shot-predictive,,,,D,,,few-shot-predictive_English_7,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. The evildoer seeks good people to associate with.
+B. There’s always one person in a given social group who is a disgrace or embarrassment.
+C. Death killed the lender; a river carried off the pawn; the guarantor died of smallpox; there is hardly anyone left who knows the amount of the debt.
+D. No rule or principle is perfectly inflexible, permanent, or unchanging .",D
+audit,few-shot-predictive,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,few-shot-predictive_English_7,openai/gpt-5,"Which option is correct?
+
+A. The evildoer seeks good people to associate with.
+B. There’s always one person in a given social group who is a disgrace or embarrassment.
+C. Death killed the lender; a river carried off the pawn; the guarantor died of smallpox; there is hardly anyone left who knows the amount of the debt.
+D. No rule or principle is perfectly inflexible, permanent, or unchanging .",
+audit,few-shot-predictive,,,,,,,few-shot-predictive_English_7,google/gemini-2.5-pro,"Which option is correct?
+
+A. The evildoer seeks good people to associate with.
+B. There’s always one person in a given social group who is a disgrace or embarrassment.
+C. Death killed the lender; a river carried off the pawn; the guarantor died of smallpox; there is hardly anyone left who knows the amount of the debt.
+D. No rule or principle is perfectly inflexible, permanent, or unchanging .",
+audit,few-shot-predictive,,,,"The user is asking ""Which option is",,,few-shot-predictive_English_7,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. The evildoer seeks good people to associate with.
+B. There’s always one person in a given social group who is a disgrace or embarrassment.
+C. Death killed the lender; a river carried off the pawn; the guarantor died of smallpox; there is hardly anyone left who knows the amount of the debt.
+D. No rule or principle is perfectly inflexible, permanent, or unchanging .",
+audit,few-shot-predictive,,,,A,,,few-shot-predictive_English_8,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. Just because something is good and enjoyable doesn’t mean you should have it in unlimited quantities.
+B. Water is never so scarce that one does not give some to the outdoor earth to drink.
+C. A surfeit of locust-bean seasoning does not ruin a stew.
+D. It is he who shares one’s throne that knows one’s strategy in battle.",A
+audit,few-shot-predictive,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,few-shot-predictive_English_8,openai/gpt-5,"Which option is correct?
+
+A. Just because something is good and enjoyable doesn’t mean you should have it in unlimited quantities.
+B. Water is never so scarce that one does not give some to the outdoor earth to drink.
+C. A surfeit of locust-bean seasoning does not ruin a stew.
+D. It is he who shares one’s throne that knows one’s strategy in battle.",
+audit,few-shot-predictive,,,,,,,few-shot-predictive_English_8,google/gemini-2.5-pro,"Which option is correct?
+
+A. Just because something is good and enjoyable doesn’t mean you should have it in unlimited quantities.
+B. Water is never so scarce that one does not give some to the outdoor earth to drink.
+C. A surfeit of locust-bean seasoning does not ruin a stew.
+D. It is he who shares one’s throne that knows one’s strategy in battle.",
+audit,few-shot-predictive,,,,"We are asked: ""Which option is",,,few-shot-predictive_English_8,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. Just because something is good and enjoyable doesn’t mean you should have it in unlimited quantities.
+B. Water is never so scarce that one does not give some to the outdoor earth to drink.
+C. A surfeit of locust-bean seasoning does not ruin a stew.
+D. It is he who shares one’s throne that knows one’s strategy in battle.",
+audit,few-shot-predictive,,,,D,,,few-shot-predictive_English_9,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. Someone who constantly makes threats rarely carries them out.
+B. As long as the outcome is good, problems on the way don’t matter.
+C. Physical attacks may harm me, but cruel words will not.
+D. If a lazy person has a fever, one lets him die; neither a live nor a dead lazy person does anything for one.",D
+audit,few-shot-predictive,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,few-shot-predictive_English_9,openai/gpt-5,"Which option is correct?
+
+A. Someone who constantly makes threats rarely carries them out.
+B. As long as the outcome is good, problems on the way don’t matter.
+C. Physical attacks may harm me, but cruel words will not.
+D. If a lazy person has a fever, one lets him die; neither a live nor a dead lazy person does anything for one.",
+audit,few-shot-predictive,,,,,,,few-shot-predictive_English_9,google/gemini-2.5-pro,"Which option is correct?
+
+A. Someone who constantly makes threats rarely carries them out.
+B. As long as the outcome is good, problems on the way don’t matter.
+C. Physical attacks may harm me, but cruel words will not.
+D. If a lazy person has a fever, one lets him die; neither a live nor a dead lazy person does anything for one.",
+audit,few-shot-predictive,,,,"We are asked: ""Which option is",,,few-shot-predictive_English_9,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. Someone who constantly makes threats rarely carries them out.
+B. As long as the outcome is good, problems on the way don’t matter.
+C. Physical attacks may harm me, but cruel words will not.
+D. If a lazy person has a fever, one lets him die; neither a live nor a dead lazy person does anything for one.",
+audit,few-shot-predictive,,,,B,,,few-shot-predictive_Yoruba_10,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. Put oneself in an isolated position in one's support of someone or something.
+B. To turn a blind eye is to knowingly refuse to acknowledge something which you know to be real.
+C. Dirt does not matter; only the sanitary inspector fusses.
+D. Everything belongs to me.",B
+audit,few-shot-predictive,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,few-shot-predictive_Yoruba_10,openai/gpt-5,"Which option is correct?
+
+A. Put oneself in an isolated position in one's support of someone or something.
+B. To turn a blind eye is to knowingly refuse to acknowledge something which you know to be real.
+C. Dirt does not matter; only the sanitary inspector fusses.
+D. Everything belongs to me.",
+audit,few-shot-predictive,,,,,,,few-shot-predictive_Yoruba_10,google/gemini-2.5-pro,"Which option is correct?
+
+A. Put oneself in an isolated position in one's support of someone or something.
+B. To turn a blind eye is to knowingly refuse to acknowledge something which you know to be real.
+C. Dirt does not matter; only the sanitary inspector fusses.
+D. Everything belongs to me.",
+audit,few-shot-predictive,,,,"The user asks: ""Which option is",,,few-shot-predictive_Yoruba_10,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. Put oneself in an isolated position in one's support of someone or something.
+B. To turn a blind eye is to knowingly refuse to acknowledge something which you know to be real.
+C. Dirt does not matter; only the sanitary inspector fusses.
+D. Everything belongs to me.",
+audit,few-shot-predictive,,,,B,,,few-shot-predictive_Yoruba_11,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. Don’t give up because something doesn’t work out the first time you try it.
+B. Young palm fruits are the support of ripe ones; one’s children are one’s support.
+C. A man who has no wife does not father born-to-die children.
+D. Going-and-returning is the manner of the hand’s journey to the mouth. B",B
+audit,few-shot-predictive,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,few-shot-predictive_Yoruba_11,openai/gpt-5,"Which option is correct?
+
+A. Don’t give up because something doesn’t work out the first time you try it.
+B. Young palm fruits are the support of ripe ones; one’s children are one’s support.
+C. A man who has no wife does not father born-to-die children.
+D. Going-and-returning is the manner of the hand’s journey to the mouth. B",
+audit,few-shot-predictive,,,,,,,few-shot-predictive_Yoruba_11,google/gemini-2.5-pro,"Which option is correct?
+
+A. Don’t give up because something doesn’t work out the first time you try it.
+B. Young palm fruits are the support of ripe ones; one’s children are one’s support.
+C. A man who has no wife does not father born-to-die children.
+D. Going-and-returning is the manner of the hand’s journey to the mouth. B",
+audit,few-shot-predictive,,,,The user is asking which option is correct,,,few-shot-predictive_Yoruba_11,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. Don’t give up because something doesn’t work out the first time you try it.
+B. Young palm fruits are the support of ripe ones; one’s children are one’s support.
+C. A man who has no wife does not father born-to-die children.
+D. Going-and-returning is the manner of the hand’s journey to the mouth. B",
+audit,few-shot-predictive,,,,D,,,few-shot-predictive_Yoruba_12,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. A house does not burn and fill the eyes with sleep.
+B. No rule or principle is perfectly inflexible, permanent, or unchanging .
+C. There is no longer anything worth calling a child in a child that eats ashes.
+D. Better to have an enemy who slaps you in the face than a friend who stabs you in the back.",D
+audit,few-shot-predictive,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,few-shot-predictive_Yoruba_12,openai/gpt-5,"Which option is correct?
+
+A. A house does not burn and fill the eyes with sleep.
+B. No rule or principle is perfectly inflexible, permanent, or unchanging .
+C. There is no longer anything worth calling a child in a child that eats ashes.
+D. Better to have an enemy who slaps you in the face than a friend who stabs you in the back.",
+audit,few-shot-predictive,,,,,,,few-shot-predictive_Yoruba_12,google/gemini-2.5-pro,"Which option is correct?
+
+A. A house does not burn and fill the eyes with sleep.
+B. No rule or principle is perfectly inflexible, permanent, or unchanging .
+C. There is no longer anything worth calling a child in a child that eats ashes.
+D. Better to have an enemy who slaps you in the face than a friend who stabs you in the back.",
+audit,few-shot-predictive,,,,"The user is asking which option is """,,,few-shot-predictive_Yoruba_12,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. A house does not burn and fill the eyes with sleep.
+B. No rule or principle is perfectly inflexible, permanent, or unchanging .
+C. There is no longer anything worth calling a child in a child that eats ashes.
+D. Better to have an enemy who slaps you in the face than a friend who stabs you in the back.",
+audit,few-shot-predictive,,,,D,,,few-shot-predictive_Yoruba_13,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. An almighty boil has attacked the mouth of the sage.
+B. The toad is only slightly taller than the earth.
+C. A person who strays from the company and safety of the group is more vulnerable to a dangerous or untrustworthy person.
+D. When you have a choice to make and neither option is attractive, choose the one that is less damaging or costly.",D
+audit,few-shot-predictive,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,few-shot-predictive_Yoruba_13,openai/gpt-5,"Which option is correct?
+
+A. An almighty boil has attacked the mouth of the sage.
+B. The toad is only slightly taller than the earth.
+C. A person who strays from the company and safety of the group is more vulnerable to a dangerous or untrustworthy person.
+D. When you have a choice to make and neither option is attractive, choose the one that is less damaging or costly.",
+audit,few-shot-predictive,,,,,,,few-shot-predictive_Yoruba_13,google/gemini-2.5-pro,"Which option is correct?
+
+A. An almighty boil has attacked the mouth of the sage.
+B. The toad is only slightly taller than the earth.
+C. A person who strays from the company and safety of the group is more vulnerable to a dangerous or untrustworthy person.
+D. When you have a choice to make and neither option is attractive, choose the one that is less damaging or costly.",
+audit,few-shot-predictive,,,,"The user is asking ""Which option is",,,few-shot-predictive_Yoruba_13,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. An almighty boil has attacked the mouth of the sage.
+B. The toad is only slightly taller than the earth.
+C. A person who strays from the company and safety of the group is more vulnerable to a dangerous or untrustworthy person.
+D. When you have a choice to make and neither option is attractive, choose the one that is less damaging or costly.",
+audit,few-shot-predictive,,,,C,,,few-shot-predictive_Yoruba_14,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. The masquerader says he wants to dance; the rain says it wants to fall; and the child says he wants to perform wonders.
+B. To see a person is to greet the person; to be greeted is to respond.
+C. Sudden pouncing does not capture greatness; working like a slave does not ensure anything.
+D. A person who has a certain flaw most easily recognizes that flaw in others.",C
+audit,few-shot-predictive,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,few-shot-predictive_Yoruba_14,openai/gpt-5,"Which option is correct?
+
+A. The masquerader says he wants to dance; the rain says it wants to fall; and the child says he wants to perform wonders.
+B. To see a person is to greet the person; to be greeted is to respond.
+C. Sudden pouncing does not capture greatness; working like a slave does not ensure anything.
+D. A person who has a certain flaw most easily recognizes that flaw in others.",
+audit,few-shot-predictive,,,,,,,few-shot-predictive_Yoruba_14,google/gemini-2.5-pro,"Which option is correct?
+
+A. The masquerader says he wants to dance; the rain says it wants to fall; and the child says he wants to perform wonders.
+B. To see a person is to greet the person; to be greeted is to respond.
+C. Sudden pouncing does not capture greatness; working like a slave does not ensure anything.
+D. A person who has a certain flaw most easily recognizes that flaw in others.",
+audit,few-shot-predictive,,,,"We are asked: ""Which option is",,,few-shot-predictive_Yoruba_14,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. The masquerader says he wants to dance; the rain says it wants to fall; and the child says he wants to perform wonders.
+B. To see a person is to greet the person; to be greeted is to respond.
+C. Sudden pouncing does not capture greatness; working like a slave does not ensure anything.
+D. A person who has a certain flaw most easily recognizes that flaw in others.",
+audit,overgenerate-select,,,,D,,,overgenerate-select_Arabic_0,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. Winds blow counter to what the ship wants.
+B. A farmer does not know which planting will bring prosperity; a trader does not know which transaction will be his last.
+C. Don’t trust a custom simply because it is tradition; you need to questi on the logic and moral behind it.
+D. The intrepid person does not consult the Ifá oracle on his own behalf; the sagacious per son does not enthrone himself; the sharpest knife does not carve its own hilt.",D
+audit,overgenerate-select,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,overgenerate-select_Arabic_0,openai/gpt-5,"Which option is correct?
+
+A. Winds blow counter to what the ship wants.
+B. A farmer does not know which planting will bring prosperity; a trader does not know which transaction will be his last.
+C. Don’t trust a custom simply because it is tradition; you need to questi on the logic and moral behind it.
+D. The intrepid person does not consult the Ifá oracle on his own behalf; the sagacious per son does not enthrone himself; the sharpest knife does not carve its own hilt.",
+audit,overgenerate-select,,,,,,,overgenerate-select_Arabic_0,google/gemini-2.5-pro,"Which option is correct?
+
+A. Winds blow counter to what the ship wants.
+B. A farmer does not know which planting will bring prosperity; a trader does not know which transaction will be his last.
+C. Don’t trust a custom simply because it is tradition; you need to questi on the logic and moral behind it.
+D. The intrepid person does not consult the Ifá oracle on his own behalf; the sagacious per son does not enthrone himself; the sharpest knife does not carve its own hilt.",
+audit,overgenerate-select,,,,The user is asking to identify the correct,,,overgenerate-select_Arabic_0,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. Winds blow counter to what the ship wants.
+B. A farmer does not know which planting will bring prosperity; a trader does not know which transaction will be his last.
+C. Don’t trust a custom simply because it is tradition; you need to questi on the logic and moral behind it.
+D. The intrepid person does not consult the Ifá oracle on his own behalf; the sagacious per son does not enthrone himself; the sharpest knife does not carve its own hilt.",
+audit,overgenerate-select,,,,A,,,overgenerate-select_Arabic_1,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. It is better to keep what you have rather than to risk losing it by searching for something better.
+B. Love is blind.
+C. Privacy and security are of utmost importance when it comes to the home.
+D. People tend to make the same mistakes again and again over the course of history.",A
+audit,overgenerate-select,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,overgenerate-select_Arabic_1,openai/gpt-5,"Which option is correct?
+
+A. It is better to keep what you have rather than to risk losing it by searching for something better.
+B. Love is blind.
+C. Privacy and security are of utmost importance when it comes to the home.
+D. People tend to make the same mistakes again and again over the course of history.",
+audit,overgenerate-select,,,,,,,overgenerate-select_Arabic_1,google/gemini-2.5-pro,"Which option is correct?
+
+A. It is better to keep what you have rather than to risk losing it by searching for something better.
+B. Love is blind.
+C. Privacy and security are of utmost importance when it comes to the home.
+D. People tend to make the same mistakes again and again over the course of history.",
+audit,overgenerate-select,,,,"The user is asking ""Which option is",,,overgenerate-select_Arabic_1,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. It is better to keep what you have rather than to risk losing it by searching for something better.
+B. Love is blind.
+C. Privacy and security are of utmost importance when it comes to the home.
+D. People tend to make the same mistakes again and again over the course of history.",
+audit,overgenerate-select,,,,C,,,overgenerate-select_Arabic_2,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. It is completely that smoke fills the forest.
+B. Here I come!’’ ‘‘Come on already!’’ Both of them are afraid.
+C. Charity begins at home.
+D. All of us assembled here are of a type; the cat comes face to face with the offspring of the leopard.",C
+audit,overgenerate-select,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,overgenerate-select_Arabic_2,openai/gpt-5,"Which option is correct?
+
+A. It is completely that smoke fills the forest.
+B. Here I come!’’ ‘‘Come on already!’’ Both of them are afraid.
+C. Charity begins at home.
+D. All of us assembled here are of a type; the cat comes face to face with the offspring of the leopard.",
+audit,overgenerate-select,,,,,,,overgenerate-select_Arabic_2,google/gemini-2.5-pro,"Which option is correct?
+
+A. It is completely that smoke fills the forest.
+B. Here I come!’’ ‘‘Come on already!’’ Both of them are afraid.
+C. Charity begins at home.
+D. All of us assembled here are of a type; the cat comes face to face with the offspring of the leopard.",
+audit,overgenerate-select,,,,,,,overgenerate-select_Arabic_2,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. It is completely that smoke fills the forest.
+B. Here I come!’’ ‘‘Come on already!’’ Both of them are afraid.
+C. Charity begins at home.
+D. All of us assembled here are of a type; the cat comes face to face with the offspring of the leopard.",
+audit,overgenerate-select,,,,D,,,overgenerate-select_Arabic_3,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. Early dawn does not wake one twice; early dawn is the morning; deep darkness is night.
+B. True beauty is everlasting; the memory of a beautiful experience rests eternally in the mind.
+C. The lizard resembles the crocodile; it is their strength that is different.
+D. A bird in the hand is worth two in the bush.",D
+audit,overgenerate-select,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,overgenerate-select_Arabic_3,openai/gpt-5,"Which option is correct?
+
+A. Early dawn does not wake one twice; early dawn is the morning; deep darkness is night.
+B. True beauty is everlasting; the memory of a beautiful experience rests eternally in the mind.
+C. The lizard resembles the crocodile; it is their strength that is different.
+D. A bird in the hand is worth two in the bush.",
+audit,overgenerate-select,,,,,,,overgenerate-select_Arabic_3,google/gemini-2.5-pro,"Which option is correct?
+
+A. Early dawn does not wake one twice; early dawn is the morning; deep darkness is night.
+B. True beauty is everlasting; the memory of a beautiful experience rests eternally in the mind.
+C. The lizard resembles the crocodile; it is their strength that is different.
+D. A bird in the hand is worth two in the bush.",
+audit,overgenerate-select,,,,"We are asked: ""Which option is",,,overgenerate-select_Arabic_3,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. Early dawn does not wake one twice; early dawn is the morning; deep darkness is night.
+B. True beauty is everlasting; the memory of a beautiful experience rests eternally in the mind.
+C. The lizard resembles the crocodile; it is their strength that is different.
+D. A bird in the hand is worth two in the bush.",
+audit,overgenerate-select,,,,A,,,overgenerate-select_Arabic_4,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. A bad workman always blames his tools.
+B. Until it matures, the young bird is fed by having food placed in its mouth.
+C. The poor person’s mouth is a machete; its use is to clear the bush.
+D. Rather than the child of the priest dying of hunger, he or she will feed to satisfaction on goods provided for sacrifice.",A
+audit,overgenerate-select,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,overgenerate-select_Arabic_4,openai/gpt-5,"Which option is correct?
+
+A. A bad workman always blames his tools.
+B. Until it matures, the young bird is fed by having food placed in its mouth.
+C. The poor person’s mouth is a machete; its use is to clear the bush.
+D. Rather than the child of the priest dying of hunger, he or she will feed to satisfaction on goods provided for sacrifice.",
+audit,overgenerate-select,,,,,,,overgenerate-select_Arabic_4,google/gemini-2.5-pro,"Which option is correct?
+
+A. A bad workman always blames his tools.
+B. Until it matures, the young bird is fed by having food placed in its mouth.
+C. The poor person’s mouth is a machete; its use is to clear the bush.
+D. Rather than the child of the priest dying of hunger, he or she will feed to satisfaction on goods provided for sacrifice.",
+audit,overgenerate-select,,,,"We are asked: ""Which option is",,,overgenerate-select_Arabic_4,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. A bad workman always blames his tools.
+B. Until it matures, the young bird is fed by having food placed in its mouth.
+C. The poor person’s mouth is a machete; its use is to clear the bush.
+D. Rather than the child of the priest dying of hunger, he or she will feed to satisfaction on goods provided for sacrifice.",
+audit,overgenerate-select,,,,B,,,overgenerate-select_English_5,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. When the eyes see, the mouth remains quiet.
+B. A person might be overcome by trouble or adversity when least expected.
+C. Do not eat up my stew with pounded yam made from water yams before your trip to the forest farm.
+D. Leave the hooked stick alone for the leaf plucker; leave the husband alone for the jealous woman.",B
+audit,overgenerate-select,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,overgenerate-select_English_5,openai/gpt-5,"Which option is correct?
+
+A. When the eyes see, the mouth remains quiet.
+B. A person might be overcome by trouble or adversity when least expected.
+C. Do not eat up my stew with pounded yam made from water yams before your trip to the forest farm.
+D. Leave the hooked stick alone for the leaf plucker; leave the husband alone for the jealous woman.",
+audit,overgenerate-select,,,,,,,overgenerate-select_English_5,google/gemini-2.5-pro,"Which option is correct?
+
+A. When the eyes see, the mouth remains quiet.
+B. A person might be overcome by trouble or adversity when least expected.
+C. Do not eat up my stew with pounded yam made from water yams before your trip to the forest farm.
+D. Leave the hooked stick alone for the leaf plucker; leave the husband alone for the jealous woman.",
+audit,overgenerate-select,,,,"We are asked: ""Which option is",,,overgenerate-select_English_5,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. When the eyes see, the mouth remains quiet.
+B. A person might be overcome by trouble or adversity when least expected.
+C. Do not eat up my stew with pounded yam made from water yams before your trip to the forest farm.
+D. Leave the hooked stick alone for the leaf plucker; leave the husband alone for the jealous woman.",
+audit,overgenerate-select,,,,C,,,overgenerate-select_English_6,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. The king is the defense of the person who has no kin.
+B. Do things in their p roper order; don’t get ahead of yourself.
+C. This proverb can be used as a caution that we should know our limits and weaknesses, or as motivation to disc over our strengths and hidden talents.
+D. The scorpion travels accompanied by venom.",C
+audit,overgenerate-select,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,overgenerate-select_English_6,openai/gpt-5,"Which option is correct?
+
+A. The king is the defense of the person who has no kin.
+B. Do things in their p roper order; don’t get ahead of yourself.
+C. This proverb can be used as a caution that we should know our limits and weaknesses, or as motivation to disc over our strengths and hidden talents.
+D. The scorpion travels accompanied by venom.",
+audit,overgenerate-select,,,,,,,overgenerate-select_English_6,google/gemini-2.5-pro,"Which option is correct?
+
+A. The king is the defense of the person who has no kin.
+B. Do things in their p roper order; don’t get ahead of yourself.
+C. This proverb can be used as a caution that we should know our limits and weaknesses, or as motivation to disc over our strengths and hidden talents.
+D. The scorpion travels accompanied by venom.",
+audit,overgenerate-select,,,,"The user is asking ""Which option is",,,overgenerate-select_English_6,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. The king is the defense of the person who has no kin.
+B. Do things in their p roper order; don’t get ahead of yourself.
+C. This proverb can be used as a caution that we should know our limits and weaknesses, or as motivation to disc over our strengths and hidden talents.
+D. The scorpion travels accompanied by venom.",
+audit,overgenerate-select,,,,B,,,overgenerate-select_English_7,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. The condition that gave a sheep a cold, if it befell a goat, would result in its death.
+B. Trouble has found you, just as the compulsion to kneel has found the cripple
+C. Pooled contributions earn no profit; one winds up with only how much one contributed.
+D. No rule or principle is perfectly inflexible, permanent, or unchanging .",B
+audit,overgenerate-select,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,overgenerate-select_English_7,openai/gpt-5,"Which option is correct?
+
+A. The condition that gave a sheep a cold, if it befell a goat, would result in its death.
+B. Trouble has found you, just as the compulsion to kneel has found the cripple
+C. Pooled contributions earn no profit; one winds up with only how much one contributed.
+D. No rule or principle is perfectly inflexible, permanent, or unchanging .",
+audit,overgenerate-select,,,,,,,overgenerate-select_English_7,google/gemini-2.5-pro,"Which option is correct?
+
+A. The condition that gave a sheep a cold, if it befell a goat, would result in its death.
+B. Trouble has found you, just as the compulsion to kneel has found the cripple
+C. Pooled contributions earn no profit; one winds up with only how much one contributed.
+D. No rule or principle is perfectly inflexible, permanent, or unchanging .",
+audit,overgenerate-select,,,,"We are asked: ""Which option is",,,overgenerate-select_English_7,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. The condition that gave a sheep a cold, if it befell a goat, would result in its death.
+B. Trouble has found you, just as the compulsion to kneel has found the cripple
+C. Pooled contributions earn no profit; one winds up with only how much one contributed.
+D. No rule or principle is perfectly inflexible, permanent, or unchanging .",
+audit,overgenerate-select,,,,A,,,overgenerate-select_English_8,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. Just because something is good and enjoyable doesn’t mean you should have it in unlimited quantities.
+B. An elder does not hold a rat and see it turn into a lizard.
+C. Whoever has riches should act like a king; what kind of feat can a miser perform with money?
+D. ‘‘I am not upset, I am not upset!’’ Yet a grown man swears angrily six times because of last night’s pounded yam.",A
+audit,overgenerate-select,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,overgenerate-select_English_8,openai/gpt-5,"Which option is correct?
+
+A. Just because something is good and enjoyable doesn’t mean you should have it in unlimited quantities.
+B. An elder does not hold a rat and see it turn into a lizard.
+C. Whoever has riches should act like a king; what kind of feat can a miser perform with money?
+D. ‘‘I am not upset, I am not upset!’’ Yet a grown man swears angrily six times because of last night’s pounded yam.",
+audit,overgenerate-select,,,,,,,overgenerate-select_English_8,google/gemini-2.5-pro,"Which option is correct?
+
+A. Just because something is good and enjoyable doesn’t mean you should have it in unlimited quantities.
+B. An elder does not hold a rat and see it turn into a lizard.
+C. Whoever has riches should act like a king; what kind of feat can a miser perform with money?
+D. ‘‘I am not upset, I am not upset!’’ Yet a grown man swears angrily six times because of last night’s pounded yam.",
+audit,overgenerate-select,,,,"We are asked: ""Which option is",,,overgenerate-select_English_8,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. Just because something is good and enjoyable doesn’t mean you should have it in unlimited quantities.
+B. An elder does not hold a rat and see it turn into a lizard.
+C. Whoever has riches should act like a king; what kind of feat can a miser perform with money?
+D. ‘‘I am not upset, I am not upset!’’ Yet a grown man swears angrily six times because of last night’s pounded yam.",
+audit,overgenerate-select,,,,A,,,overgenerate-select_English_9,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. Fashionable people will endure discomfort in order to impress others.
+B. As long as the outcome is good, problems on the way don’t matter.
+C. An elder who climbs palm trees: if he crashes from the tree, he will find himself in heaven.
+D. -There’s always a catch.
+-You don’t get something for nothing.",A
+audit,overgenerate-select,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,overgenerate-select_English_9,openai/gpt-5,"Which option is correct?
+
+A. Fashionable people will endure discomfort in order to impress others.
+B. As long as the outcome is good, problems on the way don’t matter.
+C. An elder who climbs palm trees: if he crashes from the tree, he will find himself in heaven.
+D. -There’s always a catch.
+-You don’t get something for nothing.",
+audit,overgenerate-select,,,,,,,overgenerate-select_English_9,google/gemini-2.5-pro,"Which option is correct?
+
+A. Fashionable people will endure discomfort in order to impress others.
+B. As long as the outcome is good, problems on the way don’t matter.
+C. An elder who climbs palm trees: if he crashes from the tree, he will find himself in heaven.
+D. -There’s always a catch.
+-You don’t get something for nothing.",
+audit,overgenerate-select,,,,"We are asked: ""Which option is",,,overgenerate-select_English_9,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. Fashionable people will endure discomfort in order to impress others.
+B. As long as the outcome is good, problems on the way don’t matter.
+C. An elder who climbs palm trees: if he crashes from the tree, he will find himself in heaven.
+D. -There’s always a catch.
+-You don’t get something for nothing.",
+audit,overgenerate-select,,,,D,,,overgenerate-select_Yoruba_10,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. Your age doesn't matter as long as you are fit and healthy.
+B. If cohabitation does not work, let us give each other some space.
+C. Dirt does not matter; only the sanitary inspector fusses.
+D. kill the chicken to scare the monkey.",D
+audit,overgenerate-select,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,overgenerate-select_Yoruba_10,openai/gpt-5,"Which option is correct?
+
+A. Your age doesn't matter as long as you are fit and healthy.
+B. If cohabitation does not work, let us give each other some space.
+C. Dirt does not matter; only the sanitary inspector fusses.
+D. kill the chicken to scare the monkey.",
+audit,overgenerate-select,,,,,,,overgenerate-select_Yoruba_10,google/gemini-2.5-pro,"Which option is correct?
+
+A. Your age doesn't matter as long as you are fit and healthy.
+B. If cohabitation does not work, let us give each other some space.
+C. Dirt does not matter; only the sanitary inspector fusses.
+D. kill the chicken to scare the monkey.",
+audit,overgenerate-select,,,,"The user is asking ""Which option is",,,overgenerate-select_Yoruba_10,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. Your age doesn't matter as long as you are fit and healthy.
+B. If cohabitation does not work, let us give each other some space.
+C. Dirt does not matter; only the sanitary inspector fusses.
+D. kill the chicken to scare the monkey.",
+audit,overgenerate-select,,,,B,,,overgenerate-select_Yoruba_11,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. God bestows one with wealth so that they may share it with others.
+B. A bird’s beak cannot snap up a rock.
+C. Whatever one handles gently will not be ruined; it is what one attempts with force that causes grief.
+D. Going-and-returning is the manner of the hand’s journey to the mouth. B",B
+audit,overgenerate-select,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,overgenerate-select_Yoruba_11,openai/gpt-5,"Which option is correct?
+
+A. God bestows one with wealth so that they may share it with others.
+B. A bird’s beak cannot snap up a rock.
+C. Whatever one handles gently will not be ruined; it is what one attempts with force that causes grief.
+D. Going-and-returning is the manner of the hand’s journey to the mouth. B",
+audit,overgenerate-select,,,,,,,overgenerate-select_Yoruba_11,google/gemini-2.5-pro,"Which option is correct?
+
+A. God bestows one with wealth so that they may share it with others.
+B. A bird’s beak cannot snap up a rock.
+C. Whatever one handles gently will not be ruined; it is what one attempts with force that causes grief.
+D. Going-and-returning is the manner of the hand’s journey to the mouth. B",
+audit,overgenerate-select,,,,"The user asks: ""Which option is",,,overgenerate-select_Yoruba_11,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. God bestows one with wealth so that they may share it with others.
+B. A bird’s beak cannot snap up a rock.
+C. Whatever one handles gently will not be ruined; it is what one attempts with force that causes grief.
+D. Going-and-returning is the manner of the hand’s journey to the mouth. B",
+audit,overgenerate-select,,,,B,,,overgenerate-select_Yoruba_12,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. A house does not burn and fill the eyes with sleep.
+B. Pay attention to detail; a minor misstep can cause a big problem.
+C. The world accepts only adding on.
+D. [If] all was ruined during one’s watch, that spells a defect in character.",B
+audit,overgenerate-select,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,overgenerate-select_Yoruba_12,openai/gpt-5,"Which option is correct?
+
+A. A house does not burn and fill the eyes with sleep.
+B. Pay attention to detail; a minor misstep can cause a big problem.
+C. The world accepts only adding on.
+D. [If] all was ruined during one’s watch, that spells a defect in character.",
+audit,overgenerate-select,,,,,,,overgenerate-select_Yoruba_12,google/gemini-2.5-pro,"Which option is correct?
+
+A. A house does not burn and fill the eyes with sleep.
+B. Pay attention to detail; a minor misstep can cause a big problem.
+C. The world accepts only adding on.
+D. [If] all was ruined during one’s watch, that spells a defect in character.",
+audit,overgenerate-select,,,,"We are given a question: ""Which",,,overgenerate-select_Yoruba_12,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. A house does not burn and fill the eyes with sleep.
+B. Pay attention to detail; a minor misstep can cause a big problem.
+C. The world accepts only adding on.
+D. [If] all was ruined during one’s watch, that spells a defect in character.",A
+audit,overgenerate-select,,,,C,,,overgenerate-select_Yoruba_13,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. Where one finds I-will-kill-him-for-sure, even there too will one find I-will-save-him.
+B. The toad is only slightly taller than the earth.
+C. Laziness in youth leads to poverty in old age.
+D. There is no manner of death that is inconvenient for the chicken.",C
+audit,overgenerate-select,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,overgenerate-select_Yoruba_13,openai/gpt-5,"Which option is correct?
+
+A. Where one finds I-will-kill-him-for-sure, even there too will one find I-will-save-him.
+B. The toad is only slightly taller than the earth.
+C. Laziness in youth leads to poverty in old age.
+D. There is no manner of death that is inconvenient for the chicken.",
+audit,overgenerate-select,,,,,,,overgenerate-select_Yoruba_13,google/gemini-2.5-pro,"Which option is correct?
+
+A. Where one finds I-will-kill-him-for-sure, even there too will one find I-will-save-him.
+B. The toad is only slightly taller than the earth.
+C. Laziness in youth leads to poverty in old age.
+D. There is no manner of death that is inconvenient for the chicken.",
+audit,overgenerate-select,,,,"We are asked: ""Which option is",,,overgenerate-select_Yoruba_13,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. Where one finds I-will-kill-him-for-sure, even there too will one find I-will-save-him.
+B. The toad is only slightly taller than the earth.
+C. Laziness in youth leads to poverty in old age.
+D. There is no manner of death that is inconvenient for the chicken.",
+audit,overgenerate-select,,,,C,,,overgenerate-select_Yoruba_14,anthropic/claude-opus-4.8,"Which option is correct?
+
+A. It is from childhood that the elephant was greater than the buffalo.
+B. It is an insatiable chief of the masqueraders’ cult that stands on tiptoe to watch a performing masquerader.
+C. Sudden pouncing does not capture greatness; working like a slave does not ensure anything.
+D. It is the retail merchant who makes mer chandise dear.",C
+audit,overgenerate-select,,,,,,400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions,overgenerate-select_Yoruba_14,openai/gpt-5,"Which option is correct?
+
+A. It is from childhood that the elephant was greater than the buffalo.
+B. It is an insatiable chief of the masqueraders’ cult that stands on tiptoe to watch a performing masquerader.
+C. Sudden pouncing does not capture greatness; working like a slave does not ensure anything.
+D. It is the retail merchant who makes mer chandise dear.",
+audit,overgenerate-select,,,,,,,overgenerate-select_Yoruba_14,google/gemini-2.5-pro,"Which option is correct?
+
+A. It is from childhood that the elephant was greater than the buffalo.
+B. It is an insatiable chief of the masqueraders’ cult that stands on tiptoe to watch a performing masquerader.
+C. Sudden pouncing does not capture greatness; working like a slave does not ensure anything.
+D. It is the retail merchant who makes mer chandise dear.",
+audit,overgenerate-select,,,,"We are given four options A, B",,,overgenerate-select_Yoruba_14,nvidia/nemotron-3-ultra-550b-a55b:free,"Which option is correct?
+
+A. It is from childhood that the elephant was greater than the buffalo.
+B. It is an insatiable chief of the masqueraders’ cult that stands on tiptoe to watch a performing masquerader.
+C. Sudden pouncing does not capture greatness; working like a slave does not ensure anything.
+D. It is the retail merchant who makes mer chandise dear.",B

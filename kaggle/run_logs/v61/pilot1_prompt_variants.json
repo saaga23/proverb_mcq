@@ -1,0 +1,49 @@
+{
+  "description": "OpenRouter Pilot 1 adversarial prompt variants for generating shortcut-resistant distractors for ProverbGap Strategy-2 MCQs.",
+  "input_schema": {
+    "proverb": "source-language proverb text",
+    "language": "English | Arabic | Yoruba",
+    "correct_meaning": "English paraphrase of the proverb's meaning"
+  },
+  "output_schema": "JSON list of exactly 4 strings",
+  "shared_constraints": [
+    "Output MUST be a valid JSON array of exactly 4 strings and nothing else.",
+    "Index 0 must be a correct paraphrase; indices 1-3 must be alternative meanings a fluent speaker might believe, NOT near-paraphrases of the correct meaning.",
+    "All 4 options must be similar in length: each distractor must be within ±30% character count of the correct option.",
+    "Do NOT output well-known English idioms or proverbs such as 'Charity begins at home', 'East or west, home is best', 'Go big or go home', etc.",
+    "All 4 options must share the same register, style, tense, and grammatical form.",
+    "Do NOT use meta-words such as 'incorrect', 'wrong', 'not', 'opposite', 'false', 'untrue', 'invalid', 'distractor', or 'option'.",
+    "Do NOT make the correct answer longer, more detailed, more qualified, or differently structured than the distractors.",
+    "Do NOT include any obvious lexical or syntactic pattern that distinguishes the correct answer.",
+    "Do NOT leak source-language words into any option.",
+    "Do NOT use simple negations or direct antonyms of the correct meaning as distractors.",
+    "Each distractor must be wrong in a semantically different way; avoid duplicates or near-paraphrases of the correct meaning.",
+    "Distractors should tempt a fluent speaker who has not heard the specific proverb, but should be demonstrably wrong when the proverb is known."
+  ],
+  "prompt_variants": [
+    {
+      "name": "adversarial-length-locked",
+      "system_prompt": "You are a JSON API for proverb multiple-choice distractor generation. You MUST respond with ONLY a valid JSON array of exactly 4 strings. No markdown, no explanations, no code fences, no thinking tags, no extra text.",
+      "user_prompt_template": "Proverb ({language}): {proverb}\nCorrect meaning: {correct_meaning}\n\nGenerate 4 answer options as a JSON array of strings:\n- Index 0: a correct paraphrase of the meaning\n- Indices 1-3: incorrect but plausible distractors\n\nHard constraints:\n1. Length lock: every distractor must be within ±20% character count of index 0. Count characters and revise if needed.\n2. Register lock: all four options must share the same register, style, tense, and sentence structure.\n3. No negation/antonym traps: distractors must NOT be simple negations or direct antonyms of the correct meaning.\n4. No meta-words: do not use 'incorrect', 'wrong', 'not', 'opposite', 'false', 'untrue', 'invalid', 'distractor', or 'option'.\n5. No source-language words in any option.\n6. Each distractor must be wrong in a different semantic way.\n\nReturn ONLY: [\"...\", \"...\", \"...\", \"...\"]",
+      "rationale": "Strict length and register parity plus explicit ban on negation/antonym shortcuts."
+    },
+    {
+      "name": "adversarial-hard-negative",
+      "system_prompt": "You are a JSON API for proverb multiple-choice distractor generation. You MUST respond with ONLY a valid JSON array of exactly 4 strings. No markdown, no explanations, no code fences, no thinking tags, no extra text.",
+      "user_prompt_template": "Proverb ({language}): {proverb}\nCorrect meaning: {correct_meaning}\n\nGenerate 4 answer options as a JSON array of strings:\n- Index 0: a correct paraphrase\n- Indices 1-3: HARD NEGATIVES — meanings that are subtly wrong but semantically close to the correct meaning.\n\nA hard negative is wrong in a fine-grained way: it may miss a causal link, misattribute agency, change scope, or apply the proverb to a slightly wrong situation. It is NOT a simple negation, NOT an opposite, and NOT a generic unrelated meaning.\n\nConstraints:\n- All four options within ±30% character count.\n- Same register and grammatical form.\n- No meta-words ('incorrect', 'wrong', 'not', 'opposite', 'false').\n- No source-language words.\n- Distractors must be plausible enough that a fluent reader might hesitate, but still wrong for this proverb.\n\nReturn ONLY: [\"...\", \"...\", \"...\", \"...\"]",
+      "rationale": "Forces generation of semantically close distractors rather than obvious reversals or unrelated idioms."
+    },
+    {
+      "name": "taxonomy-guided",
+      "system_prompt": "You are a JSON API for proverb multiple-choice distractor generation. You MUST respond with ONLY a valid JSON array of exactly 4 strings. No markdown, no explanations, no code fences, no thinking tags, no extra text.",
+      "user_prompt_template": "Proverb ({language}): {proverb}\nCorrect meaning: {correct_meaning}\n\nGenerate 4 answer options as a JSON array of strings:\n- Index 0: a correct paraphrase of the meaning\n- Index 1: a distractor that captures only part of the meaning and misses the whole point\n- Index 2: a distractor that gives a sensible interpretation but for a different situation than the proverb actually addresses\n- Index 3: a distractor that ignores a key condition, causal link, or cultural nuance in the proverb\n\nAdditional constraints:\n- All four options must be within ±30% character count and share the same register.\n- Do NOT use simple negations or direct antonyms.\n- Do not use the words 'partial', 'misalignment', 'dependency', 'overlooked', 'incorrect', 'wrong', 'not', 'opposite', 'false', or any category labels in the output strings.\n- Do not include source-language words.\n\nReturn ONLY: [\"...\", \"...\", \"...\", \"...\"]",
+      "rationale": "Haladyna / VERGE taxonomy with tightened surface constraints to prevent label echo and antonym traps."
+    },
+    {
+      "name": "overgenerate-select",
+      "system_prompt": "You are a JSON API for proverb multiple-choice distractor generation. First generate a larger pool of candidate options, then internally select the final 4 that are hardest to distinguish in a blind audit. You MUST respond with ONLY a valid JSON array of exactly 4 strings. No markdown, no explanations, no code fences, no thinking tags, no extra text.",
+      "user_prompt_template": "Proverb ({language}): {proverb}\nCorrect meaning: {correct_meaning}\n\nStep 1 - Overgenerate: produce at least 2 correct paraphrases and at least 6 incorrect but plausible distractors for the proverb above.\nStep 2 - Select: choose exactly 4 strings to return:\n- Index 0: the best single correct paraphrase\n- Indices 1-3: the 3 distractors that would be hardest for a fluent reader to rule out without seeing the proverb, BUT are still demonstrably wrong for this proverb.\n\nSelection criteria:\n- All four must be within ±30% character count and share register/style.\n- No option may contain meta-words ('incorrect', 'wrong', 'not', 'opposite', 'false', 'distractor') or source-language words.\n- Distractors must NOT be simple negations or direct antonyms of the correct meaning.\n- Distractors must not share a common surface cue (e.g., all starting with the same word or all using the same syntactic frame).\n- Each distractor should represent a different way the meaning could be misunderstood.\n\nReturn ONLY the final selected 4 as JSON: [\"...\", \"...\", \"...\", \"...\"]",
+      "rationale": "Overgenerate-then-select with adversarial filtering and length/register locks."
+    }
+  ]
+}

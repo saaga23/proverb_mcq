@@ -1,0 +1,5 @@
+n,consensus_accuracy,hcw_rate,partial_or_fallback_rate,group
+60,0.5333,0.4667,0.5,google/gemini-2.5-flash
+60,0.65,0.35,0.3333,google/gemma-4-31b-it
+60,0.5167,0.4833,0.4833,qwen/qwen3.7-max
+180,0.5667,0.4333,0.4389,POOLED (all 3 generators)

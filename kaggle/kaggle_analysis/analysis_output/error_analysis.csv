@@ -1,0 +1,6 @@
+Strategy,Total_Evals,Error_Count,Error_Rate (%),Top_Error
+S1,1350,1090,80.74,All providers failed for allam-2-7b: None
+S2,1350,1350,100.0,All providers failed for llama-3.3-70b-versatile: None
+Model: allam-2-7b,900,843,93.67,All providers failed for allam-2-7b: None
+Model: llama-3.3-70b-versatile,900,804,89.33,All providers failed for llama-3.3-70b-versatile: None
+Model: meta/llama-4-maverick-17b-128e-instruct,900,793,88.11,All providers failed for meta/llama-4-maverick-17b-128e-instruct: None

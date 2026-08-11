@@ -1,0 +1,7 @@
+failure_mode,locus,magnitude_pp,v68_magnitude
+Same-family exploitation,Audit/evaluator,31.1,
+Chain-of-thought collapse,Auditor prompting,34.7,
+Multi-stage-prompt triviality,Generator prompting,100.0,
+Position bias,MCQ assembly,60.6,60.6
+API/provider fragility,Infrastructure,90.0,
+Corpus fallback quality collapse,Fallback sampler,43.9,43.9

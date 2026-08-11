@@ -1,0 +1,4 @@
+generator_a,generator_b,n,statistic,p_value,significant_005
+google/gemini-2.5-flash,google/gemma-4-31b-it,60,140.0,0.177932,False
+google/gemini-2.5-flash,qwen/qwen3.7-max,60,210.0,0.852684,False
+google/gemma-4-31b-it,qwen/qwen3.7-max,60,100.0,0.10247,False

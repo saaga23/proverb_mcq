@@ -25,14 +25,11 @@ test.describe('ProverbGap Annotation E2E', () => {
     // Select first option
     await page.locator('.space-y-3 > button').first().click()
 
-    // Click correctness using exact match
-    await page.locator('button:has-text("Correct")').first().click()
-
-    // Click confidence using exact match
+    // Select confidence using exact match
     await page.locator('button:has-text("High confidence")').first().click()
 
-    // Wait for minimum time guard (3 seconds)
-    await page.waitForTimeout(3500)
+    // Wait for minimum time guard (10 seconds per AnnotationUI.tsx MIN_TIME_MS)
+    await page.waitForTimeout(11000)
 
     // Click submit
     await page.click('button:has-text("Submit & Next")')
@@ -45,8 +42,9 @@ test.describe('ProverbGap Annotation E2E', () => {
 
     // Verify backend has annotations
     const annotationsExist = await page.evaluate(async () => {
-      const SUPABASE_URL = 'https://bzqpzhkhnytrinzyqraz.supabase.co'
-      const SERVICE_ROLE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ6cXB6aGtobnl0cmluenlxcmF6Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc4MzIxMzM0MywiZXhwIjoyMDk4Nzg5MzQzfQ.CK7-l-U7lH0NUtguH85GpkvMoL6d1sjop5PlsXYQAnI'
+      // These should be set in .env.test so they are not hardcoded in source control
+      const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL || ''
+      const SERVICE_ROLE_KEY = process.env.NEXT_PUBLIC_SUPABASE_SERVICE_ROLE_KEY || ''
 
       const response = await fetch(`${SUPABASE_URL}/rest/v1/pg_annotations?select=count`, {
         headers: {
@@ -83,10 +81,9 @@ test.describe('ProverbGap Annotation E2E', () => {
       }
 
       await options.nth(correctIndex).click()
-      await page.locator('button:has-text("Correct")').first().click()
       await page.locator('button:has-text("High confidence")').first().click()
 
-      await page.waitForTimeout(3500)
+      await page.waitForTimeout(11000)
 
       await page.click('button:has-text("Submit & Next")')
     }

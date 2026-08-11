@@ -1,0 +1,13 @@
+auditor,n_total,n_correct_vs_gold,accuracy_vs_gold,ci_lower,ci_upper
+meta-llama_llama-3.3-70b-instruct,180,96,0.5333,,
+mistralai_mistral-small-3.2-24b-instruct,180,102,0.5667,,
+google_gemma-3-27b-it,180,82,0.4556,,
+deepseek_deepseek-v3.2,180,101,0.5611,,
+
+auditor_a,auditor_b,cohen_kappa
+meta-llama_llama-3.3-70b-instruct,mistralai_mistral-small-3.2-24b-instruct,0.517
+meta-llama_llama-3.3-70b-instruct,google_gemma-3-27b-it,0.5249
+meta-llama_llama-3.3-70b-instruct,deepseek_deepseek-v3.2,0.5552
+mistralai_mistral-small-3.2-24b-instruct,google_gemma-3-27b-it,0.5025
+mistralai_mistral-small-3.2-24b-instruct,deepseek_deepseek-v3.2,0.5032
+google_gemma-3-27b-it,deepseek_deepseek-v3.2,0.4852

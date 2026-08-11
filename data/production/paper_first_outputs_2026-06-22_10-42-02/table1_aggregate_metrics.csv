@@ -1,0 +1,2 @@
+n,perfect_consensus_rate,hcw_rate,consensus_accuracy,consensus_accuracy_ci_low,consensus_accuracy_ci_high,partial_or_fallback_rate,hard_fallback_rate,mean_fallback_count,mean_nli_replaced,mean_leak_replaced,mean_length_replaced,duplicate_options,correct_key_balance
+180.0,0.4166666666666667,0.2777777777777778,0.5666666666666667,0.4936290513862009,0.6369182155575839,0.4388888888888889,0.16111111111111112,0.9944444444444445,0.3611111111111111,0.35,0.15,0.0,"{'A': 45, 'B': 45, 'C': 45, 'D': 45}"

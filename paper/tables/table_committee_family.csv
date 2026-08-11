@@ -1,0 +1,17 @@
+role,family,model,accuracy_vs_gold
+auditor,Meta,meta-llama_llama-3.3-70b-instruct,0.5333
+auditor,Mistral,mistralai_mistral-small-3.2-24b-instruct,0.5667
+auditor,Google,google_gemma-3-27b-it,0.4556
+auditor,DeepSeek,deepseek_deepseek-v3.2,0.5611
+auditor,Unknown,auditor_a,
+auditor,Meta,meta-llama_llama-3.3-70b-instruct,
+auditor,Meta,meta-llama_llama-3.3-70b-instruct,
+auditor,Meta,meta-llama_llama-3.3-70b-instruct,
+auditor,Mistral,mistralai_mistral-small-3.2-24b-instruct,
+auditor,Mistral,mistralai_mistral-small-3.2-24b-instruct,
+auditor,Google,google_gemma-3-27b-it,
+
+generator_model,family,consensus_accuracy,hcw_rate,partial_or_fallback_rate
+google/gemini-2.5-flash,Google,0.5333,0.4667,0.5
+google/gemma-4-31b-it,Google,0.65,0.35,0.3333
+qwen/qwen3.7-max,Qwen,0.5167,0.4833,0.4833

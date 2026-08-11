@@ -1,0 +1,9 @@
+mcnemar,adversarial-hard-negative vs adversarial-length-locked,0.654721,1.0,False
+mcnemar,adversarial-hard-negative vs overgenerate-select,0.4795,1.0,False
+mcnemar,adversarial-hard-negative vs taxonomy-guided,0.4795,1.0,False
+mcnemar,adversarial-length-locked vs overgenerate-select,0.654721,1.0,False
+mcnemar,adversarial-length-locked vs taxonomy-guided,0.705457,1.0,False
+mcnemar,overgenerate-select vs taxonomy-guided,1.0,1.0,False
+wilcoxon,google/gemini-2.5-flash vs google/gemma-4-31b-it,0.177932,0.355864,False
+wilcoxon,google/gemini-2.5-flash vs qwen/qwen3.7-max,0.852684,0.852684,False
+wilcoxon,google/gemma-4-31b-it vs qwen/qwen3.7-max,0.10247,0.30741,False

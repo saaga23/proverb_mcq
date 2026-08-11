@@ -2,16 +2,64 @@
 
 import { useState, useEffect } from 'react'
 import { supabase } from '@/lib/supabase'
-import { Download, Loader2, CheckCircle, XCircle } from 'lucide-react'
+import { Download, Loader2, CheckCircle, XCircle, Lock } from 'lucide-react'
+
+// NOTE: This client-side password gate is for prototype use only.
+// Production deployments must replace this with real authenticated access (e.g., Supabase Auth, OAuth, or SSO).
+const ADMIN_PASSWORD = process.env.NEXT_PUBLIC_ADMIN_PASSWORD
 
 export default function AdminPage() {
   const [annotations, setAnnotations] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
   const [exporting, setExporting] = useState(false)
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
+  const [password, setPassword] = useState('')
+  const [authError, setAuthError] = useState(false)
 
-  useEffect(() => {
-    fetchAnnotations()
-  }, [])
+  const handlePasswordSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (ADMIN_PASSWORD && password === ADMIN_PASSWORD) {
+      setIsAuthenticated(true)
+      setAuthError(false)
+    } else {
+      setAuthError(true)
+    }
+  }
+
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 flex items-center justify-center p-4">
+        <div className="max-w-md w-full bg-white rounded-2xl shadow-xl p-8">
+          <div className="flex items-center justify-center mb-6">
+            <Lock className="w-12 h-12 text-slate-400" />
+          </div>
+          <h1 className="text-2xl font-bold text-slate-900 text-center mb-2">Admin Access</h1>
+          <p className="text-slate-600 text-center mb-6">Enter the admin password to continue.</p>
+          <form onSubmit={handlePasswordSubmit} className="space-y-4">
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Admin password"
+              className="w-full p-3 border border-slate-200 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+            />
+            {authError && (
+              <p className="text-red-600 text-sm">Invalid password. Please try again.</p>
+            )}
+            <button
+              type="submit"
+              className="w-full bg-indigo-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-indigo-700 transition-colors"
+            >
+              Unlock
+            </button>
+          </form>
+          <p className="text-xs text-slate-400 text-center mt-4">
+            Prototype only. Production requires real authentication.
+          </p>
+        </div>
+      </div>
+    )
+  }
 
   const fetchAnnotations = async () => {
     const { data, error } = await supabase
@@ -32,6 +80,12 @@ export default function AdminPage() {
     }
     setLoading(false)
   }
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      fetchAnnotations()
+    }
+  }, [isAuthenticated])
 
   const exportCsv = async () => {
     setExporting(true)

@@ -1,0 +1,120 @@
+======================================================================
+V68 PER-LANGUAGE PERFORMANCE REPORT
+======================================================================
+Total MCQs: 180 (60 per language x 3 languages)
+Auditors per item: 4
+
+## 1. Per-language consensus correctness (Wilson 95% CI)
+
+- **English**: 39/60 = 65.0% (95% CI 52.4%-75.8%)
+- **Arabic**: 32/60 = 53.3% (95% CI 40.9%-65.4%)
+- **Yoruba**: 31/60 = 51.7% (95% CI 39.3%-63.8%)
+
+## 2. Perfect consensus & high-consensus-wrong (HCW)
+
+- **English**: perfect consensus 27/60 = 45.0%; HCW 20/60 = 33.3%
+- **Arabic**: perfect consensus 30/60 = 50.0%; HCW 28/60 = 46.7%
+- **Yoruba**: perfect consensus 18/60 = 30.0%; HCW 29/60 = 48.3%
+
+## 3. Correct-key distribution per language (position bias)
+
+- **English**: A=15 (25.0%), B=15 (25.0%), C=15 (25.0%), D=15 (25.0%)
+- **Arabic**: A=15 (25.0%), B=15 (25.0%), C=15 (25.0%), D=15 (25.0%)
+- **Yoruba**: A=15 (25.0%), B=15 (25.0%), C=15 (25.0%), D=15 (25.0%)
+
+## 4. Auditor behavior per language
+
+### English
+  - meta-llama_llama-3.3-70b-instruct: missing votes 0/60 (0.0%), hit rate 36/60 = 60.0%
+  - mistralai_mistral-small-3.2-24b-instruct: missing votes 0/60 (0.0%), hit rate 42/60 = 70.0%
+  - google_gemma-3-27b-it: missing votes 0/60 (0.0%), hit rate 33/60 = 55.0%
+  - deepseek_deepseek-v3.2: missing votes 0/60 (0.0%), hit rate 41/60 = 68.3%
+  - Mean consensus fraction: 0.792
+
+### Arabic
+  - meta-llama_llama-3.3-70b-instruct: missing votes 0/60 (0.0%), hit rate 31/60 = 51.7%
+  - mistralai_mistral-small-3.2-24b-instruct: missing votes 0/60 (0.0%), hit rate 33/60 = 55.0%
+  - google_gemma-3-27b-it: missing votes 0/60 (0.0%), hit rate 27/60 = 45.0%
+  - deepseek_deepseek-v3.2: missing votes 0/60 (0.0%), hit rate 31/60 = 51.7%
+  - Mean consensus fraction: 0.821
+
+### Yoruba
+  - meta-llama_llama-3.3-70b-instruct: missing votes 0/60 (0.0%), hit rate 29/60 = 48.3%
+  - mistralai_mistral-small-3.2-24b-instruct: missing votes 0/60 (0.0%), hit rate 27/60 = 45.0%
+  - google_gemma-3-27b-it: missing votes 0/60 (0.0%), hit rate 22/60 = 36.7%
+  - deepseek_deepseek-v3.2: missing votes 0/60 (0.0%), hit rate 29/60 = 48.3%
+  - Mean consensus fraction: 0.746
+
+## 5. Specific failure examples
+
+### Yoruba issues (low consensus correctness, high fallback/partial)
+- **Ìdtí ò mátà; woléwolé lẹj bá wí.** (overgenerate-select, google/gemma-4-31b-it)
+  - Correct meaning: Dirt does not matter; only the sanitary inspector fusses.
+  - Correct label C; Consensus B @ 1.0
+  - Status: generated, fallback_count=0
+  - Options: A=The purity of a vessel is judged only by those who do not use it for labor.; B=A diligent worker ignores the dust that the idle observer finds offensive.; C=A farmer's gourd remains unbound by dirt, but only the inspector worries about cleanliness.; D=True cleanliness is found in the tools of the field rather than the words of the chief.
+
+- **Ilé kì í jó kí oorun kun ojú.** (adversarial-length-locked, google/gemini-2.5-flash)
+  - Correct meaning: A house does not burn and fill the eyes with sleep.
+  - Correct label C; Consensus A @ 1.0
+  - Status: partial, fallback_count=1
+  - Options: A=A person's true character is often revealed through their actions during times of great adversity.; B=One must always remain vigilant and prepared for unexpected challenges, even in times of peace.; C=A community should not be so well-protected that it ignores internal conflicts and potential dangers.; D=The head is never so frightened that it disappears into the shoulder.
+
+- **Kékeré lọ̀pọ̀lọ́ fi ga ju ilẹ̀ lọ.** (taxonomy-guided, google/gemini-2.5-flash)
+  - Correct meaning: The toad is only slightly taller than the earth.
+  - Correct label D; Consensus A @ 1.0
+  - Status: generated, fallback_count=0
+  - Options: A=Even a small person can achieve great things if they are determined and persistent in their efforts.; B=A person's true character is revealed not by their outward appearance, but by the wisdom and respect they show to their elders.; C=The smallest among us can still contribute significantly to the community if given the opportunity to lead.; D=One's inherent limitations, no matter how much effort is expended, will always keep them grounded in their true nature.
+
+### Arabic issues
+- **مراية الحب عمياء/بصلة المحب خروف** (adversarial-length-locked, google/gemini-2.5-flash)
+  - Correct meaning: Love is blind.
+  - Correct label B; Consensus A @ 1.0
+  - Status: partial, fallback_count=2
+  - Options: A=Love can transform even the most humble offerings into something precious and valuable.; B=Deep affection often blinds individuals to the imperfections of those they cherish.; C=True devotion means accepting a partner's flaws without any desire for change.; D=The believer is not bitten from the same hole twice
+
+- **عتبها على أهلها من قلة عقلها.** (adversarial-hard-negative, qwen/qwen3.7-max)
+  - Correct meaning: A bad workman always blames his tools.
+  - Correct label B; Consensus A @ 1.0
+  - Status: length_fallback, fallback_count=5
+  - Options: A=Knowing yourself is the beginning of all wisdom.; B=A foolish woman blames her relatives for her own lack of wisdom.; C=We judge others by our own standards.; D=If you are always dwelling in trouble change the address.
+
+- **اللي يعوزه البيت يحرم على الجامع** (overgenerate-select, qwen/qwen3.7-max)
+  - Correct meaning: Charity begins at home.
+  - Correct label B; Consensus C @ 1.0
+  - Status: generated, fallback_count=0
+  - Options: A=True piety demands keeping sacred spaces separate from everyday domestic life.; B=One must secure their own family's needs before giving to the wider community.; C=Keeping resources at home deprives the wider society of essential public wealth.; D=Religious duties to the congregation must outweigh everyday personal family desires.
+
+### English too-easy items (perfect consensus correct)
+- Count of perfect-consensus-correct English items: 23 / 60
+- **After a calm comes a storm** (adversarial-length-locked, qwen/qwen3.7-max)
+  - Correct meaning: A person might be overcome by trouble or adversity when least expected.
+  - Options: A=Tranquil periods eventually return without delay following chaotic events.; B=Careful preparations adequately protect against danger throughout quiet seasons.; C=Minor problems steadily escalate into disasters throughout extended intervals.; D=Severe difficulties frequently emerge without warning during tranquil periods.
+
+- **Know thyself** (adversarial-length-locked, qwen/qwen3.7-max)
+  - Correct meaning: This proverb can be used as a caution that we should know our limits and weaknesses, or as motivation to disc over our strengths and hidden talents.
+  - Options: A=Observing your outer environment enables you to discover your social limits and your public talents.; B=Imagining your future potential enables you to create your personal goals and your ultimate triumphs.; C=Examining your inner character enables you to discover your personal limits and your unique talents.; D=Concealing your inner character enables you to protect your personal secrets and your hidden motives.
+
+- **Know thyself** (adversarial-length-locked, google/gemma-4-31b-it)
+  - Correct meaning: This proverb can be used as a caution that we should know our limits and weaknesses, or as motivation to disc over our strengths and hidden talents.
+  - Options: A=Analyzing your past actions helps you predict how others will react to your future decisions.; B=Studying your inner desires helps you achieve the goals that you have set for your career.; C=Observing your daily habits helps you improve the way you interact with people in society.; D=Understanding your true self helps you recognize both your limitations and your unique strengths.
+
+## 6. Scaling gate assessment
+
+- **English** correctness 65.0% (gate >=50%): PASS
+  - Perfect consensus 45.0% (gate <30%): FAIL
+  - HCW 33.3% (gate <10%): FAIL
+- **Arabic** correctness 53.3% (gate >=50%): PASS
+  - Perfect consensus 50.0% (gate <30%): FAIL
+  - HCW 46.7% (gate <10%): FAIL
+- **Yoruba** correctness 51.7% (gate >=50%): PASS
+  - Perfect consensus 30.0% (gate <30%): FAIL
+  - HCW 48.3% (gate <10%): FAIL
+
+## Overall aggregates
+- Overall consensus correctness: 102/180 = 56.7%
+- Overall perfect consensus: 75/180 = 41.7%
+- Overall HCW: 77/180 = 42.8%
+- Duplicate options: 0
+- Mean fallback count: 0.99
+- Partial+length_fallback status share: 43.9%

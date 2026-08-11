@@ -1,0 +1,76 @@
+8.3s 1 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+8.3s 2 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+8.3s 3 0.00s - to python to disable frozen modules.
+8.3s 4 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+9.1s 5 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+9.1s 6 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+9.1s 7 0.00s - to python to disable frozen modules.
+9.1s 8 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+10.4s 9 Prompt variants JSON ready
+12.0s 10 Loaded prompt variants from pilot1_prompt_variants.json
+12.2s 11 [2026-06-15T16:21:24.817915+00:00] Starting Pilot 1 v2
+12.2s 12 Generator: openai/gpt-5
+12.2s 13 Audit committee: ['anthropic/claude-opus-4.8', 'openai/gpt-5', 'google/gemini-2.5-pro', 'nvidia/nemotron-3-ultra-550b-a55b:free']
+12.2s 14 Prompt variants: ['baseline', 'misconception-based', 'taxonomy-guided', 'few-shot-predictive', 'overgenerate-select']
+12.2s 15 Cost cap: $5.0
+12.2s 16 
+12.2s 17 Sampled 15 proverbs:
+12.2s 18 language
+12.2s 19 Arabic     5
+12.2s 20 English    5
+12.2s 21 Yoruba     5
+12.2s 22 dtype: int64
+12.2s 23 
+12.2s 24 === Generating with prompt variant: baseline ===
+274.3s 25 Cumulative cost so far: $0.0920
+274.3s 26 
+274.3s 27 === Generating with prompt variant: misconception-based ===
+550.8s 28 Cumulative cost so far: $0.1837
+550.8s 29 
+550.8s 30 === Generating with prompt variant: taxonomy-guided ===
+844.7s 31 Cumulative cost so far: $0.2751
+844.7s 32 
+844.7s 33 === Generating with prompt variant: few-shot-predictive ===
+1112.1s 34 Cumulative cost so far: $0.3700
+1112.1s 35 
+1112.1s 36 === Generating with prompt variant: overgenerate-select ===
+1368.3s 37 Cumulative cost so far: $0.4626
+1368.3s 38 
+1368.3s 39 === Running blind shortcut audit ===
+1567.5s 40 Audited 10/75 MCQs; cost: $0.4716
+1787.0s 41 Audited 20/75 MCQs; cost: $0.4804
+2186.1s 42 Audited 30/75 MCQs; cost: $0.4907
+2527.1s 43 Audited 40/75 MCQs; cost: $0.4994
+2998.5s 44 Audited 50/75 MCQs; cost: $0.5080
+3361.9s 45 Audited 60/75 MCQs; cost: $0.5175
+3857.6s 46 Audited 70/75 MCQs; cost: $0.5271
+3962.8s 47 
+3962.8s 48 === Per-variant consensus accuracy ===
+3962.8s 49 language               ALL  Arabic  English  Yoruba
+3962.8s 50 variant
+3962.8s 51 baseline             0.200     0.2      0.4     0.0
+3962.8s 52 few-shot-predictive  0.333     0.2      0.6     0.2
+3962.8s 53 misconception-based  0.133     0.2      0.2     0.0
+3962.8s 54 overgenerate-select  0.467     0.6      0.6     0.2
+3962.8s 55 taxonomy-guided      0.267     0.0      0.6     0.2
+3962.8s 56 
+3962.8s 57 === Per-model accuracy by variant ===
+3962.8s 58 variant                                  model  accuracy  n
+3962.8s 59 baseline              anthropic/claude-opus-4.8  0.214286 14
+3962.8s 60 misconception-based              anthropic/claude-opus-4.8  0.142857 14
+3962.8s 61 misconception-based nvidia/nemotron-3-ultra-550b-a55b:free  0.000000  1
+3962.8s 62 taxonomy-guided              anthropic/claude-opus-4.8  0.266667 15
+3962.8s 63 few-shot-predictive              anthropic/claude-opus-4.8  0.333333 15
+3962.8s 64 overgenerate-select              anthropic/claude-opus-4.8  0.466667 15
+3962.8s 65 overgenerate-select nvidia/nemotron-3-ultra-550b-a55b:free  0.500000  2
+3962.8s 66 
+3962.8s 67 Saved outputs to /kaggle/working/
+3962.8s 68 Total estimated cost: $0.5315 / $5.00
+3966.3s 69 /usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+3966.3s 70 cells[i][c] = re.sub('\\\\\|', '|', cell)
+3966.5s 71 /usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+3966.5s 72 text = re.sub(r'_', '\_', text) # Escape underscores in display text
+3967.3s 73 [NbConvertApp] Converting notebook __notebook__.ipynb to notebook
+3967.7s 74 [NbConvertApp] Writing 51405 bytes to __notebook__.ipynb
+3970.8s 75 [NbConvertApp] Converting notebook __notebook__.ipynb to html
+3972.0s 76 [NbConvertApp] Writing 407780 bytes to __results__.html

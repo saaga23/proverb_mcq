@@ -1,0 +1,14 @@
+{
+  "stage": "generation",
+  "variant": "baseline",
+  "language": "Arabic",
+  "proverb": "تجري الرياح بما لا تشتهي السفن",
+  "correct_meaning": "Winds blow counter to what the ship wants.",
+  "raw_model_output": "",
+  "status": "parse_fallback",
+  "error": "Could not parse JSON options.",
+  "mcq_id": "",
+  "model": "",
+  "prompt": "",
+  "extracted_vote": ""
+}

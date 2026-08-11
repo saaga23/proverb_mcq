@@ -1,0 +1,16 @@
+{
+  "id": "abrahamsunday123/mcq-pass-shortcut",
+  "title": "MCQ_pass_shortcut",
+  "code_file": "openrouter_pilot_distractor_generation_test_nano_opus.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_internet": true,
+  "dataset_sources": [
+    "abrahamsunday123/full-data-complete",
+    "abrahamsunday123/openrouter-key-mcq"
+  ],
+  "competition_sources": [],
+  "kernel_sources": []
+}

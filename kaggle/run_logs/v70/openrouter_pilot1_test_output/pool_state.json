@@ -1,0 +1,2429 @@
+{
+  "timestamp": "2026-06-22T02:49:01.620377+00:00",
+  "cost_spent": 0.4200671040000006,
+  "cost_history": [
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "gold_curation",
+      "input_tokens": 117,
+      "output_tokens": 19,
+      "cost_usd": 1.93e-05,
+      "cumulative_usd": 1.93e-05
+    },
+    {
+      "model": "qwen/qwen3.7-max",
+      "purpose": "generation-qwen/qwen3.7-max-adversarial-length-locked",
+      "input_tokens": 302,
+      "output_tokens": 5068,
+      "cost_usd": 0.0193825,
+      "cumulative_usd": 0.0194018
+    },
+    {
+      "model": "google/gemma-4-31b-it",
+      "purpose": "generation-google/gemma-4-31b-it-adversarial-length-locked",
+      "input_tokens": 306,
+      "output_tokens": 48,
+      "cost_usd": 5.4e-05,
+      "cumulative_usd": 0.0194558
+    },
+    {
+      "model": "google/gemini-2.5-flash",
+      "purpose": "generation-google/gemini-2.5-flash-adversarial-length-locked",
+      "input_tokens": 287,
+      "output_tokens": 62,
+      "cost_usd": 8.025e-05,
+      "cumulative_usd": 0.01953605
+    },
+    {
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "purpose": "audit-preflight",
+      "input_tokens": 115,
+      "output_tokens": 3,
+      "cost_usd": 1.2460000000000001e-05,
+      "cumulative_usd": 0.019548509999999998
+    },
+    {
+      "model": "mistralai/mistral-small-3.2-24b-instruct",
+      "purpose": "audit-preflight",
+      "input_tokens": 104,
+      "output_tokens": 2,
+      "cost_usd": 8.2e-06,
+      "cumulative_usd": 0.019556709999999998
+    },
+    {
+      "model": "google/gemma-3-27b-it",
+      "purpose": "audit-preflight",
+      "input_tokens": 112,
+      "output_tokens": 3,
+      "cost_usd": 9.440000000000001e-06,
+      "cumulative_usd": 0.019566149999999997
+    },
+    {
+      "model": "deepseek/deepseek-v3.2",
+      "purpose": "audit-preflight",
+      "input_tokens": 102,
+      "output_tokens": 2,
+      "cost_usd": 2.4024000000000002e-05,
+      "cumulative_usd": 0.019590174
+    },
+    {
+      "model": "qwen/qwen3.7-max",
+      "purpose": "generation-qwen/qwen3.7-max-adversarial-length-locked",
+      "input_tokens": 302,
+      "output_tokens": 6840,
+      "cost_usd": 0.0260275,
+      "cumulative_usd": 0.045617674
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 161,
+      "output_tokens": 20,
+      "cost_usd": 2.4100000000000003e-05,
+      "cumulative_usd": 0.045641773999999996
+    },
+    {
+      "model": "google/gemma-4-31b-it",
+      "purpose": "generation-google/gemma-4-31b-it-adversarial-length-locked",
+      "input_tokens": 306,
+      "output_tokens": 54,
+      "cost_usd": 5.616e-05,
+      "cumulative_usd": 0.045697933999999996
+    },
+    {
+      "model": "google/gemini-2.5-flash",
+      "purpose": "generation-google/gemini-2.5-flash-adversarial-length-locked",
+      "input_tokens": 287,
+      "output_tokens": 62,
+      "cost_usd": 8.025e-05,
+      "cumulative_usd": 0.04577818399999999
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "gold_curation",
+      "input_tokens": 115,
+      "output_tokens": 17,
+      "cost_usd": 1.83e-05,
+      "cumulative_usd": 0.04579648399999999
+    },
+    {
+      "model": "qwen/qwen3.7-max",
+      "purpose": "generation-qwen/qwen3.7-max-adversarial-length-locked",
+      "input_tokens": 304,
+      "output_tokens": 3087,
+      "cost_usd": 0.01195625,
+      "cumulative_usd": 0.05775273399999999
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 159,
+      "output_tokens": 17,
+      "cost_usd": 2.2700000000000003e-05,
+      "cumulative_usd": 0.057775433999999994
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 175,
+      "output_tokens": 16,
+      "cost_usd": 2.3899999999999998e-05,
+      "cumulative_usd": 0.057799333999999994
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 175,
+      "output_tokens": 17,
+      "cost_usd": 2.43e-05,
+      "cumulative_usd": 0.05782363399999999
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 159,
+      "output_tokens": 17,
+      "cost_usd": 2.2700000000000003e-05,
+      "cumulative_usd": 0.05784633399999999
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 175,
+      "output_tokens": 16,
+      "cost_usd": 2.3899999999999998e-05,
+      "cumulative_usd": 0.05787023399999999
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 175,
+      "output_tokens": 17,
+      "cost_usd": 2.43e-05,
+      "cumulative_usd": 0.05789453399999999
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 159,
+      "output_tokens": 17,
+      "cost_usd": 2.2700000000000003e-05,
+      "cumulative_usd": 0.05791723399999999
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 175,
+      "output_tokens": 16,
+      "cost_usd": 2.3899999999999998e-05,
+      "cumulative_usd": 0.05794113399999999
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 175,
+      "output_tokens": 15,
+      "cost_usd": 2.35e-05,
+      "cumulative_usd": 0.057964633999999994
+    },
+    {
+      "model": "google/gemma-4-31b-it",
+      "purpose": "generation-google/gemma-4-31b-it-adversarial-length-locked",
+      "input_tokens": 308,
+      "output_tokens": 59,
+      "cost_usd": 5.8200000000000005e-05,
+      "cumulative_usd": 0.058022833999999995
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 159,
+      "output_tokens": 15,
+      "cost_usd": 2.1899999999999997e-05,
+      "cumulative_usd": 0.058044733999999994
+    },
+    {
+      "model": "google/gemini-2.5-flash",
+      "purpose": "generation-google/gemini-2.5-flash-adversarial-length-locked",
+      "input_tokens": 289,
+      "output_tokens": 62,
+      "cost_usd": 8.054999999999999e-05,
+      "cumulative_usd": 0.05812528399999999
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 159,
+      "output_tokens": 18,
+      "cost_usd": 2.3100000000000002e-05,
+      "cumulative_usd": 0.05814838399999999
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "gold_curation",
+      "input_tokens": 112,
+      "output_tokens": 16,
+      "cost_usd": 1.76e-05,
+      "cumulative_usd": 0.05816598399999999
+    },
+    {
+      "model": "qwen/qwen3.7-max",
+      "purpose": "generation-qwen/qwen3.7-max-adversarial-length-locked",
+      "input_tokens": 300,
+      "output_tokens": 4430,
+      "cost_usd": 0.0169875,
+      "cumulative_usd": 0.07515348399999999
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 156,
+      "output_tokens": 17,
+      "cost_usd": 2.2400000000000002e-05,
+      "cumulative_usd": 0.075175884
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 156,
+      "output_tokens": 15,
+      "cost_usd": 2.16e-05,
+      "cumulative_usd": 0.075197484
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 156,
+      "output_tokens": 15,
+      "cost_usd": 2.16e-05,
+      "cumulative_usd": 0.07521908399999999
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 172,
+      "output_tokens": 14,
+      "cost_usd": 2.2800000000000002e-05,
+      "cumulative_usd": 0.075241884
+    },
+    {
+      "model": "google/gemma-4-31b-it",
+      "purpose": "generation-google/gemma-4-31b-it-adversarial-length-locked",
+      "input_tokens": 302,
+      "output_tokens": 49,
+      "cost_usd": 5.3880000000000006e-05,
+      "cumulative_usd": 0.075295764
+    },
+    {
+      "model": "google/gemini-2.5-flash",
+      "purpose": "generation-google/gemini-2.5-flash-adversarial-length-locked",
+      "input_tokens": 283,
+      "output_tokens": 59,
+      "cost_usd": 7.785e-05,
+      "cumulative_usd": 0.075373614
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 156,
+      "output_tokens": 17,
+      "cost_usd": 2.2400000000000002e-05,
+      "cumulative_usd": 0.07539601400000001
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 172,
+      "output_tokens": 17,
+      "cost_usd": 2.4e-05,
+      "cumulative_usd": 0.07542001400000001
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "gold_curation",
+      "input_tokens": 121,
+      "output_tokens": 21,
+      "cost_usd": 2.05e-05,
+      "cumulative_usd": 0.07544051400000001
+    },
+    {
+      "model": "qwen/qwen3.7-max",
+      "purpose": "generation-qwen/qwen3.7-max-adversarial-length-locked",
+      "input_tokens": 308,
+      "output_tokens": 3375,
+      "cost_usd": 0.01304125,
+      "cumulative_usd": 0.08848176400000002
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 161,
+      "output_tokens": 15,
+      "cost_usd": 2.2100000000000002e-05,
+      "cumulative_usd": 0.08850386400000002
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 161,
+      "output_tokens": 17,
+      "cost_usd": 2.29e-05,
+      "cumulative_usd": 0.08852676400000002
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 161,
+      "output_tokens": 17,
+      "cost_usd": 2.29e-05,
+      "cumulative_usd": 0.08854966400000003
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 177,
+      "output_tokens": 21,
+      "cost_usd": 2.61e-05,
+      "cumulative_usd": 0.08857576400000003
+    },
+    {
+      "model": "google/gemma-4-31b-it",
+      "purpose": "generation-google/gemma-4-31b-it-adversarial-length-locked",
+      "input_tokens": 312,
+      "output_tokens": 73,
+      "cost_usd": 6.371999999999999e-05,
+      "cumulative_usd": 0.08863948400000003
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 162,
+      "output_tokens": 19,
+      "cost_usd": 2.38e-05,
+      "cumulative_usd": 0.08866328400000004
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 162,
+      "output_tokens": 19,
+      "cost_usd": 2.38e-05,
+      "cumulative_usd": 0.08868708400000004
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 162,
+      "output_tokens": 18,
+      "cost_usd": 2.34e-05,
+      "cumulative_usd": 0.08871048400000005
+    },
+    {
+      "model": "google/gemini-2.5-flash",
+      "purpose": "generation-google/gemini-2.5-flash-adversarial-length-locked",
+      "input_tokens": 293,
+      "output_tokens": 77,
+      "cost_usd": 9.015e-05,
+      "cumulative_usd": 0.08880063400000004
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 163,
+      "output_tokens": 17,
+      "cost_usd": 2.3100000000000002e-05,
+      "cumulative_usd": 0.08882373400000004
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "gold_curation",
+      "input_tokens": 119,
+      "output_tokens": 13,
+      "cost_usd": 1.7100000000000002e-05,
+      "cumulative_usd": 0.08884083400000005
+    },
+    {
+      "model": "qwen/qwen3.7-max",
+      "purpose": "generation-qwen/qwen3.7-max-adversarial-length-locked",
+      "input_tokens": 299,
+      "output_tokens": 4792,
+      "cost_usd": 0.01834375,
+      "cumulative_usd": 0.10718458400000005
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 156,
+      "output_tokens": 13,
+      "cost_usd": 2.08e-05,
+      "cumulative_usd": 0.10720538400000006
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 172,
+      "output_tokens": 11,
+      "cost_usd": 2.16e-05,
+      "cumulative_usd": 0.10722698400000005
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 156,
+      "output_tokens": 13,
+      "cost_usd": 2.08e-05,
+      "cumulative_usd": 0.10724778400000005
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 172,
+      "output_tokens": 11,
+      "cost_usd": 2.16e-05,
+      "cumulative_usd": 0.10726938400000005
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 172,
+      "output_tokens": 11,
+      "cost_usd": 2.16e-05,
+      "cumulative_usd": 0.10729098400000005
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 156,
+      "output_tokens": 13,
+      "cost_usd": 2.08e-05,
+      "cumulative_usd": 0.10731178400000005
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 172,
+      "output_tokens": 11,
+      "cost_usd": 2.16e-05,
+      "cumulative_usd": 0.10733338400000005
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 172,
+      "output_tokens": 11,
+      "cost_usd": 2.16e-05,
+      "cumulative_usd": 0.10735498400000004
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 156,
+      "output_tokens": 13,
+      "cost_usd": 2.08e-05,
+      "cumulative_usd": 0.10737578400000004
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 172,
+      "output_tokens": 11,
+      "cost_usd": 2.16e-05,
+      "cumulative_usd": 0.10739738400000004
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 172,
+      "output_tokens": 11,
+      "cost_usd": 2.16e-05,
+      "cumulative_usd": 0.10741898400000004
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 156,
+      "output_tokens": 13,
+      "cost_usd": 2.08e-05,
+      "cumulative_usd": 0.10743978400000004
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 172,
+      "output_tokens": 11,
+      "cost_usd": 2.16e-05,
+      "cumulative_usd": 0.10746138400000003
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 156,
+      "output_tokens": 13,
+      "cost_usd": 2.08e-05,
+      "cumulative_usd": 0.10748218400000004
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 172,
+      "output_tokens": 11,
+      "cost_usd": 2.16e-05,
+      "cumulative_usd": 0.10750378400000003
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 172,
+      "output_tokens": 11,
+      "cost_usd": 2.16e-05,
+      "cumulative_usd": 0.10752538400000003
+    },
+    {
+      "model": "google/gemma-4-31b-it",
+      "purpose": "generation-google/gemma-4-31b-it-adversarial-length-locked",
+      "input_tokens": 302,
+      "output_tokens": 46,
+      "cost_usd": 5.2799999999999996e-05,
+      "cumulative_usd": 0.10757818400000004
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 157,
+      "output_tokens": 11,
+      "cost_usd": 2.01e-05,
+      "cumulative_usd": 0.10759828400000003
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 173,
+      "output_tokens": 11,
+      "cost_usd": 2.1700000000000002e-05,
+      "cumulative_usd": 0.10761998400000003
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 157,
+      "output_tokens": 11,
+      "cost_usd": 2.01e-05,
+      "cumulative_usd": 0.10764008400000002
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 173,
+      "output_tokens": 11,
+      "cost_usd": 2.1700000000000002e-05,
+      "cumulative_usd": 0.10766178400000002
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 173,
+      "output_tokens": 13,
+      "cost_usd": 2.25e-05,
+      "cumulative_usd": 0.10768428400000002
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 157,
+      "output_tokens": 11,
+      "cost_usd": 2.01e-05,
+      "cumulative_usd": 0.10770438400000001
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 173,
+      "output_tokens": 11,
+      "cost_usd": 2.1700000000000002e-05,
+      "cumulative_usd": 0.10772608400000001
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 173,
+      "output_tokens": 13,
+      "cost_usd": 2.25e-05,
+      "cumulative_usd": 0.10774858400000001
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 157,
+      "output_tokens": 11,
+      "cost_usd": 2.01e-05,
+      "cumulative_usd": 0.107768684
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 173,
+      "output_tokens": 11,
+      "cost_usd": 2.1700000000000002e-05,
+      "cumulative_usd": 0.107790384
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 173,
+      "output_tokens": 13,
+      "cost_usd": 2.25e-05,
+      "cumulative_usd": 0.107812884
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 157,
+      "output_tokens": 11,
+      "cost_usd": 2.01e-05,
+      "cumulative_usd": 0.10783298399999999
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 173,
+      "output_tokens": 11,
+      "cost_usd": 2.1700000000000002e-05,
+      "cumulative_usd": 0.10785468399999999
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 173,
+      "output_tokens": 12,
+      "cost_usd": 2.2100000000000002e-05,
+      "cumulative_usd": 0.10787678399999999
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 157,
+      "output_tokens": 11,
+      "cost_usd": 2.01e-05,
+      "cumulative_usd": 0.10789688399999998
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 173,
+      "output_tokens": 11,
+      "cost_usd": 2.1700000000000002e-05,
+      "cumulative_usd": 0.10791858399999998
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 173,
+      "output_tokens": 12,
+      "cost_usd": 2.2100000000000002e-05,
+      "cumulative_usd": 0.10794068399999998
+    },
+    {
+      "model": "google/gemini-2.5-flash",
+      "purpose": "generation-google/gemini-2.5-flash-adversarial-length-locked",
+      "input_tokens": 283,
+      "output_tokens": 56,
+      "cost_usd": 7.604999999999999e-05,
+      "cumulative_usd": 0.10801673399999998
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 156,
+      "output_tokens": 14,
+      "cost_usd": 2.1200000000000004e-05,
+      "cumulative_usd": 0.10803793399999997
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 156,
+      "output_tokens": 14,
+      "cost_usd": 2.1200000000000004e-05,
+      "cumulative_usd": 0.10805913399999997
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 172,
+      "output_tokens": 13,
+      "cost_usd": 2.24e-05,
+      "cumulative_usd": 0.10808153399999998
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "gold_curation",
+      "input_tokens": 90,
+      "output_tokens": 12,
+      "cost_usd": 1.38e-05,
+      "cumulative_usd": 0.10809533399999997
+    },
+    {
+      "model": "qwen/qwen3.7-max",
+      "purpose": "generation-qwen/qwen3.7-max-adversarial-length-locked",
+      "input_tokens": 291,
+      "output_tokens": 9000,
+      "cost_usd": 0.03411375,
+      "cumulative_usd": 0.14220908399999999
+    },
+    {
+      "model": "google/gemma-4-31b-it",
+      "purpose": "generation-google/gemma-4-31b-it-adversarial-length-locked",
+      "input_tokens": 294,
+      "output_tokens": 48,
+      "cost_usd": 5.2560000000000005e-05,
+      "cumulative_usd": 0.142261644
+    },
+    {
+      "model": "google/gemini-2.5-flash",
+      "purpose": "generation-google/gemini-2.5-flash-adversarial-length-locked",
+      "input_tokens": 275,
+      "output_tokens": 59,
+      "cost_usd": 7.665e-05,
+      "cumulative_usd": 0.142338294
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 141,
+      "output_tokens": 15,
+      "cost_usd": 2.01e-05,
+      "cumulative_usd": 0.142358394
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "gold_curation",
+      "input_tokens": 103,
+      "output_tokens": 15,
+      "cost_usd": 1.63e-05,
+      "cumulative_usd": 0.142374694
+    },
+    {
+      "model": "qwen/qwen3.7-max",
+      "purpose": "generation-qwen/qwen3.7-max-adversarial-length-locked",
+      "input_tokens": 292,
+      "output_tokens": 4063,
+      "cost_usd": 0.01560125,
+      "cumulative_usd": 0.157975944
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 142,
+      "output_tokens": 16,
+      "cost_usd": 2.0600000000000003e-05,
+      "cumulative_usd": 0.15799654400000002
+    },
+    {
+      "model": "google/gemma-4-31b-it",
+      "purpose": "generation-google/gemma-4-31b-it-adversarial-length-locked",
+      "input_tokens": 295,
+      "output_tokens": 63,
+      "cost_usd": 5.808e-05,
+      "cumulative_usd": 0.158054624
+    },
+    {
+      "model": "google/gemini-2.5-flash",
+      "purpose": "generation-google/gemini-2.5-flash-adversarial-length-locked",
+      "input_tokens": 276,
+      "output_tokens": 56,
+      "cost_usd": 7.5e-05,
+      "cumulative_usd": 0.158129624
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "gold_curation",
+      "input_tokens": 93,
+      "output_tokens": 13,
+      "cost_usd": 1.45e-05,
+      "cumulative_usd": 0.158144124
+    },
+    {
+      "model": "qwen/qwen3.7-max",
+      "purpose": "generation-qwen/qwen3.7-max-adversarial-length-locked",
+      "input_tokens": 295,
+      "output_tokens": 4351,
+      "cost_usd": 0.016685,
+      "cumulative_usd": 0.174829124
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 141,
+      "output_tokens": 11,
+      "cost_usd": 1.85e-05,
+      "cumulative_usd": 0.174847624
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 141,
+      "output_tokens": 11,
+      "cost_usd": 1.85e-05,
+      "cumulative_usd": 0.174866124
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 157,
+      "output_tokens": 15,
+      "cost_usd": 2.1700000000000002e-05,
+      "cumulative_usd": 0.17488782400000003
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 141,
+      "output_tokens": 11,
+      "cost_usd": 1.85e-05,
+      "cumulative_usd": 0.17490632400000003
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 157,
+      "output_tokens": 15,
+      "cost_usd": 2.1700000000000002e-05,
+      "cumulative_usd": 0.17492802400000004
+    },
+    {
+      "model": "google/gemma-4-31b-it",
+      "purpose": "generation-google/gemma-4-31b-it-adversarial-length-locked",
+      "input_tokens": 299,
+      "output_tokens": 55,
+      "cost_usd": 5.5679999999999995e-05,
+      "cumulative_usd": 0.17498370400000005
+    },
+    {
+      "model": "google/gemini-2.5-flash",
+      "purpose": "generation-google/gemini-2.5-flash-adversarial-length-locked",
+      "input_tokens": 280,
+      "output_tokens": 49,
+      "cost_usd": 7.14e-05,
+      "cumulative_usd": 0.17505510400000004
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "gold_curation",
+      "input_tokens": 98,
+      "output_tokens": 15,
+      "cost_usd": 1.58e-05,
+      "cumulative_usd": 0.17507090400000005
+    },
+    {
+      "model": "qwen/qwen3.7-max",
+      "purpose": "generation-qwen/qwen3.7-max-adversarial-length-locked",
+      "input_tokens": 298,
+      "output_tokens": 4059,
+      "cost_usd": 0.01559375,
+      "cumulative_usd": 0.19066465400000004
+    },
+    {
+      "model": "google/gemma-4-31b-it",
+      "purpose": "generation-google/gemma-4-31b-it-adversarial-length-locked",
+      "input_tokens": 312,
+      "output_tokens": 47,
+      "cost_usd": 5.436e-05,
+      "cumulative_usd": 0.19071901400000005
+    },
+    {
+      "model": "google/gemini-2.5-flash",
+      "purpose": "generation-google/gemini-2.5-flash-adversarial-length-locked",
+      "input_tokens": 282,
+      "output_tokens": 48,
+      "cost_usd": 7.11e-05,
+      "cumulative_usd": 0.19079011400000004
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "gold_curation",
+      "input_tokens": 93,
+      "output_tokens": 19,
+      "cost_usd": 1.69e-05,
+      "cumulative_usd": 0.19080701400000002
+    },
+    {
+      "model": "qwen/qwen3.7-max",
+      "purpose": "generation-qwen/qwen3.7-max-adversarial-length-locked",
+      "input_tokens": 299,
+      "output_tokens": 3789,
+      "cost_usd": 0.0145825,
+      "cumulative_usd": 0.20538951400000002
+    },
+    {
+      "model": "google/gemma-4-31b-it",
+      "purpose": "generation-google/gemma-4-31b-it-adversarial-length-locked",
+      "input_tokens": 302,
+      "output_tokens": 47,
+      "cost_usd": 5.316e-05,
+      "cumulative_usd": 0.20544267400000002
+    },
+    {
+      "model": "google/gemini-2.5-flash",
+      "purpose": "generation-google/gemini-2.5-flash-adversarial-length-locked",
+      "input_tokens": 283,
+      "output_tokens": 66,
+      "cost_usd": 8.205e-05,
+      "cumulative_usd": 0.20552472400000002
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "gold_curation",
+      "input_tokens": 137,
+      "output_tokens": 22,
+      "cost_usd": 2.25e-05,
+      "cumulative_usd": 0.20554722400000003
+    },
+    {
+      "model": "qwen/qwen3.7-max",
+      "purpose": "generation-qwen/qwen3.7-max-adversarial-length-locked",
+      "input_tokens": 504,
+      "output_tokens": 4073,
+      "cost_usd": 0.01590375,
+      "cumulative_usd": 0.22145097400000002
+    },
+    {
+      "model": "google/gemma-4-31b-it",
+      "purpose": "generation-google/gemma-4-31b-it-adversarial-length-locked",
+      "input_tokens": 509,
+      "output_tokens": 63,
+      "cost_usd": 8.376e-05,
+      "cumulative_usd": 0.221534734
+    },
+    {
+      "model": "google/gemini-2.5-flash",
+      "purpose": "generation-google/gemini-2.5-flash-adversarial-length-locked",
+      "input_tokens": 479,
+      "output_tokens": 89,
+      "cost_usd": 0.00012525,
+      "cumulative_usd": 0.221659984
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "gold_curation",
+      "input_tokens": 138,
+      "output_tokens": 26,
+      "cost_usd": 2.4200000000000002e-05,
+      "cumulative_usd": 0.221684184
+    },
+    {
+      "model": "qwen/qwen3.7-max",
+      "purpose": "generation-qwen/qwen3.7-max-adversarial-length-locked",
+      "input_tokens": 506,
+      "output_tokens": 7806,
+      "cost_usd": 0.029905,
+      "cumulative_usd": 0.251589184
+    },
+    {
+      "model": "google/gemma-4-31b-it",
+      "purpose": "generation-google/gemma-4-31b-it-adversarial-length-locked",
+      "input_tokens": 511,
+      "output_tokens": 69,
+      "cost_usd": 8.616e-05,
+      "cumulative_usd": 0.251675344
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 167,
+      "output_tokens": 15,
+      "cost_usd": 2.27e-05,
+      "cumulative_usd": 0.251698044
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 167,
+      "output_tokens": 17,
+      "cost_usd": 2.35e-05,
+      "cumulative_usd": 0.251721544
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 167,
+      "output_tokens": 17,
+      "cost_usd": 2.35e-05,
+      "cumulative_usd": 0.25174504400000003
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 167,
+      "output_tokens": 17,
+      "cost_usd": 2.35e-05,
+      "cumulative_usd": 0.25176854400000004
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 183,
+      "output_tokens": 17,
+      "cost_usd": 2.51e-05,
+      "cumulative_usd": 0.25179364400000004
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 183,
+      "output_tokens": 16,
+      "cost_usd": 2.4700000000000004e-05,
+      "cumulative_usd": 0.251818344
+    },
+    {
+      "model": "google/gemini-2.5-flash",
+      "purpose": "generation-google/gemini-2.5-flash-adversarial-length-locked",
+      "input_tokens": 481,
+      "output_tokens": 63,
+      "cost_usd": 0.00010994999999999999,
+      "cumulative_usd": 0.25192829400000005
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "gold_curation",
+      "input_tokens": 131,
+      "output_tokens": 36,
+      "cost_usd": 2.75e-05,
+      "cumulative_usd": 0.25195579400000007
+    },
+    {
+      "model": "qwen/qwen3.7-max",
+      "purpose": "generation-qwen/qwen3.7-max-adversarial-length-locked",
+      "input_tokens": 510,
+      "output_tokens": 4984,
+      "cost_usd": 0.0193275,
+      "cumulative_usd": 0.27128329400000006
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 170,
+      "output_tokens": 23,
+      "cost_usd": 2.6200000000000003e-05,
+      "cumulative_usd": 0.27130949400000004
+    },
+    {
+      "model": "google/gemma-4-31b-it",
+      "purpose": "generation-google/gemma-4-31b-it-adversarial-length-locked",
+      "input_tokens": 505,
+      "output_tokens": 64,
+      "cost_usd": 8.363999999999999e-05,
+      "cumulative_usd": 0.27139313400000004
+    },
+    {
+      "model": "google/gemini-2.5-flash",
+      "purpose": "generation-google/gemini-2.5-flash-adversarial-length-locked",
+      "input_tokens": 486,
+      "output_tokens": 76,
+      "cost_usd": 0.0001185,
+      "cumulative_usd": 0.27151163400000006
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 167,
+      "output_tokens": 17,
+      "cost_usd": 2.35e-05,
+      "cumulative_usd": 0.27153513400000007
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "gold_curation",
+      "input_tokens": 136,
+      "output_tokens": 26,
+      "cost_usd": 2.4e-05,
+      "cumulative_usd": 0.2715591340000001
+    },
+    {
+      "model": "qwen/qwen3.7-max",
+      "purpose": "generation-qwen/qwen3.7-max-adversarial-length-locked",
+      "input_tokens": 508,
+      "output_tokens": 5104,
+      "cost_usd": 0.019775,
+      "cumulative_usd": 0.2913341340000001
+    },
+    {
+      "model": "google/gemma-4-31b-it",
+      "purpose": "generation-google/gemma-4-31b-it-adversarial-length-locked",
+      "input_tokens": 513,
+      "output_tokens": 57,
+      "cost_usd": 8.208e-05,
+      "cumulative_usd": 0.29141621400000006
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 168,
+      "output_tokens": 12,
+      "cost_usd": 2.16e-05,
+      "cumulative_usd": 0.2914378140000001
+    },
+    {
+      "model": "google/gemini-2.5-flash",
+      "purpose": "generation-google/gemini-2.5-flash-adversarial-length-locked",
+      "input_tokens": 483,
+      "output_tokens": 81,
+      "cost_usd": 0.00012105000000000002,
+      "cumulative_usd": 0.2915588640000001
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "gold_curation",
+      "input_tokens": 149,
+      "output_tokens": 23,
+      "cost_usd": 2.4100000000000003e-05,
+      "cumulative_usd": 0.2915829640000001
+    },
+    {
+      "model": "qwen/qwen3.7-max",
+      "purpose": "generation-qwen/qwen3.7-max-adversarial-length-locked",
+      "input_tokens": 520,
+      "output_tokens": 2788,
+      "cost_usd": 0.011105,
+      "cumulative_usd": 0.3026879640000001
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 182,
+      "output_tokens": 14,
+      "cost_usd": 2.38e-05,
+      "cumulative_usd": 0.3027117640000001
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 182,
+      "output_tokens": 14,
+      "cost_usd": 2.38e-05,
+      "cumulative_usd": 0.3027355640000001
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 198,
+      "output_tokens": 16,
+      "cost_usd": 2.6200000000000003e-05,
+      "cumulative_usd": 0.3027617640000001
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 198,
+      "output_tokens": 18,
+      "cost_usd": 2.7e-05,
+      "cumulative_usd": 0.3027887640000001
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 182,
+      "output_tokens": 14,
+      "cost_usd": 2.38e-05,
+      "cumulative_usd": 0.3028125640000001
+    },
+    {
+      "model": "google/gemma-4-31b-it",
+      "purpose": "generation-google/gemma-4-31b-it-adversarial-length-locked",
+      "input_tokens": 505,
+      "output_tokens": 69,
+      "cost_usd": 8.544e-05,
+      "cumulative_usd": 0.3028980040000001
+    },
+    {
+      "model": "google/gemini-2.5-flash",
+      "purpose": "generation-google/gemini-2.5-flash-adversarial-length-locked",
+      "input_tokens": 486,
+      "output_tokens": 82,
+      "cost_usd": 0.00012209999999999999,
+      "cumulative_usd": 0.3030201040000001
+    },
+    {
+      "model": "qwen/qwen3.7-max",
+      "purpose": "generation-qwen/qwen3.7-max-adversarial-hard-negative",
+      "input_tokens": 291,
+      "output_tokens": 2102,
+      "cost_usd": 0.00824625,
+      "cumulative_usd": 0.31126635400000013
+    },
+    {
+      "model": "google/gemma-4-31b-it",
+      "purpose": "generation-google/gemma-4-31b-it-adversarial-hard-negative",
+      "input_tokens": 293,
+      "output_tokens": 51,
+      "cost_usd": 5.3519999999999996e-05,
+      "cumulative_usd": 0.3113198740000001
+    },
+    {
+      "model": "google/gemini-2.5-flash",
+      "purpose": "generation-google/gemini-2.5-flash-adversarial-hard-negative",
+      "input_tokens": 274,
+      "output_tokens": 73,
+      "cost_usd": 8.49e-05,
+      "cumulative_usd": 0.3114047740000001
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 160,
+      "output_tokens": 16,
+      "cost_usd": 2.24e-05,
+      "cumulative_usd": 0.3114271740000001
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 160,
+      "output_tokens": 17,
+      "cost_usd": 2.2800000000000002e-05,
+      "cumulative_usd": 0.3114499740000001
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 160,
+      "output_tokens": 17,
+      "cost_usd": 2.2800000000000002e-05,
+      "cumulative_usd": 0.31147277400000006
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 176,
+      "output_tokens": 16,
+      "cost_usd": 2.4e-05,
+      "cumulative_usd": 0.3114967740000001
+    },
+    {
+      "model": "qwen/qwen3.7-max",
+      "purpose": "generation-qwen/qwen3.7-max-adversarial-hard-negative",
+      "input_tokens": 293,
+      "output_tokens": 1613,
+      "cost_usd": 0.006415,
+      "cumulative_usd": 0.3179117740000001
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 162,
+      "output_tokens": 15,
+      "cost_usd": 2.22e-05,
+      "cumulative_usd": 0.3179339740000001
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 162,
+      "output_tokens": 15,
+      "cost_usd": 2.22e-05,
+      "cumulative_usd": 0.31795617400000015
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 178,
+      "output_tokens": 15,
+      "cost_usd": 2.38e-05,
+      "cumulative_usd": 0.31797997400000017
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 162,
+      "output_tokens": 16,
+      "cost_usd": 2.26e-05,
+      "cumulative_usd": 0.31800257400000015
+    },
+    {
+      "model": "google/gemma-4-31b-it",
+      "purpose": "generation-google/gemma-4-31b-it-adversarial-hard-negative",
+      "input_tokens": 294,
+      "output_tokens": 60,
+      "cost_usd": 5.688e-05,
+      "cumulative_usd": 0.31805945400000013
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 159,
+      "output_tokens": 15,
+      "cost_usd": 2.1899999999999997e-05,
+      "cumulative_usd": 0.31808135400000015
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 159,
+      "output_tokens": 15,
+      "cost_usd": 2.1899999999999997e-05,
+      "cumulative_usd": 0.31810325400000017
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 175,
+      "output_tokens": 16,
+      "cost_usd": 2.3899999999999998e-05,
+      "cumulative_usd": 0.3181271540000002
+    },
+    {
+      "model": "google/gemini-2.5-flash",
+      "purpose": "generation-google/gemini-2.5-flash-adversarial-hard-negative",
+      "input_tokens": 276,
+      "output_tokens": 57,
+      "cost_usd": 7.56e-05,
+      "cumulative_usd": 0.3182027540000002
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 158,
+      "output_tokens": 11,
+      "cost_usd": 2.0200000000000003e-05,
+      "cumulative_usd": 0.3182229540000002
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 174,
+      "output_tokens": 13,
+      "cost_usd": 2.26e-05,
+      "cumulative_usd": 0.3182455540000002
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 174,
+      "output_tokens": 11,
+      "cost_usd": 2.1800000000000005e-05,
+      "cumulative_usd": 0.3182673540000002
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 158,
+      "output_tokens": 10,
+      "cost_usd": 1.98e-05,
+      "cumulative_usd": 0.31828715400000024
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 158,
+      "output_tokens": 11,
+      "cost_usd": 2.0200000000000003e-05,
+      "cumulative_usd": 0.31830735400000026
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 174,
+      "output_tokens": 13,
+      "cost_usd": 2.26e-05,
+      "cumulative_usd": 0.31832995400000025
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 174,
+      "output_tokens": 11,
+      "cost_usd": 2.1800000000000005e-05,
+      "cumulative_usd": 0.31835175400000026
+    },
+    {
+      "model": "qwen/qwen3.7-max",
+      "purpose": "generation-qwen/qwen3.7-max-adversarial-hard-negative",
+      "input_tokens": 289,
+      "output_tokens": 3131,
+      "cost_usd": 0.0121025,
+      "cumulative_usd": 0.3304542540000003
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 156,
+      "output_tokens": 15,
+      "cost_usd": 2.16e-05,
+      "cumulative_usd": 0.3304758540000003
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 156,
+      "output_tokens": 16,
+      "cost_usd": 2.2e-05,
+      "cumulative_usd": 0.3304978540000003
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 156,
+      "output_tokens": 15,
+      "cost_usd": 2.16e-05,
+      "cumulative_usd": 0.3305194540000003
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 172,
+      "output_tokens": 15,
+      "cost_usd": 2.3199999999999998e-05,
+      "cumulative_usd": 0.3305426540000003
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 156,
+      "output_tokens": 16,
+      "cost_usd": 2.2e-05,
+      "cumulative_usd": 0.33056465400000035
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 172,
+      "output_tokens": 15,
+      "cost_usd": 2.3199999999999998e-05,
+      "cumulative_usd": 0.33058785400000035
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 172,
+      "output_tokens": 15,
+      "cost_usd": 2.3199999999999998e-05,
+      "cumulative_usd": 0.33061105400000035
+    },
+    {
+      "model": "google/gemma-4-31b-it",
+      "purpose": "generation-google/gemma-4-31b-it-adversarial-hard-negative",
+      "input_tokens": 288,
+      "output_tokens": 48,
+      "cost_usd": 5.1840000000000005e-05,
+      "cumulative_usd": 0.3306628940000004
+    },
+    {
+      "model": "google/gemini-2.5-flash",
+      "purpose": "generation-google/gemini-2.5-flash-adversarial-hard-negative",
+      "input_tokens": 270,
+      "output_tokens": 59,
+      "cost_usd": 7.59e-05,
+      "cumulative_usd": 0.3307387940000004
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 153,
+      "output_tokens": 17,
+      "cost_usd": 2.2100000000000002e-05,
+      "cumulative_usd": 0.3307608940000004
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 169,
+      "output_tokens": 16,
+      "cost_usd": 2.3300000000000004e-05,
+      "cumulative_usd": 0.3307841940000004
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 153,
+      "output_tokens": 17,
+      "cost_usd": 2.2100000000000002e-05,
+      "cumulative_usd": 0.33080629400000044
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 169,
+      "output_tokens": 16,
+      "cost_usd": 2.3300000000000004e-05,
+      "cumulative_usd": 0.33082959400000045
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 169,
+      "output_tokens": 16,
+      "cost_usd": 2.3300000000000004e-05,
+      "cumulative_usd": 0.33085289400000045
+    },
+    {
+      "model": "qwen/qwen3.7-max",
+      "purpose": "generation-qwen/qwen3.7-max-adversarial-hard-negative",
+      "input_tokens": 297,
+      "output_tokens": 3749,
+      "cost_usd": 0.01443,
+      "cumulative_usd": 0.34528289400000045
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 165,
+      "output_tokens": 15,
+      "cost_usd": 2.25e-05,
+      "cumulative_usd": 0.34530539400000043
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 165,
+      "output_tokens": 17,
+      "cost_usd": 2.33e-05,
+      "cumulative_usd": 0.34532869400000044
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 165,
+      "output_tokens": 16,
+      "cost_usd": 2.2899999999999998e-05,
+      "cumulative_usd": 0.34535159400000043
+    },
+    {
+      "model": "google/gemma-4-31b-it",
+      "purpose": "generation-google/gemma-4-31b-it-adversarial-hard-negative",
+      "input_tokens": 299,
+      "output_tokens": 73,
+      "cost_usd": 6.216e-05,
+      "cumulative_usd": 0.3454137540000004
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 162,
+      "output_tokens": 17,
+      "cost_usd": 2.3e-05,
+      "cumulative_usd": 0.3454367540000004
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 178,
+      "output_tokens": 13,
+      "cost_usd": 2.3e-05,
+      "cumulative_usd": 0.3454597540000004
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 162,
+      "output_tokens": 18,
+      "cost_usd": 2.34e-05,
+      "cumulative_usd": 0.3454831540000004
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 162,
+      "output_tokens": 17,
+      "cost_usd": 2.3e-05,
+      "cumulative_usd": 0.3455061540000004
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 178,
+      "output_tokens": 13,
+      "cost_usd": 2.3e-05,
+      "cumulative_usd": 0.3455291540000004
+    },
+    {
+      "model": "google/gemini-2.5-flash",
+      "purpose": "generation-google/gemini-2.5-flash-adversarial-hard-negative",
+      "input_tokens": 280,
+      "output_tokens": 80,
+      "cost_usd": 9e-05,
+      "cumulative_usd": 0.3456191540000004
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 164,
+      "output_tokens": 20,
+      "cost_usd": 2.4400000000000004e-05,
+      "cumulative_usd": 0.34564355400000035
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 164,
+      "output_tokens": 20,
+      "cost_usd": 2.4400000000000004e-05,
+      "cumulative_usd": 0.34566795400000033
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 180,
+      "output_tokens": 18,
+      "cost_usd": 2.52e-05,
+      "cumulative_usd": 0.34569315400000034
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 164,
+      "output_tokens": 20,
+      "cost_usd": 2.4400000000000004e-05,
+      "cumulative_usd": 0.3457175540000003
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 180,
+      "output_tokens": 18,
+      "cost_usd": 2.52e-05,
+      "cumulative_usd": 0.3457427540000003
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 180,
+      "output_tokens": 21,
+      "cost_usd": 2.6399999999999998e-05,
+      "cumulative_usd": 0.3457691540000003
+    },
+    {
+      "model": "qwen/qwen3.7-max",
+      "purpose": "generation-qwen/qwen3.7-max-adversarial-hard-negative",
+      "input_tokens": 288,
+      "output_tokens": 2834,
+      "cost_usd": 0.0109875,
+      "cumulative_usd": 0.3567566540000003
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 157,
+      "output_tokens": 11,
+      "cost_usd": 2.01e-05,
+      "cumulative_usd": 0.3567767540000003
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 173,
+      "output_tokens": 11,
+      "cost_usd": 2.1700000000000002e-05,
+      "cumulative_usd": 0.3567984540000003
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 157,
+      "output_tokens": 11,
+      "cost_usd": 2.01e-05,
+      "cumulative_usd": 0.35681855400000034
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 173,
+      "output_tokens": 11,
+      "cost_usd": 2.1700000000000002e-05,
+      "cumulative_usd": 0.35684025400000036
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 173,
+      "output_tokens": 13,
+      "cost_usd": 2.25e-05,
+      "cumulative_usd": 0.35686275400000034
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 157,
+      "output_tokens": 11,
+      "cost_usd": 2.01e-05,
+      "cumulative_usd": 0.35688285400000036
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 173,
+      "output_tokens": 11,
+      "cost_usd": 2.1700000000000002e-05,
+      "cumulative_usd": 0.3569045540000004
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 173,
+      "output_tokens": 13,
+      "cost_usd": 2.25e-05,
+      "cumulative_usd": 0.35692705400000035
+    },
+    {
+      "model": "google/gemma-4-31b-it",
+      "purpose": "generation-google/gemma-4-31b-it-adversarial-hard-negative",
+      "input_tokens": 289,
+      "output_tokens": 45,
+      "cost_usd": 5.0879999999999994e-05,
+      "cumulative_usd": 0.35697793400000033
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 157,
+      "output_tokens": 11,
+      "cost_usd": 2.01e-05,
+      "cumulative_usd": 0.35699803400000035
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 173,
+      "output_tokens": 11,
+      "cost_usd": 2.1700000000000002e-05,
+      "cumulative_usd": 0.35701973400000037
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 173,
+      "output_tokens": 12,
+      "cost_usd": 2.2100000000000002e-05,
+      "cumulative_usd": 0.3570418340000004
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 157,
+      "output_tokens": 11,
+      "cost_usd": 2.01e-05,
+      "cumulative_usd": 0.3570619340000004
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 173,
+      "output_tokens": 11,
+      "cost_usd": 2.1700000000000002e-05,
+      "cumulative_usd": 0.3570836340000004
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 173,
+      "output_tokens": 12,
+      "cost_usd": 2.2100000000000002e-05,
+      "cumulative_usd": 0.35710573400000045
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 157,
+      "output_tokens": 11,
+      "cost_usd": 2.01e-05,
+      "cumulative_usd": 0.3571258340000005
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 173,
+      "output_tokens": 11,
+      "cost_usd": 2.1700000000000002e-05,
+      "cumulative_usd": 0.3571475340000005
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 173,
+      "output_tokens": 13,
+      "cost_usd": 2.25e-05,
+      "cumulative_usd": 0.35717003400000047
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 157,
+      "output_tokens": 11,
+      "cost_usd": 2.01e-05,
+      "cumulative_usd": 0.3571901340000005
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 173,
+      "output_tokens": 12,
+      "cost_usd": 2.2100000000000002e-05,
+      "cumulative_usd": 0.3572122340000005
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 173,
+      "output_tokens": 12,
+      "cost_usd": 2.2100000000000002e-05,
+      "cumulative_usd": 0.35723433400000054
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 157,
+      "output_tokens": 11,
+      "cost_usd": 2.01e-05,
+      "cumulative_usd": 0.35725443400000056
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 173,
+      "output_tokens": 11,
+      "cost_usd": 2.1700000000000002e-05,
+      "cumulative_usd": 0.3572761340000006
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 173,
+      "output_tokens": 12,
+      "cost_usd": 2.2100000000000002e-05,
+      "cumulative_usd": 0.3572982340000006
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 157,
+      "output_tokens": 11,
+      "cost_usd": 2.01e-05,
+      "cumulative_usd": 0.3573183340000006
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 173,
+      "output_tokens": 11,
+      "cost_usd": 2.1700000000000002e-05,
+      "cumulative_usd": 0.35734003400000064
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 173,
+      "output_tokens": 13,
+      "cost_usd": 2.25e-05,
+      "cumulative_usd": 0.3573625340000006
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 157,
+      "output_tokens": 11,
+      "cost_usd": 2.01e-05,
+      "cumulative_usd": 0.35738263400000064
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 173,
+      "output_tokens": 11,
+      "cost_usd": 2.1700000000000002e-05,
+      "cumulative_usd": 0.35740433400000066
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 173,
+      "output_tokens": 13,
+      "cost_usd": 2.25e-05,
+      "cumulative_usd": 0.35742683400000064
+    },
+    {
+      "model": "google/gemini-2.5-flash",
+      "purpose": "generation-google/gemini-2.5-flash-adversarial-hard-negative",
+      "input_tokens": 270,
+      "output_tokens": 48,
+      "cost_usd": 6.929999999999999e-05,
+      "cumulative_usd": 0.35749613400000063
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 156,
+      "output_tokens": 15,
+      "cost_usd": 2.16e-05,
+      "cumulative_usd": 0.35751773400000064
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 172,
+      "output_tokens": 13,
+      "cost_usd": 2.24e-05,
+      "cumulative_usd": 0.3575401340000006
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 172,
+      "output_tokens": 15,
+      "cost_usd": 2.3199999999999998e-05,
+      "cumulative_usd": 0.3575633340000006
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 156,
+      "output_tokens": 14,
+      "cost_usd": 2.1200000000000004e-05,
+      "cumulative_usd": 0.3575845340000006
+    },
+    {
+      "model": "qwen/qwen3.7-max",
+      "purpose": "generation-qwen/qwen3.7-max-adversarial-hard-negative",
+      "input_tokens": 280,
+      "output_tokens": 2384,
+      "cost_usd": 0.00929,
+      "cumulative_usd": 0.36687453400000064
+    },
+    {
+      "model": "google/gemma-4-31b-it",
+      "purpose": "generation-google/gemma-4-31b-it-adversarial-hard-negative",
+      "input_tokens": 281,
+      "output_tokens": 50,
+      "cost_usd": 5.172e-05,
+      "cumulative_usd": 0.3669262540000006
+    },
+    {
+      "model": "google/gemini-2.5-flash",
+      "purpose": "generation-google/gemini-2.5-flash-adversarial-hard-negative",
+      "input_tokens": 262,
+      "output_tokens": 47,
+      "cost_usd": 6.75e-05,
+      "cumulative_usd": 0.3669937540000006
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 139,
+      "output_tokens": 12,
+      "cost_usd": 1.8700000000000004e-05,
+      "cumulative_usd": 0.3670124540000006
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 139,
+      "output_tokens": 12,
+      "cost_usd": 1.8700000000000004e-05,
+      "cumulative_usd": 0.3670311540000006
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 155,
+      "output_tokens": 13,
+      "cost_usd": 2.07e-05,
+      "cumulative_usd": 0.36705185400000057
+    },
+    {
+      "model": "qwen/qwen3.7-max",
+      "purpose": "generation-qwen/qwen3.7-max-adversarial-hard-negative",
+      "input_tokens": 281,
+      "output_tokens": 5014,
+      "cost_usd": 0.01915375,
+      "cumulative_usd": 0.3862056040000006
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 142,
+      "output_tokens": 14,
+      "cost_usd": 1.98e-05,
+      "cumulative_usd": 0.3862254040000006
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 142,
+      "output_tokens": 14,
+      "cost_usd": 1.98e-05,
+      "cumulative_usd": 0.3862452040000006
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 158,
+      "output_tokens": 14,
+      "cost_usd": 2.1400000000000002e-05,
+      "cumulative_usd": 0.3862666040000006
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 158,
+      "output_tokens": 15,
+      "cost_usd": 2.18e-05,
+      "cumulative_usd": 0.38628840400000064
+    },
+    {
+      "model": "google/gemma-4-31b-it",
+      "purpose": "generation-google/gemma-4-31b-it-adversarial-hard-negative",
+      "input_tokens": 282,
+      "output_tokens": 64,
+      "cost_usd": 5.688e-05,
+      "cumulative_usd": 0.3863452840000006
+    },
+    {
+      "model": "google/gemini-2.5-flash",
+      "purpose": "generation-google/gemini-2.5-flash-adversarial-hard-negative",
+      "input_tokens": 263,
+      "output_tokens": 51,
+      "cost_usd": 7.005e-05,
+      "cumulative_usd": 0.3864153340000006
+    },
+    {
+      "model": "qwen/qwen3.7-max",
+      "purpose": "generation-qwen/qwen3.7-max-adversarial-hard-negative",
+      "input_tokens": 284,
+      "output_tokens": 4105,
+      "cost_usd": 0.01574875,
+      "cumulative_usd": 0.4021640840000006
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 141,
+      "output_tokens": 12,
+      "cost_usd": 1.8900000000000002e-05,
+      "cumulative_usd": 0.4021829840000006
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 141,
+      "output_tokens": 14,
+      "cost_usd": 1.9700000000000005e-05,
+      "cumulative_usd": 0.4022026840000006
+    },
+    {
+      "model": "google/gemma-4-31b-it",
+      "purpose": "generation-google/gemma-4-31b-it-adversarial-hard-negative",
+      "input_tokens": 286,
+      "output_tokens": 46,
+      "cost_usd": 5.0879999999999994e-05,
+      "cumulative_usd": 0.40225356400000056
+    },
+    {
+      "model": "google/gemini-2.5-flash",
+      "purpose": "generation-google/gemini-2.5-flash-adversarial-hard-negative",
+      "input_tokens": 267,
+      "output_tokens": 58,
+      "cost_usd": 7.484999999999999e-05,
+      "cumulative_usd": 0.4023284140000006
+    },
+    {
+      "model": "qwen/qwen3.7-max",
+      "purpose": "generation-qwen/qwen3.7-max-adversarial-hard-negative",
+      "input_tokens": 287,
+      "output_tokens": 2267,
+      "cost_usd": 0.00886,
+      "cumulative_usd": 0.41118841400000056
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 145,
+      "output_tokens": 18,
+      "cost_usd": 2.17e-05,
+      "cumulative_usd": 0.41121011400000057
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 161,
+      "output_tokens": 16,
+      "cost_usd": 2.25e-05,
+      "cumulative_usd": 0.41123261400000055
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 145,
+      "output_tokens": 18,
+      "cost_usd": 2.17e-05,
+      "cumulative_usd": 0.41125431400000056
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 161,
+      "output_tokens": 16,
+      "cost_usd": 2.25e-05,
+      "cumulative_usd": 0.41127681400000055
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 161,
+      "output_tokens": 18,
+      "cost_usd": 2.33e-05,
+      "cumulative_usd": 0.41130011400000055
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 145,
+      "output_tokens": 18,
+      "cost_usd": 2.17e-05,
+      "cumulative_usd": 0.41132181400000056
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 161,
+      "output_tokens": 17,
+      "cost_usd": 2.29e-05,
+      "cumulative_usd": 0.41134471400000056
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 145,
+      "output_tokens": 18,
+      "cost_usd": 2.17e-05,
+      "cumulative_usd": 0.41136641400000057
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 161,
+      "output_tokens": 16,
+      "cost_usd": 2.25e-05,
+      "cumulative_usd": 0.41138891400000055
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 161,
+      "output_tokens": 19,
+      "cost_usd": 2.3700000000000003e-05,
+      "cumulative_usd": 0.41141261400000056
+    },
+    {
+      "model": "google/gemma-4-31b-it",
+      "purpose": "generation-google/gemma-4-31b-it-adversarial-hard-negative",
+      "input_tokens": 299,
+      "output_tokens": 51,
+      "cost_usd": 5.4239999999999996e-05,
+      "cumulative_usd": 0.41146685400000055
+    },
+    {
+      "model": "google/gemini-2.5-flash",
+      "purpose": "generation-google/gemini-2.5-flash-adversarial-hard-negative",
+      "input_tokens": 269,
+      "output_tokens": 54,
+      "cost_usd": 7.275e-05,
+      "cumulative_usd": 0.41153960400000056
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 141,
+      "output_tokens": 10,
+      "cost_usd": 1.8100000000000003e-05,
+      "cumulative_usd": 0.4115577040000006
+    },
+    {
+      "model": "qwen/qwen3.7-max",
+      "purpose": "generation-qwen/qwen3.7-max-adversarial-hard-negative",
+      "input_tokens": 288,
+      "output_tokens": 2168,
+      "cost_usd": 0.00849,
+      "cumulative_usd": 0.4200477040000006
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "purpose": "fallback_generator",
+      "input_tokens": 138,
+      "output_tokens": 14,
+      "cost_usd": 1.94e-05,
+      "cumulative_usd": 0.4200671040000006
+    }
+  ],
+  "generator_pool": {
+    "name": "GENERATOR",
+    "pool": [
+      "qwen/qwen3.7-max",
+      "google/gemma-4-31b-it",
+      "google/gemini-2.5-flash",
+      "google/gemini-2.5-pro",
+      "openai/gpt-4.1-mini",
+      "openai/gpt-4.1-nano",
+      "anthropic/claude-sonnet-4",
+      "qwen/qwen3.5-397b-a17b",
+      "meta-llama/llama-4-maverick",
+      "deepseek/deepseek-v4-pro"
+    ],
+    "active": [],
+    "benched": [
+      "google/gemma-4-31b-it",
+      "google/gemini-2.5-flash",
+      "qwen/qwen3.7-max",
+      "google/gemini-2.5-pro",
+      "openai/gpt-4.1-mini",
+      "openai/gpt-4.1-nano",
+      "anthropic/claude-sonnet-4",
+      "qwen/qwen3.5-397b-a17b",
+      "meta-llama/llama-4-maverick",
+      "deepseek/deepseek-v4-pro"
+    ],
+    "failure_counts": {
+      "google/gemma-4-31b-it": 2,
+      "google/gemini-2.5-pro": 2,
+      "google/gemini-2.5-flash": 2,
+      "openai/gpt-4.1-mini": 2,
+      "qwen/qwen3.7-max": 2,
+      "openai/gpt-4.1-nano": 2,
+      "anthropic/claude-sonnet-4": 2,
+      "qwen/qwen3.5-397b-a17b": 2,
+      "meta-llama/llama-4-maverick": 2,
+      "deepseek/deepseek-v4-pro": 2
+    },
+    "substitutions": [
+      {
+        "out": "google/gemma-4-31b-it",
+        "in": "google/gemini-2.5-pro",
+        "reason": "hard_fallback (fail_count=2)",
+        "timestamp": "2026-06-22T02:47:55.491944+00:00"
+      },
+      {
+        "out": "google/gemini-2.5-flash",
+        "in": "openai/gpt-4.1-mini",
+        "reason": "hard_fallback (fail_count=2)",
+        "timestamp": "2026-06-22T02:47:57.960127+00:00"
+      },
+      {
+        "out": "qwen/qwen3.7-max",
+        "in": "openai/gpt-4.1-nano",
+        "reason": "hard_fallback (fail_count=2)",
+        "timestamp": "2026-06-22T02:48:02.984491+00:00"
+      },
+      {
+        "out": "google/gemini-2.5-pro",
+        "in": "anthropic/claude-sonnet-4",
+        "reason": "hard_fallback (fail_count=2)",
+        "timestamp": "2026-06-22T02:48:08.020896+00:00"
+      },
+      {
+        "out": "openai/gpt-4.1-mini",
+        "in": "qwen/qwen3.5-397b-a17b",
+        "reason": "hard_fallback (fail_count=2)",
+        "timestamp": "2026-06-22T02:48:32.818724+00:00"
+      },
+      {
+        "out": "openai/gpt-4.1-nano",
+        "in": "meta-llama/llama-4-maverick",
+        "reason": "hard_fallback (fail_count=2)",
+        "timestamp": "2026-06-22T02:48:37.723710+00:00"
+      },
+      {
+        "out": "anthropic/claude-sonnet-4",
+        "in": "deepseek/deepseek-v4-pro",
+        "reason": "hard_fallback (fail_count=2)",
+        "timestamp": "2026-06-22T02:48:48.102059+00:00"
+      },
+      {
+        "out": "qwen/qwen3.5-397b-a17b",
+        "in": null,
+        "reason": "hard_fallback (fail_count=2)",
+        "timestamp": "2026-06-22T02:48:53.133493+00:00"
+      },
+      {
+        "out": "meta-llama/llama-4-maverick",
+        "in": null,
+        "reason": "hard_fallback (fail_count=2)",
+        "timestamp": "2026-06-22T02:48:57.437236+00:00"
+      },
+      {
+        "out": "deepseek/deepseek-v4-pro",
+        "in": null,
+        "reason": "hard_fallback (fail_count=2)",
+        "timestamp": "2026-06-22T02:49:01.610450+00:00"
+      }
+    ],
+    "fail_threshold": 2,
+    "soft_fail_threshold": 5
+  },
+  "committee_pool": {
+    "name": "COMMITTEE",
+    "pool": [
+      "meta-llama/llama-3.3-70b-instruct",
+      "mistralai/mistral-small-3.2-24b-instruct",
+      "google/gemma-3-27b-it",
+      "deepseek/deepseek-v3.2",
+      "deepseek/deepseek-v3.2",
+      "amazon/nova-lite-v1"
+    ],
+    "active": [
+      "meta-llama/llama-3.3-70b-instruct",
+      "mistralai/mistral-small-3.2-24b-instruct",
+      "google/gemma-3-27b-it",
+      "deepseek/deepseek-v3.2"
+    ],
+    "benched": [],
+    "failure_counts": {},
+    "substitutions": [],
+    "fail_threshold": 2,
+    "soft_fail_threshold": 5
+  },
+  "generated_mcq_ids": [
+    "anthropic_claude-sonnet-4_adversarial-hard-negative_Yoruba_11",
+    "deepseek_deepseek-v4-pro_adversarial-hard-negative_Yoruba_12",
+    "google_gemini-2.5-flash_adversarial-hard-negative_Arabic_0",
+    "google_gemini-2.5-flash_adversarial-hard-negative_Arabic_1",
+    "google_gemini-2.5-flash_adversarial-hard-negative_Arabic_2",
+    "google_gemini-2.5-flash_adversarial-hard-negative_Arabic_3",
+    "google_gemini-2.5-flash_adversarial-hard-negative_Arabic_4",
+    "google_gemini-2.5-flash_adversarial-hard-negative_English_5",
+    "google_gemini-2.5-flash_adversarial-hard-negative_English_6",
+    "google_gemini-2.5-flash_adversarial-hard-negative_English_7",
+    "google_gemini-2.5-flash_adversarial-hard-negative_English_8",
+    "google_gemini-2.5-flash_adversarial-hard-negative_English_9",
+    "google_gemini-2.5-flash_adversarial-length-locked_Arabic_0",
+    "google_gemini-2.5-flash_adversarial-length-locked_Arabic_1",
+    "google_gemini-2.5-flash_adversarial-length-locked_Arabic_2",
+    "google_gemini-2.5-flash_adversarial-length-locked_Arabic_3",
+    "google_gemini-2.5-flash_adversarial-length-locked_Arabic_4",
+    "google_gemini-2.5-flash_adversarial-length-locked_English_5",
+    "google_gemini-2.5-flash_adversarial-length-locked_English_6",
+    "google_gemini-2.5-flash_adversarial-length-locked_English_7",
+    "google_gemini-2.5-flash_adversarial-length-locked_English_8",
+    "google_gemini-2.5-flash_adversarial-length-locked_English_9",
+    "google_gemini-2.5-flash_adversarial-length-locked_Yoruba_10",
+    "google_gemini-2.5-flash_adversarial-length-locked_Yoruba_11",
+    "google_gemini-2.5-flash_adversarial-length-locked_Yoruba_12",
+    "google_gemini-2.5-flash_adversarial-length-locked_Yoruba_13",
+    "google_gemini-2.5-flash_adversarial-length-locked_Yoruba_14",
+    "google_gemini-2.5-pro_adversarial-hard-negative_Yoruba_10",
+    "google_gemma-4-31b-it_adversarial-hard-negative_Arabic_0",
+    "google_gemma-4-31b-it_adversarial-hard-negative_Arabic_1",
+    "google_gemma-4-31b-it_adversarial-hard-negative_Arabic_2",
+    "google_gemma-4-31b-it_adversarial-hard-negative_Arabic_3",
+    "google_gemma-4-31b-it_adversarial-hard-negative_Arabic_4",
+    "google_gemma-4-31b-it_adversarial-hard-negative_English_5",
+    "google_gemma-4-31b-it_adversarial-hard-negative_English_6",
+    "google_gemma-4-31b-it_adversarial-hard-negative_English_7",
+    "google_gemma-4-31b-it_adversarial-hard-negative_English_8",
+    "google_gemma-4-31b-it_adversarial-hard-negative_English_9",
+    "google_gemma-4-31b-it_adversarial-length-locked_Arabic_0",
+    "google_gemma-4-31b-it_adversarial-length-locked_Arabic_1",
+    "google_gemma-4-31b-it_adversarial-length-locked_Arabic_2",
+    "google_gemma-4-31b-it_adversarial-length-locked_Arabic_3",
+    "google_gemma-4-31b-it_adversarial-length-locked_Arabic_4",
+    "google_gemma-4-31b-it_adversarial-length-locked_English_5",
+    "google_gemma-4-31b-it_adversarial-length-locked_English_6",
+    "google_gemma-4-31b-it_adversarial-length-locked_English_7",
+    "google_gemma-4-31b-it_adversarial-length-locked_English_8",
+    "google_gemma-4-31b-it_adversarial-length-locked_English_9",
+    "google_gemma-4-31b-it_adversarial-length-locked_Yoruba_10",
+    "google_gemma-4-31b-it_adversarial-length-locked_Yoruba_11",
+    "google_gemma-4-31b-it_adversarial-length-locked_Yoruba_12",
+    "google_gemma-4-31b-it_adversarial-length-locked_Yoruba_13",
+    "google_gemma-4-31b-it_adversarial-length-locked_Yoruba_14",
+    "meta-llama_llama-4-maverick_adversarial-hard-negative_Yoruba_12",
+    "openai_gpt-4.1-mini_adversarial-hard-negative_Yoruba_10",
+    "openai_gpt-4.1-nano_adversarial-hard-negative_Yoruba_11",
+    "qwen_qwen3.5-397b-a17b_adversarial-hard-negative_Yoruba_11",
+    "qwen_qwen3.7-max_adversarial-hard-negative_Arabic_0",
+    "qwen_qwen3.7-max_adversarial-hard-negative_Arabic_1",
+    "qwen_qwen3.7-max_adversarial-hard-negative_Arabic_2",
+    "qwen_qwen3.7-max_adversarial-hard-negative_Arabic_3",
+    "qwen_qwen3.7-max_adversarial-hard-negative_Arabic_4",
+    "qwen_qwen3.7-max_adversarial-hard-negative_English_5",
+    "qwen_qwen3.7-max_adversarial-hard-negative_English_6",
+    "qwen_qwen3.7-max_adversarial-hard-negative_English_7",
+    "qwen_qwen3.7-max_adversarial-hard-negative_English_8",
+    "qwen_qwen3.7-max_adversarial-hard-negative_English_9",
+    "qwen_qwen3.7-max_adversarial-hard-negative_Yoruba_10",
+    "qwen_qwen3.7-max_adversarial-length-locked_Arabic_0",
+    "qwen_qwen3.7-max_adversarial-length-locked_Arabic_1",
+    "qwen_qwen3.7-max_adversarial-length-locked_Arabic_2",
+    "qwen_qwen3.7-max_adversarial-length-locked_Arabic_3",
+    "qwen_qwen3.7-max_adversarial-length-locked_Arabic_4",
+    "qwen_qwen3.7-max_adversarial-length-locked_English_5",
+    "qwen_qwen3.7-max_adversarial-length-locked_English_6",
+    "qwen_qwen3.7-max_adversarial-length-locked_English_7",
+    "qwen_qwen3.7-max_adversarial-length-locked_English_8",
+    "qwen_qwen3.7-max_adversarial-length-locked_English_9",
+    "qwen_qwen3.7-max_adversarial-length-locked_Yoruba_10",
+    "qwen_qwen3.7-max_adversarial-length-locked_Yoruba_11",
+    "qwen_qwen3.7-max_adversarial-length-locked_Yoruba_12",
+    "qwen_qwen3.7-max_adversarial-length-locked_Yoruba_13",
+    "qwen_qwen3.7-max_adversarial-length-locked_Yoruba_14"
+  ],
+  "audited_mcq_ids": [],
+  "generation_done": false,
+  "audit_done": false,
+  "position_counter": 83
+}

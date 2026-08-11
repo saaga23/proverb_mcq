@@ -38,12 +38,14 @@ CREATE TABLE IF NOT EXISTS public.pg_annotations (
   item_id TEXT NOT NULL REFERENCES public.pg_annotation_items(id) ON DELETE CASCADE,
   annotator_id TEXT NOT NULL,
   selected_answer TEXT NOT NULL,
-  correctness TEXT NOT NULL,
+  correctness TEXT,
   confidence TEXT NOT NULL,
   time_taken_ms INTEGER NOT NULL,
   is_attention_check BOOLEAN DEFAULT false,
   attention_passed BOOLEAN,
   annotator_notes TEXT,
+  plausibility_ratings JSONB DEFAULT '{}'::jsonb,
+  shortcut_flags TEXT[] DEFAULT '{}',
   created_at TIMESTAMPTZ DEFAULT now(),
   UNIQUE(item_id, annotator_id)
 );
@@ -194,5 +196,25 @@ BEGIN
       SELECT 1 FROM public.pg_annotations
       WHERE annotator_id = p_annotator_id AND is_attention_check = true AND attention_passed = true
     );
+  END;
+$$;
+
+-- RPC: Check if an attention check answer is correct without exposing the gold answer
+CREATE OR REPLACE FUNCTION public.pg_check_attention(
+  p_item_id TEXT,
+  p_selected_answer TEXT
+)
+RETURNS BOOLEAN
+LANGUAGE plpgsql
+SECURITY DEFINER
+SET search_path = public
+AS $$
+BEGIN
+  RETURN EXISTS (
+    SELECT 1 FROM public.pg_annotation_items
+    WHERE id = p_item_id
+      AND is_attention_check = true
+      AND correct_label = p_selected_answer
+  );
 END;
 $$;
