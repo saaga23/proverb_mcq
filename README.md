@@ -6,6 +6,14 @@
 [![Tests](https://img.shields.io/badge/tests-pytest-green)](https://docs.pytest.org/)
 [![License](https://img.shields.io/badge/license-MIT-lightgrey)](#license)
 
+## Live Annotation App
+
+**Try it now:** https://annotationapp.vercel.app
+
+The annotation app is live and accepting responses. Native speakers of English, Arabic, and Yoruba can annotate directly in the browser—no installation required.
+
+---
+
 ## Current Status
 
 **v68 production dataset is complete.** We have 180 MCQs ($0.85 generation cost, N=5 per language) validated on Kaggle. Human validation is the next milestone.
