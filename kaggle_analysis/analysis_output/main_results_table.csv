@@ -1,6 +1,0 @@
-Metric,Accuracy (%),N,Notes
-Random baseline,25.0,-,Theoretical 4-option uniform
-Strategy 1 (S1),14.7,1350,Negative sampling distractors
-Strategy 2 (pipeline),0.0,1350,All S2 items including fallbacks
-Strategy 2 (strict),0.0,846,Non-fallback S2 items only
-Strategy 2 (fallback),0.0,504,Fallback placeholder items

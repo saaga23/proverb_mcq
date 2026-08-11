@@ -1,9 +1,0 @@
-Encoder,Strategy,Accuracy (%),N
-afriberta,S1,56.7,150
-afriberta,S2,42.0,150
-arabert,S1,54.0,150
-arabert,S2,43.3,150
-mbert,S1,54.7,150
-mbert,S2,49.3,150
-xlmr,S1,55.3,150
-xlmr,S2,53.3,150
