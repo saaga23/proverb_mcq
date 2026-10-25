@@ -22,17 +22,19 @@ This README documents the v68 production dataset, the full experimental history 
 
 | Milestone | Status | Notes |
 |-----------|--------|-------|
-| v68 dataset generation (180 MCQs) | Complete | 15 proverbs x 4 variants x 3 generators x 3 languages, seed 20260615 |
+| v68 dataset generation (180 MCQs) | Complete | 15 proverbs x 4 variants x 3 generators = 180, seed 20260615 |
 | Kaggle N=5 validation run | Complete | `mcq-pass-shortcut` kernel v68, 2026-06-22 |
 | Blind audit pipeline | Complete | 720 votes (180 x 4 auditors), 0 missing |
 | v69 LLM-fallback ablation | Blocked | Planned (N=5, USE_LLM_FALLBACK=True) -- OpenRouter budget exhausted |
-| v70 N=15 scaling attempt | Incomplete | Budget-blocked at 83/180 MCQs (30 EN + 30 AR + 23 YO), $0.42 spent |
+| v70 LLM-fallback run (N=5) | Halted | All generators hit 403 budget limit at 11/15 rows of adversarial-hard-negative, $0.42 spent |
 | Annotation app deployed | Live | [https://annotationapp.vercel.app](https://annotationapp.vercel.app) |
 | 60-item human validation sample | Prepared | In `data/production/paper_first_outputs_2026-06-22_10-42-02/` -- recruitment of 9 native speakers pending |
 | Paper drafting | In progress | Frame: methodology + failure taxonomy at N=5 |
 | Publication target | EACL 2027 ARR | Submission deadline: August 3, 2026 |
 
-**Where we stopped:** The v68 N=5 dataset is complete and validated. The critical bottleneck (corpus fallback sampler) was identified but could not be ablated (v69) or scaled (v70) because OpenRouter budget was exhausted. The paper is framed as a **methodology + failure taxonomy study** at N=5, with human validation and v69/v70 runs explicitly listed as future work.
+**Where we stopped:** The v68 N=5 dataset is complete and validated. The critical bottleneck (corpus-based fallback sampler) was identified but could not be resolved: v69 (LLM-fallback ablation) was never executed (only template/planning files exist), and v70 (LLM-fallback attempt at N=5) was halted by OpenRouter budget exhaustion during the `adversarial-hard-negative` variant at 11/15 rows, $0.42 spent. The v70 log shows a cascade of 403 budget errors that exhausted every generator fallback in the pool before completion. Since the LLM-fallback fix could not be tested, the team pivoted to paper-first framing as a **methodology + failure taxonomy study** at N=5, with v69 and v70 listed as future work.
+
+**Abandonment rationale:** The pipeline's core failure mode is systematic, not stochastic — when NLI/leak filters reject LLM-generated distractors, the corpus fallback sampler produces plausible-but-wrong options that auditors accept (27.8% HCW). v70 was intended to test whether `USE_LLM_FALLBACK=True` (using `openai/gpt-4.1-nano` to generate proverb-specific hard negatives) would reduce HCW, but it failed before reaching the audit phase. Without a test of the fix, chasing lower fallback rates by tuning the same proxy/filter stack indefinitely was no longer informative.
 
 ---
 
@@ -59,7 +61,7 @@ This README documents the v68 production dataset, the full experimental history 
 
 **Step 3 -- Semantic gates (dual-gate validation).** Raw distractors pass through sequential filters -- length parity, idiom blocklist, correct-meaning leak sanitizer, and NLI paraphrase filter. Any failure triggers a replacement.
 
-**Step 4 -- Blind audit.** A separate four-model committee votes on the correct answer *without seeing the proverb* -- only the four options. HCW (kappa >= 0.75 consensus on the wrong answer) flags items where distractors are tempting but misleading. The committee uses four different model families (Meta, Mistral, Google, DeepSeek), with Google appearing in both generator and auditor pools -- mitigated by the options-only blindness design.
+**Step 4 -- Blind audit.** A separate four-model committee votes on the correct answer *without seeing the proverb* -- only the four options. HCW (consensus fraction >= 0.75, i.e., at least 3 of 4 auditors, on the wrong answer) flags items where distractors are tempting but misleading. The committee uses four different model families (Meta, Mistral, Google, DeepSeek), with Google appearing in both generator and auditor pools -- mitigated by the options-only blindness design.
 
 **Step 5 -- Human annotation.** Native speakers review the hardest items, select correct answers, and rate distractor plausibility. A 60-item stratified sample is prepared; recruitment of annotators is budget-dependent future work.
 
@@ -88,7 +90,7 @@ This README documents the v68 production dataset, the full experimental history 
 
 | Language | Status | Notes |
 |----------|--------|-------|
-| English | Public domain compilations | Multiple public-domain sources; see `docs/DATA_PROVENANCE_TEMPLATE.md` |
+| English | Public domain compilations | Multiple public-domain sources; see `submission_package_2026-08-02/DATA_PROVENANCE_TEMPLATE.md` (scrape URLs not recovered) |
 | Arabic | Documented dataset | IDs from `MID` prefix dataset; licensing under review |
 | Yoruba | Restricted | Derived from Owomoyela (2005), University of Nebraska Press -- **no redistribution permission**; Yoruba MCQs excluded from public release, retained for analysis only |
 
@@ -98,19 +100,21 @@ This README documents the v68 production dataset, the full experimental history 
 
 | Version | N per language | Notes | Status |
 |---------|---------------|-------|--------|
-| v59-v60 | N=45 | Early Groq S1 pipeline | Deprecated; legacy numbers not used in v68 paper |
+| v59-v60 | N=45 | OpenRouter pipeline (refinements 1-2) | Pre-v68 lineage; legacy numbers not used in v68 paper |
 | v61-v67 | N=1-3 | OpenRouter pipeline refinement | Archived; v67 frozen as baseline |
 | **v68** | **N=5** | **Production dataset** | **Complete** -- 180 MCQs, $0.85, full blind audit |
-| v69 | N=5 | LLM-fallback ablation (`USE_LLM_FALLBACK=True`) | **Blocked** -- OpenRouter budget exhausted before run |
-| v70 | N=15 | Scaling test (540 target MCQs) | **Incomplete** -- budget-blocked at 83/180 |
+| v69 | N=5 | LLM-fallback ablation (`USE_LLM_FALLBACK=True`) | **Never executed** -- only template/planning files exist |
+| v70 | N=5 (fallback) | LLM-fallback attempt, `USE_LLM_FALLBACK=True` | **Halted** -- all generators hit 403 budget limit at 11/15 rows of `adversarial-hard-negative`, $0.42 spent |
 
 **v68 is the production dataset.** It uses the frozen v67 configuration (`USE_LLM_FALLBACK=False`, `N_PER_LANG=5`, seed=20260615) and ran successfully on Kaggle in 2026-06-22.
 
-**v69 was never executed.** Its directory contains only template and planning files (`v69_detailed_analysis_report.md` is all TBD blanks, `v69_post_download_checklist.md` was never run). The v69 comparison report is a template.
+**v69 was never executed.** Its directory contains only template and planning files (`v69_detailed_analysis_report.md` is all TBD blanks, `v69_analysis_plan.md` defines the comparison design, `v69_post_download_checklist.md` was never run, `compare_v68_v69.py` is a script awaiting v69 outputs). The v69 run was blocked before it could start; only planning artifacts exist.
 
-**v70 was attempted but budget-blocked.** The run started with `USE_LLM_FALLBACK=True` and `N_PER_LANG=15`, but OpenRouter returned `403 Budget limit exceeded` after generating 83 of 180 MCQs (30 English + 30 Arabic + 23 Yoruba). The partial output at $0.42 is archived but not production quality.
+**v70 was started as an N=5 LLM-fallback run** (`USE_LLM_FALLBACK=True`, same seed 20260615, 15 proverbs) but was **halted by budget exhaustion**. The run completed the `adversarial-length-locked` variant fully (15/15 rows, $0.30) and began `adversarial-hard-negative` before all generators started returning `403 Budget limit exceeded` at 11/15 rows ($0.42 spent). The three active generators (qwen/qwen3.7-max, google/gemma-4-31b-it, google/gemini-2.5-flash) were systematically exhausted; the pool then cycled through substitute models (google/gemini-2.5-pro, openai/gpt-4.1-mini, openai/gpt-4.1-nano, qwen/qwen3.5-397b-a17b, anthropic/claude-sonnet-4, meta-llama/llama-4-maverick, deepseek/deepseek-v4-pro) before halting with `RuntimeError: No active generators remaining`. The run saved 83 partial generation rows in `kaggle/run_logs/v70/openrouter_pilot1_test_output/`: 45 rows from the completed `adversarial-length-locked` variant (15 proverbs × 3 generators) and 38 rows from the incomplete `adversarial-hard-negative` variant (11/15 rows reached before the crash). The saved `pool_state.json` records that generation and auditing were both incomplete (`position_counter=83`, `generation_done=false`, `audit_done=false`, `audited_mcq_ids=[]`); these rows are partial generation output, not a completed or audited benchmark. No audit-results CSV (`pilot1_test_audit_results.csv`) or summary JSON (`pilot1_test_summary.json`) was produced.
 
 > **Note on the "80" mystery:** The number "80" that appears in legacy logs refers to an **audit-progress checkpoint** ("Audited 80/90 MCQs", "Audited 80/270 MCQs"), not a dataset size. No version of this project ever produced exactly 80 MCQs. The canonical dataset is v68 with 180 MCQs.
+
+> **Prompting experiments (legacy vs. v68):** The legacy Groq S1/S2 pipeline used four evaluation prompting styles where the model was asked to evaluate each MCQ's difficulty: **zero-shot** (no examples), **few-shot** (2–3 example evaluations provided), and **chain-of-thought** (2–3 examples with step-by-step reasoning before self-evaluating). **One-shot** was planned but no evidence of implementation survives in the codebase or logs. These evaluation styles are distinct from v68's four **distractor-generation** prompt variants (`adversarial-length-locked`, `adversarial-hard-negative`, `taxonomy-guided`, `overgenerate-select`). The `few-shot-predictive` generation variant (used in v2.x–v67, dropped in v68) provides few-shot examples for *generating* distractors, not for *evaluating* them. v68's audit committee uses **blind options-only voting** (no evaluation prompting styles) — the committee receives only the four options and selects the correct one without seeing the proverb or any examples.
 
 ---
 
@@ -122,7 +126,7 @@ This README documents the v68 production dataset, the full experimental history 
 |--------|---------|--------|------|
 | Consensus accuracy | 56.7% (102/180) | -- | -- |
 | Perfect consensus | 41.7% (75/180) | < 30% | [X] |
-| HCW (kappa>=0.75) | 27.8% (50/180) | < 10% | [X] |
+| HCW (consensus fraction >= 0.75) | 27.8% (50/180) | < 10% | [X] |
 | Partial + fallback | 43.9% (79/180) | < 15% | [X] |
 | Hard fallback (length) | 16.1% (29/180) | < 5% | [X] |
 | Duplicate options | 0 | 0 | [OK] |
@@ -257,8 +261,8 @@ The **core finding**: the corpus-based fallback sampler is the bottleneck. When 
 | Task | What | Estimated cost | Success gate |
 |------|------|----------------|--------------|
 | **v69** LLM-fallback ablation | N=5, `USE_LLM_FALLBACK=True` | ~$1.00 | HCW < 15%, partial+fallback < 30% |
-| **v70** N=15 scaling | N=15, current or v69 config | ~$2.56 | Same gates as v69 |
-| **Human validation** | 60 items x 3 annotators/language | ~$200-300 | Fleiss kappa >= 0.6 |
+| v70 N=5 re-run (if budget renews) | N=5, USE_LLM_FALLBACK=True | ~$0.85 | Same gates as v68 |
+| Human validation (60 items x 3 annotators/language) | 60-90 items | ~$200-300 | Fleiss kappa >= 0.6 |
 
 **If v69 passes gates:** freeze config, run v70, update all paper numbers.
 **If v69 fails or budget stays exhausted:** v68 is the production dataset. Paper is framed as a methodology + failure taxonomy study at N=5.
@@ -315,7 +319,7 @@ proverb_mcq/
 |   |-- run_logs/
 |   |   |-- v68/                 # Production run (COMPLETE)
 |   |   |-- v69/                 # Planned ablation (BLOCKED -- never executed)
-|   |   |-- v70/                 # Scaling attempt (INCOMPLETE -- budget-blocked at 83 MCQs)
+|   |   |-- v70/                 # LLM-fallback run (HALTED -- budget exhaustion during 2nd variant)
 |   |-- kaggle_analysis/
 |-- paper/                       # Paper artifacts
 |-- scripts/
@@ -391,7 +395,7 @@ pytest tests/ -v
 
 This project is released under the [MIT License](LICENSE).
 
-The v68 MCQ dataset (180 items, English and Arabic) is released under **CC BY 4.0**. The Yoruba MCQs are excluded from public release due to copyright restrictions on the source corpus (Owomoyela, 2005). See [data/production/paper_first_outputs_2026-06-22_10-42-02/](data/production/paper_first_outputs_2026-06-22_10-42-02/) for data license details and [docs/DATA_PROVENANCE_TEMPLATE.md](docs/DATA_PROVENANCE_TEMPLATE.md) for provenance documentation.
+The v68 MCQ dataset (180 items, English and Arabic) is released under **CC BY 4.0**. The Yoruba MCQs are excluded from public release due to copyright restrictions on the source corpus (Owomoyela, 2005). See `data/production/paper_first_outputs_2026-06-22_10-42-02/` for data license details and `submission_package_2026-08-02/DATA_PROVENANCE_TEMPLATE.md` for provenance documentation (English scrape URLs not recovered; Arabic source unidentified; Yoruba copyright unverified — all flagged as liabilities).
 
 ---
 

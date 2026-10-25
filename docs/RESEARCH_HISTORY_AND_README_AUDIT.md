@@ -13,11 +13,11 @@
 
 | Version | Run date | N per language | Config flag | Outcome | Status |
 |---------|----------|---------------:|-------------|---------|--------|
-| v59-v60 | Pre-2026-06 | 45 | Legacy Groq S1/S2 | 900+ MCQs (Pilot 2) | Deprecated -- legacy numbers not used |
+| v59-v60 | 2026-06-19 to 2026-06-20 | 1 | OpenRouter pipeline (refinements 1-2) | 45 MCQs (N=1 per language) | Pre-v68 lineage; numbers not used in v68 paper |
 | v61-v67 | 2026-04 to 2026-06 | 1-3 | OpenRouter pipeline refinement | Config refinements, bug fixes | Archived; v67 frozen as baseline |
 | v68 | 2026-06-22 | 5 | v67 baseline (USE_LLM_FALLBACK=False) | 180 MCQs, $0.85, full blind audit | Production |
 | v69 | Never | 5 | USE_LLM_FALLBACK=True | Never executed on Kaggle | Blocked -- budget exhausted |
-| v70 | 2026-06-23 | 15 | v68 config at N=15 | 83/180 MCQs before 403 error | Incomplete -- budget-blocked |
+| v70 | 2026-06-22 | 5 | v68 config with USE_LLM_FALLBACK=True | Halted at 11/15 rows of adversarial-hard-negative, $0.42 spent | Halted -- OpenRouter budget limit (403) during 2nd variant |
 
 ### 1.2 The "80" mystery -- resolved
 
@@ -30,12 +30,25 @@ The string "80" appears in legacy Kaggle audit logs, e.g.:
 
 | Version | Actual MCQ count |
 |--------:|-----------------:|
-| v59-v60 | 900+ (legacy, per audit log "90" denominator) |
-| v65 | 15 (N=1) |
+| v59-v60 | 90 (legacy, per audit log "90" denominator) |
+| v65 | 36 (N=1, 3 proverbs) |
 | v68 | 180 (N=5) |
-| v70 | 83 (budget-blocked partial) |
+| v70 | 0 completed (halted mid-run at 11/15 rows, $0.42 spent) |
 
 The audit logs that mention "80" are from legacy runs and refer to the number of items audited before the kernel was interrupted. The canonical production dataset is v68 with 180 MCQs.
+
+### 1.2b Evaluation prompting styles (legacy vs. v68)
+
+The legacy Groq S1/S2 pipeline used evaluation prompting styles where the model was asked to evaluate MCQ difficulty:
+
+| Style | Evidence in codebase |
+|-------|---------------------|
+| Zero-shot | `kaggle/kaggle_analysis/missing_data_impact_analysis.py`; legacy archive CSVs |
+| Few-shot | Legacy archive CSVs (2-3 example evaluations provided) |
+| Chain-of-thought | Legacy archive CSVs (2-3 examples with step-by-step reasoning) |
+| One-shot | **No evidence found** in codebase, logs, or Kaggle notebooks |
+
+These are distinct from v68's **distractor-generation** prompt variants (`adversarial-length-locked`, `adversarial-hard-negative`, `taxonomy-guided`, `overgenerate-select`). The `few-shot-predictive` generation variant (v2.x–v67, dropped in v68) provides few-shot examples for *generating* distractors, not for *evaluating* them. v68's audit committee uses **blind options-only voting** — no evaluation prompting styles are applied.
 
 ### 1.3 v69 status: never executed
 
@@ -49,16 +62,17 @@ The audit logs that mention "80" are from legacy runs and refer to the number of
 
 The v69 config diff exists in `docs/PHASE_3_BUDGET_DEPENDENT.md` but was never applied to a Kaggle run. OpenRouter budget was exhausted ("403 Budget limit exceeded") before the v69 run could start.
 
-### 1.4 v70 status: budget-blocked at 83/180
+### 1.4 v70 status: halted by budget exhaustion (N=5)
 
-**v70 was the N=15 scaling attempt** using the v68 frozen config. It **was started but failed after 83 of 180 MCQs** due to OpenRouter budget exhaustion. Evidence:
+**v70 was started as an N=5 LLM-fallback run** (`USE_LLM_FALLBACK=True`, same seed 20260615, 15 proverbs) but was **halted by budget exhaustion** during Kaggle notebook execution. Evidence:
 
-- `kaggle/run_logs/v70/pool_state.json` -- confirms USE_LLM_FALLBACK was enabled (deviation from v68 frozen config)
-- `kaggle/run_logs/v70/mcq-pass-shortcut.log` -- shows the Kaggle notebook log with "403 Budget limit exceeded" after generating 83 items (30 English + 30 Arabic + 23 Yoruba)
-- Partial output: $0.42 spent of an estimated $2.56 total
-- No `pilot1_test_summary.json` or audit results for v70
+- `kaggle/run_logs/v70/mcq-pass-shortcut.log` -- shows the Kaggle notebook log with successful completion of the `adversarial-length-locked` variant (15/15 rows, $0.30) and start of `adversarial-hard-negative` before 403 budget errors began at 11/15 rows ($0.42 spent)
+- `kaggle/run_logs/v70/openrouter_pilot1_test_output/pilot1_test_generated_mcqs.csv` -- 83 partial generation rows saved before the crash (45 from `adversarial-length-locked`, 38 from `adversarial-hard-negative`)
+- `kaggle/run_logs/v70/openrouter_pilot1_test_output/pool_state.json` -- records incomplete status (`position_counter=83`, `generation_done=false`, `audit_done=false`, `audited_mcq_ids=[]`)
+- `kaggle/run_logs/v70/openrouter_pilot1_test_output/pilot1_test_raw_outputs.csv` -- 166 raw generation attempt rows saved
+- No `pilot1_test_audit_results.csv` or `pilot1_test_summary.json` was produced -- the audit phase was never reached
 
-The v70 partial output (83 MCQs) is archived but not production quality. It cannot be used for paper claims because the full audit committee did not run, HCW rates are unknown, and the config deviated from the frozen v68 baseline.
+The v70 run was halted mid-generation. Only 83 partial generation rows were saved (45 from the completed `adversarial-length-locked` variant, 38 from the incomplete `adversarial-hard-negative` variant at 11/15 rows); no audit CSV or summary JSON was produced. v70 cannot be used for paper claims because the audit phase was never reached and the saved rows are partial generation output, not a completed or audited benchmark.
 
 ---
 
@@ -70,12 +84,12 @@ All v68 metrics below are verified against files in `kaggle/run_logs/v68/`.
 
 | Metric | Value | Denominator | Threshold / Definition | Source file |
 |--------|------:|------------:|:----------------------:|-------------|
-| Total MCQs | 180 | -- | 15 proverbs x 4 variants x 3 generators x 3 languages | `pilot1_test_generated_mcqs.csv` |
+| Total MCQs | 180 | -- | 15 proverbs x 4 variants x 3 generators = 180 | `pilot1_test_generated_mcqs.csv` |
 | Generation cost | $0.8539 | -- | $5.00 budget cap | `pilot1_test_summary.json` |
 | Cost per MCQ | $0.0047 | -- | $0.8539 / 180 | `pilot1_test_summary.json` |
 | Consensus accuracy | 56.7% | 102/180 | Plurality vote matches correct label | `pilot1_test_audit_results.csv` |
 | Perfect consensus | 41.7% | 75/180 | All 4 auditors agree on correct answer | `pilot1_test_audit_results.csv` |
-| HCW (kappa>=0.75, wrong) | 27.8% | 50/180 | Consensus fraction >= 0.75 AND consensus != correct | `v68_detailed_analysis_report.md` line 61 |
+| HCW (consensus fraction >= 0.75, wrong) | 27.8% | 50/180 | Consensus fraction >= 0.75 (3 of 4 auditors) AND consensus != correct | `v68_detailed_analysis_report.md` line 61 |
 | Partial + fallback | 43.9% | 79/180 | generation_status in {partial, length_fallback} | `v68_generation_quality_report.md` section 1 |
 | Partial (only) | 27.8% | 50/180 | generation_status = partial | `v68_generation_quality_report.md` section 1 |
 | Hard fallback (length_fallback) | 16.1% | 29/180 | generation_status = length_fallback | `v68_generation_quality_report.md` section 1 |
@@ -211,7 +225,7 @@ The absence of OpenAI and Anthropic in the audit committee is a documented P1 li
 
 ### 4.1 English
 
-- Sources: Multiple public-domain proverb compilations (URLs to be filled in `DATA_PROVENANCE_TEMPLATE.md`)
+- Sources: Multiple public-domain proverb compilations (scrape URLs not recovered; see `submission_package_2026-08-02/DATA_PROVENANCE_TEMPLATE.md`)
 - Status: Public domain -- eligible for CC BY 4.0 release
 
 ### 4.2 Arabic
@@ -224,7 +238,7 @@ The absence of OpenAI and Anthropic in the audit committee is a documented P1 li
 - Source: *Yoruba Proverbs* by Oyekan Owomoyela (University of Nebraska Press, 2005, ISBN 978-0-8032-1843-7)
 - Status: **Copyrighted -- no redistribution permission obtained**
 - 3,834/3,974 rows have missing QA_Flag; 3,748/3,974 have missing Comments
-- **Decision (per EXECUTION_ITINERARY Day 2, Task 0.9):** Yoruba MCQs remain in the analysis but are **excluded from public dataset release**. Documented in `DATA_PROVENANCE_TEMPLATE.md` and paper Discussion.
+- **Decision (per EXECUTION_ITINERARY Day 2, Task 0.9):** Yoruba MCQs remain in the analysis but are **excluded from public dataset release**. Documented in `submission_package_2026-08-02/DATA_PROVENANCE_TEMPLATE.md` and paper Discussion.
 
 ### 4.4 Human validation sample
 
@@ -253,18 +267,19 @@ Source: `pilot1_test_summary.json` -> estimated_cost_usd
 
 | Item | Cost |
 |------|------:|
-| Partial generation (83/180 MCQs) | $0.42 |
+| Partial generation (halted mid-run, 11/15 rows of 2nd variant) | $0.42 |
 | Audit (not run) | $0.00 |
 | **Total spent** | **$0.42** |
 
-Extrapolated full v70 cost: ~$2.56 (still within budget cap if renewed).
+Extrapolated full v68 N=5 cost (no v70 extrapolation available -- run was N=5, not N=15): ~$0.85.
 
 ### 5.3 Future cost estimates
 
 | Task | N per language | Estimated cost | Budget required |
 |------|----------------|----------------|-----------------|
 | v69 ablation (LLM fallback) | 5 | ~$1.00 | OpenRouter renewal |
-| v70 scaling (N=15) | 15 | ~$2.56 | OpenRouter renewal |
+| v70 N=5 re-run (LLM fallback, if budget renews) | 5 | ~$0.85 | OpenRouter renewal |
+| v71 N=15 scaling (hypothetical, if v70 succeeds) | 15 | ~$2.56 | OpenRouter renewal |
 | Human validation (60 items x 3 annotators) | -- | ~$200-300 | MTurk / Figure Eight |
 
 ---
@@ -365,7 +380,7 @@ Every number in the v68 paper must trace to one of the following files. Claims t
 | Claim | Why it's invalid |
 |-------|-----------------|
 | v69 shows HCW reduced to X% | v69 was never executed |
-| v70 scales to 540 MCQs | v70 stopped at 83/180 |
+| v70 scales to 540 MCQs | v70 was N=5, halted at 11/15 rows of 2nd variant; no audit or summary output saved |
 | Human validation achieved kappa >= 0.6 | Not started |
 | OpenAI/Anthropic auditors confirm results | Absent from v68 |
 | Per-language accuracy drops Xpp under variant Y | No statistical significance tests computed on v68 paired subsets (P0 gap from liability analysis, not yet closed) |
@@ -418,7 +433,7 @@ Every number in the v68 paper must trace to one of the following files. Claims t
 | `docs/gap_liability_analysis_2026-07-10.md` | P0/P1/P2 gap analysis (legacy claims, position bias, provenance, reproducibility, baselines) |
 | `docs/ProverbGap_Reframed_Title_Abstract.md` | Reframed paper title/abstract + section outline + claims traceability + non-goals |
 | `docs/PHASE_3_BUDGET_DEPENDENT.md` | v69/v70 config and go/no-go decision rules |
-| `docs/DATA_PROVENANCE_TEMPLATE.md` | Yoruba copyright decision, English/Arabic source documentation (partially filled) |
+| `submission_package_2026-08-02/DATA_PROVENANCE_TEMPLATE.md` | Exists (filled 2026-07-10); English scraping URLs not recovered, Arabic dataset source unknown, Yoruba copyright unverified — all flagged as liabilities |
 
 ---
 
@@ -427,12 +442,12 @@ Every number in the v68 paper must trace to one of the following files. Claims t
 | Issue | Priority | Budget needed | Blocking? |
 |-------|----------|---------------|-----------|
 | v69 LLM-fallback ablation | P0 | ~$1.00 | Yes -- pipeline fix |
-| v70 N=15 scaling | P1 | ~$2.56 | No -- v68 suffices as N=5 study |
+| v70 N=5 scaling (halted) | P1 | ~$0.42 spent, run incomplete | No -- v68 suffices as N=5 study |
 | Human validation (60-90 items) | P0 | ~$200-300 | Yes -- paper requirement |
 | Committee expansion (OpenAI + Anthropic) | P1 | ~$0.10 | No -- methodology caveat |
 | Statistical tests (McNemar, Wilcoxon, Holm) | P0 | $0 | No -- from existing data |
 | Bootstrap CIs for all six metrics | P0 | $0 | No -- from existing data |
-| DATA_PROVENANCE_TEMPLATE.md fill | P0 | $0 | Yes -- submission requirement |
+| DATA_PROVENANCE_TEMPLATE.md | Exists in `submission_package_2026-08-02/` (filled 2026-07-10) but not at `docs/` path -- update all cross-references | P0 | $0 | Yes -- path fix needed |
 | Per-model cost breakdown | P1 | $0 | No -- transparency |
 | Environment pinning (requirements.lock) | P0 | $0 | Yes -- reproducibility |
 | Position shuffling robustness test | P1 | $0 | No -- from existing data |

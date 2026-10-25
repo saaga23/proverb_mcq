@@ -17,7 +17,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Known Issues
 - Corpus fallback sampler remains the primary quality bottleneck (43.9% partial+fallback, 27.8% HCW)
-- OpenRouter budget limit blocked v69 LLM-fallback ablation and v70 N=15 scaling
+- OpenRouter budget limit blocked v69 LLM-fallback ablation and v70 N=5 LLM-fallback run
 
 ---
 

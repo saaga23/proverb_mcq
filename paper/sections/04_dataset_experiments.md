@@ -8,7 +8,7 @@
 | Arabic | Academic dataset (source unknown) | 913 proverbs | 60 (5 Ã— 12) | Full |
 | Yoruba | Owomoyela (2005) | 3,974 proverbs | 60 (5 Ã— 12) | 96.5% missing QA_Flag |
 
-**Data provenance:** See `DATA_PROVENANCE_TEMPLATE.md`. Yoruba data is derived from a copyrighted book; the public release excludes raw Yoruba proverbs. Arabic source dataset is unidentified. English scraping sources are undocumented. These are limitations addressed in Section 10.
+**Data provenance:** See `submission_package_2026-08-02/DATA_PROVENANCE_TEMPLATE.md` (filled 2026-07-10 with documented gaps). Yoruba data is derived from a copyrighted book; the public release excludes raw Yoruba proverbs. Arabic source dataset is unidentified. English scraping sources are undocumented. These are limitations addressed in Section 10.
 
 ### 4.2 Gold-Meaning Curation
 

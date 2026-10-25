@@ -134,7 +134,7 @@ Hard cost cap: $5.00 per run. v68 cost: $0.85. Every API call is logged with mod
 | Arabic | Academic dataset (source unknown) | 913 proverbs | 60 (5 × 12) | Full |
 | Yoruba | Owomoyela (2005) | 3,974 proverbs | 60 (5 × 12) | 96.5% missing QA_Flag |
 
-**Data provenance:** See `DATA_PROVENANCE_TEMPLATE.md`. Yoruba data is derived from a copyrighted book; the public release excludes raw Yoruba proverbs. Arabic source dataset is unidentified. English scraping sources are undocumented. These are limitations addressed in Section 10.
+**Data provenance:** See `submission_package_2026-08-02/DATA_PROVENANCE_TEMPLATE.md` (filled 2026-07-10 with documented gaps). Yoruba data is derived from a copyrighted book; the public release excludes raw Yoruba proverbs. Arabic source dataset is unidentified (MID prefix unexplained). English scraping sources are undocumented. These are limitations addressed in Section 10.
 
 ### 4.2 Gold-Meaning Curation
 
@@ -242,7 +242,7 @@ The hardened dynamic pool eliminates all infrastructure failures (API/parse fall
 
 ## 6. Failure Taxonomy
 
-We document six failure modes observed across v58–v69. Each entry includes pipeline locus, empirical magnitude from v68, and implication.
+We document six failure modes observed across v58–v68. Each entry includes pipeline locus, empirical magnitude from v68, and implication.
 
 ### 6.1 Generic Reversal / Idiom Shortcut (English Too Easy)
 
