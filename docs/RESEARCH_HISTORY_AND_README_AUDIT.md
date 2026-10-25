@@ -111,9 +111,9 @@ Source: `v68_detailed_analysis_report.md` sections 2-3, `v68_per_language_report
 
 | Generator | N | Accuracy | Perfect | HCW (>=0.75) | Fully generated |
 |-----------|---------|----------|---------|-------------:|-----------------|
-| google/gemma-4-31b-it | 60 | 65.0% | 46.7% | 35.0% | 66.7% (40/60) |
-| google/gemini-2.5-flash | 60 | 53.3% | 41.7% | 46.7% | 50.0% (30/60) |
-| qwen/qwen3.7-max | 60 | 51.7% | 36.7% | 46.7% | 51.7% (31/60) |
+| google/gemma-4-31b-it | 60 | 65.0% | 46.7% | 21.7% | 66.7% (40/60) |
+| google/gemini-2.5-flash | 60 | 53.3% | 41.7% | 31.7% | 50.0% (30/60) |
+| qwen/qwen3.7-max | 60 | 51.7% | 36.7% | 30.0% | 51.7% (31/60) |
 
 Source: `v68_detailed_analysis_report.md` section 4.1
 
@@ -121,10 +121,10 @@ Source: `v68_detailed_analysis_report.md` section 4.1
 
 | Variant | N | Accuracy | Perfect | HCW (>=0.75) | Fully generated |
 |---------|---------|----------|---------|-------------:|-----------------|
-| adversarial-hard-negative | 45 | 60.0% | 31.1% | 40.0% | 26.7% (12/45) |
-| adversarial-length-locked | 45 | 55.6% | 53.3% | 44.4% | 60.0% (27/45) |
-| overgenerate-select | 45 | 53.3% | 35.6% | 46.7% | 71.1% (32/45) |
-| taxonomy-guided | 45 | 57.8% | 46.7% | 40.0% | 66.7% (30/45) |
+| adversarial-hard-negative | 45 | 60.0% | 31.1% | 24.4% | 26.7% (12/45) |
+| adversarial-length-locked | 45 | 55.6% | 53.3% | 35.6% | 60.0% (27/45) |
+| overgenerate-select | 45 | 53.3% | 35.6% | 22.2% | 71.1% (32/45) |
+| taxonomy-guided | 45 | 57.8% | 46.7% | 28.9% | 66.7% (30/45) |
 
 Source: `v68_detailed_analysis_report.md` section 4.2
 
@@ -155,9 +155,9 @@ The v68 config defines a 10-model pool, of which 3 were active (0 benched substi
 
 | Model | Family | Active? | Notes |
 |-------|--------|---------|-------|
-| qwen/qwen3.7-max | Qwen | Yes | 60 MCQs, 51.7% accuracy, 46.7% HCW |
-| google/gemma-4-31b-it | Google | Yes | 60 MCQs, 65.0% accuracy, 35.0% HCW (strongest) |
-| google/gemini-2.5-flash | Google | Yes | 60 MCQs, 53.3% accuracy, 46.7% HCW |
+| qwen/qwen3.7-max | Qwen | Yes | 60 MCQs, 51.7% accuracy, 30.0% HCW |
+| google/gemma-4-31b-it | Google | Yes | 60 MCQs, 65.0% accuracy, 21.7% HCW (strongest) |
+| google/gemini-2.5-flash | Google | Yes | 60 MCQs, 53.3% accuracy, 31.7% HCW |
 | meta-llama/llama-3.3-70b-instruct | Meta | No (pooled) | In auditor pool, not generator pool |
 | mistralai/mistral-small-3.2-24b-instruct | Mistral | No (pooled) | In auditor pool, not generator pool |
 | google/gemma-3-27b-it | Google | No (pooled) | In auditor pool, not generator pool |
@@ -225,20 +225,20 @@ The absence of OpenAI and Anthropic in the audit committee is a documented P1 li
 
 ### 4.1 English
 
-- Sources: Multiple public-domain proverb compilations (scrape URLs not recovered; see `submission_package_2026-08-02/DATA_PROVENANCE_TEMPLATE.md`)
-- Status: Public domain -- eligible for CC BY 4.0 release
+- Sources: Multiple public-domain proverb compilations (scrape URLs not recovered; see `DATA_PROVENANCE_TEMPLATE.md` at repo root)
+- Status: Claims public-domain but source URLs unrecovered; rights verification blocked pending provenance review
 
 ### 4.2 Arabic
 
 - Sources: `MID`-prefix dataset (identification: to be confirmed)
-- Status: License under review; subset of 60 MCQs to be released under CC BY 4.0 pending source verification
+- Status: License under review; source unidentified; rights verification blocked
 
 ### 4.3 Yoruba
 
 - Source: *Yoruba Proverbs* by Oyekan Owomoyela (University of Nebraska Press, 2005, ISBN 978-0-8032-1843-7)
 - Status: **Copyrighted -- no redistribution permission obtained**
 - 3,834/3,974 rows have missing QA_Flag; 3,748/3,974 have missing Comments
-- **Decision (per EXECUTION_ITINERARY Day 2, Task 0.9):** Yoruba MCQs remain in the analysis but are **excluded from public dataset release**. Documented in `submission_package_2026-08-02/DATA_PROVENANCE_TEMPLATE.md` and paper Discussion.
+- **Decision:** Yoruba data is retained for analysis only. **However**, the v68 public CSVs (`pilot1_test_generated_mcqs.csv` and `pilot1_test_audit_results.csv` at `kaggle/run_logs/v68/openrouter_pilot1_test_output/`) currently contain 60 Yoruba MCQ rows. This contradicts the intended exclusion and is documented as an unresolved data-rights exposure. Removal of Yoruba rows from the public CSVs is pending owner approval.
 
 ### 4.4 Human validation sample
 
@@ -447,7 +447,7 @@ Every number in the v68 paper must trace to one of the following files. Claims t
 | Committee expansion (OpenAI + Anthropic) | P1 | ~$0.10 | No -- methodology caveat |
 | Statistical tests (McNemar, Wilcoxon, Holm) | P0 | $0 | No -- from existing data |
 | Bootstrap CIs for all six metrics | P0 | $0 | No -- from existing data |
-| DATA_PROVENANCE_TEMPLATE.md | Exists in `submission_package_2026-08-02/` (filled 2026-07-10) but not at `docs/` path -- update all cross-references | P0 | $0 | Yes -- path fix needed |
+| `DATA_PROVENANCE_TEMPLATE.md` | Exists at repo root (also in `submission_package_2026-08-02/`); filled 2026-07-10 with English scrape URLs not recovered, Arabic dataset source unknown, Yoruba copyright unverified — all flagged as liabilities | P0 | $0 | Yes -- Yoruba public CSV exposure unresolved |
 | Per-model cost breakdown | P1 | $0 | No -- transparency |
 | Environment pinning (requirements.lock) | P0 | $0 | Yes -- reproducibility |
 | Position shuffling robustness test | P1 | $0 | No -- from existing data |

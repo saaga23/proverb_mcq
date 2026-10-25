@@ -2,53 +2,60 @@
 
 ## Dataset Description
 
-ProverbGap is a cross-lingual multiple-choice question (MCQ) benchmark for proverb understanding across English, Arabic, and Yoruba. It contains 7,172 proverbs with translations and cultural explanations, designed to evaluate LLM comprehension of figurative language in high- and low-resource settings.
+ProverbGap is a cross-lingual multiple-choice question (MCQ) benchmark for proverb understanding across English, Arabic, and Yoruba. The **v68 production dataset** contains 180 MCQs (N=5 per language: 15 proverbs, 4 variants, 3 generators). This card also describes the source proverb corpora used for generation and fallback sampling.
 
-- **English**: 2,278 proverbs with meanings
-- **Arabic**: 913 proverbs with English translations and cultural contexts
-- **Yoruba**: 3,931 proverbs with English translations and cultural contexts
-- **French**: 161 proverbs (not used in current benchmark)
-- **German**: 142 proverbs (not used in current benchmark)
-- **Spanish**: 63 proverbs (not used in current benchmark)
+**v68 production dataset (canonical):**
+- 180 total MCQs: 60 English, 60 Arabic, 60 Yoruba
+
+**Source corpora (for generation and fallback):**
+
+| Language | Source file | Cleaned count | Sampled for v68 |
+|----------|------------|--------------|-----------------|
+| English | `actual_data/English_cleaned.csv` | 2,278 | 15 proverbs (5 per language) |
+| Arabic | `actual_data/Arabic_cleaned.csv` | 962 | 15 proverbs (5 per language) |
+| Yoruba | `actual_data/Yoruba_cleaned.csv` | 3,974 | 15 proverbs (5 per language) |
+
+**Note:** Earlier dataset card versions referenced French (161), German (142), and Spanish (63) proverb files. These files are **not present** in `actual_data/` and are not used by the v68 pipeline. The previously stated total of 7,172 is corrected to 7,214 (English 2,278 + Arabic 962 + Yoruba 3,974).
 
 ## Collection Methodology
 
 ### English Proverbs
-Sourced from public proverb collections and reference works. Each proverb includes an explanatory meaning written in English. Sample IDs use `ENG` prefix.
+Sourced from public-domain proverb compilations (scraped). Specific source URLs were not recovered and are documented as a provenance gap. See `DATA_PROVENANCE_TEMPLATE.md`.
+
+Sample IDs use `ENG` prefix.
 
 ### Arabic Proverbs
-Sourced from classical Arabic proverb collections (amsal). Each entry includes:
-- Original Arabic text (MSA/fus-ha)
-- English translation
-- Cultural context explaining the proverb's usage and significance
-
-Sample IDs use `MID` prefix. The collection focuses on Standard Arabic wisdom sayings rather than specific dialectal variants.
+Sourced from an academic dataset using `MID` prefix sample IDs. The original dataset source has not been identified; licensing is under review.
 
 ### Yoruba Proverbs
-Sourced from Yoruba oral tradition collections and ethnographic records. Each entry includes:
-- Original Yoruba text (with tonal marks where available)
-- English translation
-- Cultural context explaining the proverb's meaning and usage
+Sourced from *Yoruba Proverbs* by Oyekan Owomoyela (University of Nebraska Press, 2005, ISBN 978-0-8032-1843-7). This source is **copyrighted**. No redistribution permission has been obtained. Of the 3,974 cleaned Yoruba rows, 3,834 have missing QA_Flag and 3,748 have missing Comments.
 
 Sample IDs use `YOR` prefix.
 
 ## Known Limitations
 
 1. **Dialectal homogeneity**: Arabic proverbs are primarily MSA/fus-ha. Dialectal variation (Egyptian, Levantine, Gulf, Maghrebi) is not labeled or balanced.
-2. **Size imbalance**: Yoruba has 4x more proverbs than Arabic. This reflects collection availability, not intentional design.
-3. **Contamination risk**: English proverbs include canonical sayings (e.g., "A bird in the hand") likely present in LLM pre-training corpora.
+2. **Size imbalance**: Yoruba has ~4.1x more source proverbs than Arabic. This reflects collection availability, not intentional design.
+3. **Contamination risk**: English proverbs include canonical sayings likely present in LLM pre-training corpora.
 4. **Translation quality**: English translations of Yoruba and Arabic proverbs are interpretive. No inter-annotator agreement was computed.
-5. **No temporal metadata**: Proverbs are not dated, making it impossible to create temporal train/test splits.
+5. **No temporal metadata**: Proverbs are not dated.
+6. **Data rights (CRITICAL)**: See the Licensing section below. The data release is blocked pending provenance/rights review.
 
 ## License
 
-This dataset is released for research purposes. Proverb texts are considered communal cultural knowledge. Translations and explanations are provided for research evaluation.
+**Code:** Licensed under the MIT License (see `LICENSE`).
 
-**Recommended citation**: If you use this dataset, please cite the ProverbGap paper (forthcoming).
+**Data:** **BLOCKED PENDING PROVENANCE/RIGHTS REVIEW.** The v68 MCQ dataset is not released under CC BY 4.0. See the `LICENSE` file for the full data-rights status:
+
+- **English**: Scraped from public-domain sources, but specific URLs were not recovered. Rights status provisional.
+- **Arabic**: Source dataset unidentified. Rights status unknown.
+- **Yoruba**: Derived from Owomoyela (2005), copyrighted. No redistribution permission obtained. The public v68 CSV (`pilot1_test_generated_mcqs.csv`) currently contains 60 Yoruba MCQ rows, exposing this restricted data. This is documented as an unresolved issue.
+
+**Recommended citation**: Abraham, S.A. (2026). ProverbGap: Hardened Adversarial Distractor Generation for Low-Resource Figurative Language. EACL 2027 ARR submission.
 
 ## Usage
 
-The dataset is intended for:
+The v68 dataset is intended for:
 - Benchmarking LLM understanding of figurative language
 - Cross-lingual evaluation of cultural knowledge
 - Distractor generation research for low-resource languages
@@ -68,7 +75,7 @@ This dataset was compiled from publicly available proverb collections with the g
 
 ## Maintenance
 
-This is a pilot-scale release (N=5 per language evaluated). A full-scale release (N=30+ per language) with train/dev/test splits is planned.
+This is a pilot-scale release (N=5 per language evaluated). A full-scale release (N=30+ per language) with train/dev/test splits is planned **pending rights resolution**.
 
 ## Contact
 

@@ -2,16 +2,18 @@ import pandas as pd, json
 from pathlib import Path
 from collections import defaultdict
 
-base = Path("kaggle_run_logs/v68/openrouter_pilot1_test_output")
+base = Path(__file__).resolve().parent
 audit = pd.read_csv(base/"pilot1_test_audit_results.csv", encoding='utf-8-sig')
 audit.columns = [c.lstrip('\ufeff') for c in audit.columns]
 summary = json.loads((base/"pilot1_test_summary.json").read_text())
+
+HCW_THRESHOLD = 0.75
 
 n_total = len(audit)
 overall = {
     'Consensus accuracy': audit['consensus_correct'].mean(),
     'Perfect consensus rate': (audit['consensus_frac']==1.0).mean(),
-    'HCW rate': ((audit['consensus_frac']==1.0)&(audit['consensus_correct']==0)).mean(),
+    'HCW rate': ((audit['consensus_frac']>=HCW_THRESHOLD)&(audit['consensus_correct']==0)).mean(),
     'Mean consensus fraction': audit['consensus_frac'].mean(),
 }
 
@@ -44,7 +46,7 @@ for gen, sub in audit.groupby('generator_model'):
     n=len(sub)
     perf=(sub['consensus_frac']==1.0).mean()
     acc=sub['consensus_correct'].mean()
-    hcw=((sub['consensus_frac']==1.0)&(sub['consensus_correct']==0)).mean()
+    hcw=((sub['consensus_frac']>=HCW_THRESHOLD)&(sub['consensus_correct']==0)).mean()
     cost=gen_tot[gen]
     gen_rows.append((gen, n, acc, perf, hcw, cost, cost/n if n else 0))
 
@@ -53,19 +55,19 @@ for var, sub in audit.groupby('variant'):
     n=len(sub)
     perf=(sub['consensus_frac']==1.0).mean()
     acc=sub['consensus_correct'].mean()
-    hcw=((sub['consensus_frac']==1.0)&(sub['consensus_correct']==0)).mean()
+    hcw=((sub['consensus_frac']>=HCW_THRESHOLD)&(sub['consensus_correct']==0)).mean()
     var_rows.append((var, n, acc, perf, hcw))
 
 acc_hm = audit.groupby(['generator_model','variant'])['consensus_correct'].mean().unstack()
 frac_hm = audit.groupby(['generator_model','variant'])['consensus_frac'].mean().unstack()
-hcw_hm = audit.groupby(['generator_model','variant']).apply(lambda s: ((s['consensus_frac']==1.0)&(s['consensus_correct']==0)).mean(), include_groups=False).unstack()
+hcw_hm = audit.groupby(['generator_model','variant']).apply(lambda s: ((s['consensus_frac']>=HCW_THRESHOLD)&(s['consensus_correct']==0)).mean()).unstack()
 
 lang_rows=[]
 for (gen,lang), sub in audit.groupby(['generator_model','language']):
     n=len(sub)
     perf=(sub['consensus_frac']==1.0).mean()
     acc=sub['consensus_correct'].mean()
-    hcw=((sub['consensus_frac']==1.0)&(sub['consensus_correct']==0)).mean()
+    hcw=((sub['consensus_frac']>=HCW_THRESHOLD)&(sub['consensus_correct']==0)).mean()
     lang_rows.append((gen, lang, n, acc, perf, hcw))
 
 lines=[]
@@ -162,24 +164,24 @@ lines.append("## 8. Insights & recommendations for N=15")
 lines.append("")
 lines.append("### Key observations")
 lines.append("")
-lines.append("1. **Generator quality:** `google/gemma-4-31b-it` is the strongest generator on consensus accuracy (65.0%) and the lowest HCW rate (8.3%). `google/gemini-2.5-flash` and `qwen/qwen3.7-max` are statistically weaker and both produce ~11.7-15.0% HCW.")
+lines.append("1. **Generator quality:** `google/gemma-4-31b-it` is the strongest generator on consensus accuracy (65.0%) and the lowest HCW rate (21.7%). `google/gemini-2.5-flash` and `qwen/qwen3.7-max` are weaker, with HCW rates of 31.7% and 30.0% respectively.")
 lines.append("2. **Cost asymmetry:** `qwen/qwen3.7-max` consumed ~$0.835 of the ~$0.844 generation budget, largely because of very long outputs. The two Google models are essentially free by comparison (~$0.004-0.006 total). This means dropping Qwen has almost no budget impact.")
-lines.append("3. **Variant effects:** `adversarial-hard-negative` has the lowest perfect-consensus rate (31.1%) and HCW rate (6.7%), but its consensus accuracy (60.0%) is middle-of-the-pack. `adversarial-length-locked` and `taxonomy-guided` drive the most perfect consensus (53.3% and 46.7%) and the most HCW (15.6% each). `overgenerate-select` is in between.")
-lines.append("4. **Heatmap patterns:** `google/gemma-4-31b-it` with `taxonomy-guided` yields the highest accuracy (73.3%) and zero HCW, while `qwen/qwen3.7-max` + `taxonomy-guided` for Arabic is the worst cell (20.0% accuracy, 40.0% HCW). `adversarial-length-locked` produces near-perfect consensus for Arabic items across all generators, inflating HCW risk.")
-lines.append("5. **Language gaps:** Yoruba is the weakest language overall. Qwen Yoruba accuracy is only 40.0%, with very low perfect consensus. Gemma Yoruba is the best at 70.0% accuracy and only 5.0% HCW.")
-lines.append("6. **Quality gates vs. targets:** Perfect consensus (41.7%) is still above the <30% target; HCW (11.7%) is just above the <10% target. The HCW target is almost met, but the pool is still too agreeable.")
+lines.append("3. **Variant effects:** `adversarial-hard-negative` has the lowest perfect-consensus rate (31.1%) but high HCW (24.4%) and the worst generation-status profile: only 26.7% fully generated, 42.2% `length_fallback`. The prompt succeeds at producing tempting distractors, but the sanitizers reject them and the corpus fallbacks are confident-wrong traps. `adversarial-length-locked` has the highest perfect-consensus rate (53.3%) and high HCW (35.6%). `overgenerate-select` is cleaner (71.1% fully generated) but still produces high HCW (22.2%) because the selected distractors are too tempting. `taxonomy-guided` has high perfect consensus (46.7%) and high HCW (28.9%).")
+lines.append("4. **Heatmap patterns:** `google/gemma-4-31b-it` with `taxonomy-guided` yields the highest accuracy (73.3%) and zero HCW at the cell level, while `qwen/qwen3.7-max` + `taxonomy-guided` for Arabic is the worst cell (20.0% accuracy, 40.0% HCW). `adversarial-length-locked` produces near-perfect consensus for Arabic items across all generators, inflating HCW risk.")
+lines.append("5. **Language gaps:** Yoruba is the weakest language overall. Qwen Yoruba accuracy is only 40.0%, with very low perfect consensus. Gemma Yoruba is the best at 70.0% accuracy and only 10.0% HCW.")
+lines.append("6. **Quality gates vs. targets:** Perfect consensus (41.7%) is above the <30% target; HCW (27.8%) is well above the <10% target. The HCW target is not met, and the pool remains too agreeable.")
 lines.append("")
 lines.append("### Recommendations")
 lines.append("")
 lines.append("| Decision | Generator / Variant | Rationale |")
 lines.append("|---|---|---|")
-lines.append("| **Keep as primary** | `google/gemma-4-31b-it` | Best accuracy (65.0%), lowest HCW (8.3%), and cheapest cost. |")
+lines.append("| **Keep as primary** | `google/gemma-4-31b-it` | Best accuracy (65.0%), lowest HCW (21.7%), and cheapest cost. |")
 lines.append("| **Keep as secondary** | `google/gemini-2.5-flash` | Moderate accuracy (53.3%), still very cheap; useful for diversity. |")
 lines.append("| **Drop from active pool** | `qwen/qwen3.7-max` | Highest cost (~99% of generation budget), lowest accuracy (51.7%), and weak Yoruba performance. |")
-lines.append("| **Keep & prioritise** | `adversarial-hard-negative` | Lowest perfect consensus (31.1%) and HCW (6.7%); best for reducing auditor agreement. |")
-lines.append("| **Keep with caution** | `overgenerate-select` | Balanced profile; keeps HCW moderate (8.9%) and accuracy acceptable (53.3%). |")
-lines.append("| **Drop or rework** | `adversarial-length-locked` | Highest HCW (15.6%) and near-unanimous consensus on Arabic; contributes little shortcut resistance. |")
-lines.append("| **Drop or rework** | `taxonomy-guided` | High HCW (15.6%) and high perfect consensus (46.7%); only saved by Gemma's strong accuracy. |")
+lines.append("| **Keep & prioritise** | `adversarial-hard-negative` | Lowest perfect consensus (31.1%); best for reducing auditor agreement, though HCW remains high at 24.4%. |")
+lines.append("| **Keep with caution** | `overgenerate-select` | Balanced profile; 71.1% fully generated, HCW moderate (22.2%) and accuracy acceptable (53.3%). |")
+lines.append("| **Drop or rework** | `adversarial-length-locked` | Highest HCW (35.6%) and near-unanimous consensus on Arabic; contributes little shortcut resistance. |")
+lines.append("| **Drop or rework** | `taxonomy-guided` | High HCW (28.9%) and high perfect consensus (46.7%); only saved by Gemma's strong accuracy. |")
 lines.append("| **For N=15** | Run with **Gemma-4-31b-it + Gemini-2.5-flash** using **adversarial-hard-negative** and **overgenerate-select** only | This halves the variant space and removes the cost/quality outlier, giving more budget headroom for a 3x scale-up. |")
 lines.append("")
 lines.append("### Suggested N=15 roster")

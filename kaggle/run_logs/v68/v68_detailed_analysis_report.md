@@ -100,9 +100,9 @@ Arabic requires the most fallback replacements; English requires the least. NLI 
 
 | Generator | MCQs | Accuracy | Perfect consensus | HCW | Generated | Partial | Length fallback |
 |---|---|---:|---:|---:|---:|---:|---:|
-| `google/gemini-2.5-flash` | 60 | 53.3% | 41.7% | 46.7% | 30 | 25 | 5 |
-| `google/gemma-4-31b-it` | 60 | 65.0% | 46.7% | 35.0% | 40 | 14 | 6 |
-| `qwen/qwen3.7-max` | 60 | 51.7% | 36.7% | 46.7% | 31 | 11 | 18 |
+| `google/gemini-2.5-flash` | 60 | 53.3% | 41.7% | 31.7% | 30 | 25 | 5 |
+| `google/gemma-4-31b-it` | 60 | 65.0% | 46.7% | 21.7% | 40 | 14 | 6 |
+| `qwen/qwen3.7-max` | 60 | 51.7% | 36.7% | 30.0% | 31 | 11 | 18 |
 
 `google/gemma-4-31b-it` is the strongest generator on this sample: highest accuracy, lowest HCW, and the cleanest generation-status profile (66.7% fully generated). `qwen/qwen3.7-max` has the highest `length_fallback` rate (30.0%) and the highest mean `fallback_count` (1.33). `google/gemini-2.5-flash` produces many partial items (41.7%) driven by NLI replacements.
 
@@ -110,15 +110,16 @@ Arabic requires the most fallback replacements; English requires the least. NLI 
 
 | Variant | MCQs | Accuracy | Perfect consensus | HCW | Generated | Partial | Length fallback |
 |---|---|---:|---:|---:|---:|---:|---:|
-| `adversarial-hard-negative` | 45 | 60.0% | 31.1% | 40.0% | 12 | 14 | 19 |
-| `adversarial-length-locked` | 45 | 55.6% | 53.3% | 44.4% | 27 | 9 | 9 |
-| `overgenerate-select` | 45 | 53.3% | 35.6% | 46.7% | 32 | 12 | 1 |
-| `taxonomy-guided` | 45 | 57.8% | 46.7% | 40.0% | 30 | 15 | 0 |
+| `adversarial-hard-negative` | 45 | 60.0% | 31.1% | 24.4% | 12 | 14 | 19 |
+| `adversarial-length-locked` | 45 | 55.6% | 53.3% | 35.6% | 27 | 9 | 9 |
+| `overgenerate-select` | 45 | 53.3% | 35.6% | 22.2% | 32 | 12 | 1 |
+| `taxonomy-guided` | 45 | 57.8% | 46.7% | 28.9% | 30 | 15 | 0 |
 
 **Variant interpretation:**
-- `adversarial-hard-negative` has the most HCW (40.0%) and the worst generation-status profile: only 26.7% fully generated, 42.2% `length_fallback`. The prompt succeeds at producing tempting distractors, but the sanitizers reject them and the corpus fallbacks are confident-wrong traps.
-- `adversarial-length-locked` has the highest perfect-consensus rate (53.3%) but also high HCW (44.4%).
-- `overgenerate-select` and `taxonomy-guided` are cleaner in generation status but still produce high HCW because the selected distractors are too tempting.
+- `adversarial-hard-negative` has the worst HCW rate (24.4%) and the worst generation-status profile: only 26.7% fully generated, 42.2% `length_fallback`. The prompt succeeds at producing tempting distractors, but the sanitizers reject them and the corpus fallbacks are confident-wrong traps.
+- `adversarial-length-locked` has the highest perfect-consensus rate (53.3%) and the highest HCW rate (35.6%).
+- `overgenerate-select` has the cleanest generation status (71.1% fully generated) but still produces high HCW (22.2%) because the selected distractors are too tempting.
+- `taxonomy-guided` has high perfect consensus (46.7%) and high HCW (28.9%).
 
 ### 4.3 Cross-tab: generator × generation status
 
@@ -181,7 +182,7 @@ The evidence confirms the pre-run diagnosis:
 3. Replacements are dominated by **NLI** and **leak** filters, not length or blocklist.
 4. The `adversarial-hard-negative` variant — designed to produce tempting distractors — is rewritten by filters 73.3% of the time, and the resulting corpus fallbacks frequently become HCW items.
 5. Arabic and Yoruba are disproportionately affected; English is largely fine.
-6. The strongest generator (`gemma-4-31b-it`) still has a 35.0% HCW rate, so the problem is systemic, not model-specific.
+6. The strongest generator (`gemma-4-31b-it`) still has a 21.7% HCW rate, so the problem is systemic, not model-specific.
 
 **Mechanism:** The corpus sampler pulls distractors from other proverbs’ meanings. Those meanings are often generic moral statements or culturally mismatched idioms. When placed next to a curated gold meaning, they can look plausible to auditors, especially when the original tempting distractor was removed by NLI/leak filters. The result is confident-wrong consensus.
 
@@ -241,14 +242,14 @@ If v69 improves fallback quality but HCW remains high, the next knob is the NLI/
 
 ### 8.1 Auditor behavior
 
-| Auditor | Votes | Missing | Accuracy |
+| Auditor | Votes | Missing | Accuracy vs gold |
 |---|---:|---:|---:|
-| `meta-llama/llama-3.3-70b-instruct` | 180 | 0 | 56.7% |
+| `meta-llama/llama-3.3-70b-instruct` | 180 | 0 | 53.3% |
 | `mistralai/mistral-small-3.2-24b-instruct` | 180 | 0 | 56.7% |
-| `google/gemma-3-27b-it` | 180 | 0 | 56.7% |
-| `deepseek/deepseek-v3.2` | 180 | 0 | 56.7% |
+| `google/gemma-3-27b-it` | 180 | 0 | 45.6% |
+| `deepseek/deepseek-v3.2` | 180 | 0 | 56.1% |
 
-All auditors have identical overall accuracy because they are evaluated against the same consensus correct column; individual hit rates vary by MCQ.
+Individual auditor accuracy is measured against the gold correct label, not the consensus column. The four auditors have different hit rates because each independently selects from the four options, producing different per-model agreement patterns.
 
 ### 8.2 Example high-consensus-wrong items
 

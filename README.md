@@ -1,204 +1,154 @@
-# ProverbGap: Shortcut-Resistant Multiple-Choice Questions for Proverb Understanding
+# ProverbGap: Shortcut-Resistant Distractor Generation for Proverb Understanding
 
-> **Hardened adversarial distractor generation across English, Arabic, and Yoruba -- methodology paper first, with v68 N=5 (180 MCQs) as the production dataset.**
-
-[![Python](https://img.shields.io/badge/python-3.10%2B-blue)](https://www.python.org/)
-[![Tests](https://img.shields.io/badge/tests-pytest-green)](https://docs.pytest.org/)
-[![License](https://img.shields.io/badge/license-MIT-lightgrey)](LICENSE)
+> **What happens when you ask LLMs to generate distractors for proverb MCQs, then audit them blind?** The distractors look plausible but often wrong. This README documents the ProverbGap pipeline, the v68 N=5 experiment (180 MCQs across English, Arabic, and Yoruba), and why the system fails its own quality gates.
 
 ---
 
-## 1. Introduction
+## Table of Contents
 
-Modern LLMs can score 90%+ on simple proverb tests by exploiting surface-level shortcuts -- "the longest answer is right," "answers echoing the proverb are correct," or "always pick A." **ProverbGap** closes those shortcuts by generating distractors that **survive four adversarial prompt variants** and pass through a **blind options-only audit** by a four-model committee before reaching any human.
-
-**The scientific contribution is the pipeline -- not benchmark size.** At N=5 per language (180 MCQs across English, Arabic, and Yoruba), the pipeline reveals a systematic failure mode: when the semantic filters reject an LLM-generated distractor as "too plausible," a **corpus-based fallback sampler** fills the gap with unrelated proverbs' meanings. Those fallbacks look plausible to auditors but are wrong -- producing **27.8% High-Consensus-Wrong (HCW)** items, far above the 10% target.
-
-This README documents the v68 production dataset, the full experimental history (v59-v70), the verified empirical findings, and the path to publication.
-
----
-
-## 2. Current State
-
-| Milestone | Status | Notes |
-|-----------|--------|-------|
-| v68 dataset generation (180 MCQs) | Complete | 15 proverbs x 4 variants x 3 generators = 180, seed 20260615 |
-| Kaggle N=5 validation run | Complete | `mcq-pass-shortcut` kernel v68, 2026-06-22 |
-| Blind audit pipeline | Complete | 720 votes (180 x 4 auditors), 0 missing |
-| v69 LLM-fallback ablation | Blocked | Planned (N=5, USE_LLM_FALLBACK=True) -- OpenRouter budget exhausted |
-| v70 LLM-fallback run (N=5) | Halted | All generators hit 403 budget limit at 11/15 rows of adversarial-hard-negative, $0.42 spent |
-| Annotation app deployed | Live | [https://annotationapp.vercel.app](https://annotationapp.vercel.app) |
-| 60-item human validation sample | Prepared | In `data/production/paper_first_outputs_2026-06-22_10-42-02/` -- recruitment of 9 native speakers pending |
-| Paper drafting | In progress | Frame: methodology + failure taxonomy at N=5 |
-| Publication target | EACL 2027 ARR | Submission deadline: August 3, 2026 |
-
-**Where we stopped:** The v68 N=5 dataset is complete and validated. The critical bottleneck (corpus-based fallback sampler) was identified but could not be resolved: v69 (LLM-fallback ablation) was never executed (only template/planning files exist), and v70 (LLM-fallback attempt at N=5) was halted by OpenRouter budget exhaustion during the `adversarial-hard-negative` variant at 11/15 rows, $0.42 spent. The v70 log shows a cascade of 403 budget errors that exhausted every generator fallback in the pool before completion. Since the LLM-fallback fix could not be tested, the team pivoted to paper-first framing as a **methodology + failure taxonomy study** at N=5, with v69 and v70 listed as future work.
-
-**Abandonment rationale:** The pipeline's core failure mode is systematic, not stochastic — when NLI/leak filters reject LLM-generated distractors, the corpus fallback sampler produces plausible-but-wrong options that auditors accept (27.8% HCW). v70 was intended to test whether `USE_LLM_FALLBACK=True` (using `openai/gpt-4.1-nano` to generate proverb-specific hard negatives) would reduce HCW, but it failed before reaching the audit phase. Without a test of the fix, chasing lower fallback rates by tuning the same proxy/filter stack indefinitely was no longer informative.
+1. [The Problem](#1-the-problem)
+2. [What Makes a Good Distractor](#2-what-makes-a-good-distractor)
+3. [The Four Variants](#3-the-four-variants)
+4. [The Pipeline](#4-the-pipeline)
+5. [What v68 Showed](#5-what-v68-showed)
+6. [Why It Failed](#6-why-it-failed)
+7. [What We Learned](#7-what-we-learned)
+8. [Data, Code, and License](#8-data-code-and-license)
+9. [Human Validation (Planned)](#9-human-validation-planned)
+10. [Status and Next Steps](#10-status-and-next-steps)
+11. [Reproducing the Numbers](#11-reproducing-the-numbers)
 
 ---
 
-## 3. Task Explanation: The Hardened Pipeline
+## 1. The Problem
+
+Large language models can score 90%+ on simple proverb tests by exploiting surface-level shortcuts:
+
+- **"Longest answer is right"** — models use answer length as a signal
+- **"Echoing the proverb is correct"** — distractors that mirror the proverb's structure win by association
+- **"Always pick A"** — positional biases in both generation and evaluation
+
+Most proverb benchmarks (ProverbEval, JAWAHER, MasalBench) release MCQs without systematically checking whether distractors resist these shortcuts. **ProverbGap** treats MCQ construction itself as the research question: *How do you build and audit proverb MCQs that resist shortcut solutions?*
+
+The pipeline combines adversarial generation (four deliberately different prompt strategies), semantic filtering, corpus-based fallback, and a **blind options-only audit** by a four-model committee.
+
+---
+
+## 2. What Makes a Good Distractor
+
+A useful distractor is **plausible but wrong**. It tempts a fluent speaker who hasn't heard the specific proverb, but is demonstrably incorrect once the proverb is known.
+
+A **shortcut-prone** distractor fails this test in one of three ways:
+
+1. **Too generic** — unrelated to the proverb's meaning at all ("Charity begins at home" as a distractor for *A bird in the hand.*)
+2. **Too close** — a near-paraphrase of the correct meaning that the NLI/paraphrase filter rejects
+3. **Length-mismatched** — clearly longer or shorter than the correct option, enabling a length shortcut
+
+The pipeline's semantic filters catch #2 and #3. When they reject a distractor, a **corpus fallback sampler** fills the gap by pulling a meaning from another proverb. This is where the system breaks.
+
+---
+
+## 3. The Four Variants
+
+A **prompt variant** is a deliberately different set of instructions given to the language model when it generates distractors. The proverb and its intended meaning stay the same, but each variant emphasizes a different strategy for producing the three incorrect answer options. Comparing variants reveals which strategies produce usable distractors and which lead to filter rejection or fallback.
+
+The four distractor-generation variants are defined in [`kaggle/run_logs/v68/pilot1_prompt_variants.json`](kaggle/run_logs/v68/pilot1_prompt_variants.json). Each generates 4 options (index 0 = correct, indices 1-3 = incorrect distractors) under shared constraints: ±35% length parity, no negated/antonym traps, no meta-words, no source-language leakage.
+
+| Variant | How it works | Intended benefit | What v68 showed |
+|---------|-------------|-----------------|-----------------|
+| `adversarial-hard-negative` | Instructs the model to produce "hard negatives" — distractors that are **semantically close** to the correct meaning but wrong in a fine-grained way (misattributed agency, changed scope, wrong situation). | Force distractors that require real understanding to reject, not obvious wrong answers. | 24.4% HCW. Lowest perfect-consensus rate (31.1%) means auditors disagree more — but 42.2% needed length fallback because filters rejected the tempting distractors. |
+| `adversarial-length-locked` | Enforces strict ±35% character count parity across all four options and a register/style lock. Bans simple negations and antonyms. | Prevent length-based shortcuts (longest answer is right) and surface-pattern matching. | 35.6% HCW. Highest perfect-consensus rate (53.3%) — auditors agree too eagerly, often on the wrong answer. |
+| `taxonomy-guided` | Uses a structured error taxonomy (Haladyna & Downing / VERGE-inspired) to construct distractors for specific misunderstanding types: (1) partial meaning, (2) sensible but wrong situation, (3) missing key condition or nuance. | Systematically cover different ways a reader can misunderstand a proverb. | 28.9% HCW. 66.7% fully generated, 0.0% length fallback — cleanest generation status, but still high HCW because distractors are too tempting. |
+| `overgenerate-select` | Generates 8+ candidate distractors, then selects the 3 that would be **hardest to rule out** in a blind audit while still being wrong. | Use adversarial filtering to find the most tempting valid distractors. | 22.2% HCW. **71.1% fully generated** (highest) and 2.2% length fallback (lowest) — cleanest generation profile. |
+
+**Key insight:** higher generation-completion rate does **not** mean higher question quality. The `overgenerate-select` variant produces the most complete MCQs (71.1% with zero filter rejections), but still has 22.2% HCW items — its surviving distractors are too tempting to auditors. Meanwhile, `adversarial-hard-negative` produces the most tempting distractors but the filters reject 73.3% of them, triggering corpus fallbacks that become confident-wrong traps.
+
+### These are NOT the same as legacy evaluation-prompting styles
+
+The legacy Groq S1/S2 pipeline used evaluation prompting styles to *rate MCQ difficulty*:
+
+- **Zero-shot** — model rates difficulty with no examples
+- **Few-shot** — 2–3 example ratings provided
+- **Chain-of-thought** — examples with step-by-step reasoning before self-rating
+
+These are **evaluation** techniques, distinct from v68's **distractor-generation** variants. v68's audit committee uses **blind options-only voting** — it receives only the four answer options and selects the correct one without seeing the proverb. No evaluation prompting styles are applied at any stage.
+
+---
+
+## 4. The Pipeline
 
 ```
-  Data (Proverbs)  -->  Generation (Distractors)  -->  Audit (Blind)  -->  Annotation (Humans)  -->  Analysis (Stats)
-       |                     |                        |                  |                      |
-  raw corpora          4 prompt variants          4 LLMs vote        native speakers      Tables, figures,
-  (3 languages)       3 generator models        on correct answer     rate plausibility      failure taxonomy
-                      (A-D options each)         blind (no proverb)  & flag shortcuts      LaTeX
+Data (Proverbs) → Generation (4 variants × 3 generators) → Semantic filters (NLI, leak, length, blocklist)
+                     ↓                                        ↓
+                Corpus fallback sampler (when filters reject) → Option assembly (balanced A/B/C/D)
+                     ↓
+                Blind audit committee (4 models, options-only, no proverb)
+                     ↓
+                HCW detection (≥0.75 consensus on wrong answer)
 ```
 
-**Step 1 -- Data.** Proverbs from English, Arabic, and Yoruba corpora. See Section 4 for provenance and licensing status.
+**Stage 1 — Generation.** Three generators (`google/gemma-4-31b-it`, `google/gemini-2.5-flash`, `qwen/qwen3.7-max`) are applied to 15 proverbs (5 per language) across 4 variants, producing 180 MCQs.
 
-**Step 2 -- Generation.** A dynamic multi-model generator pool produces four multiple-choice options (1 correct meaning + 3 distractors) per proverb. Four adversarial prompt variants are applied:
+**Stage 2 — Semantic gates.** Generated distractors pass through NLI paraphrase filtering (rejects near-paraphrases of the correct meaning), leak sanitization (rejects distractors echoing the gold meaning), length parity check, and idiom blocklist. When a distractor fails, it is replaced.
 
-| Variant | Design goal | v68 behavior |
-|---------|-------------|--------------|
-| `adversarial-length-locked` | Strict sentence-length and register parity | Highest perfect-consensus rate (53.3%) but also high HCW (44.4%) |
-| `adversarial-hard-negative` | Tempting near-paraphrase distractors | Worst: 26.7% fully generated, 42.2% length-fallback, 40.0% HCW |
-| `overgenerate-select` | Generate 5+ distractors, select 3 best | Cleanest generation (71.1% fully generated) |
-| `taxonomy-guided` | Distractor selection via meaning-taxonomy constraints | Best for Yoruba (+26.7pp vs worst variant, 66.7% vs 40.0%) |
+**Stage 3 — Corpus fallback.** When all generated distractors for an MCQ fail the gates, the pipeline samples replacement options from **other proverbs' meanings**. This is the bottleneck (see §6).
 
-**Step 3 -- Semantic gates (dual-gate validation).** Raw distractors pass through sequential filters -- length parity, idiom blocklist, correct-meaning leak sanitizer, and NLI paraphrase filter. Any failure triggers a replacement.
+**Stage 4 — Blind audit.** A **separate** four-model committee (`llama-3.3-70b`, `mistral-small-3.2`, `gemma-3-27b-it`, `deepseek-v3.2`) votes on the correct answer **seeing only the four options** — no proverb text, no generator identity.
 
-**Step 4 -- Blind audit.** A separate four-model committee votes on the correct answer *without seeing the proverb* -- only the four options. HCW (consensus fraction >= 0.75, i.e., at least 3 of 4 auditors, on the wrong answer) flags items where distractors are tempting but misleading. The committee uses four different model families (Meta, Mistral, Google, DeepSeek), with Google appearing in both generator and auditor pools -- mitigated by the options-only blindness design.
-
-**Step 5 -- Human annotation.** Native speakers review the hardest items, select correct answers, and rate distractor plausibility. A 60-item stratified sample is prepared; recruitment of annotators is budget-dependent future work.
-
-**Step 6 -- Analysis.** Inter-annotator agreement, shortcut resistance, cost efficiency, and cross-lingual performance are measured with bootstrap CIs.
+**Stage 5 — HCW detection.** Items where ≥3 of 4 auditors agree on the *wrong* answer (consensus fraction ≥ 0.75) are flagged as **High-Consensus-Wrong (HCW)**. This is the key diagnostic: it reveals when the corpus fallback produces distractors that look plausible to an LLM committee but are wrong.
 
 ---
 
-## 4. Data Sources
+## 5. What v68 Showed
 
-**v68 production dataset (canonical):**
+v68 is the **complete and validated** production dataset: 180 MCQs (15 proverbs × 4 variants × 3 generators), generated on 2026-06-22 at a cost of $0.85. All 720 audit votes (180 × 4 auditors) are present with zero missing.
 
-| Source | Path | Contents |
-|--------|------|----------|
-| Generated MCQs | `kaggle/run_logs/v68/openrouter_pilot1_test_output/pilot1_test_generated_mcqs.csv` | 180 rows, all fields (proverb, gold meaning, 4 options, labels) |
-| Audit results | `kaggle/run_logs/v68/openrouter_pilot1_test_output/pilot1_test_audit_results.csv` | 180 rows x 4 auditor columns = 720 blind votes |
-| Run config | `kaggle/run_logs/v68/openrouter_pilot1_test_output/pilot1_test_summary.json` | Model roster, seed, variants, cost ($0.8539 / $5.00) |
-| Raw outputs | `kaggle/run_logs/v68/openrouter_pilot1_test_output/pilot1_test_raw_outputs.csv` | 183 raw generation attempts with full text |
+### 5.1 Aggregate results
 
-**Human validation sample:**
+| Metric | Value | 95% Bootstrap CI | Target | Status |
+|--------|------:|------------------|--------|--------|
+| Consensus accuracy | 56.7% (102/180) | [49.4%, 63.9%] | — | — |
+| Perfect consensus | 41.7% (75/180) | [34.4%, 48.9%] | < 30% | ❌ Fail |
+| High-consensus-wrong (HCW) | 27.8% (50/180) | [21.1%, 34.4%] | < 10% | ❌ Fail |
+| Partial + fallback | 43.9% (79/180) | [36.7%, 51.1%] | < 15% | ❌ Fail |
+| Hard fallback (length parity) | 16.1% (29/180) | [11.1%, 21.7%] | < 5% | ❌ Fail |
+| Duplicate options | 0 | [0%, 0%] | 0% | ✅ Pass |
+| Correct-key balance | 45/45/45/45 | — | ~25% each | ✅ Pass |
 
-| Source | Path | Contents |
-|--------|------|----------|
-| Validation sample | `data/production/paper_first_outputs_2026-06-22_10-42-02/human_validation_sample_60.csv` | 60 items (20 per language), stratified by generation status |
+**HCW definition:** consensus fraction ≥ 0.75 (at least 3 of 4 auditors agree) AND consensus label ≠ correct label. This is **not** the same as "all incorrect consensus answers" (43.3% = 100% − 56.7% accuracy). All HCW values in this README use the ≥ 0.75 threshold.
 
-**Proverb sources (with licensing notes):**
+### 5.2 Per-language results
 
-| Language | Status | Notes |
-|----------|--------|-------|
-| English | Public domain compilations | Multiple public-domain sources; see `submission_package_2026-08-02/DATA_PROVENANCE_TEMPLATE.md` (scrape URLs not recovered) |
-| Arabic | Documented dataset | IDs from `MID` prefix dataset; licensing under review |
-| Yoruba | Restricted | Derived from Owomoyela (2005), University of Nebraska Press -- **no redistribution permission**; Yoruba MCQs excluded from public release, retained for analysis only |
+| Language | N | Consensus accuracy | 95% CI (Wilson) | Perfect consensus | HCW (≥0.75) |
+|----------|---|-------------------|-----------------|-------------------|-------------|
+| English | 60 | 65.0% (39/60) | [52.4%, 75.8%] | 45.0% (27/60) | 18.3% (11/60) |
+| Arabic | 60 | 53.3% (32/60) | [40.9%, 65.4%] | 50.0% (30/60) | 31.7% (19/60) |
+| Yoruba | 60 | 51.7% (31/60) | [39.3%, 63.8%] | 30.0% (18/60) | 33.3% (20/60) |
 
----
+English is numerically easier but CIs overlap substantially with Arabic and Yoruba — the gap is not statistically significant at N=60 per language.
 
-## 5. Experimental Story: v59-v70 Timeline
+### 5.3 Per-generator results
 
-| Version | N per language | Notes | Status |
-|---------|---------------|-------|--------|
-| v59-v60 | N=45 | OpenRouter pipeline (refinements 1-2) | Pre-v68 lineage; legacy numbers not used in v68 paper |
-| v61-v67 | N=1-3 | OpenRouter pipeline refinement | Archived; v67 frozen as baseline |
-| **v68** | **N=5** | **Production dataset** | **Complete** -- 180 MCQs, $0.85, full blind audit |
-| v69 | N=5 | LLM-fallback ablation (`USE_LLM_FALLBACK=True`) | **Never executed** -- only template/planning files exist |
-| v70 | N=5 (fallback) | LLM-fallback attempt, `USE_LLM_FALLBACK=True` | **Halted** -- all generators hit 403 budget limit at 11/15 rows of `adversarial-hard-negative`, $0.42 spent |
+| Generator | N | Accuracy | Perfect consensus | HCW (≥0.75) | Fully generated |
+|-----------|---|----------|-------------------|-------------|-----------------|
+| `google/gemma-4-31b-it` | 60 | 65.0% | 46.7% | 21.7% | 66.7% (40/60) |
+| `google/gemini-2.5-flash` | 60 | 53.3% | 41.7% | 31.7% | 50.0% (30/60) |
+| `qwen/qwen3.7-max` | 60 | 51.7% | 36.7% | 30.0% | 51.7% (31/60) |
 
-**v68 is the production dataset.** It uses the frozen v67 configuration (`USE_LLM_FALLBACK=False`, `N_PER_LANG=5`, seed=20260615) and ran successfully on Kaggle in 2026-06-22.
+**Pooled accuracy (56.7%) is worse than gemma-only (65.0%).** Weaker generators drag down the pool, introducing more HCW items. A multi-model pool does not automatically improve distractor quality at N=5.
 
-**v69 was never executed.** Its directory contains only template and planning files (`v69_detailed_analysis_report.md` is all TBD blanks, `v69_analysis_plan.md` defines the comparison design, `v69_post_download_checklist.md` was never run, `compare_v68_v69.py` is a script awaiting v69 outputs). The v69 run was blocked before it could start; only planning artifacts exist.
+### 5.4 Per-variant results
 
-**v70 was started as an N=5 LLM-fallback run** (`USE_LLM_FALLBACK=True`, same seed 20260615, 15 proverbs) but was **halted by budget exhaustion**. The run completed the `adversarial-length-locked` variant fully (15/15 rows, $0.30) and began `adversarial-hard-negative` before all generators started returning `403 Budget limit exceeded` at 11/15 rows ($0.42 spent). The three active generators (qwen/qwen3.7-max, google/gemma-4-31b-it, google/gemini-2.5-flash) were systematically exhausted; the pool then cycled through substitute models (google/gemini-2.5-pro, openai/gpt-4.1-mini, openai/gpt-4.1-nano, qwen/qwen3.5-397b-a17b, anthropic/claude-sonnet-4, meta-llama/llama-4-maverick, deepseek/deepseek-v4-pro) before halting with `RuntimeError: No active generators remaining`. The run saved 83 partial generation rows in `kaggle/run_logs/v70/openrouter_pilot1_test_output/`: 45 rows from the completed `adversarial-length-locked` variant (15 proverbs × 3 generators) and 38 rows from the incomplete `adversarial-hard-negative` variant (11/15 rows reached before the crash). The saved `pool_state.json` records that generation and auditing were both incomplete (`position_counter=83`, `generation_done=false`, `audit_done=false`, `audited_mcq_ids=[]`); these rows are partial generation output, not a completed or audited benchmark. No audit-results CSV (`pilot1_test_audit_results.csv`) or summary JSON (`pilot1_test_summary.json`) was produced.
+| Variant | N | Accuracy | Perfect consensus | HCW (≥0.75) | Fully generated | Length fallback |
+|---------|---|----------|-------------------|-------------|-----------------|-----------------|
+| `adversarial-hard-negative` | 45 | 60.0% | 31.1% | 24.4% | 26.7% (12/45) | 42.2% |
+| `adversarial-length-locked` | 45 | 55.6% | 53.3% | 35.6% | 60.0% (27/45) | 20.0% |
+| `overgenerate-select` | 45 | 53.3% | 35.6% | 22.2% | 71.1% (32/45) | 2.2% |
+| `taxonomy-guided` | 45 | 57.8% | 46.7% | 28.9% | 66.7% (30/45) | 0.0% |
 
-> **Note on the "80" mystery:** The number "80" that appears in legacy logs refers to an **audit-progress checkpoint** ("Audited 80/90 MCQs", "Audited 80/270 MCQs"), not a dataset size. No version of this project ever produced exactly 80 MCQs. The canonical dataset is v68 with 180 MCQs.
+### 5.5 Position bias
 
-> **Prompting experiments (legacy vs. v68):** The legacy Groq S1/S2 pipeline used four evaluation prompting styles where the model was asked to evaluate each MCQ's difficulty: **zero-shot** (no examples), **few-shot** (2–3 example evaluations provided), and **chain-of-thought** (2–3 examples with step-by-step reasoning before self-evaluating). **One-shot** was planned but no evidence of implementation survives in the codebase or logs. These evaluation styles are distinct from v68's four **distractor-generation** prompt variants (`adversarial-length-locked`, `adversarial-hard-negative`, `taxonomy-guided`, `overgenerate-select`). The `few-shot-predictive` generation variant (used in v2.x–v67, dropped in v68) provides few-shot examples for *generating* distractors, not for *evaluating* them. v68's audit committee uses **blind options-only voting** (no evaluation prompting styles) — the committee receives only the four options and selects the correct one without seeing the proverb or any examples.
-
----
-
-## 6. Empirical Findings (v68, N=5)
-
-### 6.1 Aggregate metrics
-
-| Metric | v68 N=5 | Target | Pass |
-|--------|---------|--------|------|
-| Consensus accuracy | 56.7% (102/180) | -- | -- |
-| Perfect consensus | 41.7% (75/180) | < 30% | [X] |
-| HCW (consensus fraction >= 0.75) | 27.8% (50/180) | < 10% | [X] |
-| Partial + fallback | 43.9% (79/180) | < 15% | [X] |
-| Hard fallback (length) | 16.1% (29/180) | < 5% | [X] |
-| Duplicate options | 0 | 0 | [OK] |
-| Correct-key balance | 45/45/45/45 | ~25% each | [OK] |
-
-**HCW threshold note:** The canonical definition (used in `v68_detailed_analysis_report.md` line 61) is **consensus fraction >= 0.75 (3 of 4 auditors) AND consensus label != correct**. Some earlier per-language files used >= 0.50, inflating HCW to 42.8%. The >= 0.75 standard is used throughout this README.
-
-### 6.2 Per-language performance
-
-| Language | N | Consensus accuracy | 95% CI (Wilson) | Perfect consensus | HCW (>=0.75) | Fallback mean |
-|----------|---------|-------------------|-----------------|-------------------|-------------|---------------|
-| English | 60 | 65.0% (39/60) | 52.4%-75.8% | 45.0% (27/60) | 18.3% (11/60) | 0.43 |
-| Arabic | 60 | 53.3% (32/60) | 40.9%-65.4% | 50.0% (30/60) | 31.7% (19/60) | 1.52 |
-| Yoruba | 60 | 51.7% (31/60) | 39.3%-63.8% | 30.0% (18/60) | 33.3% (20/60) | 1.03 |
-
-- **English** is the "too-easy" language: 65.0% accuracy but 45.0% perfect consensus means distractors lack temptation.
-- **Arabic** is the "confident-wrong" language: 50.0% perfect consensus with 31.7% HCW -- auditors agree often but usually on the wrong answer.
-- **Yoruba** is the "fragile low-resource" language: 51.7% accuracy, just clearing the 50% gate, with the lowest auditor hit rates (Gemma-3-27b: 36.7% vs gold).
-
-### 6.3 Per-generator performance
-
-| Generator | N | Accuracy | Perfect | HCW | Fully generated |
-|-----------|---------|----------|---------|---------|-----------------|
-| google/gemma-4-31b-it | 60 | 65.0% | 46.7% | 35.0% | 66.7% (40/60) |
-| google/gemini-2.5-flash | 60 | 53.3% | 41.7% | 46.7% | 50.0% (30/60) |
-| qwen/qwen3.7-max | 60 | 51.7% | 36.7% | 46.7% | 51.7% (31/60) |
-
-**gemma-4-31b-it is the strongest generator** -- highest accuracy, lowest HCW, cleanest generation profile. qwen3.7-max produces the most length-fallback items (30.0%) and the highest mean fallback count (1.33).
-
-### 6.4 Per-variant performance
-
-| Variant | N | Accuracy | Perfect | HCW | Fully generated |
-|---------|---------|----------|---------|---------|-----------------|
-| adversarial-hard-negative | 45 | 60.0% | 31.1% | 40.0% | 26.7% (12/45) |
-| adversarial-length-locked | 45 | 55.6% | 53.3% | 44.4% | 60.0% (27/45) |
-| overgenerate-select | 45 | 53.3% | 35.6% | 46.7% | 71.1% (32/45) |
-| taxonomy-guided | 45 | 57.8% | 46.7% | 40.0% | 66.7% (30/45) |
-
-### 6.5 Generation pipeline diagnostics
-
-| Status | Count | % |
-|--------|------:|------:|
-| generated (fully passed) | 101 | 56.1% |
-| partial (>=1 filter replacement) | 50 | 27.8% |
-| length_fallback (corpus sampler) | 29 | 16.1% |
-| parse_fallback / hard_fallback | 0 | 0.0% |
-
-**Mean replacements per MCQ (filter drivers):**
-
-| Filter | Mean/MCQ | Share of replacements |
-|--------|----------:|--------------------------|
-| NLI paraphrase | 0.36 | ~36% |
-| Correct-meaning leak | 0.35 | ~35% |
-| Length parity | 0.15 | ~15% |
-| Blocklist | 0.02 | ~2% |
-
-Replacements are dominated by **semantic filtering** (NLI + leak = 71% of replacements), not structural issues.
-
-### 6.6 Audit committee (blind, options-only)
-
-| Auditor | Family | vs. gold (180 items) | Pairwise kappa (mean) |
-|---------|--------|----------------------|-----------------------|
-| meta-llama/llama-3.3-70b-instruct | Meta | 53.3% | 0.53 |
-| mistralai/mistral-small-3.2-24b-instruct | Mistral | 56.7% | 0.51 |
-| google/gemma-3-27b-it | Google | 45.6% | 0.50 |
-| deepseek/deepseek-v3.2 | DeepSeek | 56.1% | 0.51 |
-
-- 0 missing votes, 0 substitutions across all 720 audit votes.
-- Per-language hit rates: English 55-70%, Arabic 45-55%, Yoruba 36.7-48.3% (Gemma-3-27b drops to 36.7% on Yoruba).
-- Committee families: Meta, Mistral, Google, DeepSeek -- no OpenAI or Anthropic. Google appears in both generator and auditor pools; mitigated by the options-only blindness design.
-
-### 6.7 Position bias
+Correct-key distribution is perfectly balanced: 45/45/45/45. Committee accuracy by position:
 
 | Position | Correct | Total | Accuracy |
 |----------|--------:|------:|----------:|
@@ -207,172 +157,174 @@ Replacements are dominated by **semantic filtering** (NLI + leak = 71% of replac
 | C | 22 | 45 | 48.9% |
 | D | 21 | 45 | 46.7% |
 
-chi-squared = 3.49, df = 3, **p = 0.322** -- not statistically significant at N=180. Correct-key distribution is perfectly balanced (15 per position per language). The position-corrected consensus metric equals the raw consensus (0.5667), confirming the bias is calibrated out in aggregate by balanced key placement.
+Chi-square goodness-of-fit: χ² = 3.49, df = 3, **p = 0.322** — not significant at α = 0.05. The position bias trend is present (73.3% vs 46.7%) but does not reach significance at N=180. Balanced key placement means the bias **cancels out in aggregate metrics**, but the per-position variance indicates committee calibration issues — it is not eliminated.
+
+### 5.6 Audit committee (blind, options-only)
+
+Each auditor votes on 180 MCQs seeing only the four options. Individual accuracy against the **gold** correct label:
+
+| Auditor | Family | Accuracy vs gold |
+|---------|--------|------------------|
+| `meta-llama/llama-3.3-70b-instruct` | Meta | 53.3% (96/180) |
+| `mistralai/mistral-small-3.2-24b-instruct` | Mistral | 56.7% (102/180) |
+| `google/gemma-3-27b-it` | Google | 45.6% (82/180) |
+| `deepseek/deepseek-v3.2` | DeepSeek | 56.1% (101/180) |
+
+The committee's 56.7% consensus accuracy is only slightly above random (25% for 4 options), confirming that options-only selection is a **diagnostic** — it reveals what the distractors themselves invite, not whether the pipeline produces valid MCQs for human use.
+
+### 5.7 Filter replacement analysis
+
+| Filter | Mean replacements/MCQ | Share |
+|--------|----------------------:|-------|
+| NLI paraphrase | 0.36 | ~36% |
+| Correct-meaning leak | 0.35 | ~35% |
+| Length parity | 0.15 | ~15% |
+| Blocklist | 0.02 | ~2% |
+| **Total** | **0.99** | 100% |
+
+Semantic filters (NLI + leak = 71%) dominate replacements, not structural issues.
 
 ---
 
-## 7. Failure Taxonomy (v68)
+## 6. Why It Failed
 
-The v68 run produced six documented failure modes, catalogued in `table7_v68_findings.csv` and `table7_legacy_findings.csv`:
+The v68 experiment failed four of six shortcut-resistance gates. The root cause is the **corpus fallback sampler**:
 
-| # | Failure mode | Pipeline locus | Magnitude | Status |
-|---|-------------|----------------|-----------|--------|
-| 1 | Corpus fallback quality collapse | Fallback sampler | 43.9% partial+fallback, 0.99 replacements/MCQ | Unfixed -- v69 ablation blocked |
-| 2 | High-Consensus-Wrong (HCW) | Audit committee | 27.8% (target <10%) | Unfixed -- driver: fallback distractors |
-| 3 | Near-paraphrase trap | NLI filter over-aggressive | 0.36 NLI replacements/MCQ | Contributing cause of #1 |
-| 4 | Correct-meaning leak | Leak filter over-aggressive | 0.35 leak replacements/MCQ | Contributing cause of #1 |
-| 5 | Position bias in audit | MCQ assembly | A=73.3% vs D=46.7%, p=0.322 (ns) | Reported, neutralized by balanced keys |
-| 6 | Cross-lingual fallback asymmetry | Language-specific filters | Arabic 3.5x English fallback rate | Primary cross-lingual finding |
+1. **43.9%** of MCQs needed at least one fallback replacement (mean 0.99 replacements/MCQ).
+2. The NLI and leak filters are **over-aggressive**: they reject semantically close distractors that could be genuinely good hard negatives, replacing them with unrelated proverb meanings.
+3. Those corpus fallbacks are often generic moral statements or culturally mismatched idioms that **look plausible to auditors but are wrong** — producing 27.8% HCW items.
+4. **English is trivially easy** (65.0% accuracy, 45.0% perfect consensus) — distractors don't tempt.
+5. **Cross-lingual asymmetry**: Arabic requires 3.5× more fallback replacements than English (1.52 vs 0.43 per MCQ), indicating the pipeline is calibrated for English.
 
-The **core finding**: the corpus-based fallback sampler is the bottleneck. When NLI or leak filters reject an LLM-generated distractor, the pipeline samples a replacement from *other proverbs' meanings*. Those replacements are often generic moral statements or culturally mismatched idioms that auditors find plausible but are wrong. The strongest generator (gemma-4-31b-it) still has 35.0% HCW, confirming the problem is systemic, not model-specific.
+**This is a systematic failure, not a stochastic one.** The pipeline's infrastructure is robust (zero API failures, zero missing votes), but the fallback sampler's quality collapse is structural: when semantic filters reject a distractor, the only replacement source is other proverbs' meanings, which are too generic to serve as targeted hard negatives.
 
-**Recommended fix (v69 ablation, blocked):** Enable `USE_LLM_FALLBACK=True` with `FALLBACK_GENERATOR_MODEL="openai/gpt-4.1-nano"` to generate proverb-specific hard negatives on demand instead of corpus sampling. Estimated additional cost: $0.10-$0.20 for the N=5 run.
+The v68 report's full failure taxonomy is documented in [`v68_detailed_analysis_report.md`](kaggle/run_logs/v68/v68_detailed_analysis_report.md).
 
 ---
 
-## 8. Human Validation
+## 7. What We Learned
 
-**Status: Prepared, not started.** A 60-item stratified sample (20 per language, balanced by generation status) is ready at `data/production/paper_first_outputs_2026-06-22_10-42-02/human_validation_sample_60.csv`. Recruitment of 9 native speakers (3 per language x 20 items) is budget- and time-dependent.
+1. **The corpus fallback sampler is the bottleneck — not the generators.** Even the strongest generator (gemma-4-31b-it, 65.0% accuracy) still produces 21.7% HCW because fallbacks override good initial generation.
+2. **Higher completion rate ≠ better quality.** `overgenerate-select` has 71.1% clean generation but 22.2% HCW. Filters reject the tempting distractors; fallback produces plausible-but-wrong options.
+3. **NLI + leak filters over-fire.** 71% of replacements come from semantic filters (NLI 36%, leak 35%), not length or structure. The thresholds may be too aggressive for non-English languages.
+4. **Cross-lingual calibration gap.** Arabic and Yoruba trigger 3.5× more fallbacks than English. The pipeline works for English but aggressively rejects output for morphologically complex languages.
+5. **The LLM audit is a diagnostic, not validation.** The blind options-only committee reveals what the distractor set invites, but 56.7% accuracy shows auditors struggle without the proverb context.
 
-### Protocol
+### Research direction change
 
-- **Annotators:** 3 native speakers per language (9 total)
-- **Task:** Blind options-only (proverb text + 4 options, no correct label or LLM consensus visible)
-- **Judgment:** Select correct answer + rate distractor plausibility (1-5 scale)
-- **Attention checks:** Embedded trap items, minimum 80% accuracy required
-- **Timing guards:** 10s minimum, 120s maximum per item
-- **Primary metric:** Fleiss kappa for categorization agreement (target: kappa >= 0.6)
-- **Secondary metrics:** Per-language kappa, Spearman correlation of plausibility ratings
+The original plan was to scale to N=15 (540 MCQs) if v68 passed quality gates. Since v68 failed all shortcut-resistance gates, the project **pivoted to paper-first framing**: documenting the methodology, failure taxonomy, and diagnostic value of the v68 dataset.
 
-**LLM-proxy IAA calibration (7-model proxy, 60-item subset):**
-- Fleiss kappa = 0.4845
-- Mean pairwise Cohen kappa = 0.4846
-- Per-model gold accuracy: 58.3%-78.3% (mean 69.4%)
-- This establishes the LLM audit committee's ceiling and justifies the human-validation plan as essential.
-
-**Annotation app (live):** [https://annotationapp.vercel.app](https://annotationapp.vercel.app) -- anonymous, browser-based, Supabase-backed with batch-based assignment (10 items/batch), attention checks, and admin export. Self-hosted setup instructions: [annotation_app/README.md](annotation_app/README.md).
+The **v69 ablation** (enabling `USE_LLM_FALLBACK=True` to replace the corpus sampler with a proverb-specific hard-negative generator) was planned as the primary fix but was **never executed** — OpenRouter budget was exhausted before the run could start.
 
 ---
 
-## 9. Next Steps
+## 8. Data, Code, and License
 
-### Blocked (requires OpenRouter budget renewal)
+### Code
 
-| Task | What | Estimated cost | Success gate |
-|------|------|----------------|--------------|
-| **v69** LLM-fallback ablation | N=5, `USE_LLM_FALLBACK=True` | ~$1.00 | HCW < 15%, partial+fallback < 30% |
-| v70 N=5 re-run (if budget renews) | N=5, USE_LLM_FALLBACK=True | ~$0.85 | Same gates as v68 |
-| Human validation (60 items x 3 annotators/language) | 60-90 items | ~$200-300 | Fleiss kappa >= 0.6 |
+All Python code is licensed under the **MIT License** (see [`LICENSE`](LICENSE)).
 
-**If v69 passes gates:** freeze config, run v70, update all paper numbers.
+### Datasets
+
+**Data licensing is BLOCKED PENDING PROVENANCE/RIGHTS REVIEW.** The datasets are **not** released under CC BY 4.0. See [`LICENSE`](LICENSE) for the full status:
+
+- **English**: Scraped from public-domain sources. Specific URLs were not recovered; rights verification pending.
+- **Arabic**: From a `MID`-prefix academic dataset. Source unidentified; licensing under review.
+- **Yoruba**: Derived from Owomoyela (2005), *Yoruba Proverbs* (University of Nebraska Press, ISBN 978-0-8032-1843-7). **Copyrighted.** No redistribution permission obtained. Despite prior documentation claiming exclusion, the public v68 CSV currently contains 60 Yoruba MCQ rows. This exposure is documented as an unresolved data-rights issue; removal of Yoruba rows is pending owner approval.
+
+### Provenance documentation
+
+[`DATA_PROVENANCE_TEMPLATE.md`](DATA_PROVENANCE_TEMPLATE.md) (also in [`submission_package_2026-08-02/`](submission_package_2026-08-02/DATA_PROVENANCE_TEMPLATE.md)) documents all three language sources with explicit liability notes.
+
+### v68 production artifacts
+
+| Artifact | Path | Contents |
+|----------|------|----------|
+| Generated MCQs | [`kaggle/run_logs/v68/openrouter_pilot1_test_output/pilot1_test_generated_mcqs.csv`](kaggle/run_logs/v68/openrouter_pilot1_test_output/pilot1_test_generated_mcqs.csv) | 180 rows (includes 60 Yoruba rows — see rights note above) |
+| Audit results | [`kaggle/run_logs/v68/openrouter_pilot1_test_output/pilot1_test_audit_results.csv`](kaggle/run_logs/v68/openrouter_pilot1_test_output/pilot1_test_audit_results.csv) | 180 × 4 = 720 blind audit votes |
+| Run config | [`kaggle/run_logs/v68/openrouter_pilot1_test_output/pilot1_test_summary.json`](kaggle/run_logs/v68/openrouter_pilot1_test_output/pilot1_test_summary.json) | Model roster, seed, variants, cost ($0.8539) |
+| Analysis report | [`kaggle/run_logs/v68/v68_detailed_analysis_report.md`](kaggle/run_logs/v68/v68_detailed_analysis_report.md) | Executive summary, gate table, failure taxonomy |
+| Generator-variant analysis | [`kaggle/run_logs/v68/openrouter_pilot1_test_output/v68_generator_variant_analysis.md`](kaggle/run_logs/v68/openrouter_pilot1_test_output/v68_generator_variant_analysis.md) | Per-generator/variant HCW at ≥0.75 |
+
+**Full execution history and metric definitions** are documented in [`docs/RESEARCH_HISTORY_AND_README_AUDIT.md`](docs/RESEARCH_HISTORY_AND_README_AUDIT.md).
+
+---
+
+## 9. Human Validation (Planned, Not Started)
+
+A 60-item stratified sample (20 per language, balanced by generation status) is prepared at [`data/production/paper_first_outputs_2026-06-22_10-42-02/human_validation_sample_60.csv`](data/production/paper_first_outputs_2026-06-22_10-42-02/human_validation_sample_60.csv).
+
+**Status: Prepared, not started.** Recruitment of 9 native speakers (3 per language) is budget-dependent.
+
+### What is NOT ready
+
+The **LLM-proxy inter-annotator agreement** (7-model proxy, 60-item subset) shows Fleiss κ = 0.4845 and mean pairwise Cohen κ = 0.4846. This is a **calibration anchor** — it shows what agreement looks like when 7 models annotate the same items. It does **not** establish an upper limit for human agreement, and it is not a substitute for human validation. Native-speaker IAA must be measured separately.
+
+**Planned human validation:** annotators see the proverb + four options (no gold label, no LLM votes), select the correct answer, and rate distractor plausibility. This is fundamentally different from the blind options-only audit (which withholds the proverb).
+
+---
+
+## 10. Status and Next Steps
+
+### Current state
+
+| Milestone | Status |
+|-----------|--------|
+| v68 dataset generation (180 MCQs) | **Complete** — seed 20260615, $0.85 cost |
+| Blind audit pipeline (720 votes) | **Complete** — 0 missing, 0 substitutions |
+| v68 metric verification | **Complete** — all values recomputed from raw CSVs |
+| Statistical tests (McNemar, Wilcoxon, Holm-Bonferroni) | **Complete** — all null (p > 0.05); results in [`paper/tables/table_statistical_tests_corrected.csv`](paper/tables/table_statistical_tests_corrected.csv) |
+| Bootstrap CIs (all metrics) | **Complete** — 10,000 resamples; in [`kaggle/run_logs/v68/table_bootstrap_cis.csv`](kaggle/run_logs/v68/table_bootstrap_cis.csv) |
+| v69 LLM-fallback ablation | **Blocked** — never executed (budget exhausted before start) |
+| v70 LLM-fallback run | **Halted** — incomplete at 83/180 rows, no audit phase reached |
+| Human validation (60 items) | **Not started** — recruitment pending |
+| Paper draft | **In progress** — see [`paper/proverbgap_eacl2027.md`](paper/proverbgap_eacl2027.md) |
+
+### Publication status
+
+The paper targets **EACL 2027 ARR**. The submission deadline was **August 3, 2026**. No submission record, paper ID, or reviewer decision has been documented in this repository. Submission status is **unconfirmed** and must be verified by the owner.
+
+### Next steps (no budget needed)
+
+- [x] v68 verification and metric reconciliation (this README)
+- [x] Paper drafting complete through Section 11
+- [ ] Tests: add HCW threshold (>=0.75) and length-fallback status verification tests
+
+### Next steps (requires OpenRouter budget)
+
+| Task | Estimated cost | Success gate |
+|------|----------------|--------------|
+| v69 LLM-fallback ablation (N=5) | ~$1.00 | HCW < 15%, partial+fallback < 30% |
+| Human validation (60 items × 3 annotators) | ~$200–300 | Fleiss κ ≥ 0.6 |
+
+**If v69 passes gates:** freeze config, scale to N=15 (v70 re-run), update paper numbers.  
 **If v69 fails or budget stays exhausted:** v68 is the production dataset. Paper is framed as a methodology + failure taxonomy study at N=5.
 
-### In-progress (no budget needed)
-
-- [x] v68 verification and reporting (complete)
-- [x] README rewrite (this document)
-- [x] `docs/RESEARCH_HISTORY_AND_README_AUDIT.md` (this document's companion)
-- [ ] Paper drafting (Sections 1-11 per `docs/ProverbGap_Reframed_Title_Abstract.md`)
-- [ ] Statistical tests (McNemar, Wilcoxon, Holm-Bonferroni) on v68 paired subsets
-- [ ] Bootstrap CIs for all six aggregate metrics
-
-### Paper framing
-
-The paper is framed as:
-
-> **"Hardened Adversarial Distractor Generation for Low-Resource Figurative Language: A Case Study in Proverb Understanding"**
-
-The contribution is the methodology (hardened pipeline with dual-gate validation and blind audit) and the failure taxonomy (corpus-fallback collapse, NLI over-filtering, position bias, cross-lingual asymmetry), **not** benchmark size.
-
-**Non-goals (explicitly dropped):** The legacy Groq S1/S2 pipeline (2,313 MCQs, 86.8% vs 62.5%), encoder baselines, human-validation kappa >= 0.75 claims, scaling to N=15/N=700, and S1/S2 cross-lingual boundary (8.9pp/2.2pp). See Section 10 for the full list of deprecated claims.
-
 ---
 
-## 10. Legacy Numbers Warning
+## 11. Reproducing the Numbers
 
-Old runs and earlier paper drafts contain numbers that are **not part of the v68 production dataset**:
-
-| Deprecated claim | Source | Why it's invalid |
-|-----------------|--------|-----------------|
-| 2,313 MCQs | Legacy Groq Pilot 2 | v68 produces 180 MCQs; 2,313 is from a different pipeline |
-| S1 86.8% vs S2 62.5% | Legacy Groq S1/S2 | Not reproducible on the v68 hardened pipeline |
-| Encoder baselines (mBERT 54.7%, XLM-R 55.3%, etc.) | Legacy draft | Not computed on v68 data; replaced by TF-IDF cosine baseline (36.7%) |
-| Same-family exploitation +31.1pp | Legacy Groq S1/S2 | Legacy number; v68 uses disjoint families (Meta/Mistral/DeepSeek in auditor-only) with options-only blindness; Google shared across pools but mitigated by blindness |
-| "80 MCQs" | Audit logs | Audit-progress counter, not a dataset size |
-| Human validation kappa >= 0.75 | Old plan | Not started; LLM-proxy kappa = 0.4845 is the current ceiling |
-
----
-
-## Project Structure
-
-```
-proverb_mcq/
-|-- actual_data/                 # Cleaned proverb corpora (3 languages)
-|-- annotation/                  # Human-validation tooling
-|-- annotation_app/              # Next.js + Supabase annotation frontend
-|-- data/
-|   |-- production/
-|   |   |-- paper_first_outputs_2026-06-22_10-42-02/  # v68 tables, figures, 60-item sample
-|-- docs/                        # Methodology and planning docs
-|   |-- RESEARCH_HISTORY_AND_README_AUDIT.md  # This audit trail
-|-- kaggle/
-|   |-- run_logs/
-|   |   |-- v68/                 # Production run (COMPLETE)
-|   |   |-- v69/                 # Planned ablation (BLOCKED -- never executed)
-|   |   |-- v70/                 # LLM-fallback run (HALTED -- budget exhaustion during 2nd variant)
-|   |-- kaggle_analysis/
-|-- paper/                       # Paper artifacts
-|-- scripts/
-|-- src/
-|-- tests/
-|-- submission_package_2026-08-02/
-|-- .archive/                    # Archived legacy code and outputs
-|-- CONTRIBUTING.md
-|-- DATASET_CARD.md
-|-- GETTING_STARTED.md
-|-- SECURITY.md
-|-- CHANGELOG.md
-|-- requirements.txt
-|-- README.md                   # This file
-```
-
----
-
-## Quick Start
-
-### I want to annotate (human validation)
-
-The annotation app lets you review MCQs in a browser. No code experience needed.
+To recompute all v68 metrics from the raw CSVs:
 
 ```bash
-git clone https://github.com/saaga23/proverb_mcq.git
-cd proverb_mcq/annotation_app
-npm install
-npm run dev
-```
+# HCW at the canonical >= 0.75 threshold
+python kaggle/run_logs/v68/openrouter_pilot1_test_output/analyze_v68.py
 
-Visit [https://annotationapp.vercel.app](https://annotationapp.vercel.app) or `http://localhost:3000`.
+# Bootstrap CIs for all six aggregate metrics (10,000 resamples)
+python kaggle/run_logs/v68/analysis_scripts/analyze_bootstrap_cis.py
 
-See [annotation_app/ANNOTATOR_ONBOARDING.md](annotation_app/ANNOTATOR_ONBOARDING.md) for the annotator guide.
+# Statistical tests (McNemar, Wilcoxon, Holm-Bonferroni)
+python kaggle/run_logs/v68/analysis_scripts/analyze_statistical_tests.py
 
-### I want to reproduce or extend the pipeline
-
-```bash
-git clone https://github.com/saaga23/proverb_mcq.git
-cd proverb_mcq
-python -m venv .venv
-source .venv/bin/activate  # Windows: .venv\Scripts\activate
-pip install -r requirements.txt
+# Run the test suite
 pytest tests/ -v
 ```
 
-### I want to understand the research
+All scripts read from the canonical CSVs:
+- `kaggle/run_logs/v68/openrouter_pilot1_test_output/pilot1_test_audit_results.csv`
+- `kaggle/run_logs/v68/openrouter_pilot1_test_output/pilot1_test_generated_mcqs.csv`
 
-1. This README -- current state and findings (start here)
-2. [docs/RESEARCH_HISTORY_AND_README_AUDIT.md](docs/RESEARCH_HISTORY_AND_README_AUDIT.md) -- full experiment timeline and audit trail
-3. [kaggle/run_logs/v68/v68_detailed_analysis_report.md](kaggle/run_logs/v68/v68_detailed_analysis_report.md) -- v68 executive summary and gate table
-4. [docs/ProverbGap_Reframed_Title_Abstract.md](docs/ProverbGap_Reframed_Title_Abstract.md) -- paper outline, claims traceability, non-goals
-5. [paper/proverbgap_eacl2027.md](paper/proverbgap_eacl2027.md) -- full paper draft
+No external API calls or model generation is triggered by the analysis scripts.
 
 ---
 
@@ -383,7 +335,7 @@ pytest tests/ -v
   title        = {Hardened Adversarial Distractor Generation for Low-Resource Figurative Language: A Case Study in Proverb Understanding},
   author       = {Abraham, Sunday Aspita},
   year         = {2026},
-  howpublished = {EACL 2027 ARR submission},
+  howpublished = {EACL 2027 ARR submission (status unconfirmed)},
   note         = {v68 N=5 production dataset: 180 MCQs, $0.85 cost, 4-model blind audit committee},
   url          = {https://github.com/saaga23/proverb_mcq}
 }
@@ -391,12 +343,4 @@ pytest tests/ -v
 
 ---
 
-## License
-
-This project is released under the [MIT License](LICENSE).
-
-The v68 MCQ dataset (180 items, English and Arabic) is released under **CC BY 4.0**. The Yoruba MCQs are excluded from public release due to copyright restrictions on the source corpus (Owomoyela, 2005). See `data/production/paper_first_outputs_2026-06-22_10-42-02/` for data license details and `submission_package_2026-08-02/DATA_PROVENANCE_TEMPLATE.md` for provenance documentation (English scrape URLs not recovered; Arabic source unidentified; Yoruba copyright unverified — all flagged as liabilities).
-
----
-
-*For questions about the research, open an issue or see [docs/RESEARCH_HISTORY_AND_README_AUDIT.md](docs/RESEARCH_HISTORY_AND_README_AUDIT.md) for the complete audit trail.*
+*For the full experiment timeline, model roster details, claims audit, and evidence file index, see [docs/RESEARCH_HISTORY_AND_README_AUDIT.md](docs/RESEARCH_HISTORY_AND_README_AUDIT.md).*

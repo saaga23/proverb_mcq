@@ -9,7 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 ### Added
 - Publication-ready GitHub community documentation (README, CONTRIBUTING, CODE_OF_CONDUCT, SECURITY, CHANGELOG)
 - Paper-first analysis notebook and 60-item human-validation sample generation
-- Reviewer response documents for EACL 2027 ARR
+- Reviewer risk checklist draft (submission status unconfirmed)
 
 ### Changed
 - Pivoted from scale-first to paper-first workflow: v68 N=5 dataset is now the production dataset
@@ -26,7 +26,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 ### Added
 - v68 N=5 Kaggle run: **180 MCQs** generated from 15 proverbs (5 per language)
 - Frozen v67 configuration with stable generator roster
-- Production dataset release: `data/production/v68/`
+- Production dataset artifacts: `data/production/paper_first_outputs_2026-06-22_10-42-02/`
 - Wilson confidence intervals and paired statistical comparisons (McNemar, Wilcoxon, bootstrap)
 - 10 PNG visualizations for paper figures
 

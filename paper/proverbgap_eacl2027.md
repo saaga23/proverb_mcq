@@ -1,7 +1,7 @@
 # ProverbGap: Hardened Adversarial Distractor Generation for Low-Resource Figurative Language
 
 **Authors:** Sunday Aspita Abraham et al.  
-**Venue:** EACL 2027 ARR Submission  
+**Venue:** EACL 2027 ARR (submission status unconfirmed -- deadline August 3, 2026 has passed; no submission record or decision documented in this repository)  
 **Date:** 2026-08-02  
 
 ---
@@ -186,7 +186,7 @@ Seven closed LLMs annotated a 60-item subset (20 per language). Fleiss κ = 0.48
 | Perfect consensus | 41.7% | [34.4%, 48.9%] | < 30% | ❌ |
 | HCW | 27.8% | [21.1%, 34.4%] | < 10% | ❌ |
 | Partial + fallback | 43.9% | [36.7%, 51.1%] | < 15% | ❌ |
-| Hard fallback (length parity) | 16.1% | [11.1%, 21.7%] | < 5% | ✅ |
+| Hard fallback (length parity) | 16.1% | [11.1%, 21.7%] | < 5% | ❌ |
 | Duplicate options | 0.0% | [0.0%, 0.0%] | 0% | ✅ |
 | Correct-key balance | 45/45/45/45 | — | ~25% | ✅ |
 
@@ -224,7 +224,7 @@ Correct-key distribution is perfectly balanced: 45/45/45/45 across all 180 MCQs.
 | C | 22 | 45 | 48.9% |
 | D | 21 | 45 | 46.7% |
 
-Chi-square goodness-of-fit: χ² = 3.49, df = 3, p = 0.322. **Not significant** at α = 0.05. The position-bias trend is present but does not reach significance at N = 180. Balanced key distribution means the raw consensus accuracy is unbiased, but variance by position suggests committee calibration issues.
+Chi-square goodness-of-fit: χ² = 3.49, df = 3, p = 0.322. **Not significant** at α = 0.05. The position-bias trend is present (73.3% vs 46.7% per-position accuracy) but does not reach significance at N = 180. Balanced key distribution means the position bias cancels out in aggregate metrics, but it does not eliminate the underlying per-position effect; per-position variance suggests committee calibration issues.
 
 ### 5.5 Infrastructure Robustness
 

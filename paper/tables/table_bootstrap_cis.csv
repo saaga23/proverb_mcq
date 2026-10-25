@@ -1,9 +1,9 @@
 metric,point_estimate,ci_lower_95,ci_upper_95,n
 consensus_accuracy,0.5667,0.4944,0.6389,180
 perfect_consensus_rate,0.4167,0.3444,0.4889,180
-hcw_rate,0.4333,0.3611,0.5056,180
+hcw_rate,0.2778,0.2111,0.3444,180
 partial_or_fallback_rate,0.4389,0.3667,0.5111,180
-hard_fallback_rate,0.0,0.0,0.0,180
+hard_fallback_rate,0.1611,0.1111,0.2167,180
 duplicate_rate,0.0,0.0,0.0,180
 consensus_accuracy_English,0.65,0.5333,0.7667,60
 consensus_accuracy_Arabic,0.5333,0.4,0.65,60

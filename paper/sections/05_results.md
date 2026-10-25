@@ -5,12 +5,12 @@
 | Metric | v68 N=5 | 95% Bootstrap CI | Target | Pass? |
 |--------|---------|------------------|--------|-------|
 | Consensus accuracy | 56.7% | [49.4%, 63.9%] | â€” | â€” |
-| Perfect consensus | 41.7% | [34.4%, 48.9%] | < 30% | âŒ |
-| HCW | 27.8% | [21.1%, 34.4%] | < 10% | âŒ |
-| Partial + fallback | 43.9% | [36.7%, 51.1%] | < 15% | âŒ |
-| Hard fallback (length parity) | 16.1% | [11.1%, 21.7%] | < 5% | âœ… |
-| Duplicate options | 0.0% | [0.0%, 0.0%] | 0% | âœ… |
-| Correct-key balance | 45/45/45/45 | â€” | ~25% | âœ… |
+| Perfect consensus | 41.7% | [34.4%, 48.9%] | < 30% | ❌ |
+| HCW | 27.8% | [21.1%, 34.4%] | < 10% | ❌ |
+| Partial + fallback | 43.9% | [36.7%, 51.1%] | < 15% | ❌ |
+| Hard fallback (length parity) | 16.1% | [11.1%, 21.7%] | < 5% | ❌ |
+| Duplicate options | 0.0% | [0.0%, 0.0%] | 0% | OK |
+| Correct-key balance | 45/45/45/45 | -- | ~25% | OK |
 
 **Key finding:** The pipeline achieves zero infrastructure failures (API/parse fallback, benched generators, missing votes) but fails all shortcut-resistance gates except duplicates and key balance. The failure modes are systematic, not stochastic. Consensus is incorrect on 43.3% of items (100% − 56.7% accuracy); of these, 27.8% reach high-consensus-wrong (≥0.75 auditor agreement on the wrong option), and 16.1% carry the length-fallback status.
 
@@ -56,7 +56,7 @@ Chi-square goodness-of-fit: Ï‡Â² = 3.49, df = 3, p = 0.322. **Not significa
 | Parse fallback rate | Provider cascades | **0%** |
 | Benched generators | Model EOL crashes | **0%** |
 | Missing audit votes | Missing votes | **0%** |
-| Duplicate options | Not tracked | **0%** |
+| Duplicate options | 0.0% | [0.0%, 0.0%] | 0% | OK |
 
 The hardened dynamic pool eliminates all infrastructure failures (API/parse fallback, benched generators, missing votes) observed in earlier runs. Separately, the length-parity fallback *status* affects 16.1% of MCQs (see §5.1), a distinct metric from infrastructure hard-fallback.
 

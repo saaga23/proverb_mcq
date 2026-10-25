@@ -55,14 +55,15 @@ def main() -> None:
 
     # Overall metrics (binary vectors)
     consensus_correct_vec = [1 if str(r.get("consensus_correct", "0")).strip() in ("1", "True", "true") else 0 for r in merged]
+    consensus_frac_vec = [float(r.get("consensus_frac", 0) or 0) for r in merged]
     # perfect_consensus: consensus_frac == 1.0 (from audit)
-    perfect_consensus_vec = [1 if float(r.get("consensus_frac", 0) or 0) >= 0.9999 else 0 for r in merged]
-    # hcw: consensus_correct == 0
-    hcw_vec = [1 if x == 0 else 0 for x in consensus_correct_vec]
+    perfect_consensus_vec = [1 if cf >= 0.9999 else 0 for cf in consensus_frac_vec]
+    # hcw: consensus fraction >= 0.75 AND consensus is wrong (at least 3 of 4 auditors agreed on the wrong option)
+    hcw_vec = [1 if (cf >= 0.75 and cc == 0) else 0 for cf, cc in zip(consensus_frac_vec, consensus_correct_vec)]
     # partial_or_fallback
     partial_vec = [1 if r.get("generation_status", "") in ("partial", "length_fallback", "parse_fallback", "hard_fallback") else 0 for r in merged]
-    # hard_fallback
-    hard_vec = [1 if r.get("generation_status", "") == "hard_fallback" else 0 for r in merged]
+    # hard_fallback = length_fallback status (v68 corpus sampler fallback)
+    hard_vec = [1 if r.get("generation_status", "") == "length_fallback" else 0 for r in merged]
     # duplicate
     dup_vec = [1 if str(r.get("duplicate_options", "0")).strip() in ("1", "True", "true") else 0 for r in merged]
 
