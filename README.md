@@ -1,214 +1,301 @@
-# ProverbGap MCQ
+# ProverbGap: Shortcut-Resistant Multiple-Choice Questions for Proverb Understanding
 
-> **Shortcut-resistant multiple-choice questions for proverb understanding across English, Arabic, and Yoruba.**
+> **Hardened adversarial distractor generation across English, Arabic, and Yoruba -- methodology paper first, with v68 N=5 (180 MCQs) as the production dataset.**
 
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue)](https://www.python.org/)
 [![Tests](https://img.shields.io/badge/tests-pytest-green)](https://docs.pytest.org/)
-[![License](https://img.shields.io/badge/license-MIT-lightgrey)](#license)
-
-## Live Annotation App
-
-**Try it now:** https://annotationapp.vercel.app
-
-The annotation app is live and accepting responses. Native speakers of English, Arabic, and Yoruba can annotate directly in the browser—no installation required.
+[![License](https://img.shields.io/badge/license-MIT-lightgrey)](LICENSE)
 
 ---
 
-## Current Status
+## 1. Introduction
 
-**v68 production dataset is complete.** We have 180 MCQs ($0.85 generation cost, N=5 per language) validated on Kaggle. Human validation is the next milestone.
+Modern LLMs can score 90%+ on simple proverb tests by exploiting surface-level shortcuts -- "the longest answer is right," "answers echoing the proverb are correct," or "always pick A." **ProverbGap** closes those shortcuts by generating distractors that **survive four adversarial prompt variants** and pass through a **blind options-only audit** by a four-model committee before reaching any human.
 
-| Milestone | Status |
-|-----------|--------|
-| v68 dataset generation (180 MCQs) | ? Complete |
-| Kaggle N=5 validation run | ? Complete |
-| Blind audit pipeline | ? Complete |
-| Annotation app deployed | ? Live at `https://annotationapp.vercel.app` |
-| Supabase DB provisioned (62 items) | ? Live |
-| E2E tests (Playwright) | ? Passing |
-| Shortcut-audit UI removed | ? Complete |
-| Secret rotation / cleanup | ? Complete |
-| Docs + community files | ? Complete |
-| 60-item human validation | ?? Ready to launch |
-| Branch protection on `main` | ? Manual step required |
+**The scientific contribution is the pipeline -- not benchmark size.** At N=5 per language (180 MCQs across English, Arabic, and Yoruba), the pipeline reveals a systematic failure mode: when the semantic filters reject an LLM-generated distractor as "too plausible," a **corpus-based fallback sampler** fills the gap with unrelated proverbs' meanings. Those fallbacks look plausible to auditors but are wrong -- producing **27.8% High-Consensus-Wrong (HCW)** items, far above the 10% target.
 
-**Where we stopped:** The annotation app is production-ready and deployed. We removed the shortcut-audit UI from the annotator interface to reduce burden; those fields remain in the database for future research. The next step is recruiting 9 native-speaker annotators (3 per language × 20 items each) to achieve Fleiss' Kappa ? 0.6.
+This README documents the v68 production dataset, the full experimental history (v59-v70), the verified empirical findings, and the path to publication.
 
 ---
 
-## What is ProverbGap?
+## 2. Current State
 
-ProverbGap is a research project that builds **hard multiple-choice questions (MCQs)** to test whether AI models truly understand proverbs—or if they're just cheating by spotting surface-level patterns. We generate questions in **English, Arabic, and Yoruba**, run them through a rigorous audit pipeline, and then have native speakers validate the hardest items.
+| Milestone | Status | Notes |
+|-----------|--------|-------|
+| v68 dataset generation (180 MCQs) | Complete | 15 proverbs x 4 variants x 3 generators x 3 languages, seed 20260615 |
+| Kaggle N=5 validation run | Complete | `mcq-pass-shortcut` kernel v68, 2026-06-22 |
+| Blind audit pipeline | Complete | 720 votes (180 x 4 auditors), 0 missing |
+| v69 LLM-fallback ablation | Blocked | Planned (N=5, USE_LLM_FALLBACK=True) -- OpenRouter budget exhausted |
+| v70 N=15 scaling attempt | Incomplete | Budget-blocked at 83/180 MCQs (30 EN + 30 AR + 23 YO), $0.42 spent |
+| Annotation app deployed | Live | [https://annotationapp.vercel.app](https://annotationapp.vercel.app) |
+| 60-item human validation sample | Prepared | In `data/production/paper_first_outputs_2026-06-22_10-42-02/` -- recruitment of 9 native speakers pending |
+| Paper drafting | In progress | Frame: methodology + failure taxonomy at N=5 |
+| Publication target | EACL 2027 ARR | Submission deadline: August 3, 2026 |
 
-**Why does this matter?** Modern AI can score 90%+ on simple proverb tests, but often by exploiting shortcuts like "the longest answer is probably right" or "answers that repeat words from the proverb are usually correct." ProverbGap creates questions that close those shortcuts, giving us a more honest measure of AI comprehension.
-
-**Who is this for?** Researchers benchmarking LLMs, developers building better evaluation datasets, and native speakers who want to contribute culturally authentic validation data.
-
----
-
-## Quick Start
-
-Choose the path that matches what you want to do:
-
-### I want to annotate (human validation)
-
-The annotation app lets you review MCQs in a browser. No code experience needed.
-
-```bash
-# 1. Clone the repo
-git clone https://github.com/saaga23/proverb_mcq.git
-cd proverb_mcq
-
-# 2. Set up the annotation app
-cd annotation_app
-cp .env.example .env.local
-# Edit .env.local with your Supabase credentials (see Prerequisites below)
-npm install
-npm run setup-db   # Creates database tables
-npm run dev
-```
-
-Open `http://localhost:3000` and start annotating.
-
-See [annotation_app/ANNOTATOR_ONBOARDING.md](annotation_app/ANNOTATOR_ONBOARDING.md) for the annotator guide.
-
-### I want to contribute code
-
-You'll need Python, Node.js, and a Supabase account.
-
-```bash
-# 1. Clone and enter
-git clone https://github.com/saaga23/proverb_mcq.git
-cd proverb_mcq
-
-# 2. Set up Python environment
-python -m venv .venv
-source .venv/bin/activate  # Windows: .venv\Scripts\activate
-pip install -r requirements.txt
-
-# 3. Run tests
-pytest tests/ -v
-
-# 4. (Optional) Run the annotation app locally
-cd annotation_app
-cp .env.example .env.local
-# Fill in Supabase credentials
-npm install
-npm run setup-db
-npm run dev
-```
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for code style, commit conventions, and the PR process.
-
-### I want to understand the research
-
-Start with these files in order:
-
-1. **[GETTING_STARTED.md](GETTING_STARTED.md)** — Plain-English explanation of proverbs, distractors, and the full pipeline.
-2. **[DATASET_CARD.md](DATASET_CARD.md)** — What's in the data, how it was collected, and known limitations.
-3. **[annotation/protocol.md](annotation/protocol.md)** — The human-validation protocol, rubric, and quality controls.
-4. **[docs/Elite_Research_Execution_Plan.md](docs/Elite_Research_Execution_Plan.md)** — Research methodology and rigor standards.
-5. **[annotation_app/README.md](annotation_app/README.md)** — Annotation app architecture and deployment.
+**Where we stopped:** The v68 N=5 dataset is complete and validated. The critical bottleneck (corpus fallback sampler) was identified but could not be ablated (v69) or scaled (v70) because OpenRouter budget was exhausted. The paper is framed as a **methodology + failure taxonomy study** at N=5, with human validation and v69/v70 runs explicitly listed as future work.
 
 ---
 
-## Prerequisites
-
-| Tool | Version | Why You Need It |
-|------|---------|-----------------|
-| **Python** | 3.10+ | Runs the generation, audit, and analysis pipeline |
-| **Node.js** | 22.x | Required by Next.js 16 for the annotation app |
-| **npm** | 10+ (comes with Node.js) | Installs annotation app dependencies |
-| **Supabase** | Free tier works | Backend database for annotation storage and concurrency |
-| **Vercel** | Free tier works | Deploys the annotation app (optional, for sharing) |
-| **OpenRouter API key** | Pay-as-you-go | Runs LLM generation/audit (only for pipeline, not annotation) |
-
-> **Tip:** If you only want to annotate or read docs, you only need Node.js and a Supabase account. Skip Python and OpenRouter.
-
----
-
-## How the Project Works
+## 3. Task Explanation: The Hardened Pipeline
 
 ```
-????????????????    ????????????????    ????????????????    ??????????????????    ????????????????
-?    Data      ?????? Generation   ??????    Audit     ??????  Annotation    ??????   Analysis   ?
-?  (Proverbs)  ?    ? (Distractors)?    ?  (Blind)     ?    ?   (Humans)     ?    ?   (Stats)    ?
-????????????????    ????????????????    ????????????????    ??????????????????    ????????????????
-       ?                   ?                  ?                   ?                    ?
-       ?                   ?                  ?                   ?                    ?
- raw corpora    LLM generates 4    4 LLMs vote on    Native speakers      Tables,
- (3 languages)  options each      correct answer     rate plausibility     figures,
-                 (A-D)             blind (no proverb)  & flag shortcuts      LaTeX
+  Data (Proverbs)  -->  Generation (Distractors)  -->  Audit (Blind)  -->  Annotation (Humans)  -->  Analysis (Stats)
+       |                     |                        |                  |                      |
+  raw corpora          4 prompt variants          4 LLMs vote        native speakers      Tables, figures,
+  (3 languages)       3 generator models        on correct answer     rate plausibility      failure taxonomy
+                      (A-D options each)         blind (no proverb)  & flag shortcuts      LaTeX
 ```
 
-1. **Data** — Proverbs from English, Arabic, and Yoruba corpora.
-2. **Generation** — LLMs produce 4 multiple-choice options (1 correct meaning + 3 distractors).
-3. **Audit** — A separate committee of LLMs votes on the correct answer *without seeing the proverb*.
-4. **Annotation** — Native speakers review the hardest items, select correct answers, and provide confidence ratings.
-5. **Analysis** — We measure inter-annotator agreement, shortcut resistance, and cross-lingual performance.
+**Step 1 -- Data.** Proverbs from English, Arabic, and Yoruba corpora. See Section 4 for provenance and licensing status.
+
+**Step 2 -- Generation.** A dynamic multi-model generator pool produces four multiple-choice options (1 correct meaning + 3 distractors) per proverb. Four adversarial prompt variants are applied:
+
+| Variant | Design goal | v68 behavior |
+|---------|-------------|--------------|
+| `adversarial-length-locked` | Strict sentence-length and register parity | Highest perfect-consensus rate (53.3%) but also high HCW (44.4%) |
+| `adversarial-hard-negative` | Tempting near-paraphrase distractors | Worst: 26.7% fully generated, 42.2% length-fallback, 40.0% HCW |
+| `overgenerate-select` | Generate 5+ distractors, select 3 best | Cleanest generation (71.1% fully generated) |
+| `taxonomy-guided` | Distractor selection via meaning-taxonomy constraints | Best for Yoruba (+26.7pp vs worst variant, 66.7% vs 40.0%) |
+
+**Step 3 -- Semantic gates (dual-gate validation).** Raw distractors pass through sequential filters -- length parity, idiom blocklist, correct-meaning leak sanitizer, and NLI paraphrase filter. Any failure triggers a replacement.
+
+**Step 4 -- Blind audit.** A separate four-model committee votes on the correct answer *without seeing the proverb* -- only the four options. HCW (kappa >= 0.75 consensus on the wrong answer) flags items where distractors are tempting but misleading. The committee uses four different model families (Meta, Mistral, Google, DeepSeek), with Google appearing in both generator and auditor pools -- mitigated by the options-only blindness design.
+
+**Step 5 -- Human annotation.** Native speakers review the hardest items, select correct answers, and rate distractor plausibility. A 60-item stratified sample is prepared; recruitment of annotators is budget-dependent future work.
+
+**Step 6 -- Analysis.** Inter-annotator agreement, shortcut resistance, cost efficiency, and cross-lingual performance are measured with bootstrap CIs.
 
 ---
 
-## Dataset
+## 4. Data Sources
 
-### v68 Production Dataset
+**v68 production dataset (canonical):**
 
-The current production dataset is generated by the **frozen v67 configuration**, validated at **N=5 per language** on Kaggle (15 proverbs total, 180 MCQs).
+| Source | Path | Contents |
+|--------|------|----------|
+| Generated MCQs | `kaggle/run_logs/v68/openrouter_pilot1_test_output/pilot1_test_generated_mcqs.csv` | 180 rows, all fields (proverb, gold meaning, 4 options, labels) |
+| Audit results | `kaggle/run_logs/v68/openrouter_pilot1_test_output/pilot1_test_audit_results.csv` | 180 rows x 4 auditor columns = 720 blind votes |
+| Run config | `kaggle/run_logs/v68/openrouter_pilot1_test_output/pilot1_test_summary.json` | Model roster, seed, variants, cost ($0.8539 / $5.00) |
+| Raw outputs | `kaggle/run_logs/v68/openrouter_pilot1_test_output/pilot1_test_raw_outputs.csv` | 183 raw generation attempts with full text |
 
-| Metric | Value |
-|--------|-------|
-| MCQs generated | **180** |
-| Total generation cost | **$0.85** |
-| Perfect consensus rate | 41.7% |
-| High-consensus-wrong (HCW) | 27.8% |
-| Consensus accuracy | 56.7% |
-| Partial + fallback | 43.9% |
-| Duplicate options | 0% |
-| Correct-key balance | 45/45/45/45 |
+**Human validation sample:**
 
-**Primary data files:**
+| Source | Path | Contents |
+|--------|------|----------|
+| Validation sample | `data/production/paper_first_outputs_2026-06-22_10-42-02/human_validation_sample_60.csv` | 60 items (20 per language), stratified by generation status |
 
-- `data/production/paper_first_outputs_2026-06-22_10-42-02/` — v68 paper-first outputs, tables, figures, and 60-item human-validation sample
-- `kaggle/run_logs/v68/` — Full v68 run logs, analysis scripts, and reproducibility artifacts
+**Proverb sources (with licensing notes):**
 
-### Known Limitations
-
-1. **Corpus fallback sampler is the confirmed bottleneck.** 43.9% of items required fallback replacements; fallbacks are the primary driver of high-consensus-wrong items.
-2. **English distractors are too easy.** 65% consensus accuracy and 45% perfect consensus; distractors lack sufficient temptation.
-3. **Yoruba is fragile.** Meets the 50% correctness gate only barely (51.7%); cultural and literal-translation issues persist.
-4. **HCW remains elevated at 27.8%.** Well above the 10% target; many fallback distractors attract auditor consensus.
+| Language | Status | Notes |
+|----------|--------|-------|
+| English | Public domain compilations | Multiple public-domain sources; see `docs/DATA_PROVENANCE_TEMPLATE.md` |
+| Arabic | Documented dataset | IDs from `MID` prefix dataset; licensing under review |
+| Yoruba | Restricted | Derived from Owomoyela (2005), University of Nebraska Press -- **no redistribution permission**; Yoruba MCQs excluded from public release, retained for analysis only |
 
 ---
 
-## Deep Dive: Reading Paths
+## 5. Experimental Story: v59-v70 Timeline
 
-### For Researchers
-1. [GETTING_STARTED.md](GETTING_STARTED.md) — Understand the basics
-2. [DATASET_CARD.md](DATASET_CARD.md) — Data provenance and limitations
-3. [annotation/protocol.md](annotation/protocol.md) — Human-validation protocol
-4. `paper/proverbgap_eacl2027.md` — Full paper draft
-5. `kaggle/run_logs/v68/v68_detailed_analysis_report.md` — Latest analysis
-6. `docs/Elite_Research_Execution_Plan.md` — Methodology rigor
+| Version | N per language | Notes | Status |
+|---------|---------------|-------|--------|
+| v59-v60 | N=45 | Early Groq S1 pipeline | Deprecated; legacy numbers not used in v68 paper |
+| v61-v67 | N=1-3 | OpenRouter pipeline refinement | Archived; v67 frozen as baseline |
+| **v68** | **N=5** | **Production dataset** | **Complete** -- 180 MCQs, $0.85, full blind audit |
+| v69 | N=5 | LLM-fallback ablation (`USE_LLM_FALLBACK=True`) | **Blocked** -- OpenRouter budget exhausted before run |
+| v70 | N=15 | Scaling test (540 target MCQs) | **Incomplete** -- budget-blocked at 83/180 |
 
-### For Developers
-1. [GETTING_STARTED.md](GETTING_STARTED.md) — Project overview
-2. [annotation_app/README.md](annotation_app/README.md) — App architecture
-3. `annotation_app/supabase/schema.sql` — Database schema and RPCs
-4. `annotation_app/src/components/AnnotationUI.tsx` — Main annotator interface
-5. `annotation_app/e2e/annotation.spec.ts` — E2E tests
-6. [CONTRIBUTING.md](CONTRIBUTING.md) — Code style and PR process
+**v68 is the production dataset.** It uses the frozen v67 configuration (`USE_LLM_FALLBACK=False`, `N_PER_LANG=5`, seed=20260615) and ran successfully on Kaggle in 2026-06-22.
 
-### For Annotators
-1. [annotation_app/ANNOTATOR_ONBOARDING.md](annotation_app/ANNOTATOR_ONBOARDING.md) — Step-by-step guide
-2. `annotation/protocol.md` — Full protocol and rubric
-3. [annotation_app/README.md](annotation_app/README.md) — How to access the app
+**v69 was never executed.** Its directory contains only template and planning files (`v69_detailed_analysis_report.md` is all TBD blanks, `v69_post_download_checklist.md` was never run). The v69 comparison report is a template.
 
-### For Reviewers
-1. `submission_package_2026-08-02/` — Complete submission package
-2. `paper/proverbgap_eacl2027.md` — Paper draft
-3. `paper/tables/` — All LaTeX table sources
-4. `paper/figures/` — Publication-ready figures
-5. `kaggle/run_logs/v68/` — Reproducibility artifacts
+**v70 was attempted but budget-blocked.** The run started with `USE_LLM_FALLBACK=True` and `N_PER_LANG=15`, but OpenRouter returned `403 Budget limit exceeded` after generating 83 of 180 MCQs (30 English + 30 Arabic + 23 Yoruba). The partial output at $0.42 is archived but not production quality.
+
+> **Note on the "80" mystery:** The number "80" that appears in legacy logs refers to an **audit-progress checkpoint** ("Audited 80/90 MCQs", "Audited 80/270 MCQs"), not a dataset size. No version of this project ever produced exactly 80 MCQs. The canonical dataset is v68 with 180 MCQs.
+
+---
+
+## 6. Empirical Findings (v68, N=5)
+
+### 6.1 Aggregate metrics
+
+| Metric | v68 N=5 | Target | Pass |
+|--------|---------|--------|------|
+| Consensus accuracy | 56.7% (102/180) | -- | -- |
+| Perfect consensus | 41.7% (75/180) | < 30% | [X] |
+| HCW (kappa>=0.75) | 27.8% (50/180) | < 10% | [X] |
+| Partial + fallback | 43.9% (79/180) | < 15% | [X] |
+| Hard fallback (length) | 16.1% (29/180) | < 5% | [X] |
+| Duplicate options | 0 | 0 | [OK] |
+| Correct-key balance | 45/45/45/45 | ~25% each | [OK] |
+
+**HCW threshold note:** The canonical definition (used in `v68_detailed_analysis_report.md` line 61) is **consensus fraction >= 0.75 (3 of 4 auditors) AND consensus label != correct**. Some earlier per-language files used >= 0.50, inflating HCW to 42.8%. The >= 0.75 standard is used throughout this README.
+
+### 6.2 Per-language performance
+
+| Language | N | Consensus accuracy | 95% CI (Wilson) | Perfect consensus | HCW (>=0.75) | Fallback mean |
+|----------|---------|-------------------|-----------------|-------------------|-------------|---------------|
+| English | 60 | 65.0% (39/60) | 52.4%-75.8% | 45.0% (27/60) | 18.3% (11/60) | 0.43 |
+| Arabic | 60 | 53.3% (32/60) | 40.9%-65.4% | 50.0% (30/60) | 31.7% (19/60) | 1.52 |
+| Yoruba | 60 | 51.7% (31/60) | 39.3%-63.8% | 30.0% (18/60) | 33.3% (20/60) | 1.03 |
+
+- **English** is the "too-easy" language: 65.0% accuracy but 45.0% perfect consensus means distractors lack temptation.
+- **Arabic** is the "confident-wrong" language: 50.0% perfect consensus with 31.7% HCW -- auditors agree often but usually on the wrong answer.
+- **Yoruba** is the "fragile low-resource" language: 51.7% accuracy, just clearing the 50% gate, with the lowest auditor hit rates (Gemma-3-27b: 36.7% vs gold).
+
+### 6.3 Per-generator performance
+
+| Generator | N | Accuracy | Perfect | HCW | Fully generated |
+|-----------|---------|----------|---------|---------|-----------------|
+| google/gemma-4-31b-it | 60 | 65.0% | 46.7% | 35.0% | 66.7% (40/60) |
+| google/gemini-2.5-flash | 60 | 53.3% | 41.7% | 46.7% | 50.0% (30/60) |
+| qwen/qwen3.7-max | 60 | 51.7% | 36.7% | 46.7% | 51.7% (31/60) |
+
+**gemma-4-31b-it is the strongest generator** -- highest accuracy, lowest HCW, cleanest generation profile. qwen3.7-max produces the most length-fallback items (30.0%) and the highest mean fallback count (1.33).
+
+### 6.4 Per-variant performance
+
+| Variant | N | Accuracy | Perfect | HCW | Fully generated |
+|---------|---------|----------|---------|---------|-----------------|
+| adversarial-hard-negative | 45 | 60.0% | 31.1% | 40.0% | 26.7% (12/45) |
+| adversarial-length-locked | 45 | 55.6% | 53.3% | 44.4% | 60.0% (27/45) |
+| overgenerate-select | 45 | 53.3% | 35.6% | 46.7% | 71.1% (32/45) |
+| taxonomy-guided | 45 | 57.8% | 46.7% | 40.0% | 66.7% (30/45) |
+
+### 6.5 Generation pipeline diagnostics
+
+| Status | Count | % |
+|--------|------:|------:|
+| generated (fully passed) | 101 | 56.1% |
+| partial (>=1 filter replacement) | 50 | 27.8% |
+| length_fallback (corpus sampler) | 29 | 16.1% |
+| parse_fallback / hard_fallback | 0 | 0.0% |
+
+**Mean replacements per MCQ (filter drivers):**
+
+| Filter | Mean/MCQ | Share of replacements |
+|--------|----------:|--------------------------|
+| NLI paraphrase | 0.36 | ~36% |
+| Correct-meaning leak | 0.35 | ~35% |
+| Length parity | 0.15 | ~15% |
+| Blocklist | 0.02 | ~2% |
+
+Replacements are dominated by **semantic filtering** (NLI + leak = 71% of replacements), not structural issues.
+
+### 6.6 Audit committee (blind, options-only)
+
+| Auditor | Family | vs. gold (180 items) | Pairwise kappa (mean) |
+|---------|--------|----------------------|-----------------------|
+| meta-llama/llama-3.3-70b-instruct | Meta | 53.3% | 0.53 |
+| mistralai/mistral-small-3.2-24b-instruct | Mistral | 56.7% | 0.51 |
+| google/gemma-3-27b-it | Google | 45.6% | 0.50 |
+| deepseek/deepseek-v3.2 | DeepSeek | 56.1% | 0.51 |
+
+- 0 missing votes, 0 substitutions across all 720 audit votes.
+- Per-language hit rates: English 55-70%, Arabic 45-55%, Yoruba 36.7-48.3% (Gemma-3-27b drops to 36.7% on Yoruba).
+- Committee families: Meta, Mistral, Google, DeepSeek -- no OpenAI or Anthropic. Google appears in both generator and auditor pools; mitigated by the options-only blindness design.
+
+### 6.7 Position bias
+
+| Position | Correct | Total | Accuracy |
+|----------|--------:|------:|----------:|
+| A | 33 | 45 | 73.3% |
+| B | 26 | 45 | 57.8% |
+| C | 22 | 45 | 48.9% |
+| D | 21 | 45 | 46.7% |
+
+chi-squared = 3.49, df = 3, **p = 0.322** -- not statistically significant at N=180. Correct-key distribution is perfectly balanced (15 per position per language). The position-corrected consensus metric equals the raw consensus (0.5667), confirming the bias is calibrated out in aggregate by balanced key placement.
+
+---
+
+## 7. Failure Taxonomy (v68)
+
+The v68 run produced six documented failure modes, catalogued in `table7_v68_findings.csv` and `table7_legacy_findings.csv`:
+
+| # | Failure mode | Pipeline locus | Magnitude | Status |
+|---|-------------|----------------|-----------|--------|
+| 1 | Corpus fallback quality collapse | Fallback sampler | 43.9% partial+fallback, 0.99 replacements/MCQ | Unfixed -- v69 ablation blocked |
+| 2 | High-Consensus-Wrong (HCW) | Audit committee | 27.8% (target <10%) | Unfixed -- driver: fallback distractors |
+| 3 | Near-paraphrase trap | NLI filter over-aggressive | 0.36 NLI replacements/MCQ | Contributing cause of #1 |
+| 4 | Correct-meaning leak | Leak filter over-aggressive | 0.35 leak replacements/MCQ | Contributing cause of #1 |
+| 5 | Position bias in audit | MCQ assembly | A=73.3% vs D=46.7%, p=0.322 (ns) | Reported, neutralized by balanced keys |
+| 6 | Cross-lingual fallback asymmetry | Language-specific filters | Arabic 3.5x English fallback rate | Primary cross-lingual finding |
+
+The **core finding**: the corpus-based fallback sampler is the bottleneck. When NLI or leak filters reject an LLM-generated distractor, the pipeline samples a replacement from *other proverbs' meanings*. Those replacements are often generic moral statements or culturally mismatched idioms that auditors find plausible but are wrong. The strongest generator (gemma-4-31b-it) still has 35.0% HCW, confirming the problem is systemic, not model-specific.
+
+**Recommended fix (v69 ablation, blocked):** Enable `USE_LLM_FALLBACK=True` with `FALLBACK_GENERATOR_MODEL="openai/gpt-4.1-nano"` to generate proverb-specific hard negatives on demand instead of corpus sampling. Estimated additional cost: $0.10-$0.20 for the N=5 run.
+
+---
+
+## 8. Human Validation
+
+**Status: Prepared, not started.** A 60-item stratified sample (20 per language, balanced by generation status) is ready at `data/production/paper_first_outputs_2026-06-22_10-42-02/human_validation_sample_60.csv`. Recruitment of 9 native speakers (3 per language x 20 items) is budget- and time-dependent.
+
+### Protocol
+
+- **Annotators:** 3 native speakers per language (9 total)
+- **Task:** Blind options-only (proverb text + 4 options, no correct label or LLM consensus visible)
+- **Judgment:** Select correct answer + rate distractor plausibility (1-5 scale)
+- **Attention checks:** Embedded trap items, minimum 80% accuracy required
+- **Timing guards:** 10s minimum, 120s maximum per item
+- **Primary metric:** Fleiss kappa for categorization agreement (target: kappa >= 0.6)
+- **Secondary metrics:** Per-language kappa, Spearman correlation of plausibility ratings
+
+**LLM-proxy IAA calibration (7-model proxy, 60-item subset):**
+- Fleiss kappa = 0.4845
+- Mean pairwise Cohen kappa = 0.4846
+- Per-model gold accuracy: 58.3%-78.3% (mean 69.4%)
+- This establishes the LLM audit committee's ceiling and justifies the human-validation plan as essential.
+
+**Annotation app (live):** [https://annotationapp.vercel.app](https://annotationapp.vercel.app) -- anonymous, browser-based, Supabase-backed with batch-based assignment (10 items/batch), attention checks, and admin export. Self-hosted setup instructions: [annotation_app/README.md](annotation_app/README.md).
+
+---
+
+## 9. Next Steps
+
+### Blocked (requires OpenRouter budget renewal)
+
+| Task | What | Estimated cost | Success gate |
+|------|------|----------------|--------------|
+| **v69** LLM-fallback ablation | N=5, `USE_LLM_FALLBACK=True` | ~$1.00 | HCW < 15%, partial+fallback < 30% |
+| **v70** N=15 scaling | N=15, current or v69 config | ~$2.56 | Same gates as v69 |
+| **Human validation** | 60 items x 3 annotators/language | ~$200-300 | Fleiss kappa >= 0.6 |
+
+**If v69 passes gates:** freeze config, run v70, update all paper numbers.
+**If v69 fails or budget stays exhausted:** v68 is the production dataset. Paper is framed as a methodology + failure taxonomy study at N=5.
+
+### In-progress (no budget needed)
+
+- [x] v68 verification and reporting (complete)
+- [x] README rewrite (this document)
+- [x] `docs/RESEARCH_HISTORY_AND_README_AUDIT.md` (this document's companion)
+- [ ] Paper drafting (Sections 1-11 per `docs/ProverbGap_Reframed_Title_Abstract.md`)
+- [ ] Statistical tests (McNemar, Wilcoxon, Holm-Bonferroni) on v68 paired subsets
+- [ ] Bootstrap CIs for all six aggregate metrics
+
+### Paper framing
+
+The paper is framed as:
+
+> **"Hardened Adversarial Distractor Generation for Low-Resource Figurative Language: A Case Study in Proverb Understanding"**
+
+The contribution is the methodology (hardened pipeline with dual-gate validation and blind audit) and the failure taxonomy (corpus-fallback collapse, NLI over-filtering, position bias, cross-lingual asymmetry), **not** benchmark size.
+
+**Non-goals (explicitly dropped):** The legacy Groq S1/S2 pipeline (2,313 MCQs, 86.8% vs 62.5%), encoder baselines, human-validation kappa >= 0.75 claims, scaling to N=15/N=700, and S1/S2 cross-lingual boundary (8.9pp/2.2pp). See Section 10 for the full list of deprecated claims.
+
+---
+
+## 10. Legacy Numbers Warning
+
+Old runs and earlier paper drafts contain numbers that are **not part of the v68 production dataset**:
+
+| Deprecated claim | Source | Why it's invalid |
+|-----------------|--------|-----------------|
+| 2,313 MCQs | Legacy Groq Pilot 2 | v68 produces 180 MCQs; 2,313 is from a different pipeline |
+| S1 86.8% vs S2 62.5% | Legacy Groq S1/S2 | Not reproducible on the v68 hardened pipeline |
+| Encoder baselines (mBERT 54.7%, XLM-R 55.3%, etc.) | Legacy draft | Not computed on v68 data; replaced by TF-IDF cosine baseline (36.7%) |
+| Same-family exploitation +31.1pp | Legacy Groq S1/S2 | Legacy number; v68 uses disjoint families (Meta/Mistral/DeepSeek in auditor-only) with options-only blindness; Google shared across pools but mitigated by blindness |
+| "80 MCQs" | Audit logs | Audit-progress counter, not a dataset size |
+| Human validation kappa >= 0.75 | Old plan | Not started; LLM-proxy kappa = 0.4845 is the current ceiling |
 
 ---
 
@@ -216,211 +303,72 @@ The current production dataset is generated by the **frozen v67 configuration**,
 
 ```
 proverb_mcq/
-??? actual_data/                 # Cleaned proverb corpora (3 languages)
-?   ??? Arabic_cleaned.csv
-?   ??? English_cleaned.csv
-?   ??? Yoruba_cleaned.csv
-??? annotation/                  # Human-validation tooling
-?   ??? protocol.md              # Validation protocol, rubric, IRB
-?   ??? blinded_export.py        # Blinding utility for export
-?   ??? compute_iaa.py           # Inter-annotator agreement
-?   ??? outputs/                 # Annotation outputs and IAA reports
-?   ??? tests/                   # Annotation-specific tests
-??? annotation_app/              # Next.js + Supabase annotation frontend
-?   ??? src/
-?   ?   ??? app/
-?   ?   ?   ??? page.tsx         # Landing + consent
-?   ?   ?   ??? annotate/page.tsx # Annotation interface
-?   ?   ?   ??? admin/page.tsx   # Admin dashboard
-?   ?   ??? components/
-?   ?   ?   ??? AnnotationUI.tsx # Main annotator component
-?   ?   ??? lib/
-?   ?       ??? supabase.ts      # Typed Supabase client
-?   ??? supabase/
-?   ?   ??? schema.sql           # Full DB schema + RPCs
-?   ?   ??? rpc.sql              # Deprecated (use schema.sql)
-?   ?   ??? run_in_dashboard.sql # Manual dashboard SQL
-?   ??? scripts/
-?   ?   ??? setup_database.ts    # DB setup helper
-?   ?   ??? upload_items.ts      # CSV uploader
-?   ?   ??? export_annotations.ts # CSV exporter
-?   ??? e2e/
-?   ?   ??? annotation.spec.ts   # Playwright E2E tests
-?   ??? ANNOTATOR_ONBOARDING.md  # Annotator guide
-??? data/
-?   ??? production/
-?       ??? paper_first_outputs_2026-06-22_10-42-02/
-?           ??? human_validation_sample_60.csv
-?           ??? table*.csv       # Paper tables
-??? docs/                        # Methodology and planning docs
-??? kaggle/                      # Kaggle automation and run logs
-?   ??? run_logs/
-?   ?   ??? v68/                 # v68 production run
-?   ?   ??? v69/                 # v69 comparison run
-?   ??? kaggle_analysis/         # Analysis scripts and reports
-??? paper/                       # Paper artifacts
-?   ??? proverbgap_eacl2027.md   # Main paper draft
-?   ??? sections/                # Individual sections
-?   ??? tables/                  # LaTeX table sources
-?   ??? figures/                 # Publication-ready figures
-??? scripts/                     # Utility scripts
-??? src/                         # Python source
-?   ??? generation/              # Distractor generation pipeline
-?   ??? evaluation/              # S1/S2 evaluator
-??? tests/                       # Local pytest suites
-??? submission_package_2026-08-02/ # Final submission package
-??? .archive/                    # Archived legacy code and outputs
-??? CONTRIBUTING.md              # Contributor guide
-??? DATASET_CARD.md              # Dataset metadata
-??? GETTING_STARTED.md           # Plain-English project intro
-??? SECURITY.md                  # Security policy and incident history
-??? CHANGELOG.md                 # Version history
-??? CODE_OF_CONDUCT.md           # Community standards
-??? DATA_PROVENANCE_TEMPLATE.md  # Data provenance tracking
-??? PUBLICATION_READINESS_REPORT.md # Publication checklist
-??? requirements.txt             # Python dependencies
-??? README.md                    # This file
+|-- actual_data/                 # Cleaned proverb corpora (3 languages)
+|-- annotation/                  # Human-validation tooling
+|-- annotation_app/              # Next.js + Supabase annotation frontend
+|-- data/
+|   |-- production/
+|   |   |-- paper_first_outputs_2026-06-22_10-42-02/  # v68 tables, figures, 60-item sample
+|-- docs/                        # Methodology and planning docs
+|   |-- RESEARCH_HISTORY_AND_README_AUDIT.md  # This audit trail
+|-- kaggle/
+|   |-- run_logs/
+|   |   |-- v68/                 # Production run (COMPLETE)
+|   |   |-- v69/                 # Planned ablation (BLOCKED -- never executed)
+|   |   |-- v70/                 # Scaling attempt (INCOMPLETE -- budget-blocked at 83 MCQs)
+|   |-- kaggle_analysis/
+|-- paper/                       # Paper artifacts
+|-- scripts/
+|-- src/
+|-- tests/
+|-- submission_package_2026-08-02/
+|-- .archive/                    # Archived legacy code and outputs
+|-- CONTRIBUTING.md
+|-- DATASET_CARD.md
+|-- GETTING_STARTED.md
+|-- SECURITY.md
+|-- CHANGELOG.md
+|-- requirements.txt
+|-- README.md                   # This file
 ```
 
 ---
 
-## Human Validation Protocol
+## Quick Start
 
-Human validation is conducted on a **60-item stratified sample** drawn from the v68 production dataset. The sample is split **20 items per language** (English, Arabic, Yoruba) and stratified by generation status and consensus correctness to ensure balanced coverage of easy, ambiguous, and failure-mode items.
+### I want to annotate (human validation)
 
-### Protocol
+The annotation app lets you review MCQs in a browser. No code experience needed.
 
-- **3 native-speaker annotators per item** (9 total annotators across 3 languages; minimum 2 required for IAA computation).
-- **Blind options-only protocol:** Annotators see only the proverb text and four options (A–D). Correct answer, LLM consensus labels, and vote columns are hidden.
-- **Two-part judgment:** Correct answer selection plus a 5-point distractor plausibility rating per option.
-- **Attention checks:** Embedded trap items with obvious correct answers; minimum 80% accuracy required.
-- **Timing guards:** Minimum 10 seconds and maximum 120 seconds per item.
+```bash
+git clone https://github.com/saaga23/proverb_mcq.git
+cd proverb_mcq/annotation_app
+npm install
+npm run dev
+```
 
-### IAA Targets
+Visit [https://annotationapp.vercel.app](https://annotationapp.vercel.app) or `http://localhost:3000`.
 
-- **Primary metric:** Fleiss' Kappa for categorical agreement on correct answers.
-- **Target:** Kappa ? 0.6 (Good / Publishable quality).
-- **Secondary metrics:** Per-language Kappa, item-level agreement, and Spearman correlation of plausibility ratings.
+See [annotation_app/ANNOTATOR_ONBOARDING.md](annotation_app/ANNOTATOR_ONBOARDING.md) for the annotator guide.
 
-See [annotation/protocol.md](annotation/protocol.md) for the full protocol, rubric, and IRB details.
+### I want to reproduce or extend the pipeline
 
----
+```bash
+git clone https://github.com/saaga23/proverb_mcq.git
+cd proverb_mcq
+python -m venv .venv
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+pytest tests/ -v
+```
 
-## Annotation App
+### I want to understand the research
 
-The human-validation annotation frontend is built with **Next.js 16** and **Supabase**. It supports an **anonymous annotator workflow** (no login required) with **batch-based annotation** delivering **10 items per batch**, embedded **attention checks**, and an **admin dashboard** for CSV export.
-
-### Features
-
-- Anonymous annotator identity via `localStorage`
-- Batch-based annotation (10 items per batch)
-- Correctness + confidence judgment
-- Attention checks embedded in batches
-- **Minimum time guard (10 seconds)** to prevent rushing
-- Atomic fetch-and-lock via Supabase RPC (`FOR UPDATE SKIP LOCKED`)
-- Hidden gold answers (never exposed to browser)
-- Time tracking per item
-- Optional annotator notes
-- Progress tracking
-- Admin dashboard for annotation export
-
-See [annotation_app/README.md](annotation_app/README.md) for full setup and deployment instructions.
-
----
-
-## Pipeline Architecture
-
-### Generation
-
-A **generator** LLM (e.g., `google/gemini-2.5-flash`) is asked to produce 3 distractors given a proverb and its curated gold meaning. The prompt enforces:
-- Complete sentences
-- Rough length parity with the gold meaning
-- No generic idioms or proverb echoes
-
-### Sanitizer Stack
-
-Raw distractors pass through sequential filters:
-
-| Filter | What it checks | Action on failure |
-|--------|---------------|-------------------|
-| **Length parity** | All options roughly same length | Replace via fallback sampler |
-| **Blocklist** | Rejects generic idioms | Replace |
-| **Leak guard** | Rejects distractors echoing correct meaning | Replace |
-| **Semantic distance** | Rejects distractors too similar to correct answer | Replace |
-| **NLI filter** | Rejects paraphrases entailed by correct meaning | Replace |
-
-Failed distractors are replaced by a **fallback sampler** — a curated pool of pre-written distractors from other proverbs.
-
-### Blind Audit
-
-A separate **audit committee** of 4 LLMs votes on the correct answer *without seeing the proverb*. This prevents them from using the proverb text as a shortcut.
-
-If 3 or more auditors agree on a **wrong** answer, that's called a **HCW (High-Consensus-Wrong)** item — a red flag that distractors are tempting but misleading.
-
----
-
-## Key Findings (v68 N=5)
-
-- **NLI and leak filters dominate rewriter behavior.** Mean 0.36 NLI replacements and 0.35 leak replacements per MCQ; length is only 0.15.
-- **`adversarial-hard-negative` is the most damaged variant.** Only 26.7% fully generated, 42.2% length-fallback, 40% HCW.
-- **Generator performance varies by model family.** `google/gemma-4-31b-it` was the strongest generator (65% accuracy, 35% HCW, 66.7% fully generated).
-- **Roster stability confirmed.** 0 benched generators, 0 missing auditor votes across 180 MCQs.
-
----
-
-## Security & Privacy
-
-- `.env` and `.env.local` are gitignored. Never commit secrets.
-- We previously had an exposed OpenRouter API key in tracked history; it has been deleted and the file purged from git. The key itself should be rotated on the OpenRouter dashboard.
-- Supabase `service_role` key is never exposed to the browser; only the `anon` key is public.
-- Admin dashboard is client-side password-gated; for production use, add proper authentication.
-- Annotator data is anonymous (no PII collected beyond optional demographics).
-
-See [SECURITY.md](SECURITY.md) for the full security policy and incident history.
-
----
-
-## Troubleshooting
-
-### Python / Pipeline
-
-| Problem | Solution |
-|---------|----------|
-| `ModuleNotFoundError` after `pip install` | Make sure your virtual environment is activated: `.venv\Scripts\activate` on Windows, `source .venv/bin/activate` on Mac/Linux |
-| `OPENROUTER_API_KEY` not found | Copy `.env.example` to `.env` and add your key. Never commit `.env` to git. |
-| Tests fail with connection errors | Some tests mock API calls. Ensure you're running `pytest tests/` from the repo root, not from inside a subdirectory. |
-
-### Annotation App
-
-| Problem | Solution |
-|---------|----------|
-| `Error: Cannot find module '@supabase/supabase-js'` | Run `npm install` inside `annotation_app/`. |
-| Supabase connection refused | Double-check `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` in `.env.local`. Make sure the schema.sql has been run in the Supabase SQL Editor. |
-| "No items available" | Upload items first: `npm run upload-items` (requires `human_validation_sample_60.csv` in the repo root). |
-| Vercel build fails | Ensure Node.js 22 is selected in Vercel settings. Check that all environment variables are set in the Vercel dashboard. |
-| Playwright tests timeout | Install browser binaries: `npx playwright install chromium`. |
-
----
-
-## Paper Artifacts
-
-All paper tables, figures, and LaTeX sources are in `paper/`:
-
-- `paper/proverbgap_eacl2027.md` — Main paper draft (Markdown)
-- `paper/figures/` — Publication-ready figures
-- `paper/tables/` — LaTeX table sources
-- `paper/sections/` — Individual section drafts
-
-### Target Venue
-
-EACL 2027 ARR (ACL Rolling Review).
-
-### Planned Scope
-
-1. **Methodology:** Hardened dynamic-generator + blind options-only audit pipeline for shortcut-resistant distractor generation.
-2. **Cross-lingual findings:** S1 vs S2 difficulty, per-language gaps (especially Yoruba), position bias, model-family exploitation.
-3. **Reproducible failure taxonomy:** Partial+fallback, high-consensus-wrong, length/leak/NLI replacements, corpus fallback limitations.
-4. **Human validation:** 60-item subset (20 per language) with 2–3 native-speaker annotators; IAA reported.
+1. This README -- current state and findings (start here)
+2. [docs/RESEARCH_HISTORY_AND_README_AUDIT.md](docs/RESEARCH_HISTORY_AND_README_AUDIT.md) -- full experiment timeline and audit trail
+3. [kaggle/run_logs/v68/v68_detailed_analysis_report.md](kaggle/run_logs/v68/v68_detailed_analysis_report.md) -- v68 executive summary and gate table
+4. [docs/ProverbGap_Reframed_Title_Abstract.md](docs/ProverbGap_Reframed_Title_Abstract.md) -- paper outline, claims traceability, non-goals
+5. [paper/proverbgap_eacl2027.md](paper/proverbgap_eacl2027.md) -- full paper draft
 
 ---
 
@@ -428,27 +376,23 @@ EACL 2027 ARR (ACL Rolling Review).
 
 ```bibtex
 @misc{abraham2026proverbgap,
-  title        = {ProverbGap: Shortcut-Resistant Multiple-Choice Distractors for Proverb Understanding Across English, Arabic, and Yoruba},
+  title        = {Hardened Adversarial Distractor Generation for Low-Resource Figurative Language: A Case Study in Proverb Understanding},
   author       = {Abraham, Sunday Aspita},
   year         = {2026},
-  howpublished = {arXiv preprint},
-  note         = {v68 N=5 production dataset; EACL 2027 ARR submission},
-  url          = {https://arxiv.org/abs/XXXX.XXXXX}
+  howpublished = {EACL 2027 ARR submission},
+  note         = {v68 N=5 production dataset: 180 MCQs, $0.85 cost, 4-model blind audit committee},
+  url          = {https://github.com/saaga23/proverb_mcq}
 }
 ```
-
-Replace `XXXX.XXXXX` with the actual arXiv identifier upon submission.
 
 ---
 
 ## License
 
-This project is released under the [MIT License](LICENSE). See `LICENSE` for details.
+This project is released under the [MIT License](LICENSE).
 
-## Contributing
-
-We welcome contributions from researchers, developers, and native speakers. Please read [CONTRIBUTING.md](CONTRIBUTING.md) for setup instructions, code style guidelines, commit conventions, and our PR checklist.
+The v68 MCQ dataset (180 items, English and Arabic) is released under **CC BY 4.0**. The Yoruba MCQs are excluded from public release due to copyright restrictions on the source corpus (Owomoyela, 2005). See [data/production/paper_first_outputs_2026-06-22_10-42-02/](data/production/paper_first_outputs_2026-06-22_10-42-02/) for data license details and [docs/DATA_PROVENANCE_TEMPLATE.md](docs/DATA_PROVENANCE_TEMPLATE.md) for provenance documentation.
 
 ---
 
-*Generated for the ProverbGap research project. For questions, open an issue or contact the maintainers.*
+*For questions about the research, open an issue or see [docs/RESEARCH_HISTORY_AND_README_AUDIT.md](docs/RESEARCH_HISTORY_AND_README_AUDIT.md) for the complete audit trail.*
