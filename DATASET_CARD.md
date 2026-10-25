@@ -12,10 +12,10 @@ ProverbGap is a cross-lingual multiple-choice question (MCQ) benchmark for prove
 | Language | Source file | Cleaned count | Sampled for v68 |
 |----------|------------|--------------|-----------------|
 | English | `actual_data/English_cleaned.csv` | 2,278 | 15 proverbs (5 per language) |
-| Arabic | `actual_data/Arabic_cleaned.csv` | 962 | 15 proverbs (5 per language) |
+| Arabic | `actual_data/Arabic_cleaned.csv` | 913 | 15 proverbs (5 per language) |
 | Yoruba | `actual_data/Yoruba_cleaned.csv` | 3,974 | 15 proverbs (5 per language) |
 
-**Note:** Earlier dataset card versions referenced French (161), German (142), and Spanish (63) proverb files. These files are **not present** in `actual_data/` and are not used by the v68 pipeline. The previously stated total of 7,172 is corrected to 7,214 (English 2,278 + Arabic 962 + Yoruba 3,974).
+**Note:** Earlier dataset card versions referenced French (161), German (142), and Spanish (63) proverb files. These files are **not present** in `actual_data/` and are not used by the v68 pipeline. The previously stated total of 7,172 is corrected to 7,165 (English 2,278 + Arabic 913 + Yoruba 3,974).
 
 ## Collection Methodology
 

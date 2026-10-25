@@ -44,7 +44,9 @@ A **shortcut-prone** distractor fails this test in one of three ways:
 2. **Too close** — a near-paraphrase of the correct meaning that the NLI/paraphrase filter rejects
 3. **Length-mismatched** — clearly longer or shorter than the correct option, enabling a length shortcut
 
-The pipeline's semantic filters catch #2 and #3. When they reject a distractor, a **corpus fallback sampler** fills the gap by pulling a meaning from another proverb. This is where the system breaks.
+The pipeline's filters address these issues. Meaning-related filters try to prevent distractors from copying or leaking the correct meaning. Length checks try to prevent the correct option from standing out because it is longer or shorter. Failed candidates may trigger replacement, where a **corpus fallback sampler** fills the gap by pulling a meaning from another proverb.
+
+**Important:** These filters do not prove cultural correctness or reliably identify every invalid distractor. They reduce shortcut-prone answer choices, but distractors can still be wrong in subtle ways that bypass the filters.
 
 ---
 
@@ -58,8 +60,8 @@ The four distractor-generation variants are defined in [`kaggle/run_logs/v68/pil
 |---------|-------------|-----------------|-----------------|
 | `adversarial-hard-negative` | Instructs the model to produce "hard negatives" — distractors that are **semantically close** to the correct meaning but wrong in a fine-grained way (misattributed agency, changed scope, wrong situation). | Force distractors that require real understanding to reject, not obvious wrong answers. | 24.4% HCW. Lowest perfect-consensus rate (31.1%) means auditors disagree more — but 42.2% needed length fallback because filters rejected the tempting distractors. |
 | `adversarial-length-locked` | Enforces strict ±35% character count parity across all four options and a register/style lock. Bans simple negations and antonyms. | Prevent length-based shortcuts (longest answer is right) and surface-pattern matching. | 35.6% HCW. Highest perfect-consensus rate (53.3%) — auditors agree too eagerly, often on the wrong answer. |
-| `taxonomy-guided` | Uses a structured error taxonomy (Haladyna & Downing / VERGE-inspired) to construct distractors for specific misunderstanding types: (1) partial meaning, (2) sensible but wrong situation, (3) missing key condition or nuance. | Systematically cover different ways a reader can misunderstand a proverb. | 28.9% HCW. 66.7% fully generated, 0.0% length fallback — cleanest generation status, but still high HCW because distractors are too tempting. |
-| `overgenerate-select` | Generates 8+ candidate distractors, then selects the 3 that would be **hardest to rule out** in a blind audit while still being wrong. | Use adversarial filtering to find the most tempting valid distractors. | 22.2% HCW. **71.1% fully generated** (highest) and 2.2% length fallback (lowest) — cleanest generation profile. |
+| `taxonomy-guided` | Instructs the model to construct three different types of misunderstanding: a partly correct interpretation that misses the whole point, a sensible interpretation for the wrong situation, and an interpretation that overlooks an important condition or cultural nuance. The taxonomy is inspired by Haladyna & Downing / VERGE frameworks, but the implementation uses problem-domain instruction rather than a formal error taxonomy. | Systematically cover different ways a reader can misunderstand a proverb. | 28.9% HCW. 66.7% fully generated, 0.0% length fallback — no items carry length_fallback status, but HCW remains high because distractors are too tempting. |
+| `overgenerate-select` | Requests **2+ correct paraphrases AND 6+ incorrect candidate meanings**, then asks the model to internally select the final 4 options (one correct meaning plus three distractors). | Use adversarial filtering to find the most tempting valid distractors. | 22.2% HCW. **71.1% fully generated** (highest) and 2.2% length fallback (lowest) — cleanest generation profile. |
 
 **Key insight:** higher generation-completion rate does **not** mean higher question quality. The `overgenerate-select` variant produces the most complete MCQs (71.1% with zero filter rejections), but still has 22.2% HCW items — its surviving distractors are too tempting to auditors. Meanwhile, `adversarial-hard-negative` produces the most tempting distractors but the filters reject 73.3% of them, triggering corpus fallbacks that become confident-wrong traps.
 
@@ -101,7 +103,7 @@ Data (Proverbs) → Generation (4 variants × 3 generators) → Semantic filters
 
 ## 5. What v68 Showed
 
-v68 is the **complete and validated** production dataset: 180 MCQs (15 proverbs × 4 variants × 3 generators), generated on 2026-06-22 at a cost of $0.85. All 720 audit votes (180 × 4 auditors) are present with zero missing.
+v68 is the **completed and audited experimental dataset**: 180 MCQs (15 proverbs × 4 variants × 3 generators), generated on 2026-06-22 at a cost of $0.85. All 720 audit votes (180 × 4 auditors) are present with zero missing.
 
 ### 5.1 Aggregate results
 
@@ -179,10 +181,10 @@ The committee's 56.7% consensus accuracy is only slightly above random (25% for 
 | NLI paraphrase | 0.36 | ~36% |
 | Correct-meaning leak | 0.35 | ~35% |
 | Length parity | 0.15 | ~15% |
-| Blocklist | 0.02 | ~2% |
-| **Total** | **0.99** | 100% |
+| Untracked residual | ~0.13 | ~13% |
+| **Corpus fallback total** | **0.99** | 100% |
 
-Semantic filters (NLI + leak = 71%) dominate replacements, not structural issues.
+Semantic filters (NLI + leak = 71%) dominate replacements. The ~13% untracked residual consists of other replacement categories (e.g., duplicate options flagged by another sanitizer) not explicitly tracked in this summary. The `blocklist` column does not exist in the v68 data, so blocklist_replaced=0.0.
 
 ---
 
@@ -234,7 +236,7 @@ All Python code is licensed under the **MIT License** (see [`LICENSE`](LICENSE))
 
 ### Provenance documentation
 
-[`DATA_PROVENANCE_TEMPLATE.md`](DATA_PROVENANCE_TEMPLATE.md) (also in [`submission_package_2026-08-02/`](submission_package_2026-08-02/DATA_PROVENANCE_TEMPLATE.md)) documents all three language sources with explicit liability notes.
+[`DATA_PROVENANCE_TEMPLATE.md`](DATA_PROVENANCE_TEMPLATE.md) documents all three language sources with explicit liability notes.
 
 ### v68 production artifacts
 
@@ -288,7 +290,7 @@ The paper targets **EACL 2027 ARR**. The submission deadline was **August 3, 202
 
 - [x] v68 verification and metric reconciliation (this README)
 - [x] Paper drafting complete through Section 11
-- [ ] Tests: add HCW threshold (>=0.75) and length-fallback status verification tests
+- [ ] Tests: add formal tests for variant-specific HCW calculations and per-variant replacement breakdowns
 
 ### Next steps (requires OpenRouter budget)
 

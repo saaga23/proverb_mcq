@@ -85,10 +85,10 @@ Substitutes: `google/gemini-2.5-pro`, `openai/gpt-4.1-mini`, `openai/gpt-4.1-nan
 |---------|-----------|
 | `adversarial-hard-negative` | Forces semantically close distractors rather than obvious reversals |
 | `adversarial-length-locked` | Strict length and register parity plus ban on negation/antonym shortcuts |
-| `taxonomy-guided` | Haladyna / VERGE taxonomy with tightened surface constraints |
-| `overgenerate-select` | Generate 8+ candidates, select 3 most plausible and distinct |
+| `taxonomy-guided` | Taxonomy-inspired: construes three misconception types (partial meaning, wrong situation, missing condition), drawing on Haladyna & Downing / VERGE frameworks but using domain instruction rather than a formal error taxonomy |
+| `overgenerate-select` | Requests 2+ correct paraphrases AND 6+ incorrect candidate meanings, then internally selects the final 4 options (one correct meaning + three distractors) |
 
-All variants include: ±45% length parity, no generic English idioms, no lexical overlap with source proverb, no meta-text.
+All variants include: ±35% length parity, no generic English idioms, no lexical overlap with source proverb, no meta-text.
 
 ### 3.4 Dual-Gate Validation
 
@@ -134,7 +134,7 @@ Hard cost cap: $5.00 per run. v68 cost: $0.85. Every API call is logged with mod
 | Arabic | Academic dataset (source unknown) | 913 proverbs | 60 (5 × 12) | Full |
 | Yoruba | Owomoyela (2005) | 3,974 proverbs | 60 (5 × 12) | 96.5% missing QA_Flag |
 
-**Data provenance:** See `submission_package_2026-08-02/DATA_PROVENANCE_TEMPLATE.md` (filled 2026-07-10 with documented gaps). Yoruba data is derived from a copyrighted book; the public release excludes raw Yoruba proverbs. Arabic source dataset is unidentified (MID prefix unexplained). English scraping sources are undocumented. These are limitations addressed in Section 10.
+**Data provenance:** See `DATA_PROVENANCE_TEMPLATE.md` (filled 2026-07-10 with documented gaps). Yoruba data is derived from a copyrighted book; the public release excludes raw Yoruba proverbs. Arabic source dataset is unidentified (MID prefix unexplained). English scraping sources are undocumented. These are limitations addressed in Section 10.
 
 ### 4.2 Gold-Meaning Curation
 
@@ -194,7 +194,7 @@ Seven closed LLMs annotated a 60-item subset (20 per language). Fleiss κ = 0.48
 
 ### 5.2 Per-Language Results
 
-| Language | MCQs | Consensus Accuracy | 95% CI | Perfect Consensus | HCW |
+| Language | MCQs | Consensus Accuracy | 95% Bootstrap CI | Perfect Consensus | HCW |
 |----------|------|-------------------|--------|-------------------|-----|
 | English | 60 | 65.0% | [53.3%, 76.7%] | 45.0% | 18.3% |
 | Arabic | 60 | 53.3% | [40.0%, 65.0%] | 50.0% | 31.7% |
